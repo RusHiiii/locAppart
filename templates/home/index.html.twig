@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{ controller_name }}!{% endblock %}
+
+{% block body %}
+<!-- CAROUSEL -->
+<section>
+         <div id="carousel">
+            <div id="owl-demo" class="owl-carousel owl-theme">
+               <div class="item">
+                  <img src="{{ asset('build/images/Shared/first.jpg') }}" alt="">
+                  <div class="carousel-text">
+                     <div class="line">
+                        <div class="s-12 l-9">
+                           <h2>Site de location d'Appartement en France</h2>
+                        </div>
+                        <div class="s-12 l-9">
+                           <p>Rechercher, Contacter, Louer
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- Fisrt content -->
+         <div class="content_homePage">
+            <div class="line">
+               <div class="margin-bottom">
+                  <div class="margin">
+                     <article class="s-12 l-8 center">
+                        <h2>Location-appartement.fr</h2>
+                        <p class="subtitile_presentation">Louer facilement votre appartement sur le site.</p>
+                        <p class="margin-bottom-home">Ce site crée en 2017 permet de mettre en relation des particuliers souhaitant louer un appartement et le propriétaire. Sur le site est actuellement référencé 206 appartements en région Rhône-Alpes de tout type. De nombreuses informations sont présentes: descriptif du produit, prix, disponibilité, photos. Il est possible de contacter le propriétaire en passant par un formulaire de contact directement présent sur la fiche du bien et ceux sans s'inscrire.</p>
+                        <p class="margin-bottom-home">Chaque appartement est validé par un administrateur avant la mise en ligne sur le site. L'aspect ergonomique du site permet de gérer et de rechercher facilement un bien. Commencer la recherche en cliquant sur le bouton.
+                        </p>
+                        <button type="submit" class="btn btn-primary btn_result" style="width: 30%" id="uu">Voir les annonces</button>
+                     </article>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- FIRST BLOCK -->
+         <div id="first-block">
+            <div class="line">
+               <div class="margin">
+                  <div class="s-12 m-6 l-3 margin-bottom">
+                     <i class="fa fa-paper-plane-o fa-2x fa-flip-horizontal"></i>
+                     <h3>A propos</h3>
+                     <p>Créée en 2017, ce site permet de mettre facilement en relation des propriétaires d'appartement et de futur locataire.
+                     </p>
+                  </div>
+                  <div class="s-12 m-6 l-3 margin-bottom">
+                     <i class="fa fa-search fa-2x"></i>
+                     <h3>Rechercher</h3>
+                     <p>Rechercher un appartement qui vont convient grâce un un formulaire de recherche intégrer au site !
+                     </p>
+                  </div>
+                  <div class="s-12 m-6 l-3 margin-bottom">
+                     <i class="fa fa-envelope-o fa-2x"></i>
+                     <h3>Contacter</h3>
+                     <p>Contacter facilement le propriétaire de l'appartement grâce à la plateforme pour réserver ou pour avoir des informations.
+                     </p>
+                  </div>
+                  <div class="s-12 m-6 l-3 margin-bottom">
+                     <i class="fa fa-home fa-2x"></i>
+                     <h3>Louer</h3>
+                     <p>Profiter de votre séjour !
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- GALLERY -->
+         <div id="third-block">
+         <div class="line custom_div">
+            <h2>Dernier appartement consultés</h2>
+            <p class="subtitile">Les 5 derniers appartements que vous avez consulté sur le site
+            </p>
+            <div class="margin">
+               <div class="s-10 m-6 l-3 last-appart">
+                  <img src="https://static.pap.fr/photos/C35/C35A1337.jpg" alt="alternative text">
+                  <p class="search_title">Clermont-Ferrand - 63000</p>
+                  <p class="search_content">60 m² - A partir de 200€/mois</p>
+               </div>
+               <div class="s-10 m-6 l-3 last-appart">
+                  <img src="https://static.pap.fr/photos/C35/C35G1337.jpg" alt="alternative text">
+                  <p class="search_title">Clermont-Ferrand - 63000</p>
+                  <p class="search_content">60 m² - A partir de 200€/mois</p>
+               </div>
+               <div class="s-10 m-6 l-3 last-appart">
+                  <img src="https://static.pap.fr/photos/B87/B87A1252.jpg" alt="alternative text">
+                  <p class="search_title">Clermont-Ferrand - 63000</p>
+                  <p class="search_content">60 m² - A partir de 200€/mois</p>
+               </div>
+               <div class="s-10 m-6 l-3 last-appart">
+                  <img src="https://static.pap.fr/photos/C14/C14A1062.jpg" alt="alternative text">
+                  <p class="search_title">Clermont-Ferrand - 63000</p>
+                  <p class="search_content">60 m² - A partir de 200€/mois</p>
+               </div>
+            </div>
+         </div>
+         </div>
+      </section>
+{% endblock %}
+{% block javascripts %}
+
+{% endblock %}

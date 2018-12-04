@@ -221,7 +221,8 @@ class User
      * Override toString
      * @return string email
      */
-    public function __toString() {
-      return $this->email;
+    public function __toString()
+    {
+        return $this->email;
     }
 }

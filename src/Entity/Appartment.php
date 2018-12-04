@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -54,16 +56,6 @@ class Appartment
      * @ORM\Column(type="text")
      */
     private $description;
-
-    /**
-     * @ORM\Column(type="smallint", nullable=true)
-     */
-    private $garage;
-
-    /**
-     * @ORM\Column(type="smallint", nullable=true)
-     */
-    private $locker;
 
     /**
      * @ORM\Column(type="string", length=20)
@@ -134,6 +126,38 @@ class Appartment
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
     private $user;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Ressource", mappedBy="appartment", orphanRemoval=true)
+     */
+    private $ressources;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Message", mappedBy="appartment", orphanRemoval=true)
+     */
+    private $messages;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Price", mappedBy="appartment", orphanRemoval=true)
+     */
+    private $prices;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $garage;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $locker;
+
+    public function __construct()
+    {
+        $this->ressources = new ArrayCollection();
+        $this->messages = new ArrayCollection();
+        $this->prices = new ArrayCollection();
+    }
 
     /**
      * Permet de récupérer l'id
@@ -224,48 +248,6 @@ class Appartment
     public function setDescription(string $description): self
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Permet de récupérer le garage
-     * @return int garage
-     */
-    public function getGarage(): ?int
-    {
-        return $this->garage;
-    }
-
-    /**
-     * Permet de setter le garage
-     * @param  int garage
-     * @return self
-     */
-    public function setGarage(?int $garage): self
-    {
-        $this->garage = $garage;
-
-        return $this;
-    }
-
-    /**
-     * Permet de récupérer le casier
-     * @return int locker
-     */
-    public function getLocker(): ?int
-    {
-        return $this->locker;
-    }
-
-    /**
-     * Permet de setter le casier
-     * @param  int locker
-     * @return self
-     */
-    public function setLocker(?int $locker): self
-    {
-        $this->locker = $locker;
 
         return $this;
     }
@@ -544,10 +526,176 @@ class Appartment
     }
 
     /**
+     * @return Collection|Ressource[]
+     */
+    public function getRessources(): Collection
+    {
+        return $this->ressources;
+    }
+
+    /**
+     * Permet d'ajouter une ressource
+     * @param  Ressource ressource
+     * @return self
+     */
+    public function addRessource(Ressource $ressource): self
+    {
+        if (!$this->ressources->contains($ressource)) {
+            $this->ressources[] = $ressource;
+            $ressource->setAppartment($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Permet la suppression d'une ressource
+     * @param  Ressource ressource
+     * @return self
+     */
+    public function removeRessource(Ressource $ressource): self
+    {
+        if ($this->ressources->contains($ressource)) {
+            $this->ressources->removeElement($ressource);
+            // set the owning side to null (unless already changed)
+            if ($ressource->getAppartment() === $this) {
+                $ressource->setAppartment(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Message[]
+     */
+    public function getMessages(): Collection
+    {
+        return $this->messages;
+    }
+
+    /**
+     * Permet d'ajouter un message
+     * @param  Message message
+     * @return self
+     */
+    public function addMessage(Message $message): self
+    {
+        if (!$this->messages->contains($message)) {
+            $this->messages[] = $message;
+            $message->setAppartment($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Permet de supprimer un message
+     * @param  Message message
+     * @return self
+     */
+    public function removeMessage(Message $message): self
+    {
+        if ($this->messages->contains($message)) {
+            $this->messages->removeElement($message);
+            // set the owning side to null (unless already changed)
+            if ($message->getAppartment() === $this) {
+                $message->setAppartment(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Price[]
+     */
+    public function getPrices(): Collection
+    {
+        return $this->prices;
+    }
+
+    /**
+     * Permet d'ajouter un prix
+     * @param  Price price
+     * @return self
+     */
+    public function addPrice(Price $price): self
+    {
+        if (!$this->prices->contains($price)) {
+            $this->prices[] = $price;
+            $price->setAppartment($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Permet de supprimer un prix
+     * @param  Price price
+     * @return self
+     */
+    public function removePrice(Price $price): self
+    {
+        if ($this->prices->contains($price)) {
+            $this->prices->removeElement($price);
+            // set the owning side to null (unless already changed)
+            if ($price->getAppartment() === $this) {
+                $price->setAppartment(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * Permet de récupérer le garage
+     * @return bool garage
+     */
+    public function getGarage(): ?bool
+    {
+        return $this->garage;
+    }
+
+    /**
+     * Permet de setter le garage
+     * @param  bool garage
+     * @return self
+     */
+    public function setGarage(?bool $garage): self
+    {
+        $this->garage = $garage;
+
+        return $this;
+    }
+
+    /**
+     * Permet de récupérer le casier
+     * @return bool locker
+     */
+    public function getLocker(): ?bool
+    {
+        return $this->locker;
+    }
+
+    /**
+     * Permet de setter le casier
+     * @param  bool locker
+     * @return self
+     */
+    public function setLocker(?bool $locker): self
+    {
+        $this->locker = $locker;
+
+        return $this;
+    }
+
+    /**
      * Override toString
      * @return string reference
      */
-    public function __toString() {
-      return $this->reference;
+    public function __toString()
+    {
+        return $this->reference;
     }
 }

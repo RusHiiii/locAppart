@@ -9,14 +9,16 @@ use Faker;
 
 class TypeFixtures extends Fixture
 {
+    private $faker;
+
     public function load(ObjectManager $manager)
     {
         // On configure dans quelles langues nous voulons nos données
-        $faker = Faker\Factory::create('fr_FR');
+        $this->faker = Faker\Factory::create('fr_FR');
 
         for ($i = 0; $i < 3; $i++) {
             $type = new Type();
-            $type->setName($faker->word);
+            $type->setName($this->faker->word);
             $manager->persist($type);
         }
 

@@ -18,11 +18,13 @@ class Price
     private $id;
 
     /**
+     * @Assert\LessThan(propertyPath="dateMax")
      * @ORM\Column(type="date")
      */
     private $dateBegin;
 
     /**
+     * @Assert\GreaterThan(propertyPath="dateMin")
      * @ORM\Column(type="date")
      */
     private $dateEnd;
@@ -41,8 +43,8 @@ class Price
     private $availability;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Appartment")
-     * @ORM\JoinColumn(name="appartment_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Appartment", inversedBy="prices")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $appartment;
 
@@ -140,7 +142,7 @@ class Price
     }
 
     /**
-     * Permet de récupérer l'appartment
+     * Permet de récupérer un appartment
      * @return Appartment appartment
      */
     public function getAppartment(): ?Appartment
@@ -149,7 +151,7 @@ class Price
     }
 
     /**
-     * Permet de setter l'appartment
+     * Permet de setter un appartment
      * @param  Appartment appartment
      * @return self
      */
@@ -164,7 +166,8 @@ class Price
      * Override toString
      * @return string id
      */
-    public function __toString() {
-      return $this->id;
+    public function __toString()
+    {
+        return $this->id;
     }
 }

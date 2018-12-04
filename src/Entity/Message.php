@@ -51,8 +51,8 @@ class Message
     private $date;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Appartment")
-     * @ORM\JoinColumn(name="appartment_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Appartment", inversedBy="messages")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $appartment;
 
@@ -171,7 +171,7 @@ class Message
     }
 
     /**
-     * Permet de récupérer l'appartment
+     * Permet de récupérer un appartment
      * @return Appartment appartment
      */
     public function getAppartment(): ?Appartment
@@ -180,7 +180,7 @@ class Message
     }
 
     /**
-     * Permet de setter l'appartment
+     * Permet de setter un appartment
      * @param  Appartment appartment
      * @return self
      */
@@ -195,7 +195,8 @@ class Message
      * Override toString
      * @return string subject
      */
-    public function __toString() {
-      return $this->subject;
+    public function __toString()
+    {
+        return $this->subject;
     }
 }

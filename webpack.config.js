@@ -9,8 +9,10 @@ Encore
     /*
      * ENTRY CONFIG
     */
-    .addEntry('app', './assets/js/app.js')
-    .addEntry('generic', './assets/js/generic.js')
+    .addEntry('app', './assets/js/entryPoint/app.js')
+    .addEntry('generic', './assets/js/entryPoint/generic.js')
+    .addEntry('accueil', './assets/js/entryPoint/accueil.js')
+    .addEntry('login', './assets/js/entryPoint/login.js')
 
     .cleanupOutputBeforeBuild()
     .enableBuildNotifications()

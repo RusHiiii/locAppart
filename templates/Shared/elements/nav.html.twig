@@ -1,0 +1,46 @@
+<nav>
+   <div class="line main-menu">
+      <div class="top-nav">
+         <div class="logo hide-l">
+            <a href="{{ path('home') }}">Location <br /><strong>d'Appartement</strong></a>
+         </div>
+         <p class="nav-text">Navigation</p>
+         <div class="top-nav s-12 l-5">
+            <ul class="right top-ul chevron">
+               <li><a href="{{ path('home') }}">Accueil</a></li>
+               <li><a href="#">Rechercher</a></li>
+               <li><a href="#">A propos</a></li>
+            </ul>
+         </div>
+         <ul class="s-12 l-2">
+            <li class="logo hide-s hide-m">
+               <a class="logo_site_menu" href="{{ path('home') }}">Location <br /><strong>d'Appartement</strong></a>
+            </li>
+         </ul>
+         <div class="top-nav s-12 l-5">
+            <ul class="top-ul chevron">
+               <li><a href="#">Contact</a>
+               </li>
+               <li>
+                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                     <a href="#">Mon compte</a>
+                     <ul>
+                        <li><a href="#">Profil</a></li>
+                        <li><a href="#">Tableau de bord</a></li>
+                    </ul>
+                 {% else %}
+                     <a href="#">Inscription</a>
+                 {% endif %}
+               </li>
+               <li>
+                  {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                      <a href="{{ path('app_logout') }}">Déconnexion</a>
+                  {% else %}
+                      <a href="{{ path('app_login') }}">Connexion</a>
+                  {% endif %}
+               </li>
+            </ul>
+         </div>
+      </div>
+   </div>
+</nav>

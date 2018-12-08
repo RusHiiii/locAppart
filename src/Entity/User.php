@@ -3,12 +3,13 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -22,47 +23,46 @@ class User
      *     message = "L'email '{{ value }}' n'est pas valide.",
      *     checkMX = true
      * )
-     * @ORM\Column(type="string", length=255)
+
+     * @ORM\Column(type="string", length=180, unique=true)
      */
     private $email;
 
     /**
-     * @Assert\NotBlank()
-     * @ORM\Column(type="string", length=100, nullable=true)
+     * @ORM\Column(type="json")
      */
-    private $firstname;
+    private $roles = [];
 
     /**
-     * @Assert\NotBlank()
-     * @ORM\Column(type="string", length=100, nullable=true)
-     */
-    private $lastname;
-
-    /**
-     * @Assert\NotBlank()
-     * @ORM\Column(type="string", length=255)
+     * @var string The hashed password
+     * @ORM\Column(type="string")
      */
     private $password;
 
     /**
      * @Assert\NotBlank()
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="string", length=100)
+     */
+    private $firstname;
+
+    /**
+     * @Assert\NotBlank()
+     * @ORM\Column(type="string", length=100)
+     */
+    private $lastname;
+
+    /**
+     * @ORM\Column(type="date")
      */
     private $date;
 
     /**
-     * @Assert\NotBlank()
-     * @ORM\Column(type="string", length=50, nullable=true)
+     * @ORM\Column(type="string", length=30, nullable=true)
      */
     private $gender;
 
     /**
-     * @ORM\Column(type="json")
-     */
-    private $role = [];
-
-    /**
-     * Permet de récupérer l'id
+     * Permet de récupérér l'id
      * @return int id
      */
     public function getId(): ?int
@@ -71,7 +71,7 @@ class User
     }
 
     /**
-     * Permet de récupérer l'email
+     * Permet de récupérer l'eamil
      * @return string email
      */
     public function getEmail(): ?string
@@ -80,8 +80,8 @@ class User
     }
 
     /**
-     * Permet de setter l'email
-     * @param  string $email
+     * Permet de setter l'eamil
+     * @param  string email
      * @return self
      */
     public function setEmail(string $email): self
@@ -92,58 +92,49 @@ class User
     }
 
     /**
-     * Permet de récupérer le prenom
-     * @return string firstname
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
      */
-    public function getFirstname(): ?string
+    public function getUsername(): string
     {
-        return $this->firstname;
+        return (string) $this->email;
     }
 
     /**
-     * Permet de setter le prénom
-     * @param  string firstname
+     * @see UserInterface
+     */
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    /**
+     * Permet de setter les roles
+     * @param  array roles
      * @return self
      */
-    public function setFirstname(?string $firstname): self
+    public function setRoles(array $roles): self
     {
-        $this->firstname = $firstname;
+        $this->roles = $roles;
 
         return $this;
     }
 
     /**
-     * Permet de récupérere le lastname
-     * @return string lastname
+     * @see UserInterface
      */
-    public function getLastname(): ?string
+    public function getPassword(): string
     {
-        return $this->lastname;
+        return (string) $this->password;
     }
 
     /**
-     * Permet de setter le lastname
-     * @param  string lastname
-     * @return self
-     */
-    public function setLastname(?string $lastname): self
-    {
-        $this->lastname = $lastname;
-
-        return $this;
-    }
-
-    /**
-     * Permet de récupérer le password
-     * @return string password
-     */
-    public function getPassword(): ?string
-    {
-        return $this->password;
-    }
-
-    /**
-     * Permet de setter le password
+     * Permet de setter le pswd
      * @param  string password
      * @return self
      */
@@ -155,7 +146,66 @@ class User
     }
 
     /**
-     * Permet de récuéper la date
+     * @see UserInterface
+     */
+    public function getSalt()
+    {
+        // not needed when using the "bcrypt" algorithm in security.yaml
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials()
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
+    }
+
+    /**
+     * Recupere le firstname
+     * @return string firstname
+     */
+    public function getFirstname(): ?string
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * Permet de setter le firstname
+     * @param  string firstname
+     * @return self
+     */
+    public function setFirstname(string $firstname): self
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    /**
+     * Getter lastname
+     * @return string lastname
+     */
+    public function getLastname(): ?string
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * Setter lastname
+     * @param  string lastname
+     * @return self
+     */
+    public function setLastname(string $lastname): self
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    /**
+     * Getter date
      * @return DateTimeInterface date
      */
     public function getDate(): ?\DateTimeInterface
@@ -164,7 +214,7 @@ class User
     }
 
     /**
-     * Permet de setter la date
+     * Setter date
      * @param  DateTimeInterface date
      * @return self
      */
@@ -176,7 +226,7 @@ class User
     }
 
     /**
-     * Permet de récupérer le genre
+     * Getter gender
      * @return string gender
      */
     public function getGender(): ?string
@@ -185,7 +235,7 @@ class User
     }
 
     /**
-     * Permet de setter le genre
+     * Setter gender
      * @param  string gender
      * @return self
      */
@@ -194,35 +244,5 @@ class User
         $this->gender = $gender;
 
         return $this;
-    }
-
-    /**
-     * Permet de récupérer le role
-     * @return json role
-     */
-    public function getRole(): ?array
-    {
-        return $this->role;
-    }
-
-    /**
-     * Permet de setter le role
-     * @param  array role
-     * @return self
-     */
-    public function setRole(array $role): self
-    {
-        $this->role = $role;
-
-        return $this;
-    }
-
-    /**
-     * Override toString
-     * @return string email
-     */
-    public function __toString()
-    {
-        return $this->email;
     }
 }

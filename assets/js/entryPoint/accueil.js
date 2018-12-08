@@ -1,0 +1,1 @@
+require('../accueil.js');

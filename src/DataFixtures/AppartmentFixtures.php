@@ -13,15 +13,20 @@ use App\Entity\Price;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Faker;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AppartmentFixtures extends Fixture
 {
     private $faker;
 
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+    {
+        $this->passwordEncoder = $passwordEncoder;
+        $this->faker = Faker\Factory::create('fr_FR');
+    }
+
     public function load(ObjectManager $manager)
     {
-        // On configure dans quelles langues nous voulons nos données
-        $this->faker = Faker\Factory::create('fr_FR');
 
         for ($i = 0; $i < 5; $i++) {
             $appartment = new Appartment();
@@ -92,7 +97,10 @@ class AppartmentFixtures extends Fixture
         $user->setEmail($this->faker->email);
         $user->setFirstname($this->faker->firstName);
         $user->setLastname($this->faker->lastName);
-        $user->setPassword($this->faker->password);
+        $user->setPassword($this->passwordEncoder->encodePassword(
+            $user,
+            'userdemo'
+        ));
         $user->setDate($this->faker->dateTime);
         $user->setGender($this->faker->title);
 

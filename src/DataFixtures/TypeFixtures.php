@@ -11,10 +11,13 @@ class TypeFixtures extends Fixture
 {
     private $faker;
 
+    public function __construct()
+    {
+        $this->faker = Faker\Factory::create('fr_FR');
+    }
+
     public function load(ObjectManager $manager)
     {
-        // On configure dans quelles langues nous voulons nos données
-        $this->faker = Faker\Factory::create('fr_FR');
 
         for ($i = 0; $i < 3; $i++) {
             $type = new Type();

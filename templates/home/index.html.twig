@@ -1,9 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello {{ controller_name }}!{% endblock %}
+{% block title %}Loc'Appart - Accueil{% endblock %}
 
-{% block body %}
-<!-- CAROUSEL -->
+{% block content %}
 <section>
          <div id="carousel">
             <div id="owl-demo" class="owl-carousel owl-theme">
@@ -73,36 +72,37 @@
          </div>
          <!-- GALLERY -->
          <div id="third-block">
-         <div class="line custom_div">
-            <h2>Dernier appartement consultés</h2>
-            <p class="subtitile">Les 5 derniers appartements que vous avez consulté sur le site
-            </p>
-            <div class="margin">
-               <div class="s-10 m-6 l-3 last-appart">
-                  <img src="https://static.pap.fr/photos/C35/C35A1337.jpg" alt="alternative text">
-                  <p class="search_title">Clermont-Ferrand - 63000</p>
-                  <p class="search_content">60 m² - A partir de 200€/mois</p>
-               </div>
-               <div class="s-10 m-6 l-3 last-appart">
-                  <img src="https://static.pap.fr/photos/C35/C35G1337.jpg" alt="alternative text">
-                  <p class="search_title">Clermont-Ferrand - 63000</p>
-                  <p class="search_content">60 m² - A partir de 200€/mois</p>
-               </div>
-               <div class="s-10 m-6 l-3 last-appart">
-                  <img src="https://static.pap.fr/photos/B87/B87A1252.jpg" alt="alternative text">
-                  <p class="search_title">Clermont-Ferrand - 63000</p>
-                  <p class="search_content">60 m² - A partir de 200€/mois</p>
-               </div>
-               <div class="s-10 m-6 l-3 last-appart">
-                  <img src="https://static.pap.fr/photos/C14/C14A1062.jpg" alt="alternative text">
-                  <p class="search_title">Clermont-Ferrand - 63000</p>
-                  <p class="search_content">60 m² - A partir de 200€/mois</p>
-               </div>
-            </div>
-         </div>
+           <div class="line custom_div">
+              <h2>Dernier appartement consultés</h2>
+              <p class="subtitile">Les 5 derniers appartements que vous avez consulté sur le site
+              </p>
+              <div class="margin">
+                 <div class="s-10 m-6 l-3 last-appart">
+                    <img src="https://static.pap.fr/photos/C35/C35A1337.jpg" alt="alternative text">
+                    <p class="search_title">Clermont-Ferrand - 63000</p>
+                    <p class="search_content">60 m² - A partir de 200€/mois</p>
+                 </div>
+                 <div class="s-10 m-6 l-3 last-appart">
+                    <img src="https://static.pap.fr/photos/C35/C35G1337.jpg" alt="alternative text">
+                    <p class="search_title">Clermont-Ferrand - 63000</p>
+                    <p class="search_content">60 m² - A partir de 200€/mois</p>
+                 </div>
+                 <div class="s-10 m-6 l-3 last-appart">
+                    <img src="https://static.pap.fr/photos/B87/B87A1252.jpg" alt="alternative text">
+                    <p class="search_title">Clermont-Ferrand - 63000</p>
+                    <p class="search_content">60 m² - A partir de 200€/mois</p>
+                 </div>
+                 <div class="s-10 m-6 l-3 last-appart">
+                    <img src="https://static.pap.fr/photos/C14/C14A1062.jpg" alt="alternative text">
+                    <p class="search_title">Clermont-Ferrand - 63000</p>
+                    <p class="search_content">60 m² - A partir de 200€/mois</p>
+                 </div>
+              </div>
+           </div>
          </div>
       </section>
 {% endblock %}
-{% block javascripts %}
 
+{% block javascript %}
+  <script type="text/javascript" src="{{ asset('build/accueil.js') }}"></script>
 {% endblock %}

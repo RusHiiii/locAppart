@@ -13,6 +13,7 @@ Encore
     .addEntry('generic', './assets/js/entryPoint/generic.js')
     .addEntry('accueil', './assets/js/entryPoint/accueil.js')
     .addEntry('login', './assets/js/entryPoint/login.js')
+    .addEntry('parametre', './assets/js/entryPoint/parametre.js')
 
     .cleanupOutputBeforeBuild()
     .enableBuildNotifications()

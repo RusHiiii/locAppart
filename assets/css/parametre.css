@@ -1,0 +1,49 @@
+.title_parameter {
+    font-size: 1.6em;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.radio-gender label {
+  display: inline-block;
+  vertical-align: middle;
+  padding: .3em 1.5em;
+  font-size: .8em;
+  text-align: center!important;
+  font-weight: normal;
+  color: #000;
+  border: 1px solid #C8C8C8;
+  text-transform: none;
+  margin-right: 15px;
+}
+
+.radio-gender input[type="radio"]{
+  display: none;
+}
+
+.radio-gender input[type=radio]:checked+label{
+  background-color: #008caf;
+  color: white;
+}
+
+.title_parameter_second{
+	margin-top: 3em;
+    padding-top: 3em;
+    border-top: 1px solid #C8C8C8;
+}
+
+.title_parameter_third{
+	margin-top: 3em;
+    padding-top: 3em;
+    border-top: 1px solid #C8C8C8;
+}
+
+.btn-primary{
+  width: 30% !important;
+}
+
+.error_form{
+  font-size: 0.8em;
+  color: red;
+}

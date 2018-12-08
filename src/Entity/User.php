@@ -35,18 +35,24 @@ class User implements UserInterface
 
     /**
      * @var string The hashed password
+     * @Assert\Regex(
+     *  pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/",
+     *  message="Le mot de passe doit contenir 6 caractères ou plus avec un nombre, une majuscule, une minuscule et un caractère spécial."
+     * )
      * @ORM\Column(type="string")
      */
     private $password;
 
     /**
      * @Assert\NotBlank()
+     * @Assert\Length(min=2)
      * @ORM\Column(type="string", length=100)
      */
     private $firstname;
 
     /**
      * @Assert\NotBlank()
+     * @Assert\Length(min=2)
      * @ORM\Column(type="string", length=100)
      */
     private $lastname;
@@ -57,6 +63,7 @@ class User implements UserInterface
     private $date;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="string", length=30, nullable=true)
      */
     private $gender;

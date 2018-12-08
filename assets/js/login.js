@@ -1,9 +1,9 @@
 $("#eye").on('click', function(evt){
-  if (document.getElementById('pswdBox').type == "password" ){
-    document.getElementById('pswdBox').type = 'text';
+  if ($("#pswdBox").attr('type') == "password" ){
+    $("#pswdBox").attr('type', 'text');
     $("#eye").find('i').toggleClass('fa-eye fa-eye-slash');
   }else{
-     document.getElementById('pswdBox').type = 'password';
+     $("#pswdBox").attr('type', 'password');
      $("#eye").find('i').toggleClass('fa-eye fa-eye-slash');
    }
 });

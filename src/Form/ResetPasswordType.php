@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Validator\Constraints\Regex;
 
 class ResetPasswordType extends AbstractType
 {
@@ -19,6 +20,12 @@ class ResetPasswordType extends AbstractType
         $builder
             ->add('password', RepeatedType::class, array(
                 'type' => PasswordType::class,
+                'constraints' => array(
+                  new Regex(array(
+                    'pattern' => "/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/",
+                    'message' => 'Le mot de passe doit contenir 6 caractères ou plus avec un nombre, une majuscule, une minuscule et un caractère spécial.'
+                  )
+                )),
                 'first_options'  => array('label' => 'Mot de passe:'),
                 'second_options' => array('label' => 'Confirmer mot de passe:'),
                 ))

@@ -48,7 +48,7 @@ class SecurityController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $data = $request->request->get('forgotten_password');
+            $data = $form->getData();
 
             $data = $notificationService->generateToken($data['email']);
             if ($data['token']) {
@@ -75,7 +75,7 @@ class SecurityController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $data = $request->request->get('reset_password');
+            $data = $form->getData();
 
             $data = $userService->resetPassword($token, $data['password']);
             $this->addFlash('notice', $data['msg']);

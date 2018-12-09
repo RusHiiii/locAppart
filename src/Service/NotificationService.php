@@ -72,12 +72,12 @@ class NotificationService
     public function sendEmail($user, $subject, $message)
     {
         $message = (new \Swift_Message($subject))
-        ->setFrom('webmaster@gmail.com')
-        ->setTo($user->getEmail())
-        ->setBody(
-            $message,
-            'text/html'
-        );
+          ->setFrom('webmaster@gmail.com')
+          ->setTo($user->getEmail())
+          ->setBody(
+              $message,
+              'text/html'
+          );
 
         $this->mailer->send($message);
 

@@ -30,8 +30,13 @@
                       <label for="inputPassword" class="col-sm-4 control-label">Mot de passe:</label>
                       <div class="col-sm-8">
                         <input id="pswdBox" type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required><span id="eye" tabindex="100" class="add-on input-group-addon span_paswd" ><i class="fa fa-eye"></i></span>
-                        <div class="remember">
-                          <input type="checkbox" name="_remember_me"> Rester connecté
+                        <div class="info">
+                            <div class="forgotten">
+                              <a href="{{ path('app_forgotten_password') }}">Mot de passe oublié ?</a>
+                            </div>
+                            <div class="remember">
+                              <input type="checkbox" name="_remember_me"> Rester connecté
+                            </div>
                         </div>
                       </div>
                     </div>

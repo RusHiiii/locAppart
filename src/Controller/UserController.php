@@ -7,7 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\UserType;
 use App\Entity\User;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use App\Service\UserService;
 
 class UserController extends AbstractController
 {
@@ -24,28 +24,18 @@ class UserController extends AbstractController
     /**
      * @Route("/register", name="app_register")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder)
-    {
+    public function register(
+      Request $request,
+      UserService $userService
+    ) {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $userService->registerUser($user);
 
-          /* SERVICE ! */
-          $password = $passwordEncoder->encodePassword($user, $user->getPassword());
-          $user->setPassword($password);
-          $user->setEmail($user->getEmail());
-          $user->setFirstname($user->getFirstname());
-          $user->setLastname($user->getLastname());
-          $user->setDate(new \DateTime('now'));
-          $user->setGender($user->getGender());
-
-          $entityManager = $this->getDoctrine()->getManager();
-          $entityManager->persist($user);
-          $entityManager->flush();
-
-          return $this->redirectToRoute('app_login');
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('user/register.html.twig', array(

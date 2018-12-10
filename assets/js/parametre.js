@@ -28,3 +28,8 @@ $("[id$='password_second']").on('keyup', function(evt){
       $("[id$='password_first']").css('border-color', "#ff6666");
   }
 });
+
+$('form[name="user"]').on('submit', function(evt){
+  $('#user_save').empty();
+  $('#user_save').addClass('loading spinner');
+});

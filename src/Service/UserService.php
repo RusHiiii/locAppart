@@ -37,7 +37,6 @@ class UserService
         $user->setLastname($user->getLastname());
         $user->setDate(new \DateTime('now'));
         $user->setGender($user->getGender());
-        $user->setRoles(['ROLE_USER']);
 
         $this->entityManager->persist($user);
         $this->entityManager->flush();

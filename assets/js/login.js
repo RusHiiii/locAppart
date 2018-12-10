@@ -7,3 +7,8 @@ $("#eye").on('click', function(evt){
      $("#eye").find('i').toggleClass('fa-eye fa-eye-slash');
    }
 });
+
+$('#login_form').on('submit', function(evt){
+  $('.validate').empty();
+  $('.validate').addClass('loading spinner');
+});

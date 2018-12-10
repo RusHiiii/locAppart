@@ -41,9 +41,14 @@
 
 .btn-primary{
   width: 30% !important;
+  min-height: 30px;
 }
 
 .error_form{
   font-size: 0.8em;
   color: red;
+}
+
+button:hover.spinner:before{
+  border-top: 2px solid white;
 }

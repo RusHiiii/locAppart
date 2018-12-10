@@ -16,7 +16,7 @@
                <article class="s-12 l-8 center">
                   <h2>Identifiez-vous</h2>
                   <p class="subtitile_presentation">Connecter vous pour avoir accès aux fonctionnalitées du site</p>
-                  <form class="form-horizontal" method="POST">
+                  <form class="form-horizontal" method="POST" id="login_form">
                     {% if error %}
                         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'messages') }}</div>
                     {% endif %}
@@ -41,7 +41,7 @@
                       </div>
                     </div>
                      <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                     <button type="submit" class="btn btn-primary">Valider</button>
+                     <button type="submit" class="btn btn-primary validate">Valider</button>
                   </form>
                   </article>
                   <article class="s-12 l-8 center">

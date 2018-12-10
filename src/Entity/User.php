@@ -74,6 +74,11 @@ class User implements UserInterface
      */
     private $resetToken;
 
+    public function __construct()
+    {
+        $this->roles = ['ROLE_USER'];
+    }
+
     /**
      * Permet de récupérér l'id
      * @return int id

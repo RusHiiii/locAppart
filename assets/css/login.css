@@ -1,5 +1,6 @@
 .btn-primary{
   width: 30% !important;
+  min-height: 30px;
 }
 
 .info{
@@ -14,4 +15,8 @@
 
 .remember{
   float: left;
+}
+
+button:hover.spinner:before{
+  border-top: 2px solid white;
 }

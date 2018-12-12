@@ -39,10 +39,6 @@ class UserService
      */
     public function registerUser(User $user)
     {
-        if($this->userRepository->findByKeyValue('email', $user->getEmail())){
-            return array('register' => false, 'msg' => 'L\'email est déjà utilisé !');
-        }
-
         $password = $this->passwordEncoder->encodePassword($user, $user->getPassword());
         $user->setPassword($password);
         $user->setEmail($user->getEmail());

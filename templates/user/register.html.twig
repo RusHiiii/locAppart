@@ -16,7 +16,11 @@
                    <article class="s-12 l-8 center">
                       <h2>Inscription au site</h2>
                       <p class="subtitile_presentation">Inscrivez vous pour avoir accès aux fonctionnalitées du site</p>
-
+                       {% for message in app.flashes('notice') %}
+                           <div class="alert alert-info" role="alert">
+                               {{ message }}
+                           </div>
+                       {% endfor %}
                       {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
                           {{ form_errors(form) }}
 

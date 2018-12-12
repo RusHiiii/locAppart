@@ -14,6 +14,7 @@ Encore
     .addEntry('accueil', './assets/js/entryPoint/accueil.js')
     .addEntry('login', './assets/js/entryPoint/login.js')
     .addEntry('parametre', './assets/js/entryPoint/parametre.js')
+    .addEntry('email', './assets/js/entryPoint/email.js')
 
     .cleanupOutputBeforeBuild()
     .enableBuildNotifications()
@@ -24,7 +25,7 @@ Encore
     .copyFiles({
         from: './assets/images',
         to: 'images/[path][name].[ext]',
-        pattern: /\.(png|jpg|jpeg)$/
+        pattern: /\.(png|jpg|jpeg|ico)$/
     })
 
     .copyFiles({

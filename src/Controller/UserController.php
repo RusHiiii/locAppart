@@ -33,9 +33,12 @@ class UserController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $userService->registerUser($user);
+            $data = $userService->registerUser($user);
+            $this->addFlash('notice', $data['msg']);
 
-            return $this->redirectToRoute('app_login');
+            if($data['register']){
+                return $this->redirectToRoute('app_login');
+            }
         }
 
         return $this->render('user/register.html.twig', array(

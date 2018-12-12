@@ -16,12 +16,18 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use App\Service\NotificationService;
 use App\Service\UserService;
 
+/**
+ * Class SecurityController
+ * @package App\Controller
+ */
 class SecurityController extends AbstractController
 {
     /**
      * @Route("/login", name="app_login")
      */
-    public function login(AuthenticationUtils $authenticationUtils): Response
+    public function login(
+        AuthenticationUtils $authenticationUtils
+    )
     {
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
@@ -42,18 +48,14 @@ class SecurityController extends AbstractController
      */
     public function forgottenPassword(
         Request $request,
-        NotificationService $notificationService
+        UserService $userService
     ) {
         $form = $this->createForm(ForgottenPasswordType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
-
-            $data = $notificationService->generateToken($data['email']);
-            if ($data['token']) {
-                $data = $notificationService->sendEmail($data['user'], 'Mot de passe oublié', "Cliquer ici pour changer votre mot de passe : <a href=".$data['msg'].">liens</a>");
-            }
+            $formData = $form->getData();
+            $data = $userService->forgotPassword($formData['email']);
 
             $this->addFlash('notice', $data['msg']);
         }

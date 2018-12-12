@@ -18,6 +18,7 @@ class NotificationService
     private $mailer;
     private $tokenGenerator;
     private $router;
+    private $templating;
 
     public function __construct(
     UserRepository $userRepo,
@@ -25,7 +26,8 @@ class NotificationService
     EntityManagerInterface $entityManager,
     \Swift_Mailer $mailer,
     TokenGeneratorInterface $tokenGenerator,
-    RouterInterface $router
+    RouterInterface $router,
+    \Twig_Environment $templating
   ) {
         $this->userRepository = $userRepo;
         $this->passwordEncoder = $passwordEncoder;
@@ -33,11 +35,12 @@ class NotificationService
         $this->mailer = $mailer;
         $this->tokenGenerator = $tokenGenerator;
         $this->router = $router;
+        $this->templating = $templating;
     }
 
     /**
-     * Permet de générer un token
-     * @param  string email
+     * Permet de générer un un token pour un email
+     * @param $email
      * @return array
      */
     public function generateToken($email)
@@ -63,10 +66,10 @@ class NotificationService
     }
 
     /**
-     * Permet d'envoyer un mail
-     * @param  User user
-     * @param  string subject
-     * @param  string message
+     * Permet de envoyer un email
+     * @param $user
+     * @param $subject
+     * @param $message
      * @return array
      */
     public function sendEmail($user, $subject, $message)

@@ -23,6 +23,7 @@ use App\Service\UserService;
 class SecurityController extends AbstractController
 {
     /**
+     * Authentification
      * @Route("/login", name="app_login")
      */
     public function login(
@@ -36,6 +37,7 @@ class SecurityController extends AbstractController
     }
 
     /**
+     * Déconnexion
      * @Route("/logout", name="app_logout")
      */
     public function logout()
@@ -44,6 +46,7 @@ class SecurityController extends AbstractController
     }
 
     /**
+     * Mot de passe oublié
      * @Route("/forgottenPassword", name="app_forgotten_password")
      */
     public function forgottenPassword(
@@ -66,6 +69,7 @@ class SecurityController extends AbstractController
     }
 
     /**
+     * Reset du mot de passe
      * @Route("/reset_password/{token}", name="app_reset_password")
      */
     public function resetPassword(

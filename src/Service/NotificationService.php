@@ -12,6 +12,9 @@ use Symfony\Component\Routing\RouterInterface;
 
 class NotificationService
 {
+    const MSG_EMAIL_NOT_FOUND = 'Email inconnu';
+    const MSG_EMAIL_SEND      = 'Email envoyé !';
+
     private $userRepository;
     private $passwordEncoder;
     private $entityManager;
@@ -48,7 +51,7 @@ class NotificationService
         $user = $this->userRepository->findByKeyValue('email', $email);
 
         if ($user === null) {
-            return array('token' => false, 'msg' => 'Email Inconnu');
+            return array('token' => false, 'msg' => self::MSG_EMAIL_NOT_FOUND);
         }
 
         $token = $this->tokenGenerator->generateToken();
@@ -84,6 +87,6 @@ class NotificationService
 
         $this->mailer->send($message);
 
-        return array('send' => true, 'msg' =>'Mail envoyé');
+        return array('send' => true, 'msg' => self::MSG_EMAIL_SEND);
     }
 }

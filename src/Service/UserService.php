@@ -9,6 +9,14 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class UserService
 {
+    const MSG_REGISTER_EMAIL  = 'Bienvenue sur locAppart.fr !';
+    const MSG_REGISTER_VALID  = 'Inscription validée !';
+    const MSG_INVALID_TOKEN   = 'Token Inconnu';
+    const MSG_PASSWORD_UPDATE = 'Mot de passe mis à jour';
+    const MSG_FORGOTTEN_PSWD  = 'Mot de passe oublié';
+    const MSG_EMAIL_SEND      = 'Email envoyé !';
+    const MSG_EMAIL_ERROR     = 'Problème lors de l\'envoie du mail';
+
     private $userRepository;
     private $passwordEncoder;
     private $entityManager;
@@ -48,12 +56,12 @@ class UserService
         $user->setGender($user->getGender());
 
         $data = $this->templating->render('Shared/email/register.html.twig', ['user' => $user]);
-        $this->notification->sendEmail($user, 'Bienvenue sur locAppart.fr !', $data);
+        $this->notification->sendEmail($user, self::MSG_REGISTER_EMAIL, $data);
 
         $this->entityManager->persist($user);
         $this->entityManager->flush();
 
-        return array('register' => true, 'msg' => 'Inscription validée !');
+        return array('register' => true, 'msg' => self::MSG_REGISTER_VALID);
     }
 
     /**
@@ -67,7 +75,7 @@ class UserService
         $user = $this->userRepository->findByKeyValue('resetToken', $token);
 
         if ($user === null) {
-            return array('error' => true, 'msg' => 'Token Inconnu');
+            return array('error' => true, 'msg' => self::MSG_INVALID_TOKEN);
         }
 
         $user->setResetToken(null);
@@ -76,7 +84,7 @@ class UserService
         $this->entityManager->persist($user);
         $this->entityManager->flush();
 
-        return array('error' => false, 'msg' => 'Mot de passe mis à jour');
+        return array('error' => false, 'msg' => self::MSG_PASSWORD_UPDATE);
     }
 
     /**
@@ -93,11 +101,11 @@ class UserService
 
         if ($data['token']) {
             $dataTemplate = $this->templating->render('Shared/email/reset_password.html.twig', ['data' => $data['msg']]);
-            $this->notification->sendEmail($data['user'], 'Mot de passe oublié', $dataTemplate);
+            $this->notification->sendEmail($data['user'], self::MSG_FORGOTTEN_PSWD, $dataTemplate);
 
-            return array('msg' => 'Email envoyé !');
+            return array('msg' => self::MSG_EMAIL_SEND);
         }
 
-        return array('msg' => 'Problème lors de l\'envoie du mail');
+        return array('msg' => self::MSG_EMAIL_ERROR);
     }
 }

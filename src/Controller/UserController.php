@@ -12,6 +12,7 @@ use App\Service\UserService;
 class UserController extends AbstractController
 {
     /**
+     * HomePage du user
      * @Route("/profile", name="app_profil")
      */
     public function index()
@@ -22,6 +23,7 @@ class UserController extends AbstractController
     }
 
     /**
+     * Enregistrement du user
      * @Route("/register", name="app_register")
      */
     public function register(

@@ -76,6 +76,11 @@ class User implements UserInterface
      */
     private $resetToken;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $notification = true;
+
     public function __construct()
     {
         $this->roles = ['ROLE_USER'];
@@ -280,5 +285,24 @@ class User implements UserInterface
     public function setResetToken(?string $resetToken): void
     {
         $this->resetToken = $resetToken;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function getNotification(): ?bool
+    {
+        return $this->notification;
+    }
+
+    /**
+     * @param bool|null $notification
+     * @return User
+     */
+    public function setNotification(?bool $notification): self
+    {
+        $this->notification = $notification;
+
+        return $this;
     }
 }

@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Form\ForgottenPasswordType;
+use App\Form\ResetPasswordType;
+use App\Form\UpdatePasswordType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,6 +26,7 @@ class UserController extends AbstractController
     {
         $user = $this->getUser();
         $formUpdate = $this->createForm(UserEditType::class, $user);
+        $formPswd = $this->createForm(UpdatePasswordType::class, $user);
 
         $formUpdate->handleRequest($request);
         if ($formUpdate->isSubmitted() && $formUpdate->isValid()) {
@@ -30,8 +34,15 @@ class UserController extends AbstractController
             $this->addFlash('notice', $data['msg']);
         }
 
+        $formPswd->handleRequest($request);
+        if ($formPswd->isSubmitted() && $formPswd->isValid()) {
+            $data = $userService->updatePassword($user, $user->getPassword());
+            $this->addFlash('notice', $data['msg']);
+        }
+
         return $this->render('user/index.html.twig', [
             'formUpdate' => $formUpdate->createView(),
+            'formPswd' => $formPswd->createView()
         ]);
     }
 

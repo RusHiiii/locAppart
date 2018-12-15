@@ -114,6 +114,21 @@ class UserService
     }
 
     /**
+     * MàJ du mot de passe
+     * @param $user
+     * @param $password
+     * @return array
+     */
+    public function updatePassword(User $user, string $password){
+        $user->setPassword($this->passwordEncoder->encodePassword($user, $password));
+
+        $this->entityManager->persist($user);
+        $this->entityManager->flush();
+
+        return array('error' => false, 'msg' => self::MSG_PASSWORD_UPDATE);
+    }
+
+    /**
      * Procedure de changement de mot de passe
      * @param $email
      * @return array

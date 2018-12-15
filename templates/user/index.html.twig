@@ -85,10 +85,76 @@
                                     </div>
                                 </div>
 
+                                <div class="title_parameter_third">
+                                    <h2 class="title_parameter">Notification d'email</h2>
+
+
+                                    <div class="form-group form-custom">
+                                        <div class="checkbox">
+                                            <label class="custom_label">
+                                                {{ form_widget(formUpdate.notification, {'attr': {'class': ''}}) }}
+                                                {% if form_errors(formUpdate.notification) %}
+                                                    <div class="row">
+                                                        <div class="error_form">
+                                                            <span>{{ form_errors(formUpdate.notification) }}</span>
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                                Activer les notifications d'email pour être prévenu lorsque vous avez un message
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 {{ form_widget(formUpdate.save, {'attr': {'class': 'btn btn-primary'}}) }}
 
                                 {{ form_rest(formUpdate) }}
                                 {{ form_end(formUpdate) }}
+                            </div>
+                            <div class="s-12 l-12 title_parameter_second">
+                                <h2 class="title_parameter">Sécurité</h2>
+                                {{ form_start(formPswd, {'attr': {'class': 'form-horizontal'}}) }}
+                                {{ form_errors(formPswd) }}
+
+                                <div class="form-group form-custom">
+                                    {{ form_label(formPswd.password.first, null, {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                                    <div class="col-sm-8">
+                                        {{ form_widget(formPswd.password.first, {'attr': {'class': 'form-control', 'placeholder': 'Mot de passe'}}) }}
+                                        <span id="eye" tabindex="100" class="add-on input-group-addon span_paswd" ><i class="fa fa-eye"></i></span>
+                                        {% if form_errors(formPswd.password.first) %}
+                                            <div class="row">
+                                                <div class="error_form">
+                                                    <span>{{ form_errors(formPswd.password.first) }}</span>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                        <ul class="verification_mdp_inscription">
+                                            <li>Pour votre sécurité, utilisez un mot de passe contenant :</li>
+                                            <li>• Minimun 6 caractères</li>
+                                            <li>•  Et des caractères spéciaux parmi =/+|.-_~^@!#$%?*€,;:)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-custom">
+                                    {{ form_label(formPswd.password.second, null, {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                                    <div class="col-sm-8">
+                                        {{ form_widget(formPswd.password.second, {'attr': {'class': 'form-control', 'placeholder': 'Mot de passe'}}) }}
+                                        <span id="eyeBox2" tabindex="100" class="add-on input-group-addon span_paswd" ><i class="fa fa-eye"></i></span>
+                                        {% if form_errors(formPswd.password.second) %}
+                                            <div class="row">
+                                                <div class="error_form">
+                                                    <span>{{ form_errors(formPswd.password.second) }}</span>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+
+                                {{ form_widget(formPswd.save, {'attr': {'class': 'btn btn-primary'}}) }}
+
+                                {{ form_rest(formPswd) }}
+                                {{ form_end(formPswd) }}
                             </div>
                         </article>
                     </div>
@@ -101,3 +167,4 @@
 {% block javascript %}
 <script type="text/javascript" src="{{ asset('build/parametre.js') }}"></script>
 {% endblock %}
+

@@ -11,6 +11,7 @@ class UserService
 {
     const MSG_REGISTER_EMAIL  = 'Bienvenue sur locAppart.fr !';
     const MSG_REGISTER_VALID  = 'Inscription validée !';
+    const MSG_UPDATE_VALID    = 'Votre compte a été mis à jours !';
     const MSG_INVALID_TOKEN   = 'Token Inconnu';
     const MSG_PASSWORD_UPDATE = 'Mot de passe mis à jour';
     const MSG_FORGOTTEN_PSWD  = 'Mot de passe oublié';
@@ -49,11 +50,7 @@ class UserService
     {
         $password = $this->passwordEncoder->encodePassword($user, $user->getPassword());
         $user->setPassword($password);
-        $user->setEmail($user->getEmail());
-        $user->setFirstname($user->getFirstname());
-        $user->setLastname($user->getLastname());
         $user->setDate(new \DateTime('now'));
-        $user->setGender($user->getGender());
 
         $data = $this->templating->render('Shared/email/register.html.twig', ['user' => $user]);
         $this->notification->sendEmail($user, self::MSG_REGISTER_EMAIL, $data);
@@ -62,6 +59,35 @@ class UserService
         $this->entityManager->flush();
 
         return array('register' => true, 'msg' => self::MSG_REGISTER_VALID);
+    }
+
+    /**
+     * Point d'entré de la gestion du user
+     * @param User $user
+     * @param bool $add
+     * @return array
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
+    public function pushUser(User $user, bool $add){
+        if($add){
+            return $this->registerUser($user);
+        }
+        return $this->updateUser($user);
+    }
+
+    /**
+     * Mise à jour du user
+     * @param User $user
+     * @return array
+     */
+    public function updateUser(User $user)
+    {
+        $this->entityManager->persist($user);
+        $this->entityManager->flush();
+
+        return array('update' => true, 'msg' => self::MSG_UPDATE_VALID);
     }
 
     /**

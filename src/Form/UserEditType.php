@@ -10,9 +10,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class UserType extends AbstractType
+class UserEditType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -36,21 +35,9 @@ class UserType extends AbstractType
                   'label' => 'Genre:',
                   'data' => 'man'
                 ))
-            ->add('password', RepeatedType::class, array(
-                'type' => PasswordType::class,
-                'first_options'  => array('label' => 'Mot de passe:'),
-                'second_options' => array('label' => 'Confirmer mot de passe:'),
-                ))
             ->add('save', SubmitType::class, array(
                   'label' => 'Valider'
                 ))
         ;
-    }
-
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults(array(
-            'validation_groups' => array('Default', 'Registration')
-        ));
     }
 }

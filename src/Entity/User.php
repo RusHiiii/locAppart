@@ -38,7 +38,8 @@ class User implements UserInterface
      * @var string The hashed password
      * @Assert\Regex(
      *  pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/",
-     *  message="Le mot de passe doit contenir 6 caractères ou plus avec un nombre, une majuscule, une minuscule et un caractère spécial."
+     *  message="Le mot de passe doit contenir 6 caractères ou plus avec un nombre, une majuscule, une minuscule et un caractère spécial.",
+     *  groups={"Registration"}
      * )
      * @ORM\Column(type="string")
      */

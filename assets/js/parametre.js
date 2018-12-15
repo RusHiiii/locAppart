@@ -33,3 +33,8 @@ $('form[name="user"]').on('submit', function(evt){
   $('#user_save').empty();
   $('#user_save').addClass('loading spinner');
 });
+
+$('form[name="user_edit"]').on('submit', function(evt){
+    $('#user_edit_save').empty();
+    $('#user_edit_save').addClass('loading spinner');
+});

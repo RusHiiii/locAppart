@@ -1,20 +1,103 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello {{ controller_name }}!{% endblock %}
+{% block title %}Loc'Appart - Mon compte{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block style %}
+    <link rel="stylesheet" href="{{ asset('build/parametre.css') }}">
+{% endblock %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+{% block content %}
+    <section>
+        {% include('Shared/elements/background.html.twig') %}
+        <div class="content_login">
+            <div class="line">
+                <div class="margin-bottom">
+                    <div class="margin">
+                        <article class="s-12 l-8 center">
+                            <h2>Paramètre du compte</h2>
+                            <p class="subtitile_presentation">Modifier l'ensemble des paramètres de votre compte</p>
+                            {% for message in app.flashes('notice') %}
+                                <div class="alert alert-info" role="alert">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'src/Controller/UserController.php'|file_link(0) }}">src/Controller/UserController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'templates/user/index.html.twig'|file_link(0) }}">templates/user/index.html.twig</a></code></li>
-    </ul>
-</div>
+                            <div class="s-12 l-12 parameter_first">
+                                <h2 class="title_parameter">Information personnel</h2>
+                                {{ form_start(formUpdate, {'attr': {'class': 'form-horizontal'}}) }}
+                                {{ form_errors(formUpdate) }}
+
+                                <div class="form-group form-custom">
+                                    {{ form_label(formUpdate.email, null, {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                                    <div class="col-sm-8">
+                                        {{ form_widget(formUpdate.email, {'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}
+                                        {% if form_errors(formUpdate.email) %}
+                                            <div class="row">
+                                                <div class="error_form">
+                                                    <span>{{ form_errors(formUpdate.email) }}</span>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-custom">
+                                    {{ form_label(formUpdate.firstname, null, {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                                    <div class="col-sm-8">
+                                        {{ form_widget(formUpdate.firstname, {'attr': {'class': 'form-control', 'placeholder': 'Prénom'}}) }}
+                                        {% if form_errors(formUpdate.firstname) %}
+                                            <div class="row">
+                                                <div class="error_form">
+                                                    <span>{{ form_errors(formUpdate.firstname) }}</span>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-custom">
+                                    {{ form_label(formUpdate.lastname, null, {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                                    <div class="col-sm-8">
+                                        {{ form_widget(formUpdate.lastname, {'attr': {'class': 'form-control', 'placeholder': 'Nom'}}) }}
+                                        {% if form_errors(formUpdate.lastname) %}
+                                            <div class="row">
+                                                <div class="error_form">
+                                                    <span>{{ form_errors(formUpdate.lastname) }}</span>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-custom">
+                                    {{ form_label(formUpdate.gender, null, {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                                    <div class="col-sm-8">
+                                        <div class="radio-gender">
+                                            {{ form_widget(formUpdate.gender, {'attr': {'class': ''}}) }}
+                                            {% if form_errors(formUpdate.gender) %}
+                                                <div class="row">
+                                                    <div class="error_form">
+                                                        <span>{{ form_errors(formUpdate.gender) }}</span>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{ form_widget(formUpdate.save, {'attr': {'class': 'btn btn-primary'}}) }}
+
+                                {{ form_rest(formUpdate) }}
+                                {{ form_end(formUpdate) }}
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" src="{{ asset('build/parametre.js') }}"></script>
 {% endblock %}

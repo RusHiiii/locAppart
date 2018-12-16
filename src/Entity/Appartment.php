@@ -93,7 +93,6 @@ class Appartment
     private $lng;
 
     /**
-     * @Assert\NotBlank()
      * @ORM\Column(type="string", length=30)
      */
     private $reference;

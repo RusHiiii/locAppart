@@ -41,10 +41,11 @@ class AppartmentType extends AbstractType
                 'entry_options' => array('label' => false),
                 'allow_add' => true,
                 'by_reference' => false,
-                'allow_delete' => true
+                'allow_delete' => true,
+                'attr' => array('class' => 'force-hidden')
             ))
             ->add('save', SubmitType::class, array(
-                  'label' => 'Valider'
+                  'label' => 'Ajouter mon annonce'
                 ))
         ;
     }

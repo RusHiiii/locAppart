@@ -29,7 +29,7 @@
                                             <div class="form-group form-custom">
                                                 {{ form_label(form.title, null, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
                                                 <div class="col-sm-8">
-                                                    {{ form_widget(form.title, {'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}
+                                                    {{ form_widget(form.title, {'attr': {'class': 'form-control', 'placeholder': 'Titre'}}) }}
                                                     {% if form_errors(form.title) %}
                                                         <div class="row">
                                                             <div class="error_form">
@@ -98,6 +98,8 @@
                                                     {% endif %}
                                                 </div>
                                             </div>
+
+
                                             <div class="form-group form-custom">
                                                 <label class="col-sm-3 control-label">Photo:</label>
                                                 <div id="photo_link" class="col-sm-8">
@@ -106,54 +108,22 @@
                                             </div>
                                             <table id="no-more-tables" class="custom_table_width">
                                                 <tr id="appartment_ressources" data-prototype="{{ include('Shared/elements/form/macro/file.html.twig', { 'form': form.ressources.vars.prototype, 'idx':'__name__' }) | e('html_attr') }}" >
-                                                    {% for idx, ressource in form.ressources %}
+                                                     {% for idx, ressource in form.ressources %}
                                                         <td>
                                                             {{ include('Shared/elements/form/macro/file.html.twig', { 'form': ressource, 'idx': idx }) }}
                                                         </td>
                                                     {% endfor %}
                                                 </tr>
                                             </table>
+                                            <div class="form_obligatoire">Les champs contenant * sont obligatoire pour permettre une recherche plus facile de la part des visiteurs.</div>
+                                            {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
 
+                                            {{ form_rest(form) }}
+                                            {{ form_end(form) }}
                                         </div>
                                     </aside>
                                 </div>
                             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-                            {% for message in app.flashes('notice') %}
-                                <div class="alert alert-info" role="alert">
-                                    {{ message }}
-                                </div>
-                            {% endfor %}
-
-                            {{ form_start(form) }}
-
-                            {{ form_row(form.title) }}
-                            {{ form_row(form.type) }}
-                            {{ form_row(form.area) }}
-                            {{ form_row(form.room) }}
-
-                            {{ form_row(form.description) }}
-
-
-                            <h3>Tags</h3>
-                            <ul class="tags">
-                                {# iterate over each existing tag and render its only field: name #}
-                                {% for tag in form.ressources %}
-                                    <li>{{ form_row(tag.file) }}</li>
-                                {% endfor %}
-                            </ul>
-                            {{ form_end(form) }}
                         </article>
                     </div>
                 </div>

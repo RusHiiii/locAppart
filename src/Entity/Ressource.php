@@ -19,11 +19,10 @@ class Ressource
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(
-     *      message="Veuillez upload un fichier correct"
-     * )
      * @Assert\File(
-     *      mimeTypes={"image/png"}
+     *     maxSize = "1024k",
+     *     mimeTypes = {"image/png"},
+     *     mimeTypesMessage = "Please upload a valid PDF"
      * )
      */
     private $file;

@@ -98,13 +98,17 @@ html, body, #map, .map-container {
   margin-bottom: 10px;
 }
 
-.custom_table_width td{
+.custom_table_width td .cst{
   text-align: center;
   border: none;
   width: 220px;
   border: 1px dashed #ccc;
   padding: 0.5em;
   background: none repeat scroll 0 0 #f5f7fa;
+}
+
+.custom_table_width td{
+  border: none;
 }
 
 .box{
@@ -138,6 +142,16 @@ html, body, #map, .map-container {
 
 .box_img{
   position: relative;
+}
+
+.error_form{
+  font-size: 0.8em;
+  color: red;
+}
+
+.error_form > span > ul{
+    list-style-type: disc !important;
+    padding-left: 40px !important;
 }
 
 .fa-camera{

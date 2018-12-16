@@ -1,4 +1,6 @@
 jQuery(document).ready(function() {
+    $('.force-hidden').parent().remove();
+
     $collectionHolder = $('#appartment_ressources');
 
     $collectionHolder.find($("div[id^='appartment_ressources_']")).each(function() {

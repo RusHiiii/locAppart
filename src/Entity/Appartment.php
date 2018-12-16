@@ -127,6 +127,7 @@ class Appartment
     private $user;
 
     /**
+     * @Assert\Valid
      * @ORM\OneToMany(targetEntity="App\Entity\Ressource", mappedBy="appartment", orphanRemoval=true, cascade={"persist"})
      */
     private $ressources;

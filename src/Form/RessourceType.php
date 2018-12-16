@@ -22,11 +22,7 @@ class RessourceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('file', FileType::class, array(
-                'constraints' => array(
-                    new File(array('mimeTypes' => array("image/png")))
-                )
-            ))
+            ->add('file')
         ;
     }
 

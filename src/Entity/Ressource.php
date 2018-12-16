@@ -22,7 +22,7 @@ class Ressource
      * @Assert\File(
      *     maxSize = "1024k",
      *     mimeTypes = {"image/png"},
-     *     mimeTypesMessage = "Please upload a valid PDF"
+     *     mimeTypesMessage = "Veuillez uploder une image"
      * )
      */
     private $file;

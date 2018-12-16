@@ -1,0 +1,170 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Loc'Appart - Ajouter une annonce{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ asset('build/ajout.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.5/css/bootstrap-select.css">
+{% endblock %}
+
+{% block content %}
+    <section>
+        {% include('Shared/elements/background.html.twig') %}
+        <div class="content_login">
+            <div class="line">
+                <div class="margin-bottom">
+                    <div class="margin">
+                        <article class="s-12 l-12 center">
+                            <h2>Ajout d'une annonce</h2>
+                            <p class="subtitile_presentation">Ajouter une annonce sur le site</p>
+
+                            <div class="lines">
+                                <div class="gestion-box">
+                                    <aside class="lg-side">
+                                        <div class="gestion-head">
+                                            <h3>Information sur le bien</h3>
+                                        </div>
+                                        {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+                                        <div class="gestion-body">
+                                            <div class="form-group form-custom">
+                                                {{ form_label(form.title, null, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                                                <div class="col-sm-8">
+                                                    {{ form_widget(form.title, {'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}
+                                                    {% if form_errors(form.title) %}
+                                                        <div class="row">
+                                                            <div class="error_form">
+                                                                <span>{{ form_errors(form.title) }}</span>
+                                                            </div>
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group form-custom">
+                                                {{ form_label(form.type, null, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                                                <div class="col-sm-8">
+                                                    {{ form_widget(form.type, {'attr': {'class': 'selectpicker'}}) }}
+                                                    {% if form_errors(form.type) %}
+                                                        <div class="row">
+                                                            <div class="error_form">
+                                                                <span>{{ form_errors(form.type) }}</span>
+                                                            </div>
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group form-custom form-custom-surf">
+                                                <div>
+                                                    {{ form_label(form.area, null, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                                                    <div class="col-sm-2">
+                                                        {{ form_widget(form.area, {'attr': {'class': 'form-control'}}) }}
+                                                        <span class="addon_input">m²</span>
+                                                        {% if form_errors(form.area) %}
+                                                            <div class="row">
+                                                                <div class="error_form">
+                                                                    <span>{{ form_errors(form.area) }}</span>
+                                                                </div>
+                                                            </div>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-6 custom_form_inline form_piece">
+                                                    {{ form_label(form.room, null, {'label_attr': {'class': 'col-sm-6 control-label'}}) }}
+                                                    <div class="col-sm-4">
+                                                        {{ form_widget(form.room, {'attr': {'class': 'form-control'}}) }}
+                                                        {% if form_errors(form.room) %}
+                                                            <div class="row">
+                                                                <div class="error_form">
+                                                                    <span>{{ form_errors(form.room) }}</span>
+                                                                </div>
+                                                            </div>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group form-custom">
+                                                {{ form_label(form.description, null, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                                                <div class="col-sm-8">
+                                                    {{ form_widget(form.description, {'attr': {'class': 'form-control custom_area', 'rows' : '5'}}) }}
+                                                    {% if form_errors(form.description) %}
+                                                        <div class="row">
+                                                            <div class="error_form">
+                                                                <span>{{ form_errors(form.description) }}</span>
+                                                            </div>
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-custom">
+                                                <label class="col-sm-3 control-label">Photo:</label>
+                                                <div id="photo_link" class="col-sm-8">
+                                                    <button type="button" class="btn btn-primary add_tag_link" id="add_image">Ajouter une photo</button>
+                                                </div>
+                                            </div>
+                                            <table id="no-more-tables" class="custom_table_width">
+                                                <tr id="appartment_ressources" data-prototype="{{ include('Shared/elements/form/macro/file.html.twig', { 'form': form.ressources.vars.prototype, 'idx':'__name__' }) | e('html_attr') }}" >
+                                                    {% for idx, ressource in form.ressources %}
+                                                        <td>
+                                                            {{ include('Shared/elements/form/macro/file.html.twig', { 'form': ressource, 'idx': idx }) }}
+                                                        </td>
+                                                    {% endfor %}
+                                                </tr>
+                                            </table>
+
+                                        </div>
+                                    </aside>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                            {% for message in app.flashes('notice') %}
+                                <div class="alert alert-info" role="alert">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+
+                            {{ form_start(form) }}
+
+                            {{ form_row(form.title) }}
+                            {{ form_row(form.type) }}
+                            {{ form_row(form.area) }}
+                            {{ form_row(form.room) }}
+
+                            {{ form_row(form.description) }}
+
+
+                            <h3>Tags</h3>
+                            <ul class="tags">
+                                {# iterate over each existing tag and render its only field: name #}
+                                {% for tag in form.ressources %}
+                                    <li>{{ form_row(tag.file) }}</li>
+                                {% endfor %}
+                            </ul>
+                            {{ form_end(form) }}
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascript %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.5/js/bootstrap-select.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.5/js/i18n/defaults-fr_FR.js"></script>
+    <script type="text/javascript" src="{{ asset('build/ajout.js') }}"></script>
+{% endblock %}
+

@@ -128,7 +128,7 @@ class Appartment
     private $user;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Ressource", mappedBy="appartment", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Ressource", mappedBy="appartment", orphanRemoval=true, cascade={"persist"})
      */
     private $ressources;
 

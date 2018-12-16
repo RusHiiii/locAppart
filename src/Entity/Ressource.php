@@ -47,7 +47,7 @@ class Ressource
      * Permet de récupérer le fichier
      * @return string file
      */
-    public function getFile(): ?string
+    public function getFile()
     {
         return $this->file;
     }
@@ -57,7 +57,7 @@ class Ressource
      * @param  string file
      * @return self
      */
-    public function setFile(string $file): self
+    public function setFile($file): self
     {
         $this->file = $file;
 

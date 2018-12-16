@@ -79,11 +79,12 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $notification = true;
+    private $notification;
 
     public function __construct()
     {
         $this->roles = ['ROLE_USER'];
+        $this->notification = true;
     }
 
     /**

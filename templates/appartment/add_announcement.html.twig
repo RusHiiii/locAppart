@@ -109,7 +109,7 @@
                                             <table id="no-more-tables" class="custom_table_width">
                                                 <tr id="appartment_ressources" data-prototype="{{ include('Shared/elements/form/macro/file.html.twig', { 'form': form.ressources.vars.prototype, 'idx':'__name__' }) | e('html_attr') }}" >
                                                      {% for idx, ressource in form.ressources %}
-                                                        <td>
+                                                        <td id="td_{{ idx }}">
                                                             {{ include('Shared/elements/form/macro/file.html.twig', { 'form': ressource, 'idx': idx }) }}
                                                         </td>
                                                     {% endfor %}

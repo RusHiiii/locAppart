@@ -1,6 +1,4 @@
 jQuery(document).ready(function() {
-    $('.force-hidden').parent().remove();
-
     $collectionHolder = $('#appartment_ressources');
 
     $collectionHolder.find($("div[id^='appartment_ressources_']")).each(function() {
@@ -11,6 +9,12 @@ jQuery(document).ready(function() {
 
     $('#add_image').on('click', function(e) {
         addTagForm($collectionHolder, $('#add_image'));
+    });
+
+    $("input[type='file']").each(function(idx, element){
+        console.log($(this));
+        var number = $(this).attr('id').replace( /^\D+/g, '').charAt(0);
+        readURL($(this), number);
     });
 });
 
@@ -44,15 +48,7 @@ function readURL(input, val) {
 }
 
 function deletePhoto(val) {
-    var $el = $('#appartment_ressources_'+ val + '_file');
-
-    console.log($el);
-    $el.wrap('<form>').closest('form').get(0).reset();
-    $el.unwrap();
-
-    $('#box_'.concat(val)).show();
-    $('#img_'.concat(val)).hide();
-    $('#circle_'.concat(val)).hide();
+    $('#td_'+val).remove();
 }
 
 function addTagForm($collectionHolder, $newLinkLi) {
@@ -66,6 +62,6 @@ function addTagForm($collectionHolder, $newLinkLi) {
 
     $collectionHolder.data('index', index + 1);
 
-    var $newFormLi = $('<td></td>').append(newForm);
+    var $newFormLi = $("<td id='td_"+ index +"'></td>").append(newForm);
     $('#appartment_ressources').append($newFormLi);
 }

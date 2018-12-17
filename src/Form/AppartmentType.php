@@ -9,11 +9,9 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class AppartmentType extends AbstractType
@@ -27,11 +25,12 @@ class AppartmentType extends AbstractType
             ->add('type', null, array(
                 'label' => 'Type de bien*:'
             ))
-            ->add('area', TextType::class, array(
+            ->add('area', NumberType::class, array(
                   'label' => 'Surface du bien*:'
                 ))
-            ->add('room', TextType::class, array(
-                'label' => 'Nombre de pièce*:'
+            ->add('room', IntegerType::class, array(
+                'label' => 'Nombre de pièce*:',
+                'attr' => array('min' => 0)
             ))
             ->add('description', TextareaType::class, array(
                 'label' => 'Texte de l\'annonce*:'
@@ -42,7 +41,7 @@ class AppartmentType extends AbstractType
                 'allow_add' => true,
                 'by_reference' => false,
                 'allow_delete' => true,
-                'attr' => array('class' => 'force-hidden')
+                'label' => false
             ))
             ->add('save', SubmitType::class, array(
                   'label' => 'Ajouter mon annonce'

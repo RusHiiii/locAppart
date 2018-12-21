@@ -17,14 +17,14 @@
                         <article class="s-12 l-12 center">
                             <h2>Ajout d'une annonce</h2>
                             <p class="subtitile_presentation">Ajouter une annonce sur le site</p>
-
+                            {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
                             <div class="lines">
                                 <div class="gestion-box">
                                     <aside class="lg-side">
                                         <div class="gestion-head">
                                             <h3>Information sur le bien</h3>
                                         </div>
-                                        {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
                                         <div class="gestion-body">
                                             <div class="form-group form-custom">
                                                 {{ form_label(form.title, null, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
@@ -106,24 +106,119 @@
                                                     <button type="button" class="btn btn-primary add_tag_link" id="add_image">Ajouter une photo</button>
                                                 </div>
                                             </div>
+
                                             <table id="no-more-tables" class="custom_table_width">
-                                                <tr id="appartment_ressources" data-prototype="{{ include('Shared/elements/form/macro/file.html.twig', { 'form': form.ressources.vars.prototype, 'idx':'__name__' }) | e('html_attr') }}" >
+                                                <tr id="appartment_ressources" data-prototype="{{ include('appartment/form/file.html.twig', { 'form': form.ressources.vars.prototype, 'idx':'__name__' }) | e('html_attr') }}" >
                                                      {% for idx, ressource in form.ressources %}
                                                         <td id="td_{{ idx }}">
-                                                            {{ include('Shared/elements/form/macro/file.html.twig', { 'form': ressource, 'idx': idx }) }}
+                                                            {{ include('appartment/form/file.html.twig', { 'form': ressource, 'idx': idx }) }}
                                                         </td>
                                                     {% endfor %}
                                                 </tr>
                                             </table>
                                             <div class="form_obligatoire">Les champs contenant * sont obligatoire pour permettre une recherche plus facile de la part des visiteurs.</div>
-                                            {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+                                        </div>
 
-                                            {{ form_rest(form) }}
-                                            {{ form_end(form) }}
+                                        <div class="separator_content"></div>
+
+                                        <div class="gestion-head">
+                                            <h3>Information complémentaire</h3>
+                                        </div>
+                                        <div class="gestion-body">
+                                            <div class="form-group form-custom">
+                                                <div>
+                                                    {{ form_label(form.garage, null, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                                                    <div class="col-sm-2">
+                                                        {{ form_widget(form.garage, {'attr': {'class': 'selectpicker'}}) }}
+                                                        {% if form_errors(form.garage) %}
+                                                            <div class="row">
+                                                                <div class="error_form">
+                                                                    <span>{{ form_errors(form.garage) }}</span>
+                                                                </div>
+                                                            </div>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 custom_form_inline form_casier">
+                                                    {{ form_label(form.locker, null, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                                                    <div class="col-sm-4">
+                                                        {{ form_widget(form.locker, {'attr': {'class': 'selectpicker'}}) }}
+                                                        {% if form_errors(form.locker) %}
+                                                            <div class="row">
+                                                                <div class="error_form">
+                                                                    <span>{{ form_errors(form.locker) }}</span>
+                                                                </div>
+                                                            </div>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group form-custom">
+                                                {{ form_label(form.people, null, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                                                <div class="col-sm-2">
+                                                    {{ form_widget(form.people, {'attr': {'class': 'form-control', 'placeholder': '4/6'}}) }}
+                                                    {% if form_errors(form.people) %}
+                                                        <div class="row">
+                                                            <div class="error_form">
+                                                                <span>{{ form_errors(form.people) }}</span>
+                                                            </div>
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group form-custom">
+                                                {{ form_label(form.bedroom, null, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                                                <div class="col-sm-2">
+                                                    {{ form_widget(form.bedroom, {'attr': {'class': 'form-control', 'placeholder': '1'}}) }}
+                                                    {% if form_errors(form.bedroom) %}
+                                                        <div class="row">
+                                                            <div class="error_form">
+                                                                <span>{{ form_errors(form.bedroom) }}</span>
+                                                            </div>
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group form-custom">
+                                                {{ form_label(form.ski, null, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                                                <div class="col-sm-2">
+                                                    {{ form_widget(form.ski, {'attr': {'class': 'form-control', 'placeholder': '200'}}) }}
+                                                    {% if form_errors(form.ski) %}
+                                                        <div class="row">
+                                                            <div class="error_form">
+                                                                <span>{{ form_errors(form.ski) }}</span>
+                                                            </div>
+                                                        </div>
+                                                    {% endif %}
+                                                    <span class="addon_input">m</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-custom">
+                                                {{ form_label(form.information, null, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                                                <div class="col-sm-8">
+                                                    {{ form_widget(form.information, {'attr': {'class': 'form-control custom_area', 'rows' : '5', 'placeholder': 'Autre information'}}) }}
+                                                    {% if form_errors(form.information) %}
+                                                        <div class="row">
+                                                            <div class="error_form">
+                                                                <span>{{ form_errors(form.information) }}</span>
+                                                            </div>
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
                                         </div>
                                     </aside>
                                 </div>
                             </div>
+
+                            {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary btn-validate'}}) }}
+
+                            {{ form_rest(form) }}
+                            {{ form_end(form) }}
+
                         </article>
                     </div>
                 </div>

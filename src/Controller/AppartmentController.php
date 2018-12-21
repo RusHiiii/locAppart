@@ -33,14 +33,15 @@ class AppartmentController extends AbstractController
         Request $request
     )
     {
-        /*
-        $appartment = $task = $this->getDoctrine()->getManager()->getRepository(Appartment::class)->find(84);
-//dd($appartment->getRessources());
+
+ /*       $appartment = $this->getDoctrine()->getManager()->getRepository(Appartment::class)->find(84);
+dd($appartment->getRessources());
+        //dd($appartment);
         foreach ($appartment->getRessources() as &$item){
             //dd($item);
             $item->setFile(new File($item->getFile()));
         }
-
+dd($appartment);
 
 
         $appartment->setPeople('5/6');
@@ -89,6 +90,7 @@ class AppartmentController extends AbstractController
         $appartment->setDate(new \DateTime('now'));
 
         $appartment->setReference('rzefzefzef856');
+        $appartment->setRoom(0);
         $appartment->setUser($this->getUser());
 
         $appartment->setStatus($this->getDoctrine()->getManager()->getRepository(Status::class)->find(120));
@@ -100,28 +102,7 @@ class AppartmentController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            dd($appartment);
-            foreach ($appartment->getRessources() as &$item){
 
-                $file = $item->getFile();
-
-                $fileName = md5(uniqid()).'.png';
-
-                try {
-                    $file->move(
-                        $this->getParameter('upload_directory'),
-                        $fileName
-                    );
-                } catch (FileException $e) {
-                }
-
-                $item->setFile(new File($this->getParameter('upload_directory').'/'.$fileName));
-            }
-
-
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($appartment);
-            $em->flush();
         }
 
         return $this->render('appartment/add_announcement.html.twig', [

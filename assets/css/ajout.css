@@ -50,7 +50,11 @@
   color: #999;
   margin-bottom: 0px;
   text-align: left;
-  margin-top: 20px;
+}
+
+.btn-validate{
+  width: 25%;
+  margin-top: 15px;
 }
 
 .inputfile {

@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class AppartmentType extends AbstractType
 {
@@ -20,14 +21,14 @@ class AppartmentType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, array(
-                  'label' => 'Titre*:'
-                ))
+                'label' => 'Titre*:'
+            ))
             ->add('type', null, array(
                 'label' => 'Type de bien*:'
             ))
             ->add('area', NumberType::class, array(
-                  'label' => 'Surface du bien*:'
-                ))
+                'label' => 'Surface du bien*:'
+            ))
             ->add('room', IntegerType::class, array(
                 'label' => 'Nombre de pièce*:',
                 'attr' => array('min' => 0)
@@ -41,11 +42,39 @@ class AppartmentType extends AbstractType
                 'allow_add' => true,
                 'by_reference' => false,
                 'allow_delete' => true,
-                'label' => false
+                'label' => false,
+                'required' => false
+            ))
+            ->add('garage', ChoiceType::class, array(
+                'choices'  => array(
+                    'Oui' => true,
+                    'Non' => true
+                ),
+                'label' => 'Garage:'
+            ))
+            ->add('locker', ChoiceType::class, array(
+                'choices'  => array(
+                    'Oui' => true,
+                    'Non' => true
+                ),
+                'label' => 'Casier:'
+            ))
+            ->add('people', TextType::class, array(
+                'label' => 'Nombre de personnes:'
+            ))
+            ->add('bedroom', IntegerType::class, array(
+                'label' => 'Nombre de chambres:',
+                'attr' => array('min' => 0)
+            ))
+            ->add('ski', NumberType::class, array(
+                'label' => 'Distance des pistes:'
+            ))
+            ->add('information', TextareaType::class, array(
+                'label' => 'Autre information:'
             ))
             ->add('save', SubmitType::class, array(
-                  'label' => 'Ajouter mon annonce'
-                ))
+              'label' => 'Ajouter mon annonce'
+            ))
         ;
     }
 

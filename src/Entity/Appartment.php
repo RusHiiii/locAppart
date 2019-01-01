@@ -138,7 +138,8 @@ class Appartment
     private $messages;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Price", mappedBy="appartment", orphanRemoval=true)
+     * @Assert\Valid
+     * @ORM\OneToMany(targetEntity="App\Entity\Price", mappedBy="appartment", orphanRemoval=true, cascade={"persist"})
      */
     private $prices;
 

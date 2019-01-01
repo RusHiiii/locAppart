@@ -45,32 +45,46 @@ class AppartmentType extends AbstractType
                 'label' => false,
                 'required' => false
             ))
+            ->add('prices', CollectionType::class, array(
+                'entry_type' => PriceType::class,
+                'entry_options' => array('label' => false),
+                'allow_add' => true,
+                'by_reference' => false,
+                'allow_delete' => true,
+                'label' => false,
+                'required' => true
+            ))
             ->add('garage', ChoiceType::class, array(
                 'choices'  => array(
                     'Oui' => true,
                     'Non' => true
                 ),
-                'label' => 'Garage:'
+                'label' => 'Garage:',
+                'required' => false
             ))
             ->add('locker', ChoiceType::class, array(
                 'choices'  => array(
                     'Oui' => true,
                     'Non' => true
                 ),
-                'label' => 'Casier:'
+                'label' => 'Casier:',
+                'required' => false
             ))
             ->add('people', TextType::class, array(
                 'label' => 'Nombre de personnes:'
             ))
             ->add('bedroom', IntegerType::class, array(
                 'label' => 'Nombre de chambres:',
-                'attr' => array('min' => 0)
+                'attr' => array('min' => 0),
+                'required' => false
             ))
             ->add('ski', NumberType::class, array(
-                'label' => 'Distance des pistes:'
+                'label' => 'Distance des pistes:',
+                'required' => false
             ))
             ->add('information', TextareaType::class, array(
-                'label' => 'Autre information:'
+                'label' => 'Autre information:',
+                'required' => false
             ))
             ->add('save', SubmitType::class, array(
               'label' => 'Ajouter mon annonce'

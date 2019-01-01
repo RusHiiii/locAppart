@@ -34,11 +34,4 @@ class RessourceType extends AbstractType
             'data_class' => Ressource::class
         ));
     }
-
-    public function buildView(FormView $view, FormInterface $form, array $options)
-    {
-
-    }
-
-
 }

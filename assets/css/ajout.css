@@ -29,6 +29,16 @@
   right: 25px;
 }
 
+.custom_table_prix .addon_input{
+  top: 12px;
+}
+
+.custom_table_prix .no-border{
+  background-color: white;
+  border-top: 1px solid transparent !important;
+  border-left: 1px solid transparent !important;
+}
+
 .custom_input_loc{
   padding-left: 20px !important;
 }
@@ -567,7 +577,7 @@ ul.labels-info li a i {
 }
 
 .dropdown-menu{
-  width: 195px;
+  width: auto;
 }
 
 .content_gestion p{
@@ -751,13 +761,33 @@ table .custom_select{
   border-right: 1px solid #ddd !important;
   border-bottom: 1px solid #ddd !important;
   border-left: 1px solid #ddd !important;
+  vertical-align: middle !important;
+}
+
+.custom_table_prix .bootstrap-select button{
+  border: none;
+  border-radius: 0px;
+  height: 46px;
+}
+
+.delete{
+  width: 100%;
+  color: #e20043 !important;
+  border: 1px solid #e20043 !important;
+}
+
+.delete:hover{
+  color: white !important;
+  background-color: #e20043 !important;
+  border: 1px solid #e20043 !important;
 }
 
 .custom_text_price{
   text-align: center;
-  height: 36px !important;
+  height: 46px !important;
   border: none !important;
   border-radius: none !important;
+  outline: none;
 }
 
 table .custom_dropdown{
@@ -790,7 +820,7 @@ table .custom_span{
 
 .carousel-indicators{
   position: absolute !important;
-  bottom: 30px !important;
+  bottom: 0px !important;
   width: auto !important;
   left: 78% !important;
 }
@@ -815,7 +845,36 @@ table .custom_span{
 }
 
 .custom_height{
-  height: 360px !important;
+  height: auto;
+}
+
+.datepicker-days thead{
+  background-color: white;
+  text-transform: capitalize;
+}
+
+.datepicker-days .table-condensed{
+  border: none;
+}
+
+.filter-option-inner-inner{
+  text-align: center;
+}
+
+.custom_table_prix .filter-option-inner{
+  line-height: 34px;
+}
+
+.datepicker table tr td.active{
+  background-color: #008CAF !important;
+  background-image: none !important;
+}
+
+.date{
+  height: 46px !important;
+  border: none !important;
+  text-align: center;
+  outline: none;
 }
 
 .fileinput-button {

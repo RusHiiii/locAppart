@@ -18,20 +18,20 @@ class Price
     private $id;
 
     /**
-     * @Assert\LessThan(propertyPath="dateMax")
+     * @Assert\LessThan(propertyPath="dateEnd", message = "La date n'est pas valide")
      * @ORM\Column(type="date")
      */
     private $dateBegin;
 
     /**
-     * @Assert\GreaterThan(propertyPath="dateMin")
+     * @Assert\GreaterThan(propertyPath="dateBegin", message = "La date n'est pas valide")
      * @ORM\Column(type="date")
      */
     private $dateEnd;
 
     /**
      * @Assert\NotBlank()
-     * @Assert\GreaterThanOrEqual(10)
+     * @Assert\GreaterThanOrEqual(value = 20, message = "Le prix est incorrect")
      * @ORM\Column(type="float")
      */
     private $price;

@@ -1,0 +1,44 @@
+<td class="">Période {{ idx }}</td>
+<td class="no_padding">
+    <div class="col-sm-12 no_padding">
+        {{ form_widget(form.dateBegin, {'attr': {'class': 'date', 'placeholder': 'dd/mm/yyyy'}}) }}
+        {% if form_errors(form.dateBegin) %}
+            <div class="row">
+                <div class="error_form">
+                    <span>{{ form_errors(form.dateEnd) }}</span>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</td>
+<td class="no_padding">
+    <div class="col-sm-12 no_padding">
+        {{ form_widget(form.dateEnd, {'attr': {'class': 'date', 'placeholder': 'dd/mm/yyyy'}}) }}
+        {% if form_errors(form.dateEnd) %}
+            <div class="row">
+                <div class="error_form">
+                    <span>{{ form_errors(form.dateEnd) }}</span>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</td>
+<td class="no_padding">
+    <div class="col-sm-12 no_padding">
+        {{ form_widget(form.price, {'attr': {'class': 'custom_text_price', 'placeholder': '200'}}) }}
+        <span class="addon_input custom_position">€</span>
+        {% if form_errors(form.price) %}
+            <div class="row">
+                <div class="error_form">
+                    <span>{{ form_errors(form.price) }}</span>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</td>
+<td class="no_padding">
+    {{ form_widget(form.availability, {'attr': {'class': 'selectpicker', 'title': 'Disponibilité', 'data-width': '180px'}}) }}
+</td>
+<td>
+    <button type="button" id="remove-price" class="btn btn-primary btn_result delete"><span class="glyphicon glyphicon-trash"></span> Supprimer</button>
+</td>

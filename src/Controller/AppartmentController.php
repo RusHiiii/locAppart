@@ -4,15 +4,11 @@ namespace App\Controller;
 
 use App\Entity\Appartment;
 use App\Entity\City;
-use App\Entity\Ressource;
 use App\Entity\Status;
 use App\Form\AppartmentType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\DomCrawler\Image;
-use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use vendor\project\StatusTest;
 
 class AppartmentController extends AbstractController
 {
@@ -102,11 +98,10 @@ dd($appartment);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-
+dd($appartment);
         }
 
         return $this->render('appartment/add_announcement.html.twig', [
-            'controller_name' => 'AppartmentController',
             'form' => $form->createView()
         ]);
     }

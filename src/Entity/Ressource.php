@@ -21,8 +21,8 @@ class Ressource
      * @ORM\Column(type="string", length=255)
      * @Assert\File(
      *     maxSize = "1024k",
-     *     mimeTypes = {"image/png"},
-     *     mimeTypesMessage = "Veuillez uploder une image"
+     *     mimeTypes = {"image/png", "image/jpg", "image/jpeg"},
+     *     mimeTypesMessage = "Veuillez uploder une image valide"
      * )
      */
     private $file;

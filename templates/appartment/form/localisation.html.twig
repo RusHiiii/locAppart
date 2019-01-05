@@ -1,0 +1,45 @@
+<div class="gestion-body">
+    <div class="col-sm-7">
+        <div class="form-group form-custom">
+            {{ form_label(form.city, null, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+            <div class="col-sm-8">
+                {{ form_widget(form.city, {'attr': {'class': 'selectpicker', 'data-size': '5', 'data-live-search': 'true'}}) }}
+                {% if form_errors(form.city) %}
+                    <div class="row">
+                        <div class="error_form">
+                            <span>{{ form_errors(form.city) }}</span>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="form-group form-custom no_margin">
+            {{ form_label(form.adress, null, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+            <div class="col-sm-9">
+                {{ form_widget(form.adress, {'attr': {'class': 'form-control custom_input_loc', 'placeholder': 'Adresse'}}) }}
+                {% if form_errors(form.adress) %}
+                    <div class="row">
+                        <div class="error_form">
+                            <span>{{ form_errors(form.adress) }}</span>
+                        </div>
+                    </div>
+                {% endif %}
+                <table class="no_border">
+                    <tr>
+                        <td class="no_padding"><p>Lat:</p></td>
+                        <td class="no_padding">{{ form_widget(form.lng, {'attr': {'class': 'custom_input_lng'}}) }}</td>
+                        <td class="no_padding"><p>Lng:</p></td>
+                        <td class="no_padding">{{ form_widget(form.lat, {'attr': {'class': 'custom_input_lat'}}) }}</td>
+                    </tr>
+                </table>
+                <span tabindex="100" class="add-on input-group-addon span_loca"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+            </div>
+        </div>
+
+        <div class="alert alert-info alert-info-map" role="alert">Si vous ne souhaitez pas renseigner votre adresse exacte, indiquez votre rue sans donner le numéro. Cette information ne sera conservée que le temps de la publication de votre annonce.<br><br>
+            Utiliser la carte ci-contre pour localiser au mieux votre bien (cliquer à l'endroit voulu). Cette localisation sera ensuite afficher sur la fiche du produit pour une localisation plus précise.</div>
+    </div>
+    <div class="map-container">
+        <div id="map"></div>
+    </div>
+</div>

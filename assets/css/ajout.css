@@ -39,6 +39,16 @@
   border-left: 1px solid transparent !important;
 }
 
+.custom_input_lng{
+  position: relative;
+  top: -5px;
+}
+
+.custom_input_lat{
+  position: relative;
+  top: -5px;
+}
+
 .custom_input_loc{
   padding-left: 20px !important;
 }
@@ -99,7 +109,7 @@ html, body, #map, .map-container {
   margin-bottom: 0 !important;
 }
 
-#lngB, #lngL{
+#appartment_lng, #appartment_lat{
   border: none !important;
   font-size: 0.8em;
   padding: 0 !important;
@@ -110,7 +120,7 @@ html, body, #map, .map-container {
   border: none;
   border-collapse: separate;
   border-spacing: 10px 5px;
-  margin-bottom: 10px;
+  margin-bottom: 18px;
 }
 
 .custom_table_width td .cst{
@@ -173,6 +183,14 @@ html, body, #map, .map-container {
   font-size: 3em !important;
 }
 
+.btn-primary{
+  min-height: 30px;
+}
+
+.alert-info-map{
+  margin-bottom: 0px;
+}
+
 .fa-plus-circle{
   position: absolute !important;
   left: 34px !important;
@@ -231,6 +249,11 @@ html, body, #map, .map-container {
 .td_checkbox{
   background-color: transparent !important;
   padding: 0 !important;
+}
+
+.custom_table_prix .error{
+  position: absolute;
+  top: 38px;
 }
 
 .gestion_main_content{
@@ -784,7 +807,7 @@ table .custom_select{
 
 .custom_text_price{
   text-align: center;
-  height: 46px !important;
+  height: 55px !important;
   border: none !important;
   border-radius: none !important;
   outline: none;
@@ -871,7 +894,7 @@ table .custom_span{
 }
 
 .date{
-  height: 46px !important;
+  height: 55px !important;
   border: none !important;
   text-align: center;
   outline: none;

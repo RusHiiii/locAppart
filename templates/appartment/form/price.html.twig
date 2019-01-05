@@ -1,44 +1,31 @@
-<td class="">Période {{ idx }}</td>
-<td class="no_padding">
-    <div class="col-sm-12 no_padding">
-        {{ form_widget(form.dateBegin, {'attr': {'class': 'date', 'placeholder': 'dd/mm/yyyy'}}) }}
-        {% if form_errors(form.dateBegin) %}
-            <div class="row">
-                <div class="error_form">
-                    <span>{{ form_errors(form.dateEnd) }}</span>
-                </div>
-            </div>
-        {% endif %}
+<div class="gestion-body custom_height">
+    <div class="alert alert-info" role="alert">
+        Le tableau ci-dessous vous permet de controler entierement les tarifs et les disponibilités de votre bien semaine après semaine tous au long de la saison d'hiver. Toutes ces informations seront disponible sur la fiche de l'annonce sous forme de tableau.<br><br>
+        Revenez souvent sur cette page pour mettre réguliérement à jours les informations.
     </div>
-</td>
-<td class="no_padding">
-    <div class="col-sm-12 no_padding">
-        {{ form_widget(form.dateEnd, {'attr': {'class': 'date', 'placeholder': 'dd/mm/yyyy'}}) }}
-        {% if form_errors(form.dateEnd) %}
-            <div class="row">
-                <div class="error_form">
-                    <span>{{ form_errors(form.dateEnd) }}</span>
-                </div>
-            </div>
-        {% endif %}
+
+    <div class="item active table-responsive ">
+        <table class="table custom_table_prix">
+            <thead>
+            <tr class="header" id="appartment_prices" data-prototype="{{ include('appartment/form/prototype/price.html.twig', { 'form': form.prices.vars.prototype, 'idx':'__name__' }) | e('html_attr') }}" >
+                <td class="no-border"><button type="button" class="btn btn-primary" id="add_price">Ajouter une période</button></td>
+                <td><strong>Date début</strong></td>
+                <td><strong>Date fin</strong></td>
+                <td><strong>Prix</strong></td>
+                <td><strong>Disponibilité</strong></td>
+                <td><strong>Action</strong></td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for idx, price in form.prices %}
+                <tr id="tr_price_{{ idx }}">
+                    {{ include('appartment/form/prototype/price.html.twig', { 'form': price, 'idx': idx }) }}
+                </tr>
+            {% endfor %}
+            <tr id="empty_row">
+                <td colspan="6">Aucune période trouvée !</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
-</td>
-<td class="no_padding">
-    <div class="col-sm-12 no_padding">
-        {{ form_widget(form.price, {'attr': {'class': 'custom_text_price', 'placeholder': '200'}}) }}
-        <span class="addon_input custom_position">€</span>
-        {% if form_errors(form.price) %}
-            <div class="row">
-                <div class="error_form">
-                    <span>{{ form_errors(form.price) }}</span>
-                </div>
-            </div>
-        {% endif %}
-    </div>
-</td>
-<td class="no_padding">
-    {{ form_widget(form.availability, {'attr': {'class': 'selectpicker', 'title': 'Disponibilité', 'data-width': '180px'}}) }}
-</td>
-<td>
-    <button type="button" id="remove-price" class="btn btn-primary btn_result delete"><span class="glyphicon glyphicon-trash"></span> Supprimer</button>
-</td>
+</div>

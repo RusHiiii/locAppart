@@ -78,27 +78,11 @@ dd($appartment);
 
         $appartment = new Appartment();
 
-
-        $appartment->setAdress('zefezf');
-        $appartment->setLat('5');
-        $appartment->setLng('5');
-        $appartment->setPeople('r');
-        $appartment->setDate(new \DateTime('now'));
-
-        $appartment->setReference('rzefzefzef856');
-        $appartment->setRoom(0);
-        $appartment->setUser($this->getUser());
-
-        $appartment->setStatus($this->getDoctrine()->getManager()->getRepository(Status::class)->find(120));
-        $appartment->setCity($this->getDoctrine()->getManager()->getRepository(City::class)->find(215));
-
-
-
         $form = $this->createForm(AppartmentType::class, $appartment);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-dd($appartment);
+
         }
 
         return $this->render('appartment/add_announcement.html.twig', [

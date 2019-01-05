@@ -78,6 +78,8 @@ class Appartment
     private $information;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(min=5)
      * @ORM\Column(type="text")
      */
     private $adress;

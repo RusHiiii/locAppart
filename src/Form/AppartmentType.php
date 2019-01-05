@@ -14,6 +14,8 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\FormEvents;
+use Symfony\Component\Form\FormEvent;
 
 class AppartmentType extends AbstractType
 {
@@ -71,7 +73,8 @@ class AppartmentType extends AbstractType
                 'required' => false
             ))
             ->add('people', TextType::class, array(
-                'label' => 'Nombre de personnes:'
+                'label' => 'Nombre de personnes:',
+                'required' => false
             ))
             ->add('bedroom', IntegerType::class, array(
                 'label' => 'Nombre de chambres:',
@@ -86,10 +89,25 @@ class AppartmentType extends AbstractType
                 'label' => 'Autre information:',
                 'required' => false
             ))
+            ->add('adress', TextType::class, array(
+                'label' => 'Adresse complète:'
+            ))
+            ->add('city', null, array(
+                'label' => 'Lieu:',
+            ))
+            ->add('lat', TextType::class, array(
+                'label' => false,
+                'required' => false
+            ))
+            ->add('lng', TextType::class, array(
+                'label' => false,
+                'required' => false
+            ))
             ->add('save', SubmitType::class, array(
               'label' => 'Ajouter mon annonce'
             ))
         ;
+        $builder->addEventListener(FormEvents::PRE_SUBMIT, array($this, 'onPreSubmit'));
     }
 
     public function configureOptions(OptionsResolver $resolver)
@@ -97,5 +115,18 @@ class AppartmentType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => Appartment::class
         ));
+    }
+
+    public function onPreSubmit(FormEvent $event)
+    {
+        $data = $event->getData();
+        if(isset($data['ressources'])){
+            $data['ressources'] = array_values($data['ressources']);
+        }
+        if(isset($data['prices'])){
+            $data['prices'] = array_values($data['prices']);
+        }
+        $data['prices'] = array_values($data['prices']);
+        $event->setData($data);
     }
 }

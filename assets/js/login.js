@@ -1,3 +1,6 @@
+/*************** LISTENER ***************/
+
+/** Listener du mot de passe */
 $("#eye").on('click', function(evt){
   if ($("#pswdBox").attr('type') == "password" ){
     $("#pswdBox").attr('type', 'text');
@@ -8,6 +11,7 @@ $("#eye").on('click', function(evt){
    }
 });
 
+/** Listener du form */
 $('#login_form').on('submit', function(evt){
   $('.validate').empty();
   $('.validate').addClass('loading spinner');

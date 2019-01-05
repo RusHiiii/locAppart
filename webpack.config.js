@@ -22,18 +22,6 @@ Encore
     .enableSourceMaps(!Encore.isProduction())
     // enables hashed filenames (e.g. app.abc123.css)
     .enableVersioning(Encore.isProduction())
-
-    .copyFiles({
-        from: './assets/images',
-        to: 'images/[path][name].[ext]',
-        pattern: /\.(png|jpg|jpeg|ico)$/
-    })
-
-    .copyFiles({
-        from: './assets/font',
-        to: 'font/[path][name].[ext]',
-        pattern: /\.(eot|ttf|woff|svg)$/
-    })
 ;
 
 module.exports = Encore.getWebpackConfig();

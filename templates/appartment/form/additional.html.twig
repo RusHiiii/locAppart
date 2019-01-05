@@ -1,0 +1,86 @@
+<div class="gestion-body">
+    <div class="form-group form-custom">
+        <div>
+            {{ form_label(form.garage, null, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+            <div class="col-sm-2">
+                {{ form_widget(form.garage, {'attr': {'class': 'selectpicker'}}) }}
+                {% if form_errors(form.garage) %}
+                    <div class="row">
+                        <div class="error_form">
+                            <span>{{ form_errors(form.garage) }}</span>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-sm-6 custom_form_inline form_casier">
+            {{ form_label(form.locker, null, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+            <div class="col-sm-4">
+                {{ form_widget(form.locker, {'attr': {'class': 'selectpicker'}}) }}
+                {% if form_errors(form.locker) %}
+                    <div class="row">
+                        <div class="error_form">
+                            <span>{{ form_errors(form.locker) }}</span>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group form-custom">
+        {{ form_label(form.people, null, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        <div class="col-sm-2">
+            {{ form_widget(form.people, {'attr': {'class': 'form-control', 'placeholder': '4/6'}}) }}
+            {% if form_errors(form.people) %}
+                <div class="row">
+                    <div class="error_form">
+                        <span>{{ form_errors(form.people) }}</span>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="form-group form-custom">
+        {{ form_label(form.bedroom, null, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        <div class="col-sm-2">
+            {{ form_widget(form.bedroom, {'attr': {'class': 'form-control', 'placeholder': '1'}}) }}
+            {% if form_errors(form.bedroom) %}
+                <div class="row">
+                    <div class="error_form">
+                        <span>{{ form_errors(form.bedroom) }}</span>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="form-group form-custom">
+        {{ form_label(form.ski, null, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        <div class="col-sm-2">
+            {{ form_widget(form.ski, {'attr': {'class': 'form-control', 'placeholder': '200'}}) }}
+            {% if form_errors(form.ski) %}
+                <div class="row">
+                    <div class="error_form">
+                        <span>{{ form_errors(form.ski) }}</span>
+                    </div>
+                </div>
+            {% endif %}
+            <span class="addon_input">m</span>
+        </div>
+    </div>
+    <div class="form-group form-custom">
+        {{ form_label(form.information, null, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        <div class="col-sm-8">
+            {{ form_widget(form.information, {'attr': {'class': 'form-control custom_area', 'rows' : '5', 'placeholder': 'Autre information'}}) }}
+            {% if form_errors(form.information) %}
+                <div class="row">
+                    <div class="error_form">
+                        <span>{{ form_errors(form.information) }}</span>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

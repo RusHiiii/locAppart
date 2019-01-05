@@ -102,11 +102,11 @@ form.customform button:hover {background: none repeat scroll 0 0 #666;}
 /* Icon font - MFG labs */
 @font-face {
   font-family: 'mfg';
-    src: url('/build/font/mfglabsiconset-webfont.eot');
-    src: url('/build/font/mfglabsiconset-webfont.svg#mfg_labs_iconsetregular') format('svg'),
-   		   url('/build/font/mfglabsiconset-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/build/font/mfglabsiconset-webfont.woff') format('woff'),
-         url('/build/font/mfglabsiconset-webfont.ttf') format('truetype');
+    src: url('/font/mfglabsiconset-webfont.eot');
+    src: url('/font/mfglabsiconset-webfont.svg#mfg_labs_iconsetregular') format('svg'),
+   		   url('/font/mfglabsiconset-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/font/mfglabsiconset-webfont.woff') format('woff'),
+         url('/font/mfglabsiconset-webfont.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }

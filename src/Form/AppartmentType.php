@@ -126,7 +126,7 @@ class AppartmentType extends AbstractType
         if(isset($data['prices'])){
             $data['prices'] = array_values($data['prices']);
         }
-        $data['prices'] = array_values($data['prices']);
+
         $event->setData($data);
     }
 }

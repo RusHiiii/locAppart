@@ -790,7 +790,16 @@ table .custom_select{
 .custom_table_prix .bootstrap-select button{
   border: none;
   border-radius: 0px;
-  height: 46px;
+  height: 55px;
+  background-color: transparent;
+}
+
+.custom_table_prix .bootstrap-select button:active{
+  background-color: transparent !important;
+}
+
+.custom_table_prix .bootstrap-select button:hover{
+  background-color: transparent !important;
 }
 
 .delete{
@@ -885,7 +894,7 @@ table .custom_span{
 }
 
 .custom_table_prix .filter-option-inner{
-  line-height: 34px;
+  line-height: 43px;
 }
 
 .datepicker table tr td.active{

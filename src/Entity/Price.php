@@ -36,9 +36,13 @@ class Price
      */
     private $price;
 
+
     /**
-     * @Assert\NotBlank()
-     * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank(
+     *     message = "Spécifiez une valeur."
+     * )
+     * @ORM\ManyToOne(targetEntity="App\Entity\Availability")
+     * @ORM\JoinColumn(name="availability_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
     private $availability;
 
@@ -124,7 +128,7 @@ class Price
      * Permet de récupérer la disponibilité
      * @return string availability
      */
-    public function getAvailability(): ?string
+    public function getAvailability(): ?Availability
     {
         return $this->availability;
     }
@@ -134,7 +138,7 @@ class Price
      * @param  string availability
      * @return self
      */
-    public function setAvailability(string $availability): self
+    public function setAvailability(Availability $availability): self
     {
         $this->availability = $availability;
 

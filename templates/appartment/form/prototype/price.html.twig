@@ -37,7 +37,16 @@
     </div>
 </td>
 <td class="no_padding">
-    {{ form_widget(form.availability, {'attr': {'class': 'selectpicker', 'title': 'Disponibilité', 'data-width': '180px'}}) }}
+    <div class="col-sm-12 no_padding">
+        {{ form_widget(form.availability, {'attr': {'class': 'selectpicker', 'title': 'Disponibilité', 'data-width': '180px'}}) }}
+        {% if form_errors(form.availability) %}
+            <div class="row error">
+                <div class="error_form">
+                    <span>{{ form_errors(form.availability) }}</span>
+                </div>
+            </div>
+        {% endif %}
+    </div>
 </td>
 <td>
     <button type="button" id="remove-price" class="btn btn-primary btn_result delete"><span class="glyphicon glyphicon-trash"></span> Supprimer</button>

@@ -58,7 +58,7 @@ class Appartment
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="string", length=10, nullable=true)
      */
     private $people;
 

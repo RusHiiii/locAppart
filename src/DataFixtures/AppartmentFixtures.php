@@ -51,8 +51,6 @@ class AppartmentFixtures extends Fixture
             $appartment->setCity($this->generateCity($manager));
             $appartment->setUser($this->generateUser($manager));
             $appartment->addMessage($this->generateMessage($manager, $appartment));
-            $appartment->addRessource($this->generateRessource($manager, $appartment));
-            $appartment->addPrice($this->generatePrice($manager, $appartment));
 
             $manager->persist($appartment);
         }
@@ -123,30 +121,5 @@ class AppartmentFixtures extends Fixture
         $manager->persist($message);
 
         return $message;
-    }
-
-    private function generateRessource(ObjectManager $manager, Appartment $appartment)
-    {
-        $ressource = new Ressource();
-        $ressource->setFile($this->faker->file('assets', 'assets/images'));
-        $ressource->setAppartment($appartment);
-
-        $manager->persist($ressource);
-
-        return $ressource;
-    }
-
-    private function generatePrice(ObjectManager $manager, Appartment $appartment)
-    {
-        $price = new Price();
-        $price->setDateBegin($this->faker->datetime);
-        $price->setDateEnd($this->faker->datetime);
-        $price->setPrice($this->faker->randomFloat);
-        $price->setAvailability($this->faker->word);
-        $price->setAppartment($appartment);
-
-        $manager->persist($price);
-
-        return $price;
     }
 }

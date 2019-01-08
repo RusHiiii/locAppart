@@ -42,14 +42,8 @@ class PriceType extends AbstractType
             ->add('price', NumberType::class, array(
                 'label' => 'Prix:'
             ))
-            ->add('availability', ChoiceType::class, array(
-                'choices'  => array(
-                    'Disponible' => 0,
-                    'Non Disponible' => 1,
-                    'Hors période' => 2
-                ),
-                'label' => 'Disponibilité:',
-                'data' => '2',
+            ->add('availability', null, array(
+                'label' => 'Disponibilité:'
             ))
         ;
     }

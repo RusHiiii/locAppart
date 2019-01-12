@@ -7,7 +7,6 @@ use App\Repository\CityRepository;
 
 class CityService
 {
-
     private $cityRepository;
 
     public function __construct(
@@ -17,7 +16,7 @@ class CityService
     }
 
     /**
-     * Récupération des informations de la ville
+     * RECUPERATION DES INFOS DE LA VILLE
      * @param int $id
      * @return array
      */

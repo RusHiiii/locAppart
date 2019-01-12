@@ -24,29 +24,16 @@ class Type
      */
     private $name;
 
-    /**
-     * Permet de recuperer l'id
-     * @return int id
-     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * Permet de récupérer le nom
-     * @return string name
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * Peremt de setter le nom
-     * @param  string $name
-     * @return self
-     */
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -54,10 +41,6 @@ class Type
         return $this;
     }
 
-    /**
-     * Override toString
-     * @return string name
-     */
     public function __toString()
     {
         return $this->name;

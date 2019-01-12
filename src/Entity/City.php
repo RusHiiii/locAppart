@@ -35,29 +35,16 @@ class City
      */
     private $lng;
 
-    /**
-     * Permet de récupérer l'id
-     * @return int id
-     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * Permet de récupérer le nom de la ville
-     * @return string name
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * Permet de setter le nom
-     * @param  string name
-     * @return self
-     */
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -65,20 +52,11 @@ class City
         return $this;
     }
 
-    /**
-     * Permet de récupérer la latitude
-     * @return float lat
-     */
     public function getLat(): ?float
     {
         return $this->lat;
     }
 
-    /**
-     * Permet de setter la latitude
-     * @param  float lat
-     * @return self
-     */
     public function setLat(float $lat): self
     {
         $this->lat = $lat;
@@ -86,20 +64,11 @@ class City
         return $this;
     }
 
-    /**
-     * Permet de récupérer la longitude
-     * @return float lng
-     */
     public function getLng(): ?float
     {
         return $this->lng;
     }
 
-    /**
-     * Permet de setter la longitude
-     * @param  float lng
-     * @return self
-     */
     public function setLng(float $lng): self
     {
         $this->lng = $lng;
@@ -107,10 +76,6 @@ class City
         return $this;
     }
 
-    /**
-     * Override toString
-     * @return string name
-     */
     public function __toString()
     {
         return $this->name;

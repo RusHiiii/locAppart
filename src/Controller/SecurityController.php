@@ -16,15 +16,11 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use App\Service\NotificationService;
 use App\Service\UserService;
 
-/**
- * Class SecurityController
- * @package App\Controller
- */
 class SecurityController extends AbstractController
 {
     /**
-     * Authentification
-     * @Route("/login", name="app_login")
+     * LOGIN DU SITE
+     * @Route("/connexion", name="app_login")
      */
     public function login(
         AuthenticationUtils $authenticationUtils
@@ -37,8 +33,8 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * Déconnexion
-     * @Route("/logout", name="app_logout")
+     * DECONNEXION DU SITE
+     * @Route("/deconnexion", name="app_logout")
      */
     public function logout()
     {
@@ -46,8 +42,8 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * Mot de passe oublié
-     * @Route("/forgottenPassword", name="app_forgotten_password")
+     * MDP CHANGEMENT
+     * @Route("/changement-mdp", name="app_forgotten_password")
      */
     public function forgottenPassword(
         Request $request,
@@ -69,8 +65,8 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * Reset du mot de passe
-     * @Route("/reset_password/{token}", name="app_reset_password")
+     * RESET DU MOT DE PASSE
+     * @Route("/reset-mdp/{token}", name="app_reset_password")
      */
     public function resetPassword(
       Request $request,

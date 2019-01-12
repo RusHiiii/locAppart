@@ -3,19 +3,17 @@
 namespace App\Controller;
 
 use App\Entity\Appartment;
-use App\Entity\City;
-use App\Entity\Status;
 use App\Form\AppartmentType;
 use App\Service\AppartmentService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AppartmentController extends AbstractController
 {
     /**
-     * @Route("/account/dashboard", name="app_dashboard")
+     * DASHBOARD DU COMPTE
+     * @Route("/mon-compte/mes-annonces", name="app_dashboard")
      */
     public function index()
     {
@@ -25,7 +23,8 @@ class AppartmentController extends AbstractController
     }
 
     /**
-     * @Route("/account/appartment/add", name="app_announcement")
+     * AJOUT D'UNE ANNONCE
+     * @Route("/mon-compte/annonce/ajout", name="app_announcement")
      */
     public function addAnnouncement(
         Request $request,

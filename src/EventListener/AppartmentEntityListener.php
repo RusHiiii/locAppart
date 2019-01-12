@@ -16,6 +16,10 @@ class AppartmentEntityListener
         $this->uploader = $uploader;
     }
 
+    /**
+     * FONCTION D'AVANT SAUVEGARDE
+     * @param LifecycleEventArgs $args
+     */
     public function prePersist(LifecycleEventArgs $args)
     {
         $entity = $args->getEntity();
@@ -24,9 +28,12 @@ class AppartmentEntityListener
         $this->manageCreationDate($entity);
     }
 
+    /**
+     * GESTION DES FICHIER
+     * @param $entity
+     */
     private function uploadFile($entity)
     {
-
         if (!$entity instanceof Appartment) {
             return;
         }
@@ -37,15 +44,17 @@ class AppartmentEntityListener
             if ($file->getFile() instanceof UploadedFile) {
                 $fileName = $this->uploader->upload($file->getFile());
                 $file->setFile($fileName['filename']);
-            } elseif ($file instanceof File) {
-                //TODO
             }
         }
     }
 
+    /**
+     * GESTION DE LA DATE DE CREATION
+     * @param $entity
+     * @throws \Exception
+     */
     private function manageCreationDate($entity)
     {
-
         if (!$entity instanceof Appartment) {
             return;
         }

@@ -848,6 +848,7 @@ table .custom_span{
 
 .custom_position{
   right: 12px;
+  top: 18px !important;
 }
 
 .carousel-indicators{

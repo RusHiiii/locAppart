@@ -39,7 +39,7 @@ class UserService
     }
 
     /**
-     * Permet de enregistrer un user
+     * INSCRIPTION D'UN UTILISATEUR
      * @param User $user
      * @return array
      * @throws \Twig_Error_Loader
@@ -62,7 +62,7 @@ class UserService
     }
 
     /**
-     * Point d'entré de la gestion du user
+     * ENTRYPOINT USER
      * @param User $user
      * @param bool $add
      * @return array
@@ -78,7 +78,7 @@ class UserService
     }
 
     /**
-     * Mise à jour du user
+     * MAJ DU USER
      * @param User $user
      * @return array
      */
@@ -91,7 +91,7 @@ class UserService
     }
 
     /**
-     * Permet de reset le mot de passe
+     * RESET DU MDP
      * @param $token
      * @param $password
      * @return array
@@ -114,7 +114,7 @@ class UserService
     }
 
     /**
-     * MàJ du mot de passe
+     * MAJ DU MDP
      * @param $user
      * @param $password
      * @return array
@@ -129,7 +129,7 @@ class UserService
     }
 
     /**
-     * Procedure de changement de mot de passe
+     * RENOUVELLEMENT MDP
      * @param $email
      * @return array
      * @throws \Twig_Error_Loader

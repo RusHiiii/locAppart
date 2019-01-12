@@ -162,29 +162,16 @@ class Appartment
         $this->prices = new ArrayCollection();
     }
 
-    /**
-     * Permet de récupérer l'id
-     * @return int id
-     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * Permet de récupérer le titre
-     * @return string title
-     */
     public function getTitle(): ?string
     {
         return $this->title;
     }
 
-    /**
-     * Permet de setter le titre
-     * @param  string title
-     * @return self
-     */
     public function setTitle(string $title): self
     {
         $this->title = $title;
@@ -192,20 +179,11 @@ class Appartment
         return $this;
     }
 
-    /**
-     * Permet de récupérer la surface
-     * @return int area
-     */
     public function getArea(): ?int
     {
         return $this->area;
     }
 
-    /**
-     * Permet de setter la surface
-     * @param  int  area
-     * @return self
-     */
     public function setArea(int $area): self
     {
         $this->area = $area;
@@ -213,20 +191,11 @@ class Appartment
         return $this;
     }
 
-    /**
-     * Permet de récupérer le nb de piece
-     * @return int room
-     */
     public function getRoom(): ?int
     {
         return $this->room;
     }
 
-    /**
-     * Permet de setter le nb de piece
-     * @param  int  room
-     * @return self
-     */
     public function setRoom(int $room): self
     {
         $this->room = $room;
@@ -234,20 +203,11 @@ class Appartment
         return $this;
     }
 
-    /**
-     * Permet de récupérer la description
-     * @return string description
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * Permet de setter la description
-     * @param  string description
-     * @return self
-     */
     public function setDescription(string $description): self
     {
         $this->description = $description;
@@ -255,20 +215,11 @@ class Appartment
         return $this;
     }
 
-    /**
-     * Permet de récupérer le nb de personne
-     * @return string people
-     */
     public function getPeople(): ?string
     {
         return $this->people;
     }
 
-    /**
-     * Permet de setter le nb de personne
-     * @param  string people
-     * @return self
-     */
     public function setPeople(string $people): self
     {
         $this->people = $people;
@@ -276,20 +227,11 @@ class Appartment
         return $this;
     }
 
-    /**
-     * Permet de récupérer le nb de chambre
-     * @return int bedroom
-     */
     public function getBedroom(): ?int
     {
         return $this->bedroom;
     }
 
-    /**
-     * Permet de setter le nb de chambre
-     * @param  int bedroom
-     * @return self
-     */
     public function setBedroom(?int $bedroom): self
     {
         $this->bedroom = $bedroom;
@@ -297,20 +239,11 @@ class Appartment
         return $this;
     }
 
-    /**
-     * Permet de récupérer la distance des pistes
-     * @return int ski
-     */
     public function getSki(): ?int
     {
         return $this->ski;
     }
 
-    /**
-     * Permet de setter la distance des pistes
-     * @param  int ski
-     * @return self
-     */
     public function setSki(?int $ski): self
     {
         $this->ski = $ski;
@@ -318,20 +251,11 @@ class Appartment
         return $this;
     }
 
-    /**
-     * Permet de récupérer les autres infos
-     * @return string information
-     */
     public function getInformation(): ?string
     {
         return $this->information;
     }
 
-    /**
-     * Permet de setter les infos
-     * @param  string information
-     * @return self
-     */
     public function setInformation(?string $information): self
     {
         $this->information = $information;
@@ -339,20 +263,11 @@ class Appartment
         return $this;
     }
 
-    /**
-     * Permet de récupérer l'addresse
-     * @return string adress
-     */
     public function getAdress(): ?string
     {
         return $this->adress;
     }
 
-    /**
-     * Permet de setter l'adress
-     * @param  string adress
-     * @return self
-     */
     public function setAdress(string $adress): self
     {
         $this->adress = $adress;
@@ -360,20 +275,11 @@ class Appartment
         return $this;
     }
 
-    /**
-     * Permet de récupérer la latitude
-     * @return float lat
-     */
     public function getLat(): ?float
     {
         return $this->lat;
     }
 
-    /**
-     * Permet de setter la latitude
-     * @param  float lat
-     * @return self
-     */
     public function setLat(float $lat): self
     {
         $this->lat = $lat;
@@ -381,20 +287,11 @@ class Appartment
         return $this;
     }
 
-    /**
-     * Permet de récupérer la longitude
-     * @return float lng
-     */
     public function getLng(): ?float
     {
         return $this->lng;
     }
 
-    /**
-     * Permet de setter la longitude
-     * @param  float lng
-     * @return self
-     */
     public function setLng(float $lng): self
     {
         $this->lng = $lng;
@@ -402,20 +299,11 @@ class Appartment
         return $this;
     }
 
-    /**
-     * Permet de récupérer la réferenece
-     * @return string reference
-     */
     public function getReference(): ?string
     {
         return $this->reference;
     }
 
-    /**
-     * Permet de setter la ref
-     * @param  string reference
-     * @return self
-     */
     public function setReference(string $reference): self
     {
         $this->reference = $reference;
@@ -423,20 +311,11 @@ class Appartment
         return $this;
     }
 
-    /**
-     * Permet de récupérer la date
-     * @return DateTimeInterface date
-     */
     public function getDate(): ?\DateTimeInterface
     {
         return $this->date;
     }
 
-    /**
-     * Permet de setter la date
-     * @param  DateTimeInterface date
-     * @return self
-     */
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
@@ -444,20 +323,11 @@ class Appartment
         return $this;
     }
 
-    /**
-     * Permet de récupérer le type
-     * @return Type type
-     */
     public function getType(): ?Type
     {
         return $this->type;
     }
 
-    /**
-     * Permet de setter le type
-     * @param  Type type
-     * @return self
-     */
     public function setType(?Type $type): self
     {
         $this->type = $type;
@@ -465,20 +335,11 @@ class Appartment
         return $this;
     }
 
-    /**
-     * Permet de récupérer le status
-     * @return Status status
-     */
     public function getStatus(): ?Status
     {
         return $this->status;
     }
 
-    /**
-     * Permet de setter le status
-     * @param  Status status
-     * @return self
-     */
     public function setStatus(?Status $status): self
     {
         $this->status = $status;
@@ -486,20 +347,11 @@ class Appartment
         return $this;
     }
 
-    /**
-     * Permet de récupérer la ville
-     * @return City city
-     */
     public function getCity(): ?City
     {
         return $this->city;
     }
 
-    /**
-     * Permet de récupérer la ville
-     * @param  City city
-     * @return self
-     */
     public function setCity(?City $city): self
     {
         $this->city = $city;
@@ -507,20 +359,11 @@ class Appartment
         return $this;
     }
 
-    /**
-     * Permet de récuperer le user
-     * @return User user
-     */
     public function getUser(): ?User
     {
         return $this->user;
     }
 
-    /**
-     * Permet de setter le user
-     * @param  User user
-     * @return self
-     */
     public function setUser(?User $user): self
     {
         $this->user = $user;
@@ -528,19 +371,11 @@ class Appartment
         return $this;
     }
 
-    /**
-     * @return Collection|Ressource[]
-     */
     public function getRessources(): Collection
     {
         return $this->ressources;
     }
 
-    /**
-     * Permet d'ajouter une ressource
-     * @param  Ressource ressource
-     * @return self
-     */
     public function addRessource(Ressource $ressource): self
     {
         if (!$this->ressources->contains($ressource)) {
@@ -551,11 +386,6 @@ class Appartment
         return $this;
     }
 
-    /**
-     * Permet la suppression d'une ressource
-     * @param  Ressource ressource
-     * @return self
-     */
     public function removeRessource(Ressource $ressource): self
     {
         if ($this->ressources->contains($ressource)) {
@@ -569,19 +399,11 @@ class Appartment
         return $this;
     }
 
-    /**
-     * @return Collection|Message[]
-     */
     public function getMessages(): Collection
     {
         return $this->messages;
     }
 
-    /**
-     * Permet d'ajouter un message
-     * @param  Message message
-     * @return self
-     */
     public function addMessage(Message $message): self
     {
         if (!$this->messages->contains($message)) {
@@ -592,11 +414,6 @@ class Appartment
         return $this;
     }
 
-    /**
-     * Permet de supprimer un message
-     * @param  Message message
-     * @return self
-     */
     public function removeMessage(Message $message): self
     {
         if ($this->messages->contains($message)) {
@@ -610,19 +427,11 @@ class Appartment
         return $this;
     }
 
-    /**
-     * @return Collection|Price[]
-     */
     public function getPrices(): Collection
     {
         return $this->prices;
     }
 
-    /**
-     * Permet d'ajouter un prix
-     * @param  Price price
-     * @return self
-     */
     public function addPrice(Price $price): self
     {
         if (!$this->prices->contains($price)) {
@@ -633,16 +442,10 @@ class Appartment
         return $this;
     }
 
-    /**
-     * Permet de supprimer un prix
-     * @param  Price price
-     * @return self
-     */
     public function removePrice(Price $price): self
     {
         if ($this->prices->contains($price)) {
             $this->prices->removeElement($price);
-            // set the owning side to null (unless already changed)
             if ($price->getAppartment() === $this) {
                 $price->setAppartment(null);
             }
@@ -651,20 +454,11 @@ class Appartment
         return $this;
     }
 
-    /**
-     * Permet de récupérer le garage
-     * @return bool garage
-     */
     public function getGarage(): ?bool
     {
         return $this->garage;
     }
 
-    /**
-     * Permet de setter le garage
-     * @param  bool garage
-     * @return self
-     */
     public function setGarage(?bool $garage): self
     {
         $this->garage = $garage;
@@ -672,20 +466,11 @@ class Appartment
         return $this;
     }
 
-    /**
-     * Permet de récupérer le casier
-     * @return bool locker
-     */
     public function getLocker(): ?bool
     {
         return $this->locker;
     }
 
-    /**
-     * Permet de setter le casier
-     * @param  bool locker
-     * @return self
-     */
     public function setLocker(?bool $locker): self
     {
         $this->locker = $locker;
@@ -693,10 +478,6 @@ class Appartment
         return $this;
     }
 
-    /**
-     * Override toString
-     * @return string reference
-     */
     public function __toString()
     {
         return $this->reference;

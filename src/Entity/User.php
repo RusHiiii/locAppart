@@ -87,29 +87,16 @@ class User implements UserInterface
         $this->notification = true;
     }
 
-    /**
-     * Permet de récupérér l'id
-     * @return int id
-     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * Permet de récupérer l'eamil
-     * @return string email
-     */
     public function getEmail(): ?string
     {
         return $this->email;
     }
 
-    /**
-     * Permet de setter l'eamil
-     * @param  string email
-     * @return self
-     */
     public function setEmail(string $email): self
     {
         $this->email = $email;
@@ -117,33 +104,19 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * A visual identifier that represents this user.
-     *
-     * @see UserInterface
-     */
     public function getUsername(): string
     {
         return (string) $this->email;
     }
 
-    /**
-     * @see UserInterface
-     */
     public function getRoles(): array
     {
         $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
         $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
     }
 
-    /**
-     * Permet de setter les roles
-     * @param  array roles
-     * @return self
-     */
     public function setRoles(array $roles): self
     {
         $this->roles = $roles;
@@ -151,19 +124,11 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * @see UserInterface
-     */
     public function getPassword(): string
     {
         return (string) $this->password;
     }
 
-    /**
-     * Permet de setter le pswd
-     * @param  string password
-     * @return self
-     */
     public function setPassword(string $password): self
     {
         $this->password = $password;
@@ -171,37 +136,22 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * @see UserInterface
-     */
     public function getSalt()
     {
         // not needed when using the "bcrypt" algorithm in security.yaml
     }
 
-    /**
-     * @see UserInterface
-     */
     public function eraseCredentials()
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
 
-    /**
-     * Recupere le firstname
-     * @return string firstname
-     */
     public function getFirstname(): ?string
     {
         return $this->firstname;
     }
 
-    /**
-     * Permet de setter le firstname
-     * @param  string firstname
-     * @return self
-     */
     public function setFirstname(string $firstname): self
     {
         $this->firstname = $firstname;
@@ -209,20 +159,11 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * Getter lastname
-     * @return string lastname
-     */
     public function getLastname(): ?string
     {
         return $this->lastname;
     }
 
-    /**
-     * Setter lastname
-     * @param  string lastname
-     * @return self
-     */
     public function setLastname(string $lastname): self
     {
         $this->lastname = $lastname;
@@ -230,20 +171,11 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * Getter date
-     * @return DateTimeInterface date
-     */
     public function getDate(): ?\DateTimeInterface
     {
         return $this->date;
     }
 
-    /**
-     * Setter date
-     * @param  DateTimeInterface date
-     * @return self
-     */
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
@@ -251,20 +183,11 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * Getter gender
-     * @return string gender
-     */
     public function getGender(): ?string
     {
         return $this->gender;
     }
 
-    /**
-     * Setter gender
-     * @param  string gender
-     * @return self
-     */
     public function setGender(?string $gender): self
     {
         $this->gender = $gender;
@@ -272,34 +195,21 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getResetToken(): string
     {
         return $this->resetToken;
     }
 
-    /**
-     * @param string $resetToken
-     */
     public function setResetToken(?string $resetToken): void
     {
         $this->resetToken = $resetToken;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getNotification(): ?bool
     {
         return $this->notification;
     }
 
-    /**
-     * @param bool|null $notification
-     * @return User
-     */
     public function setNotification(?bool $notification): self
     {
         $this->notification = $notification;

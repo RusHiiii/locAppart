@@ -13,6 +13,11 @@ class FileUploaderService
         $this->targetDirectory = $targetDirectory;
     }
 
+    /**
+     * UPLOAD DU FICHIER
+     * @param UploadedFile $file
+     * @return array
+     */
     public function upload(UploadedFile $file)
     {
         $fileName = md5(uniqid()).'.'.$file->guessExtension();
@@ -26,6 +31,10 @@ class FileUploaderService
         return array('filename' => $fileName, 'upload' => true);
     }
 
+    /**
+     * RECUPERATION DU REPERTOIRE D'UPLOAD
+     * @return mixed
+     */
     public function getTargetDirectory()
     {
         return $this->targetDirectory;

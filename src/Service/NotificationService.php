@@ -42,7 +42,7 @@ class NotificationService
     }
 
     /**
-     * Permet de générer un un token pour un email
+     * GENERATION DE TOKEN
      * @param $email
      * @return array
      */
@@ -69,7 +69,7 @@ class NotificationService
     }
 
     /**
-     * Permet de envoyer un email
+     * ENVOIE DU MAIL
      * @param $user
      * @param $subject
      * @param $message

@@ -13,6 +13,11 @@ class AppartmentRepository extends ServiceEntityRepository
         parent::__construct($registry, Appartment::class);
     }
 
+    /**
+     * RECUPERE LE DERNIER APPART
+     * @return Appartment
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
     public function findLastAppartment():Appartment
     {
         $qb = $this->createQueryBuilder('qb')
@@ -22,5 +27,4 @@ class AppartmentRepository extends ServiceEntityRepository
 
         return $qb->getOneOrNullResult();
     }
-
 }

@@ -56,29 +56,16 @@ class Message
      */
     private $appartment;
 
-    /**
-     * Permet de récupérer l'id
-     * @return int id
-     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * Permet de récupérer l'email
-     * @return string email
-     */
     public function getEmail(): ?string
     {
         return $this->email;
     }
 
-    /**
-     * Permet de setter l'email
-     * @param  string email
-     * @return self
-     */
     public function setEmail(string $email): self
     {
         $this->email = $email;
@@ -86,20 +73,11 @@ class Message
         return $this;
     }
 
-    /**
-     * Permet de récupérer le sujet
-     * @return string subject
-     */
     public function getSubject(): ?string
     {
         return $this->subject;
     }
 
-    /**
-     * Permet de setter le sujet
-     * @param  string subject
-     * @return self
-     */
     public function setSubject(string $subject): self
     {
         $this->subject = $subject;
@@ -107,20 +85,11 @@ class Message
         return $this;
     }
 
-    /**
-     * Permet de récupérer le téléphone
-     * @return string phone
-     */
     public function getPhone(): ?string
     {
         return $this->phone;
     }
 
-    /**
-     * Permet de setter le phone
-     * @param  string phone
-     * @return self
-     */
     public function setPhone(string $phone): self
     {
         $this->phone = $phone;
@@ -128,20 +97,11 @@ class Message
         return $this;
     }
 
-    /**
-     * Permet de récupérer le texte
-     * @return string text
-     */
     public function getText(): ?string
     {
         return $this->text;
     }
 
-    /**
-     * Permet de setter le texte
-     * @param  string text
-     * @return self
-     */
     public function setText(string $text): self
     {
         $this->text = $text;
@@ -149,20 +109,11 @@ class Message
         return $this;
     }
 
-    /**
-     * Permet de récupérer la date
-     * @return DateTimeInterface date
-     */
     public function getDate(): ?\DateTimeInterface
     {
         return $this->date;
     }
 
-    /**
-     * Permet de setter la date
-     * @param  DateTimeInterface date
-     * @return self
-     */
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
@@ -170,20 +121,11 @@ class Message
         return $this;
     }
 
-    /**
-     * Permet de récupérer un appartment
-     * @return Appartment appartment
-     */
     public function getAppartment(): ?Appartment
     {
         return $this->appartment;
     }
 
-    /**
-     * Permet de setter un appartment
-     * @param  Appartment appartment
-     * @return self
-     */
     public function setAppartment(?Appartment $appartment): self
     {
         $this->appartment = $appartment;
@@ -191,10 +133,6 @@ class Message
         return $this;
     }
 
-    /**
-     * Override toString
-     * @return string subject
-     */
     public function __toString()
     {
         return $this->subject;

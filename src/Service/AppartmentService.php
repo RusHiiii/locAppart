@@ -10,7 +10,7 @@ use Symfony\Component\Security\Core\Security;
 
 class AppartmentService
 {
-    const MSG_SUCCESS_ADD_APP  = 'L\'annonce a été ajouté !';
+    const MSG_SUCCESS_ADD_APP  = 'L\'annonce a été ajouté ! Elle est en cours de modération.';
     const MSG_ERROR_ADD_APP  = 'Une erreur est survenu.';
 
     private $appartmentRepository;
@@ -33,6 +33,12 @@ class AppartmentService
         $this->fileUploaderService = $fileUploaderService;
     }
 
+    /**
+     * PUSH UNE ANNONCE
+     * @param Appartment $app
+     * @param bool $update
+     * @return array
+     */
     public function pushAppartment(Appartment $app, bool $update)
     {
         if(!$update){
@@ -42,6 +48,11 @@ class AppartmentService
         return array('push' => $data['result'], 'msg' => $data['msg']);
     }
 
+    /**
+     * AJOUT D'UNE ANNONCE
+     * @param Appartment $appartment
+     * @return array
+     */
     private function addNewAppartment(Appartment $appartment){
         $ref = $this->generateReference($appartment);
         $appartment->setReference(strtoupper($ref));
@@ -57,6 +68,11 @@ class AppartmentService
         return array('result' => true, 'msg' => self::MSG_SUCCESS_ADD_APP);
     }
 
+    /**
+     * GENERE UNE ANNONCE
+     * @param Appartment $appartment
+     * @return string
+     */
     private function generateReference(Appartment $appartment){
         $reference = [];
         $reference[] = substr($appartment->getType()->getName(), 0, 3);

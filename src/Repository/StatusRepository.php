@@ -13,6 +13,11 @@ class StatusRepository extends ServiceEntityRepository
         parent::__construct($registry, Status::class);
     }
 
+    /**
+     * RECUPERATION PAR LE NOM
+     * @param $name
+     * @return object|null
+     */
     public function findByName($name){
         $status = $this->findOneBy([
             'name' => $name

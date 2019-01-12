@@ -2,8 +2,6 @@
 
 namespace App\Controller;
 
-use App\Form\ForgottenPasswordType;
-use App\Form\ResetPasswordType;
 use App\Form\UpdatePasswordType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,8 +14,8 @@ use App\Service\UserService;
 class UserController extends AbstractController
 {
     /**
-     * HomePage du user
-     * @Route("/account/profile", name="app_profil")
+     * PROFILE DE L'UTILISATEUR
+     * @Route("/mon-compte/profile", name="app_profil")
      */
     public function index(
         Request $request,
@@ -47,8 +45,8 @@ class UserController extends AbstractController
     }
 
     /**
-     * Enregistrement du user
-     * @Route("/register", name="app_register")
+     * INSCRIPTION DU SITE
+     * @Route("/inscription", name="app_register")
      */
     public function register(
       Request $request,

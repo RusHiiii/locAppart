@@ -6,10 +6,6 @@ use App\Entity\City;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
-/**
- * Class CityRepository
- * @package App\Repository
- */
 class CityRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
@@ -18,6 +14,7 @@ class CityRepository extends ServiceEntityRepository
     }
 
     /**
+     * RECUPERE UNE VILLE PAR N'IMPORTE QUELLE KEY/VALUE
      * @param $key
      * @param $value
      * @return City|null

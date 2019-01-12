@@ -42,7 +42,7 @@ $('#appartment_city').on('change', (function() {
 
     $.ajax({
 
-        url : '/xhr/city',
+        url : '/xhr/ville',
         type : 'POST',
         data : {
             'city' : city

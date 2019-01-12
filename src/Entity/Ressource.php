@@ -33,29 +33,16 @@ class Ressource
      */
     private $appartment;
 
-    /**
-     * Permet de récupérer l'id
-     * @return int id
-     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * Permet de récupérer le fichier
-     * @return string file
-     */
     public function getFile()
     {
         return $this->file;
     }
 
-    /**
-     * Permet de setter le fichier
-     * @param  string file
-     * @return self
-     */
     public function setFile($file): self
     {
         $this->file = $file;
@@ -63,20 +50,11 @@ class Ressource
         return $this;
     }
 
-    /**
-     * Permet de récupérer un appartment
-     * @return Appartment appartment
-     */
     public function getAppartment(): ?Appartment
     {
         return $this->appartment;
     }
 
-    /**
-     * Permet de setter un appartment
-     * @param  Appartment appartment
-     * @return self
-     */
     public function setAppartment(?Appartment $appartment): self
     {
         $this->appartment = $appartment;
@@ -84,10 +62,6 @@ class Ressource
         return $this;
     }
 
-    /**
-     * Override toString
-     * @return string id
-     */
     public function __toString()
     {
         return $this->id;

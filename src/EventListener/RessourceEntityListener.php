@@ -16,6 +16,10 @@ class RessourceEntityListener
         $this->uploader = $uploader;
     }
 
+    /**
+     * FONCTION D'AVANT SUPRESSION D'UNE RESSOURCE
+     * @param LifecycleEventArgs $args
+     */
     public function preRemove(LifecycleEventArgs $args)
     {
 

@@ -11,7 +11,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class XhrController extends AbstractController
 {
     /**
-     * @Route("/xhr/city", condition="request.isXmlHttpRequest()")
+     * RECUPERATION DES INFOS DE LA VILLE
+     * @Route("/xhr/ville", condition="request.isXmlHttpRequest()")
      */
     public function getCityInformation(
         Request $request,

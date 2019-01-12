@@ -40,7 +40,7 @@ class AppartmentEntityListener
 
         $files = $entity->getRessources();
 
-        foreach ($files as $file){
+        foreach ($files as $file) {
             if ($file->getFile() instanceof UploadedFile) {
                 $fileName = $this->uploader->upload($file->getFile());
                 $file->setFile($fileName['filename']);

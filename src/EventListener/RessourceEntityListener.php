@@ -22,6 +22,5 @@ class RessourceEntityListener
      */
     public function preRemove(LifecycleEventArgs $args)
     {
-
     }
 }

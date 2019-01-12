@@ -70,8 +70,9 @@ class UserService
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function pushUser(User $user, bool $add){
-        if($add){
+    public function pushUser(User $user, bool $add)
+    {
+        if ($add) {
             return $this->registerUser($user);
         }
         return $this->updateUser($user);
@@ -119,7 +120,8 @@ class UserService
      * @param $password
      * @return array
      */
-    public function updatePassword(User $user, string $password){
+    public function updatePassword(User $user, string $password)
+    {
         $user->setPassword($this->passwordEncoder->encodePassword($user, $password));
 
         $this->entityManager->persist($user);

@@ -41,7 +41,7 @@ class AppartmentService
      */
     public function pushAppartment(Appartment $app, bool $update)
     {
-        if(!$update){
+        if (!$update) {
             $data = $this->addNewAppartment($app);
         }
 
@@ -53,7 +53,8 @@ class AppartmentService
      * @param Appartment $appartment
      * @return array
      */
-    private function addNewAppartment(Appartment $appartment){
+    private function addNewAppartment(Appartment $appartment)
+    {
         $ref = $this->generateReference($appartment);
         $appartment->setReference(strtoupper($ref));
 
@@ -73,14 +74,15 @@ class AppartmentService
      * @param Appartment $appartment
      * @return string
      */
-    private function generateReference(Appartment $appartment){
+    private function generateReference(Appartment $appartment)
+    {
         $reference = [];
         $reference[] = substr($appartment->getType()->getName(), 0, 3);
 
         $cityName = preg_replace('/\s+/', '', $appartment->getCity()->getName());
         $reference[] = substr($cityName, 0, 5);
 
-        $reference[] = sprintf('%03d', rand(10,99));
+        $reference[] = sprintf('%03d', rand(10, 99));
 
         return implode('', $reference);
     }

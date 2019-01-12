@@ -20,7 +20,8 @@ class CityService
      * @param int $id
      * @return array
      */
-    public function getCityInformationLocation(int $id){
+    public function getCityInformationLocation(int $id)
+    {
         $city = $this->cityRepository->findByKeyValue('id', $id);
 
         return array(

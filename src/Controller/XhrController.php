@@ -17,8 +17,7 @@ class XhrController extends AbstractController
     public function getCityInformation(
         Request $request,
         CityService $cityService
-    )
-    {
+    ) {
         $cityId = $request->request->get('city');
 
         $city = $cityService->getCityInformationLocation($cityId);

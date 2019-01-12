@@ -18,7 +18,8 @@ class StatusRepository extends ServiceEntityRepository
      * @param $name
      * @return object|null
      */
-    public function findByName($name){
+    public function findByName($name)
+    {
         $status = $this->findOneBy([
             'name' => $name
         ]);

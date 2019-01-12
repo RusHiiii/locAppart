@@ -20,8 +20,7 @@ class UserController extends AbstractController
     public function index(
         Request $request,
         UserService $userService
-    )
-    {
+    ) {
         $user = $this->getUser();
         $formUpdate = $this->createForm(UserEditType::class, $user);
         $formPswd = $this->createForm(UpdatePasswordType::class, $user);
@@ -60,7 +59,7 @@ class UserController extends AbstractController
             $data = $userService->pushUser($user, true);
             $this->addFlash('notice', $data['msg']);
 
-            if($data['register']){
+            if ($data['register']) {
                 return $this->redirectToRoute('app_login');
             }
         }

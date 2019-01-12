@@ -29,8 +29,7 @@ class AppartmentController extends AbstractController
     public function addAnnouncement(
         Request $request,
         AppartmentService $appService
-    )
-    {
+    ) {
         $appartment = new Appartment();
 
         $form = $this->createForm(AppartmentType::class, $appartment);

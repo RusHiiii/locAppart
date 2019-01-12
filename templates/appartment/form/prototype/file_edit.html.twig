@@ -10,12 +10,7 @@
         </label>
     </div>
     <div class="box_img">
-        {% if form.vars.value.file.filename is defined %}
-            <img id="img_{{ idx }}" class="img_file" src="/uploads/{{ form.vars.value.file.filename }}"/>
-        {% else %}
-            <img id="img_{{ idx }}" class="img_file" src="/uploads/{{ form.vars.value.file }}"/>
-        {% endif %}
-
+        <img id="img_{{ idx }}" class="img_file" src="/uploads/{{ form.vars.value.path }}"/>
         <a id="{{ idx }}"><i id="circle_{{ idx }}" class="fa fa-times-circle" aria-hidden="true"></i></a>
     </div>
 </div>

@@ -84,7 +84,6 @@
         <tr id="appartment_ressources" data-prototype="{{ include('appartment/form/prototype/file_add.html.twig', { 'form': form.ressources.vars.prototype, 'idx':'__name__' }) | e('html_attr') }}" >
             {% for idx, ressource in form.ressources %}
                 <td id="td_{{ idx }}">
-                    {{ dump(ressource) }}
                     {{ include('appartment/form/prototype/file_edit.html.twig', { 'form': ressource, 'idx': idx }) }}
                 </td>
             {% endfor %}

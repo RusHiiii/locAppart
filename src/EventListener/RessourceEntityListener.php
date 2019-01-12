@@ -34,9 +34,7 @@ class RessourceEntityListener
     {
         $entity = $args->getEntity();
 
-        $data = $args->getEntityChangeSet($entity);
-
-        $this->uploadFile($entity, $data);
+        $this->uploadFile($entity);
     }
 
     /**
@@ -54,19 +52,19 @@ class RessourceEntityListener
      * GESTION DES FICHIER
      * @param $entity
      */
-    private function uploadFile($entity, $data)
+    private function uploadFile($entity)
     {
         if (!$entity instanceof Ressource) {
             return;
         }
 
         if ($entity->getFile() instanceof UploadedFile) {
-            $fileName = $this->uploader->upload($entity->getFile());
-            $entity->setFile($fileName['filename']);
+            $fileName = $this->uploader->upload($entity->getFile(), $entity->getId());
+            $entity->setPath($fileName['filename']);
         }
 
         if($entity->getFile() === null){
-            $entity->setFile($data['file'][0]);
+            $entity->setPath($entity->getPath());
         }
     }
 }

@@ -43,7 +43,7 @@ class AppartmentEntityListener
         foreach ($files as $file) {
             if ($file->getFile() instanceof UploadedFile) {
                 $fileName = $this->uploader->upload($file->getFile());
-                $file->setFile($fileName['filename']);
+                $file->setPath($fileName['filename']);
             }
         }
     }

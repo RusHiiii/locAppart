@@ -123,7 +123,7 @@ class AppartmentService
 
         $ressources = $appartement->getRessources();
         foreach ($ressources as $ressource){
-            $ressource->setFile(new File($this->targetDirectory . '/' . $ressource->getFile()));
+            $ressource->setFile(new File($this->targetDirectory . '/' . $ressource->getPath()));
         }
 
         return array('info' => true, 'data' => $appartement);

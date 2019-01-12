@@ -18,7 +18,6 @@ class Ressource
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
      * @Assert\File(
      *     maxSize = "1024k",
      *     mimeTypes = {"image/png", "image/jpg", "image/jpeg"},
@@ -32,6 +31,11 @@ class Ressource
      * @ORM\JoinColumn(nullable=false)
      */
     private $appartment;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $path;
 
     public function getId(): ?int
     {
@@ -58,6 +62,18 @@ class Ressource
     public function setAppartment(?Appartment $appartment): self
     {
         $this->appartment = $appartment;
+
+        return $this;
+    }
+
+    public function getPath(): ?string
+    {
+        return $this->path;
+    }
+
+    public function setPath(string $path): self
+    {
+        $this->path = $path;
 
         return $this;
     }

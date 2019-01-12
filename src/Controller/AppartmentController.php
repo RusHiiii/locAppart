@@ -36,7 +36,10 @@ class AppartmentController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $appService->pushAppartment($appartment, false);
+            $data = $appService->pushAppartment($appartment, false);
+
+            $this->addFlash('notice', $data['msg']);
+            return $this->redirectToRoute('app_dashboard');
         }
 
         return $this->render('appartment/announcement.html.twig', [

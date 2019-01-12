@@ -45,7 +45,7 @@ class RessourceEntityListener
     {
         $entity = $args->getEntity();
 
-        $this->uploadFile($entity, null);
+        $this->uploadFile($entity);
     }
 
     /**
@@ -59,7 +59,7 @@ class RessourceEntityListener
         }
 
         if ($entity->getFile() instanceof UploadedFile) {
-            $fileName = $this->uploader->upload($entity->getFile(), $entity->getId());
+            $fileName = $this->uploader->upload($entity->getFile());
             $entity->setPath($fileName['filename']);
         }
 

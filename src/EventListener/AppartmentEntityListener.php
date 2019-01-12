@@ -24,28 +24,7 @@ class AppartmentEntityListener
     {
         $entity = $args->getEntity();
 
-        $this->uploadFile($entity);
         $this->manageCreationDate($entity);
-    }
-
-    /**
-     * GESTION DES FICHIER
-     * @param $entity
-     */
-    private function uploadFile($entity)
-    {
-        if (!$entity instanceof Appartment) {
-            return;
-        }
-
-        $files = $entity->getRessources();
-
-        foreach ($files as $file) {
-            if ($file->getFile() instanceof UploadedFile) {
-                $fileName = $this->uploader->upload($file->getFile());
-                $file->setPath($fileName['filename']);
-            }
-        }
     }
 
     /**

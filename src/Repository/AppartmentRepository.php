@@ -27,4 +27,15 @@ class AppartmentRepository extends ServiceEntityRepository
 
         return $qb->getOneOrNullResult();
     }
+
+    /**
+     * RECUPERATION PAR KEY/VALUE
+     * @param  string key
+     * @param  string value
+     * @return User
+     */
+    public function findByKeyValue($key, $value): ?Appartment
+    {
+        return $this->findOneBy(array($key => $value));
+    }
 }

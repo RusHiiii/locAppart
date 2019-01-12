@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Appartment;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -103,9 +104,10 @@ class AppartmentType extends AbstractType
                 'required' => false
             ))
             ->add('save', SubmitType::class, array(
-              'label' => 'Ajouter mon annonce'
+              'label' => 'Valider'
             ))
         ;
+
         $builder->addEventListener(FormEvents::PRE_SUBMIT, array($this, 'onPreSubmit'));
     }
 

@@ -24,7 +24,7 @@ class AppartmentController extends AbstractController
 
     /**
      * AJOUT D'UNE ANNONCE
-     * @Route("/mon-compte/annonce/ajout", name="app_announcement")
+     * @Route("/mon-compte/annonce/ajout", name="app_announcement_add")
      */
     public function addAnnouncement(
         Request $request,
@@ -39,8 +39,45 @@ class AppartmentController extends AbstractController
             $appService->pushAppartment($appartment, false);
         }
 
-        return $this->render('appartment/add_announcement.html.twig', [
-            'form' => $form->createView()
+        return $this->render('appartment/announcement.html.twig', [
+            'form' => $form->createView(),
+            'type' => 'Ajout'
+        ]);
+    }
+
+    /**
+     * EDITION D'UNE ANNONCE
+     * @Route("/mon-compte/annonce/edition/{id}", name="app_announcement_edit")
+     */
+    public function editAnnouncement(
+        Request $request,
+        AppartmentService $appService,
+        int $id
+    ) {
+        $appartment = $appService->getAppartmentInfo($id);
+        if(!$appartment['info']){
+            $this->addFlash('notice', $appartment['data']);
+            return $this->redirectToRoute('app_dashboard');
+        }
+
+        if($appartment['data']->getUser() != $this->getUser()){
+            return $this->redirectToRoute('home');
+        }
+
+        $app = $appartment['data'];
+        $form = $this->createForm(AppartmentType::class, $app);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $appService->pushAppartment($app, true);
+
+            $this->addFlash('notice', $data['msg']);
+            return $this->redirectToRoute('app_dashboard');
+        }
+
+        return $this->render('appartment/announcement.html.twig', [
+            'form' => $form->createView(),
+            'type' => 'Edition'
         ]);
     }
 }

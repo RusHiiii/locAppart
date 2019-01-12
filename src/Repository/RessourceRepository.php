@@ -12,4 +12,15 @@ class RessourceRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Ressource::class);
     }
+
+    /**
+     * RECUPERATION PAR KEY/VALUE
+     * @param  string key
+     * @param  string value
+     * @return User
+     */
+    public function findByKeyValue($key, $value): ?Ressource
+    {
+        return $this->findOneBy(array($key => $value));
+    }
 }

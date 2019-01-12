@@ -81,10 +81,11 @@
     </div>
 
     <table id="no-more-tables" class="custom_table_width">
-        <tr id="appartment_ressources" data-prototype="{{ include('appartment/form/prototype/file.html.twig', { 'form': form.ressources.vars.prototype, 'idx':'__name__' }) | e('html_attr') }}" >
+        <tr id="appartment_ressources" data-prototype="{{ include('appartment/form/prototype/file_add.html.twig', { 'form': form.ressources.vars.prototype, 'idx':'__name__' }) | e('html_attr') }}" >
             {% for idx, ressource in form.ressources %}
                 <td id="td_{{ idx }}">
-                    {{ include('appartment/form/prototype/file.html.twig', { 'form': ressource, 'idx': idx }) }}
+                    {{ dump(ressource) }}
+                    {{ include('appartment/form/prototype/file_edit.html.twig', { 'form': ressource, 'idx': idx }) }}
                 </td>
             {% endfor %}
         </tr>

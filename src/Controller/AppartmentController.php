@@ -78,6 +78,7 @@ class AppartmentController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+
             $data = $appService->pushAppartment($app, true);
 
             $this->addFlash('notice', $data['msg']);

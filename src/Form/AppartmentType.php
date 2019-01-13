@@ -121,9 +121,7 @@ class AppartmentType extends AbstractType
     public function onPreSubmit(FormEvent $event)
     {
         $data = $event->getData();
-        if(isset($data['ressources'])){
-            $data['ressources'] = array_values($data['ressources']);
-        }
+
         if(isset($data['prices'])){
             $data['prices'] = array_values($data['prices']);
         }

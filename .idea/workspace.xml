@@ -3,25 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ca2ff752-e165-416e-b927-fcd2c0694b68" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/location-appartement.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/location-appartement.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AppartmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AppartmentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Price.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Price.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Ressource.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Ressource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventListener/AppartmentEntityListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventListener/AppartmentEntityListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventListener/RessourceEntityListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventListener/RessourceEntityListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/AppartmentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/AppartmentRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/AppartmentService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/AppartmentService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Shared/elements/nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Shared/elements/nav.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/appartment/form/prototype/file_add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/appartment/form/prototype/file_add.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/appartment/form/prototype/file_edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/appartment/form/prototype/file_edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/appartment/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/appartment/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/AppartmentType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/AppartmentType.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,8 +21,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/AppartmentController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="58" column="77" selection-start-line="58" selection-start-column="56" selection-end-line="58" selection-end-column="77" />
+            <state relative-caret-position="391">
+              <caret line="80" selection-start-line="80" selection-end-line="80" />
               <folding>
                 <element signature="e#34#60#0#PHP" expanded="true" />
               </folding>
@@ -46,11 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/appartment/index.html.twig">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/EventListener/RessourceEntityListener.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="88" column="14" lean-forward="true" selection-start-line="88" selection-start-column="14" selection-end-line="88" selection-end-column="14" />
+            <state relative-caret-position="323">
+              <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -68,20 +52,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/routes.yaml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
+        <entry file="file://$PROJECT_DIR$/src/Form/RessourceType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="541">
-              <caret line="37" column="52" selection-start-line="37" selection-start-column="52" selection-end-line="37" selection-end-column="52" />
+            <state relative-caret-position="204">
+              <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Form/AppartmentType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="524">
+              <caret line="128" column="31" lean-forward="true" selection-start-line="128" selection-start-column="31" selection-end-line="128" selection-end-column="31" />
+              <folding>
+                <element signature="e#28#54#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/services.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="524">
+              <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="42" selection-end-column="65" />
             </state>
           </provider>
         </entry>
@@ -105,10 +100,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/css/gestion.css">
+        <entry file="file://$PROJECT_DIR$/templates/appartment/form/prototype/file_edit.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="51" column="23" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
+            <state relative-caret-position="187">
+              <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -187,28 +182,28 @@
         <option value="$PROJECT_DIR$/templates/appartment/announcement.html.twig" />
         <option value="$PROJECT_DIR$/templates/appartment/form/prototype/file.html.twig" />
         <option value="$PROJECT_DIR$/src/Repository/RessourceRepository.php" />
-        <option value="$PROJECT_DIR$/src/Form/AppartmentType.php" />
-        <option value="$PROJECT_DIR$/config/services.yaml" />
         <option value="$PROJECT_DIR$/src/Form/RessourceType.php" />
         <option value="$PROJECT_DIR$/templates/appartment/form/property.html.twig" />
         <option value="$PROJECT_DIR$/src/Service/FileUploaderService.php" />
         <option value="$PROJECT_DIR$/src/EventListener/AppartmentEntityListener.php" />
-        <option value="$PROJECT_DIR$/templates/appartment/form/prototype/file_edit.html.twig" />
         <option value="$PROJECT_DIR$/templates/appartment/form/prototype/file_add.html.twig" />
         <option value="$PROJECT_DIR$/assets/css/ajout.css" />
-        <option value="$PROJECT_DIR$/src/EventListener/RessourceEntityListener.php" />
         <option value="$PROJECT_DIR$/assets/js/entryPoint/gestion.js" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
         <option value="$PROJECT_DIR$/src/Repository/AppartmentRepository.php" />
         <option value="$PROJECT_DIR$/src/Entity/Ressource.php" />
         <option value="$PROJECT_DIR$/src/Entity/Price.php" />
         <option value="$PROJECT_DIR$/assets/css/gestion.css" />
-        <option value="$PROJECT_DIR$/src/Controller/AppartmentController.php" />
         <option value="$PROJECT_DIR$/config/packages/security.yaml" />
         <option value="$PROJECT_DIR$/templates/Shared/elements/nav.html.twig" />
         <option value="$PROJECT_DIR$/src/Service/AppartmentService.php" />
         <option value="$PROJECT_DIR$/src/Twig/AppExtension.php" />
         <option value="$PROJECT_DIR$/templates/appartment/index.html.twig" />
+        <option value="$PROJECT_DIR$/config/services.yaml" />
+        <option value="$PROJECT_DIR$/src/EventListener/RessourceEntityListener.php" />
+        <option value="$PROJECT_DIR$/src/Controller/AppartmentController.php" />
+        <option value="$PROJECT_DIR$/templates/appartment/form/prototype/file_edit.html.twig" />
+        <option value="$PROJECT_DIR$/src/Form/AppartmentType.php" />
       </list>
     </option>
   </component>
@@ -352,6 +347,12 @@
               <item name="location-appartement" type="b2602c69:ProjectViewProjectNode" />
               <item name="location-appartement" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="location-appartement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="location-appartement" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="uploads" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="location-appartement" type="b2602c69:ProjectViewProjectNode" />
@@ -529,18 +530,18 @@
       <workItem from="1547299044634" duration="15356000" />
       <workItem from="1547320222484" duration="5166000" />
       <workItem from="1547327097733" duration="3331000" />
-      <workItem from="1547386320615" duration="7652000" />
+      <workItem from="1547386320615" duration="8916000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="148556000" />
+    <option name="totallyTimeSpent" value="149820000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="840" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19798657" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2543624" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -685,23 +686,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/AppartmentType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1649">
-          <caret line="110" column="88" selection-start-line="110" selection-start-column="88" selection-end-line="110" selection-end-column="88" />
-          <folding>
-            <element signature="e#28#54#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/RessourceType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Service/FileUploaderService.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -716,13 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/services.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="57" selection-start-line="35" selection-start-column="57" selection-end-line="35" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/Shared/elements/background.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -734,13 +711,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="83" column="37" selection-start-line="83" selection-start-column="16" selection-end-line="83" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/appartment/form/prototype/file_edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -770,13 +740,6 @@
           <folding>
             <element signature="e#37#63#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EventListener/RessourceEntityListener.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -903,20 +866,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AppartmentController.php">
+    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="42" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/appartment/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="745">
+          <caret line="88" column="14" selection-start-line="88" selection-start-column="14" selection-end-line="88" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EventListener/RessourceEntityListener.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="58" column="77" selection-start-line="58" selection-start-column="56" selection-end-line="58" selection-end-column="77" />
+          <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/RessourceType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AppartmentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
           <folding>
             <element signature="e#34#60#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/appartment/index.html.twig">
+    <entry file="file://$PROJECT_DIR$/templates/appartment/form/prototype/file_edit.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="88" column="14" lean-forward="true" selection-start-line="88" selection-start-column="14" selection-end-line="88" selection-end-column="14" />
+        <state relative-caret-position="187">
+          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/AppartmentType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="128" column="31" lean-forward="true" selection-start-line="128" selection-start-column="31" selection-end-line="128" selection-end-column="31" />
+          <folding>
+            <element signature="e#28#54#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

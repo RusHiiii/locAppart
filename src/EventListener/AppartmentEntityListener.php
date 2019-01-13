@@ -5,7 +5,6 @@ namespace App\EventListener;
 use App\Entity\Appartment;
 use App\Service\FileUploaderService;
 use Doctrine\ORM\Event\LifecycleEventArgs;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class AppartmentEntityListener
 {

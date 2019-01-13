@@ -38,4 +38,16 @@ class AppartmentRepository extends ServiceEntityRepository
     {
         return $this->findOneBy(array($key => $value));
     }
+
+    /**
+     * RECUPERATION PAR USER
+     * @param  string value
+     * @return User
+     */
+    public function findByUser($user)
+    {
+        return $this->findBy(
+            ['user' => $user]
+        );
+    }
 }

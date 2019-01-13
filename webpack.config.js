@@ -16,11 +16,12 @@ Encore
     .addEntry('parametre', './assets/js/entryPoint/parametre.js')
     .addEntry('email', './assets/js/entryPoint/email.js')
     .addEntry('ajout', './assets/js/entryPoint/ajout.js')
+    .addEntry('gestion', './assets/js/entryPoint/gestion.js')
 
     .cleanupOutputBeforeBuild()
     .enableBuildNotifications()
     .enableSourceMaps(!Encore.isProduction())
-    // enables hashed filenames (e.g. app.abc123.css)
+
     .enableVersioning(Encore.isProduction())
 ;
 

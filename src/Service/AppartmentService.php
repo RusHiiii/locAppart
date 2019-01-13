@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Entity\Appartment;
+use App\Entity\User;
 use App\Repository\AppartmentRepository;
 use App\Repository\StatusRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -54,7 +55,6 @@ class AppartmentService
             $data = $this->editAppartment($app);
             return array('push' => $data['result'], 'msg' => $data['msg']);
         }
-
     }
 
     /**
@@ -67,7 +67,7 @@ class AppartmentService
         $ref = $this->generateReference($appartment);
         $appartment->setReference(strtoupper($ref));
 
-        $status = $this->statusRepository->findByName('at');
+        $status = $this->statusRepository->findByName('En attente de modération');
         $appartment->setStatus($status);
 
         $appartment->setUser($this->security->getUser());
@@ -127,5 +127,17 @@ class AppartmentService
         }
 
         return array('info' => true, 'data' => $appartement);
+    }
+
+    /**
+     * RECUPERE LES L'ANNONCES D'UN USER
+     * @param int $id
+     * @return array
+     */
+    public function getAppartmentsByUser(User $user)
+    {
+        $data = $this->appartmentRepository->findByUser($user);
+
+        return array('info' => true, 'data' => $data);
     }
 }

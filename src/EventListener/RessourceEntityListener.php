@@ -23,7 +23,13 @@ class RessourceEntityListener
      */
     public function preRemove(LifecycleEventArgs $args)
     {
-        //UNLINK
+        $entity = $args->getEntity();
+
+        if (!$entity instanceof Ressource) {
+            return;
+        }
+
+        unlink($this->uploader->getTargetDirectory() . '/' . $entity->getPath());
     }
 
     /**
@@ -61,10 +67,6 @@ class RessourceEntityListener
         if ($entity->getFile() instanceof UploadedFile) {
             $fileName = $this->uploader->upload($entity->getFile());
             $entity->setPath($fileName['filename']);
-        }
-
-        if($entity->getFile() === null){
-            $entity->setPath($entity->getPath());
         }
     }
 }

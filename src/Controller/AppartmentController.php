@@ -15,10 +15,16 @@ class AppartmentController extends AbstractController
      * DASHBOARD DU COMPTE
      * @Route("/mon-compte/mes-annonces", name="app_dashboard")
      */
-    public function index()
+    public function index(
+        Request $request,
+        AppartmentService $appService
+    )
     {
+        $data = $appService->getAppartmentsByUser($this->getUser());
+
         return $this->render('appartment/index.html.twig', [
-            'controller_name' => 'AppartmentController',
+            'count' => count($data['data']),
+            'appartments' => $data['data']
         ]);
     }
 

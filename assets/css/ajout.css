@@ -993,10 +993,6 @@ ul {
   .td_date{
     display: none;
   }
-
-  .custom_height {
-    height: 440px !important;
-  }
 }
 
 @media screen and (max-width: 500px){
@@ -1080,11 +1076,5 @@ ul {
 
   #map{
     width: 100% !important;
-  }
-}
-
-@media screen and (max-width: 980px){
-  .custom_height {
-    height: 500px !important;
   }
 }

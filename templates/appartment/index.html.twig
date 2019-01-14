@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Loc'Appart - Mes annonce{% endblock %}
+{% block title %}Loc'Appart - Mes annonces{% endblock %}
 
 {% block style %}
     <link rel="stylesheet" href="{{ asset('build/gestion.css') }}">
@@ -36,47 +36,43 @@
                                                         <h3> annonce(s) sur le site</h3>
                                                     </div>
                                                 </div>
-                                                {% for message in app.flashes('notice') %}
-                                                    <div class="alert alert-info" role="alert">
-                                                        {{ message }}
-                                                    </div>
-                                                {% endfor %}
+                                                <table class="no_border" id="dashboard">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Date</th>
+                                                            <th>Information</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    {% for appartment in appartments %}
+                                                        <tr>
+                                                            <td class="td_date">
+                                                                <div class="gestion-date">
+                                                                    <span>{{ appartment.date|date('Y-m-d') }}</span>
+                                                                </div>
+                                                            </td>
+                                                            <td class="td_body">
+                                                                <div class="gestion-img">
+                                                                    <img src="/uploads/{{ appartment.ressources|first }}">
+                                                                </div>
+                                                                <div class="gestion_main_content">
 
-                                                {% if appartments is empty %}
-                                                    <div class="alert alert-info" role="alert">Vous n'avez aucune annonce.</div>
-                                                {% endif %}
-
-                                                {% for appartment in appartments %}
-                                                    <div class="gestion-annonce-ensemble">
-                                                        <table class="no_border">
-                                                            <tr>
-                                                                <td class="td_date">
-                                                                    <div class="gestion-date">
-                                                                        <span>{{ appartment.date|date('Y-m-d') }}</span>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="td_body">
-                                                                    <div class="gestion-img">
-                                                                        <img src="/uploads/{{ appartment.ressources|first }}">
-                                                                    </div>
-                                                                    <div class="gestion_main_content">
-
-                                                                        <h3>{{ appartment.title }} {{ appartment.city.name }}</h3>
-                                                                        <p class="gestion_main_content_p">Type de bien: {{ appartment.type.name }}</p>
-                                                                        <p class="gestion_main_content_p">Référence: {{ appartment.reference }}</p>
-                                                                        <p >Status: <strong>{{ appartment.status.name }}</strong></p>
-                                                                        <span class="app_price">A partir de <strong>{{ appartment.prices|price(appartment.prices) }}€</strong></span>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="td_btn">
-                                                                    <a class="btn btn-primary btn_result delete"><span class="glyphicon glyphicon-trash"></span> Supprimer</a>
-                                                                    <a href="{{ path('app_announcement_edit', { 'id': appartment.id }) }}" class="btn btn-primary btn_result edit"><span class="glyphicon glyphicon-edit"></span> Editer</a>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </div>
-                                                    <hr>
-                                                {% endfor %}
+                                                                    <h3>{{ appartment.title }} {{ appartment.city.name }}</h3>
+                                                                    <p class="gestion_main_content_p">Type de bien: {{ appartment.type.name }}</p>
+                                                                    <p class="gestion_main_content_p">Référence: {{ appartment.reference }}</p>
+                                                                    <p >Status: <strong>{{ appartment.status.name }}</strong></p>
+                                                                    <span class="app_price">A partir de <strong>{{ appartment.prices|price(appartment.prices) }}€</strong></span>
+                                                                </div>
+                                                            </td>
+                                                            <td class="td_btn">
+                                                                <a class="btn btn-primary btn_result delete"><span class="glyphicon glyphicon-trash"></span> Supprimer</a>
+                                                                <a href="{{ path('app_announcement_edit', { 'id': appartment.id }) }}" class="btn btn-primary btn_result edit"><span class="glyphicon glyphicon-edit"></span> Editer</a>
+                                                            </td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </form>
                                     </aside>
@@ -90,3 +86,6 @@
     </section>
 {% endblock %}
 
+{% block javascript %}
+    <script type="text/javascript" src="{{ asset('build/gestion.js') }}"></script>
+{% endblock %}

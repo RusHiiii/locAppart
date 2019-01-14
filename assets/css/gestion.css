@@ -53,6 +53,44 @@
   display: block;
 }
 
+#dashboard th{
+  border-bottom: 1px solid #C8C8C8 !important;
+  background-color: #F5F7FA;
+  font-weight: 600;
+  display: none;
+}
+
+.pagination{
+  margin-top: 0px;
+  padding-top: 10px;
+}
+
+#dashboard_paginate{
+  text-align: right;
+}
+
+.pagination>.active>a, .pagination>.active>a:hover{
+  background-color: #008caf !important;
+  border-color: #008caf;
+}
+
+.pagination>li>a{
+  color: #777;
+}
+
+.dataTables_info{
+  text-align: left;
+  padding-top: 10px;
+}
+
+#dashboard td{
+  border-bottom: 1px solid #C8C8C8 !important;
+}
+
+table.dataTable.no-footer{
+  border-bottom: none !important;
+}
+
 .td_checkbox{
   background-color: transparent !important;
   padding: 0 !important;
@@ -434,7 +472,6 @@ ul.gestion-pagination li {
 }
 .gestion-option {
   display: inline-block;
-  margin-bottom: 10px;
   width: 100%;
   text-align: left;
 }

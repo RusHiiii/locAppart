@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Service\AppartmentService;
 use App\Service\CityService;
+use App\Service\MessageService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,7 +30,7 @@ class XhrController extends AbstractController
     }
 
     /**
-     * RECUPERATION DES INFOS DE LA VILLE
+     * SUPPRESSION ANNONCE
      * @Route("/xhr/appartement/suppression", condition="request.isXmlHttpRequest()")
      */
     public function removeAppartment(
@@ -39,6 +40,23 @@ class XhrController extends AbstractController
         $appId = $request->request->get('appartment');
 
         $data = $appService->removeAppartment($appId);
+
+        return new JsonResponse(
+            array('data' => $data)
+        );
+    }
+
+    /**
+     * UPPRESSION MESSAGE
+     * @Route("/xhr/message/suppression", condition="request.isXmlHttpRequest()")
+     */
+    public function removeMessage(
+        Request $request,
+        MessageService $messageService
+    ) {
+        $appId = $request->request->get('message');
+
+        $data = $messageService->removeMessage($appId);
 
         return new JsonResponse(
             array('data' => $data)

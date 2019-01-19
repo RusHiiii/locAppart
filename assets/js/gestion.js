@@ -31,7 +31,7 @@ $('#dashboard tbody').on( 'click', '.delete', function () {
             }
         }
     });
-} );
+});
 
 /*************** FONCTION ***************/
 

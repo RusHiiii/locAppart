@@ -23,6 +23,11 @@ nav {
     min-width: 24px;
     min-height: 24px;
 }
+
+.home-button{
+	width: 30%;
+}
+
 .spinner:before {
     content:'Loading…';
     position: absolute;

@@ -435,6 +435,18 @@ th{
     font-weight: 600;
 }
 
+.btn-primary {
+    min-height: 30px;
+}
+
+.delete:hover.spinner:not(:required):before {
+    border-top: 2px solid #ffffff !important;
+}
+
+.delete.spinner:not(:required):before{
+    border-top: 2px solid #e20043 !important;
+}
+
 #messages_wrapper{
     overflow-x:auto;
 }

@@ -197,6 +197,10 @@ table tr:nth-of-type(2n) {
   border-top: 2px solid #e20043 !important;
 }
 
+.delete:hover.spinner:not(:required):before {
+  border-top: 2px solid #ffffff !important;
+}
+
 .td_color_blue{
   background-color: #008caf !important;
 }

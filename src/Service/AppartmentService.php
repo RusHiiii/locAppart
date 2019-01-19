@@ -50,7 +50,7 @@ class AppartmentService
     public function pushAppartment(Appartment $app, bool $update)
     {
         if (!$update) {
-            $data = $this->addNewAppartment($app);
+            $data = $this->addAppartment($app);
             return array('push' => $data['result'], 'msg' => $data['msg']);
         } else {
             $data = $this->editAppartment($app);
@@ -63,7 +63,7 @@ class AppartmentService
      * @param Appartment $appartment
      * @return array
      */
-    private function addNewAppartment(Appartment $appartment)
+    private function addAppartment(Appartment $appartment)
     {
         $ref = $this->toolService->generateReference($appartment);
         $appartment->setReference(strtoupper($ref));

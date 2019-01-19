@@ -14,6 +14,11 @@ class AppExtension extends AbstractExtension
         );
     }
 
+    /**
+     * RECUPERATION DU PRIX MIN
+     * @param $prices
+     * @return int|string
+     */
     public function formatPrice($prices)
     {
         $minPrice = 9999;

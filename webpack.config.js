@@ -17,6 +17,7 @@ Encore
     .addEntry('email', './assets/js/entryPoint/email.js')
     .addEntry('ajout', './assets/js/entryPoint/ajout.js')
     .addEntry('gestion', './assets/js/entryPoint/gestion.js')
+    .addEntry('mail', './assets/js/entryPoint/mail.js')
 
     .cleanupOutputBeforeBuild()
     .enableBuildNotifications()

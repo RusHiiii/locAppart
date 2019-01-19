@@ -35,6 +35,12 @@ class City
      */
     private $lng;
 
+    /**
+     * @Assert\NotBlank()
+     * @ORM\Column(type="integer")
+     */
+    private $zip;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -72,6 +78,18 @@ class City
     public function setLng(float $lng): self
     {
         $this->lng = $lng;
+
+        return $this;
+    }
+
+    public function getZip(): ?int
+    {
+        return $this->zip;
+    }
+
+    public function setZip(int $zip): self
+    {
+        $this->zip = $zip;
 
         return $this;
     }

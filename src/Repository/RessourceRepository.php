@@ -17,7 +17,7 @@ class RessourceRepository extends ServiceEntityRepository
      * RECUPERATION PAR KEY/VALUE
      * @param  string key
      * @param  string value
-     * @return User
+     * @return Ressource
      */
     public function findByKeyValue($key, $value): ?Ressource
     {

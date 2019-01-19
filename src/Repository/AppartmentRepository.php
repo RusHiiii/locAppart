@@ -29,6 +29,21 @@ class AppartmentRepository extends ServiceEntityRepository
     }
 
     /**
+     * RECUPERE LES DERNIER APPART
+     * @return Appartment
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function findXLastAppartment($nb)
+    {
+        $qb = $this->createQueryBuilder('qb')
+            ->orderBy('qb.date', 'DESC')
+            ->setMaxResults($nb)
+            ->getQuery();
+
+        return $qb->getResult();
+    }
+
+    /**
      * RECUPERATION PAR KEY/VALUE
      * @param  string key
      * @param  string value
@@ -36,7 +51,9 @@ class AppartmentRepository extends ServiceEntityRepository
      */
     public function findByKeyValue($key, $value): ?Appartment
     {
-        return $this->findOneBy(array($key => $value));
+        return $this->findOneBy(
+            array($key => $value)
+        );
     }
 
     /**
@@ -47,7 +64,7 @@ class AppartmentRepository extends ServiceEntityRepository
     public function findByUser($user)
     {
         return $this->findBy(
-            ['user' => $user]
+            array('user' => $user)
         );
     }
 }

@@ -21,6 +21,8 @@ class UserRepository extends ServiceEntityRepository
      */
     public function findByKeyValue($key, $value): ?User
     {
-        return $this->findOneBy(array($key => $value));
+        return $this->findOneBy(
+            array($key => $value)
+        );
     }
 }

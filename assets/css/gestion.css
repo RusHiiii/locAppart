@@ -21,6 +21,7 @@
 .fa-circle{
   font-size: 3.5em !important;
   position: absolute !important;
+  color: #008caf !important;
 }
 
 .fa-caret-down{
@@ -53,6 +54,10 @@
   display: block;
 }
 
+#dashboard{
+  width: 100%;
+}
+
 #dashboard th{
   border-bottom: 1px solid #C8C8C8 !important;
   background-color: #F5F7FA;
@@ -75,7 +80,16 @@
 }
 
 .pagination>li>a{
-  color: #777;
+  color: #337ab7;
+}
+
+.pagination>li>a{
+  padding: 7px 10px;
+  line-height: 1.158571;
+}
+
+.btn-primary{
+  min-height: 30px;
 }
 
 .dataTables_info{
@@ -140,6 +154,7 @@ table tr:nth-of-type(2n) {
 
 .edit{
   color: #f0ad4e !important;
+  margin: 15px 0px;
   border-color: #f0ad4e !important;
 }
 
@@ -150,7 +165,6 @@ table tr:nth-of-type(2n) {
 }
 
 .btn_result{
-  margin-bottom: 15px !important;
   width: 100%;
 }
 
@@ -172,6 +186,15 @@ table tr:nth-of-type(2n) {
 .td_btn{
   color: white;
   text-transform: uppercase;
+  width: 18%;
+}
+
+.alert-info{
+  clear: both;
+}
+
+.delete.spinner:not(:required):before{
+  border-top: 2px solid #e20043 !important;
 }
 
 .td_color_blue{
@@ -472,8 +495,9 @@ ul.gestion-pagination li {
 }
 .gestion-option {
   display: inline-block;
-  width: 100%;
+  width: 50%;
   text-align: left;
+  float: left;
 }
 .gestion-option .chk-all, .gestion-option .btn-group {
   margin-right: 5px;
@@ -698,10 +722,19 @@ ul {
   .td_btn{
     display: none;
   }
+
+  .gestion-img{
+    float: none;
+    margin: auto;
+    max-width: 70% !important;
+  }
 }
 
 @media screen and (max-width: 1200px){
   .gestion-img {
-    max-width: none;
+    max-width: 50%;
   }
+  .gestion_main_content {
+     margin-left: 0px;
+   }
 }

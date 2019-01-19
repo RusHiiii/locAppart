@@ -18,6 +18,7 @@ class AppartmentEntityListener
     /**
      * FONCTION D'AVANT SAUVEGARDE
      * @param LifecycleEventArgs $args
+     * @throws \Exception
      */
     public function prePersist(LifecycleEventArgs $args)
     {

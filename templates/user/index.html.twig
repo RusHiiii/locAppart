@@ -14,8 +14,10 @@
                 <div class="margin-bottom">
                     <div class="margin">
                         <article class="s-12 l-8 center">
+
                             <h2>Paramètre du compte</h2>
                             <p class="subtitile_presentation">Modifier l'ensemble des paramètres de votre compte</p>
+
                             {% for message in app.flashes('notice') %}
                                 <div class="alert alert-info" role="alert">
                                     {{ message }}
@@ -111,6 +113,7 @@
                                 {{ form_rest(formUpdate) }}
                                 {{ form_end(formUpdate) }}
                             </div>
+
                             <div class="s-12 l-12 title_parameter_second">
                                 <h2 class="title_parameter">Sécurité</h2>
                                 {{ form_start(formPswd, {'attr': {'class': 'form-horizontal'}}) }}
@@ -165,6 +168,6 @@
 {% endblock %}
 
 {% block javascript %}
-<script type="text/javascript" src="{{ asset('build/parametre.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('build/parametre.js') }}"></script>
 {% endblock %}
 

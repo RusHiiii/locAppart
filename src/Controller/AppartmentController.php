@@ -9,6 +9,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class AppartmentController
+ * @package App\Controller
+ */
 class AppartmentController extends AbstractController
 {
     /**
@@ -18,8 +22,7 @@ class AppartmentController extends AbstractController
     public function index(
         Request $request,
         AppartmentService $appService
-    )
-    {
+    ) {
         $data = $appService->getAppartmentsByUser($this->getUser());
 
         return $this->render('appartment/index.html.twig', [
@@ -44,7 +47,7 @@ class AppartmentController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $appService->pushAppartment($appartment, false);
 
-            $this->addFlash('notice', $data['msg']);
+            $this->addFlash("notice", $data['msg']);
             return $this->redirectToRoute('app_dashboard');
         }
 
@@ -64,22 +67,20 @@ class AppartmentController extends AbstractController
         int $id
     ) {
         $appartment = $appService->getAppartmentInfo($id);
-        if(!$appartment['info']){
+        if (!$appartment['info']) {
             $this->addFlash('notice', $appartment['data']);
             return $this->redirectToRoute('app_dashboard');
         }
 
-        if($appartment['data']->getUser() != $this->getUser()){
+        if ($appartment['data']->getUser() != $this->getUser()) {
             return $this->redirectToRoute('home');
         }
 
-        $app = $appartment['data'];
-        $form = $this->createForm(AppartmentType::class, $app);
+        $form = $this->createForm(AppartmentType::class, $appartment['data']);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-
-            $data = $appService->pushAppartment($app, true);
+            $data = $appService->pushAppartment($appartment['data'], true);
 
             $this->addFlash('notice', $data['msg']);
             return $this->redirectToRoute('app_dashboard');

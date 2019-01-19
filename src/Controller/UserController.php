@@ -22,6 +22,7 @@ class UserController extends AbstractController
         UserService $userService
     ) {
         $user = $this->getUser();
+
         $formUpdate = $this->createForm(UserEditType::class, $user);
         $formPswd = $this->createForm(UpdatePasswordType::class, $user);
 

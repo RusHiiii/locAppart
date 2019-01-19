@@ -14,6 +14,7 @@ class AppartmentService
 {
     const MSG_SUCCESS_ADD_APP  = 'L\'annonce a été ajouté ! Elle est en cours de modération.';
     const MSG_SUCCESS_EDIT_APP  = 'L\'annonce a été modifié !';
+    const MSG_SUCCESS_DELETE_APP  = 'L\'annonce a été supprimé !';
     const MSG_ERROR_ADD_APP  = 'Une erreur est survenu.';
     const MSG_ERROR_INFO = 'Aucune données trouvé.';
 
@@ -21,23 +22,23 @@ class AppartmentService
     private $statusRepository;
     private $entityManager;
     private $security;
-    private $fileUploaderService;
     private $targetDirectory;
+    private $toolService;
 
     public function __construct(
     AppartmentRepository $appartmentRepository,
     StatusRepository $statusRepository,
     EntityManagerInterface $entityManager,
-    FileUploaderService $fileUploaderService,
     Security $security,
+    ToolService $toolService,
     $targetDirectory
   ) {
         $this->appartmentRepository = $appartmentRepository;
         $this->entityManager = $entityManager;
         $this->statusRepository = $statusRepository;
         $this->security = $security;
-        $this->fileUploaderService = $fileUploaderService;
         $this->targetDirectory = $targetDirectory;
+        $this->toolService = $toolService;
     }
 
     /**
@@ -51,7 +52,7 @@ class AppartmentService
         if (!$update) {
             $data = $this->addNewAppartment($app);
             return array('push' => $data['result'], 'msg' => $data['msg']);
-        }else{
+        } else {
             $data = $this->editAppartment($app);
             return array('push' => $data['result'], 'msg' => $data['msg']);
         }
@@ -64,7 +65,7 @@ class AppartmentService
      */
     private function addNewAppartment(Appartment $appartment)
     {
-        $ref = $this->generateReference($appartment);
+        $ref = $this->toolService->generateReference($appartment);
         $appartment->setReference(strtoupper($ref));
 
         $status = $this->statusRepository->findByName('En attente de modération');
@@ -92,24 +93,6 @@ class AppartmentService
     }
 
     /**
-     * GENERE UNE ANNONCE
-     * @param Appartment $appartment
-     * @return string
-     */
-    private function generateReference(Appartment $appartment)
-    {
-        $reference = [];
-        $reference[] = substr($appartment->getType()->getName(), 0, 3);
-
-        $cityName = preg_replace('/\s+/', '', $appartment->getCity()->getName());
-        $reference[] = substr($cityName, 0, 5);
-
-        $reference[] = sprintf('%03d', rand(10, 99));
-
-        return implode('', $reference);
-    }
-
-    /**
      * RECUPERE LES INFOS DE L'ANNONCE
      * @param int $id
      * @return array
@@ -117,12 +100,12 @@ class AppartmentService
     public function getAppartmentInfo(int $id)
     {
         $appartement = $this->appartmentRepository->findByKeyValue('id', $id);
-        if($appartement == null){
+        if ($appartement == null) {
             return array('info' => false, 'data' => self::MSG_ERROR_INFO);
         }
 
         $ressources = $appartement->getRessources();
-        foreach ($ressources as $ressource){
+        foreach ($ressources as $ressource) {
             $ressource->setFile(new File($this->targetDirectory . '/' . $ressource->getPath()));
         }
 
@@ -139,5 +122,35 @@ class AppartmentService
         $data = $this->appartmentRepository->findByUser($user);
 
         return array('info' => true, 'data' => $data);
+    }
+
+    /**
+     * SUPPRESSION D'UNE ANNONCE
+     * @param int $id
+     * @return array
+     */
+    public function removeAppartment(int $id)
+    {
+        $appartment = $this->appartmentRepository->findByKeyValue('id', $id);
+        if ($appartment == null) {
+            return array('delete' => false, 'data' => self::MSG_ERROR_INFO);
+        }
+
+        $this->entityManager->remove($appartment);
+        $this->entityManager->flush();
+
+        return array('delete' => true, 'data' => self::MSG_SUCCESS_DELETE_APP);
+    }
+
+    /**
+     * RECUP DES X LAST ANNONCES
+     * @param int $nb
+     * @return Appartment
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function getXLastAppartment(int $nb)
+    {
+        $appartments = $this->appartmentRepository->findXLastAppartment($nb);
+        return $appartments;
     }
 }

@@ -45,7 +45,7 @@
                                                         <th class="view-message appartement">Appartement</th>
                                                         <th class="view-message expediteur">Expéditeur</th>
                                                         <th class="view-message sujet">Sujet</th>
-                                                        <th class="inbox-small-cells action">Action</th>
+                                                        <th class="inbox-small-cells action"></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -55,7 +55,7 @@
                                                                 <td class="view-message date">{{ message.date | date("d/m/Y")}}</td>
                                                                 <td class="view-message ">{{ appartment.reference }}</td>
                                                                 <td class="view-message">{{ message.email }}</td>
-                                                                <td class="view-message">{{ message.subject }}<a class="link_form"><i class="fa fa-chevron-down" aria-hidden="true"></i></a></td>
+                                                                <td class="view-message">{{ message.subject }}<a class="link_form"><i class="fa fa-chevron-down"></i></a></td>
                                                                 <td class="inbox-small-cells"><button class="btn btn-primary btn_result delete" data-id="{{ message.id }}"><span class="glyphicon glyphicon-trash"></span> Supprimer</button></td>
                                                             </tr>
                                                             <tr style="display: none;">

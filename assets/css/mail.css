@@ -443,6 +443,18 @@ th{
     border-top: 2px solid #ffffff !important;
 }
 
+.header{
+    background-color: #f5f7fa;
+}
+
+thead{
+
+}
+
+.table>thead>tr>th{
+    border-bottom: none;
+}
+
 .delete.spinner:not(:required):before{
     border-top: 2px solid #e20043 !important;
 }

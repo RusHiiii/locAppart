@@ -319,8 +319,8 @@ td{
     width: 195px;
 }
 
-.content_mail p{
-    font-size: 0.95em;
+.content_mail{
+    white-space: pre;
 }
 
 ul.inbox-pagination {

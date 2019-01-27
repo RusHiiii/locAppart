@@ -1,0 +1,23 @@
+{% extends 'Shared/layout/base_with_image.html.twig' %}
+
+{% block title %}Loc'Appart - Contact{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.5/css/bootstrap-select.css">
+{% endblock %}
+
+{% block content %}
+    <article class="s-12 l-8 center">
+        <h2>Erreur {{ status_code }} dectecté</h2>
+        <p class="subtitile_presentation">{{ status_text }}</p>
+
+        <p class="margin-bottom-home">Une erreur {{ status_code }} a été detecté sur le site. La page que vous souhaitez consulter nécessite un accès spécifique. Connectez vous avec un autre compte.</p>
+
+        <a href="{{ path('home') }}"><button class="btn btn-primary btn_result home-button">Accueil</button></a>
+    </article>
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.5/js/bootstrap-select.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.5/js/i18n/defaults-fr_FR.js"></script>
+{% endblock %}

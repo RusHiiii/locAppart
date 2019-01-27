@@ -25,10 +25,16 @@ class FileUploaderService
         try {
             $file->move($this->getTargetDirectory(), $fileName);
         } catch (FileException $e) {
-            return array('filename' => null, 'upload' => false);
+            return [
+                'filename' => null,
+                'upload' => false
+            ];
         }
 
-        return array('filename' => $fileName, 'upload' => true);
+        return [
+            'filename' => $fileName,
+            'upload' => true
+        ];
     }
 
     /**

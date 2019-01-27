@@ -46,7 +46,10 @@ class MessageService
         foreach ($appartments as $appartment) {
             $count += count($appartment->getMessages());
         }
-        return array('appartments' => $appartments, 'count' => $count);
+        return [
+            'appartments' => $appartments,
+            'count' => $count
+        ];
     }
 
     /**
@@ -58,12 +61,18 @@ class MessageService
     {
         $message = $this->messageRepository->findByKeyValue('id', $id);
         if ($message == null) {
-            return array('delete' => false, 'data' => self::MSG_ERROR_NOT_FOUND);
+            return [
+                'delete' => false,
+                'data' => self::MSG_ERROR_NOT_FOUND
+            ];
         }
 
         $this->entityManager->remove($message);
         $this->entityManager->flush();
 
-        return array('delete' => true, 'data' => self::MSG_SUCCESS_DELETE);
+        return [
+            'delete' => true,
+            'data' => self::MSG_SUCCESS_DELETE
+        ];
     }
 }

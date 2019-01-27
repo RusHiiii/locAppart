@@ -28,6 +28,20 @@ nav {
 	width: 30%;
 }
 
+.error_form{
+	font-size: 0.8em;
+	color: red;
+}
+
+.btn-validate{
+	min-width: 30%;
+}
+
+.error_form > span > ul{
+	list-style-type: disc !important;
+	padding-left: 40px !important;
+}
+
 .spinner:before {
     content:'Loading…';
     position: absolute;

@@ -20,9 +20,7 @@ class ForgottenPasswordType extends AbstractType
             ->add('email', EmailType::class, array(
                   'label' => 'Email:',
                   'constraints' => array(
-                    new Email(array(
-                      'message' => 'L\'email n\'est pas valide.'
-                    ))
+                    new Email()
                   ),
                 ))
             ->add('save', SubmitType::class, array(

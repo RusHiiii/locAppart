@@ -51,7 +51,10 @@ class NotificationService
         $user = $this->userRepository->findByKeyValue('email', $email);
 
         if ($user === null) {
-            return array('token' => false, 'msg' => self::MSG_EMAIL_NOT_FOUND);
+            return [
+                'token' => false,
+                'msg' => self::MSG_EMAIL_NOT_FOUND
+            ];
         }
 
         $token = $this->tokenGenerator->generateToken();
@@ -60,12 +63,18 @@ class NotificationService
             $user->setResetToken($token);
             $this->entityManager->flush();
         } catch (\Exception $e) {
-            return array('token' => false, 'msg' => $e->getMessage());
+            return [
+                'token' => false,
+                'msg' => $e->getMessage()
+            ];
         }
 
         $url = $this->router->generate('app_reset_password', array('token' => $token), UrlGeneratorInterface::ABSOLUTE_URL);
 
-        return array('token' => true, 'msg' => $url, 'user' => $user);
+        return [
+            'token' => true,
+            'msg' => $url, 'user' => $user
+        ];
     }
 
     /**
@@ -87,6 +96,9 @@ class NotificationService
 
         $this->mailer->send($message);
 
-        return array('send' => true, 'msg' => self::MSG_EMAIL_SEND);
+        return [
+            'send' => true,
+            'msg' => self::MSG_EMAIL_SEND
+        ];
     }
 }

@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'Shared/layout/base_with_image.html.twig' %}
 
 {% block title %}Loc'Appart - {{ type }} d'une annonce{% endblock %}
 
@@ -10,68 +10,58 @@
 {% endblock %}
 
 {% block content %}
-    <section>
-        {% include('Shared/elements/background.html.twig') %}
-        <div class="content_login">
-            <div class="line">
-                <div class="margin-bottom">
-                    <div class="margin">
-                        <article class="s-12 l-12 center">
-                            <h2>{{ type }} d'une annonce</h2>
-                            <p class="subtitile_presentation">Gerez votre annonce sur le site</p>
-                            {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
-                            <div class="lines">
-                                <div class="gestion-box">
-                                    <aside class="lg-side">
+    <article class="s-12 l-12 center">
+        <h2>{{ type }} d'une annonce</h2>
+        <p class="subtitile_presentation">Gerez votre annonce sur le site</p>
+        {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+        <div class="lines">
+            <div class="gestion-box">
+                <aside class="lg-side">
 
-                                        <div class="gestion-head">
-                                            <h3>Information sur le bien</h3>
-                                        </div>
-
-                                        {{ include('appartment/form/property.html.twig', { 'form': form }) }}
-
-                                        <div class="separator_content"></div>
-
-                                        <div class="gestion-head">
-                                            <h3>Information complémentaire</h3>
-                                        </div>
-
-                                        {{ include('appartment/form/additional.html.twig', { 'form': form }) }}
-
-                                        <div class="separator_content"></div>
-
-                                        <div class="gestion-head">
-                                            <h3>Prix & Disponibilité</h3>
-                                        </div>
-
-                                        {{ include('appartment/form/price.html.twig', { 'form': form }) }}
-
-                                        <div class="separator_content"></div>
-
-                                        <div class="gestion-head">
-                                            <h3>Localisation</h3>
-                                        </div>
-
-                                        {{ include('appartment/form/localisation.html.twig', { 'form': form }) }}
-
-                                    </aside>
-                                </div>
-                            </div>
-
-                            {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary btn-validate'}}) }}
-
-                            {{ form_rest(form) }}
-                            {{ form_end(form) }}
-
-                        </article>
+                    <div class="gestion-head">
+                        <h3>Information sur le bien</h3>
                     </div>
-                </div>
+
+                    {{ include('appartment/form/property.html.twig', { 'form': form }) }}
+
+                    <div class="separator_content"></div>
+
+                    <div class="gestion-head">
+                        <h3>Information complémentaire</h3>
+                    </div>
+
+                    {{ include('appartment/form/additional.html.twig', { 'form': form }) }}
+
+                    <div class="separator_content"></div>
+
+                    <div class="gestion-head">
+                        <h3>Prix & Disponibilité</h3>
+                    </div>
+
+                    {{ include('appartment/form/price.html.twig', { 'form': form }) }}
+
+                    <div class="separator_content"></div>
+
+                    <div class="gestion-head">
+                        <h3>Localisation</h3>
+                    </div>
+
+                    {{ include('appartment/form/localisation.html.twig', { 'form': form }) }}
+
+                </aside>
             </div>
         </div>
-    </section>
+
+        {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary btn-validate'}}) }}
+
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+
+    </article>
+
 {% endblock %}
 
-{% block javascript %}
+{% block javascripts %}
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.5/js/bootstrap-select.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.5/js/i18n/defaults-fr_FR.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>

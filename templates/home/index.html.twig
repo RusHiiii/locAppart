@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'Shared/layout/base_without_image.html.twig' %}
 
 {% block title %}Loc'Appart - Accueil{% endblock %}
 
@@ -83,6 +83,6 @@
     </section>
 {% endblock %}
 
-{% block javascript %}
+{% block javascripts %}
     <script type="text/javascript" src="{{ asset('build/accueil.js') }}"></script>
 {% endblock %}

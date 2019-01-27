@@ -58,7 +58,10 @@ class UserService
         $this->entityManager->persist($user);
         $this->entityManager->flush();
 
-        return array('register' => true, 'msg' => self::MSG_REGISTER_VALID);
+        return [
+            'register' => true,
+            'msg' => self::MSG_REGISTER_VALID
+        ];
     }
 
     /**
@@ -88,7 +91,10 @@ class UserService
         $this->entityManager->persist($user);
         $this->entityManager->flush();
 
-        return array('update' => true, 'msg' => self::MSG_UPDATE_VALID);
+        return [
+            'update' => true,
+            'msg' => self::MSG_UPDATE_VALID
+        ];
     }
 
     /**
@@ -102,7 +108,10 @@ class UserService
         $user = $this->userRepository->findByKeyValue('resetToken', $token);
 
         if ($user === null) {
-            return array('error' => true, 'msg' => self::MSG_INVALID_TOKEN);
+            return [
+                'error' => true,
+                'msg' => self::MSG_INVALID_TOKEN
+            ];
         }
 
         $user->setResetToken(null);
@@ -111,7 +120,10 @@ class UserService
         $this->entityManager->persist($user);
         $this->entityManager->flush();
 
-        return array('error' => false, 'msg' => self::MSG_PASSWORD_UPDATE);
+        return [
+            'error' => false,
+            'msg' => self::MSG_PASSWORD_UPDATE
+        ];
     }
 
     /**
@@ -127,7 +139,10 @@ class UserService
         $this->entityManager->persist($user);
         $this->entityManager->flush();
 
-        return array('error' => false, 'msg' => self::MSG_PASSWORD_UPDATE);
+        return [
+            'error' => false,
+            'msg' => self::MSG_PASSWORD_UPDATE
+        ];
     }
 
     /**
@@ -146,9 +161,13 @@ class UserService
             $dataTemplate = $this->templating->render('Shared/email/reset_password.html.twig', ['data' => $data['msg']]);
             $this->notification->sendEmail($data['user'], self::MSG_FORGOTTEN_PSWD, $dataTemplate);
 
-            return array('msg' => self::MSG_EMAIL_SEND);
+            return [
+                'msg' => self::MSG_EMAIL_SEND
+            ];
         }
 
-        return array('msg' => self::MSG_EMAIL_ERROR);
+        return [
+            'msg' => self::MSG_EMAIL_ERROR
+        ];
     }
 }

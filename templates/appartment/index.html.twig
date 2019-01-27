@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'Shared/layout/base_with_image.html.twig' %}
 
 {% block title %}Loc'Appart - Mes annonces{% endblock %}
 
@@ -7,91 +7,80 @@
 {% endblock %}
 
 {% block content %}
-    <section>
-        {% include('Shared/elements/background.html.twig') %}
-        <div class="content_login">
-            <div class="line">
-                <div class="margin-bottom">
-                    <div class="margin">
-                        <article class="s-12 l-12 center">
-                            <h2>Tableau de bord</h2>
-                            <p class="subtitile_presentation">Acceder à l'ensemble de vos annonces</p>
-                            <div class="lines">
-                                <div class="gestion-box">
-                                    <aside class="lg-side">
+    <article class="s-12 l-12 center">
+        <h2>Tableau de bord</h2>
+        <p class="subtitile_presentation">Acceder à l'ensemble de vos annonces</p>
+        <div class="lines">
+            <div class="gestion-box">
+                <aside class="lg-side">
 
-                                        <div class="gestion-head">
-                                            <h3>Gestion des annonces</h3>
-                                        </div>
-
-                                        <div class="gestion-body">
-                                            <div class="gestion-option">
-                                                <div class="gestion-text">
-                                                    <div class="gestion-text-icon">
-                                                        <span class="fa-stack ">
-                                                          <i class="fa fa-circle fa-stack-2x"></i>
-                                                          <strong class="fa-stack-1x calendar-text" id="counter">{{ count }}</strong>
-                                                          <i class="fa fa-caret-down"></i>
-                                                        </span>
-                                                    </div>
-                                                    <h3> annonce(s) sur le site</h3>
-                                                </div>
-                                            </div>
-
-                                            {% for message in app.flashes('notice') %}
-                                                <div class="alert alert-info" role="alert">
-                                                    {{ message }}
-                                                </div>
-                                            {% endfor %}
-
-                                            <table class="no_border" id="dashboard">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Date</th>
-                                                        <th>Information</th>
-                                                        <th>Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                {% for appartment in appartments %}
-                                                    <tr>
-                                                        <td class="td_date">
-                                                            <div class="gestion-date">
-                                                                <span>{{ appartment.date|date('Y-m-d') }}</span>
-                                                            </div>
-                                                        </td>
-                                                        <td class="td_body">
-                                                            <div class="gestion-img">
-                                                                <img src="/uploads/{{ appartment.ressources|first }}">
-                                                            </div>
-                                                            <div class="gestion_main_content">
-                                                                <h3>{{ appartment.title }} {{ appartment.city.name }}</h3>
-                                                                <p class="gestion_main_content_p">Type de bien: {{ appartment.type.name }}</p>
-                                                                <p class="gestion_main_content_p">Référence: {{ appartment.reference }}</p>
-                                                                <p>Status: <strong>{{ appartment.status.name }}</strong></p>
-                                                                <span class="app_price">A partir de <strong>{{ appartment.prices|price(appartment.prices) }}€</strong></span>
-                                                            </div>
-                                                        </td>
-                                                        <td class="td_btn">
-                                                            <a class="btn btn-primary btn_result delete" data-id="{{ appartment.id }}"><span class="glyphicon glyphicon-trash"></span> Supprimer</a>
-                                                            <a href="{{ path('app_announcement_edit', { 'id': appartment.id }) }}" class="btn btn-primary btn_result edit"><span class="glyphicon glyphicon-edit"></span> Editer</a>
-                                                        </td>
-                                                    </tr>
-                                                {% endfor %}
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </aside>
-                                </div>
-                            </div>
-                        </article>
+                    <div class="gestion-head">
+                        <h3>Gestion des annonces</h3>
                     </div>
-                </div>
+
+                    <div class="gestion-body">
+                        <div class="gestion-option">
+                            <div class="gestion-text">
+                                <div class="gestion-text-icon">
+                                    <span class="fa-stack ">
+                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                      <strong class="fa-stack-1x calendar-text" id="counter">{{ count }}</strong>
+                                      <i class="fa fa-caret-down"></i>
+                                    </span>
+                                </div>
+                                <h3> annonce(s) sur le site</h3>
+                            </div>
+                        </div>
+
+                        {% for message in app.flashes('notice') %}
+                            <div class="alert alert-info" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+
+                        <table class="no_border" id="dashboard">
+                            <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Information</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for appartment in appartments %}
+                                <tr>
+                                    <td class="td_date">
+                                        <div class="gestion-date">
+                                            <span>{{ appartment.date|date('Y-m-d') }}</span>
+                                        </div>
+                                    </td>
+                                    <td class="td_body">
+                                        <div class="gestion-img">
+                                            <img src="/uploads/{{ appartment.ressources|first }}">
+                                        </div>
+                                        <div class="gestion_main_content">
+                                            <h3>{{ appartment.title }} {{ appartment.city.name }}</h3>
+                                            <p class="gestion_main_content_p">Type de bien: {{ appartment.type.name }}</p>
+                                            <p class="gestion_main_content_p">Référence: {{ appartment.reference }}</p>
+                                            <p>Status: <strong>{{ appartment.status.name }}</strong></p>
+                                            <span class="app_price">A partir de <strong>{{ appartment.prices|price(appartment.prices) }}€</strong></span>
+                                        </div>
+                                    </td>
+                                    <td class="td_btn">
+                                        <a class="btn btn-primary btn_result delete" data-id="{{ appartment.id }}"><span class="glyphicon glyphicon-trash"></span> Supprimer</a>
+                                        <a href="{{ path('app_announcement_edit', { 'id': appartment.id }) }}" class="btn btn-primary btn_result edit"><span class="glyphicon glyphicon-edit"></span> Editer</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </aside>
             </div>
         </div>
-    </section>
+    </article>
 {% endblock %}
 
-{% block javascript %}
+{% block javascripts %}
     <script type="text/javascript" src="{{ asset('build/gestion.js') }}"></script>
 {% endblock %}

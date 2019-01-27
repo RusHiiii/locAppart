@@ -51,11 +51,14 @@ class AppartmentService
     {
         if (!$update) {
             $data = $this->addAppartment($app);
-            return array('push' => $data['result'], 'msg' => $data['msg']);
         } else {
             $data = $this->editAppartment($app);
-            return array('push' => $data['result'], 'msg' => $data['msg']);
         }
+
+        return [
+            'push' => $data['result'],
+            'msg' => $data['msg']
+        ];
     }
 
     /**
@@ -76,7 +79,10 @@ class AppartmentService
         $this->entityManager->persist($appartment);
         $this->entityManager->flush();
 
-        return array('result' => true, 'msg' => self::MSG_SUCCESS_ADD_APP);
+        return [
+            'result' => true,
+            'msg' => self::MSG_SUCCESS_ADD_APP
+        ];
     }
 
     /**
@@ -89,7 +95,10 @@ class AppartmentService
         $this->entityManager->persist($appartment);
         $this->entityManager->flush();
 
-        return array('result' => true, 'msg' => self::MSG_SUCCESS_EDIT_APP);
+        return [
+            'result' => true,
+            'msg' => self::MSG_SUCCESS_EDIT_APP
+        ];
     }
 
     /**
@@ -101,7 +110,10 @@ class AppartmentService
     {
         $appartement = $this->appartmentRepository->findByKeyValue('id', $id);
         if ($appartement == null) {
-            return array('info' => false, 'data' => self::MSG_ERROR_INFO);
+            return [
+                'info' => false,
+                'data' => self::MSG_ERROR_INFO
+            ];
         }
 
         $ressources = $appartement->getRessources();
@@ -109,7 +121,10 @@ class AppartmentService
             $ressource->setFile(new File($this->targetDirectory . '/' . $ressource->getPath()));
         }
 
-        return array('info' => true, 'data' => $appartement);
+        return [
+            'info' => true,
+            'data' => $appartement
+        ];
     }
 
     /**
@@ -121,7 +136,10 @@ class AppartmentService
     {
         $data = $this->appartmentRepository->findByUser($user);
 
-        return array('info' => true, 'data' => $data);
+        return [
+            'info' => true,
+            'data' => $data
+        ];
     }
 
     /**
@@ -133,13 +151,19 @@ class AppartmentService
     {
         $appartment = $this->appartmentRepository->findByKeyValue('id', $id);
         if ($appartment == null) {
-            return array('delete' => false, 'data' => self::MSG_ERROR_INFO);
+            return [
+                'delete' => false,
+                'data' => self::MSG_ERROR_INFO
+            ];
         }
 
         $this->entityManager->remove($appartment);
         $this->entityManager->flush();
 
-        return array('delete' => true, 'data' => self::MSG_SUCCESS_DELETE_APP);
+        return [
+            'delete' => true,
+            'data' => self::MSG_SUCCESS_DELETE_APP
+        ];
     }
 
     /**

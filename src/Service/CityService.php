@@ -24,9 +24,9 @@ class CityService
     {
         $city = $this->cityRepository->findByKeyValue('id', $id);
 
-        return array(
+        return [
             'lat' => $city->getLat(),
             'lng' => $city->getLng()
-        );
+        ];
     }
 }

@@ -73,7 +73,8 @@ class NotificationService
 
         return [
             'token' => true,
-            'msg' => $url, 'user' => $user
+            'msg' => $url,
+            'user' => $user
         ];
     }
 
@@ -84,11 +85,13 @@ class NotificationService
      * @param $message
      * @return array
      */
-    public function sendEmail($user, $subject, $message)
+    public function sendEmail(array $users, $subject, $message)
     {
+        $mails = $this->formatMailFromUsers($users);
+
         $message = (new \Swift_Message($subject))
           ->setFrom('webmaster@gmail.com')
-          ->setTo($user->getEmail())
+          ->setTo($mails)
           ->setBody(
               $message,
               'text/html'
@@ -100,5 +103,16 @@ class NotificationService
             'send' => true,
             'msg' => self::MSG_EMAIL_SEND
         ];
+    }
+
+    private function formatMailFromUsers(array $users)
+    {
+        $mails = [];
+
+        foreach ($users as $user){
+            $mails[] = $user->getEmail();
+        }
+
+        return $mails;
     }
 }

@@ -25,4 +25,19 @@ class UserRepository extends ServiceEntityRepository
             array($key => $value)
         );
     }
+
+    /**
+     * RECUPERATION USER PAR ROLE
+     * @param $role
+     * @return mixed
+     */
+    public function findAllRole($role){
+        $result = $this->createQueryBuilder('qb')
+                ->where('qb.roles LIKE :role')
+                ->setParameter('role', $role)
+                ->getQuery()
+                ->getResult();
+
+        return $result;
+    }
 }

@@ -1,0 +1,25 @@
+.title_a-propos{
+  font-size: 1.6em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.second_content_propos{
+  margin-top: 30px;
+}
+
+.list_propos{
+  font-size: 0.95em;
+}
+
+.propos{
+  padding: 3em;
+}
+
+.detail{
+  text-align: justify;
+}
+
+#third-block{
+  padding: 0;
+}

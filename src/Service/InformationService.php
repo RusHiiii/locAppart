@@ -33,11 +33,12 @@ class InformationService
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function sendContactMessage(array $data){
-        $user = $this->userRepository->findByKeyValue('email', 'damiens.florent@orange.fr');
+    public function sendContactMessage(array $data)
+    {
+        $users = $this->userRepository->findAllRole('%ADMIN%');
 
         $data = $this->templating->render('Shared/email/contact.html.twig', ['data' => $data]);
-        $this->notificationService->sendEmail($user, self::MSG_CONTACT_EMAIL, $data);
+        $this->notificationService->sendEmail($users, self::MSG_CONTACT_EMAIL, $data);
 
         return [
             'send' => true,

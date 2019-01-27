@@ -30,4 +30,14 @@ class InformationController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+    /**
+     * @Route("/information", name="app_info")
+     */
+    public function information(
+        Request $request
+    )
+    {
+        return $this->render('information/information.html.twig', []);
+    }
 }

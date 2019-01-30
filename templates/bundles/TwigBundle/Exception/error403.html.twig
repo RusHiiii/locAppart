@@ -2,10 +2,6 @@
 
 {% block title %}Loc'Appart - Contact{% endblock %}
 
-{% block style %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.5/css/bootstrap-select.css">
-{% endblock %}
-
 {% block content %}
     <article class="s-12 l-8 center">
         <h2>Erreur {{ status_code }} dectecté</h2>
@@ -15,9 +11,4 @@
 
         <a href="{{ path('home') }}"><button class="btn btn-primary btn_result home-button">Accueil</button></a>
     </article>
-{% endblock %}
-
-{% block javascripts %}
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.5/js/bootstrap-select.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.5/js/i18n/defaults-fr_FR.js"></script>
 {% endblock %}

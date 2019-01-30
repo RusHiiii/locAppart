@@ -11,9 +11,9 @@
     </div>
     <div class="box_img edit">
         {% if form.vars.value.path is not null %}
-            <img id="img_{{ idx }}" class="img_file" src="/uploads/{{ form.vars.value.path }}"/>
+            <img id="img_{{ idx }}" class="img_file" src="{{ '/ressources/images/uploads/' ~ form.vars.value.path }}"/>
         {% else %}
-            <img id="img_{{ idx }}" class="img_file" src="{{ asset('/images/Shared/not-found.png') }}"/>
+            <img id="img_{{ idx }}" class="img_file" src="{{ asset('/ressources/images/static/not-found.png') }}"/>
         {% endif %}
         <a id="{{ idx }}"><i id="circle_{{ idx }}" class="fa fa-times-circle" aria-hidden="true"></i></a>
     </div>

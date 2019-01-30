@@ -4,8 +4,8 @@
 
 {% block style %}
     <link rel="stylesheet" href="{{ asset('build/ajout.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.5/css/bootstrap-select.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="{{ asset('ressources/bootstrap-select/css/bootstrap-select.css') }}">
+    <link rel="stylesheet" href="{{ asset('ressources/bootstrap-datepicker/css/bootstrap-datepicker.css') }}">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXTerqaOjZ_27sfAA2qOIaCrn3OLWJPBI"></script>
 {% endblock %}
 
@@ -62,10 +62,10 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.5/js/bootstrap-select.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.5/js/i18n/defaults-fr_FR.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/locales/bootstrap-datepicker.fr.min.js"></script>
+    <script type="text/javascript" src="{{ asset('ressources/bootstrap-select/js/bootstrap-select.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('ressources/bootstrap-select/js/defaults-fr_FR.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('ressources/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('ressources/bootstrap-datepicker/js/bootstrap-datepicker.fr.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('build/ajout.js') }}"></script>
 {% endblock %}
 

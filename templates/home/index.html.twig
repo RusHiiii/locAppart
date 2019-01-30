@@ -7,7 +7,7 @@
         <div id="carousel">
             <div id="owl-demo" class="owl-carousel owl-theme">
                 <div class="item">
-                    <img src="{{ asset('/images/Shared/first.jpg') }}" alt="">
+                    <img src="{{ asset('/ressources/images/static/background-home.jpg') }}" alt="">
                     <div class="carousel-text">
                         <div class="line">
                             <div class="s-12 l-9">
@@ -72,7 +72,7 @@
                 <div class="margin">
                     {% for appartment in appartments %}
                         <div class="s-10 m-6 l-3 last-appart">
-                            <img src="/uploads/{{ appartment.ressources|first }}">
+                            <img src="/ressources/images/uploads/{{ appartment.ressources|first }}">
                             <p class="search_title">{{ appartment.city.name }} - {{ appartment.city.zip }}</p>
                             <p class="search_content">{{ appartment.type.name }} - {{ appartment.area }}m² - A partir de {{ appartment.prices|price(appartment.prices) }}€</p>
                         </div>

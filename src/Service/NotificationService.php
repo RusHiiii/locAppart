@@ -105,6 +105,11 @@ class NotificationService
         ];
     }
 
+    /**
+     * FORMATAGE DES MAILS
+     * @param array $users
+     * @return array
+     */
     private function formatMailFromUsers(array $users)
     {
         $mails = [];

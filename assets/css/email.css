@@ -3,6 +3,10 @@ body{
   margin: auto;
 }
 
+section{
+  background-color: #f5f7fa;
+}
+
 .carousel-text{
   top: 40px;
 }
@@ -18,4 +22,12 @@ body{
 
 .footer{
   text-align: center;
+}
+
+.image-header{
+  background-image: url('/ressources/images/static/background-blue.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 50%;
 }

@@ -29,7 +29,7 @@ class AppartmentFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
 
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             $appartment = new Appartment();
             $appartment->setTitle($this->faker->sentence(6));
             $appartment->setArea($this->faker->numberBetween(10, 300));

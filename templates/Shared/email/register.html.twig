@@ -29,7 +29,7 @@
                         <p class="subtitile_presentation">Louer facilement votre appartement sur le site.</p>
                         <p class="margin-bottom-home">Bienvenue sur le site {{ user.firstname }} {{ user.lastname }} ! Vous pouvez dès à présent vous connecter et ajouter des annonces de locations d'appartment via votre compte accesible en cliquant <a href={{ app.request.getSchemeAndHttpHost() ~ path('app_login') }}>ici</a>.</p>
                         <p class="margin-bottom-home">Une multitude d'annonces vous attende sur le site, N'hesitez surtout pas à les consulter !</p>
-                        <button type="submit" class="btn btn-primary btn_result">Voir les annonces</button>
+                        <a href="{{ app.request.getSchemeAndHttpHost() ~  path('app_announcement_listing') }}"><button class="btn btn-primary btn_result">Voir les annonces</button></a>
                     </article>
                 </div>
             </div>

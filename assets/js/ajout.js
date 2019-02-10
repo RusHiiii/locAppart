@@ -1,17 +1,18 @@
 /*************** INITIALISATION ***************/
 
-/** Initialisation des inputs file */
-initFile();
+$( document ).ready(function() {
+    /** Initialisation des inputs file */
+    initFile();
 
-/** Initialisation des inputs pour les prix */
-initPrice();
+    /** Initialisation des inputs pour les prix */
+    initPrice();
 
-/** Initialisation des dates */
-initDate();
+    /** Initialisation des dates */
+    initDate();
 
-/** Initialisation de la map */
-initMap();
-
+    /** Initialisation de la map */
+    initMap();
+});
 
 /*************** LISTENER ***************/
 

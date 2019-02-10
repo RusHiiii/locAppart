@@ -1,7 +1,9 @@
 /*************** INITIALISATION ***************/
 
-/** Initialisation de la datatable */
-initTable();
+$( document ).ready(function() {
+    /** Initialisation de la datatable */
+    initTable();
+});
 
 /*************** LISTENER ***************/
 

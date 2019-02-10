@@ -19,13 +19,13 @@ class AppartmentController extends AbstractController
      * DASHBOARD DU COMPTE
      * @Route("/mon-compte/mes-annonces", name="app_dashboard")
      */
-    public function index(
+    public function dashboard(
         Request $request,
         AppartmentService $appService
     ) {
         $data = $appService->getAppartmentsByUser($this->getUser());
 
-        return $this->render('appartment/index.html.twig', [
+        return $this->render('appartment/dashboard.html.twig', [
             'count' => count($data['data']),
             'appartments' => $data['data']
         ]);
@@ -89,6 +89,22 @@ class AppartmentController extends AbstractController
         return $this->render('appartment/announcement.html.twig', [
             'form' => $form->createView(),
             'type' => 'Edition'
+        ]);
+    }
+
+    /**
+     * LISTING DES ANNONCES
+     * @Route("/annonces", name="app_announcement_listing")
+     */
+    public function listing(
+        Request $request,
+        AppartmentService $appService
+    ) {
+        $appartments = $appService->getAllAvailableAppartment($request->query->getInt('page', 1));
+
+        return $this->render('appartment/listing.html.twig', [
+            'appartments' => $appartments,
+            'nb' => count($appartments)
         ]);
     }
 }

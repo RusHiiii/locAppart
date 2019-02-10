@@ -1,0 +1,38 @@
+<div class="s-12 l-12 section_result_app">
+    <div class="s-12 l-4 result_app_header">
+        <div id="carousel-{{ appartment.reference }}" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                {% for idx, image in appartment.ressources %}
+                    <li data-target="#carousel-{{ appartment.reference }}" data-slide-to="{{ idx }}"></li>
+                {% endfor %}
+            </ol>
+
+            <div class="carousel-inner" role="listbox">
+                {% for idx, image in appartment.ressources %}
+                    <div class="item">
+                        <img src="/ressources/images/uploads/{{ image.path }}">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="s-12 l-8 result_app_body">
+        <h2 class="app_header_title">{{ appartment.title }} {{ appartment.city.name }} ({{ appartment.city.zip }})</h2>
+        <span class="app_price">A partir de <strong>{{ appartment.prices|price(appartment.prices) }}€/mois</strong></span>
+        <p class="app_ref">Référence: {{ appartment.reference }}</p>
+        <div class="s-12 l-12 app_body_content">
+            <p class="item_description">{{ appartment.description | slice(0, 200) ~ '...' }}</p>
+            <div class="item_other">
+                <ul class="item-summary">
+                    <li>{{ appartment.type.name }}</li>
+                    <li>{{ appartment.room }} pièce</li>
+                    <li>{{ appartment.area }} m²</li>
+                    {% if appartment.people is not null %}
+                        <li>{{ appartment.people }} personnes</li>
+                    {% endif %}
+                </ul>
+                <a class="btn btn-primary detail">Détail</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+{% extends 'Shared/layout/base_with_image_only.html.twig' %}
+
+{% block title %}Loc'Appart - Les annonces{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ asset('build/listing.css') }}">
+    <link rel="stylesheet" href="{{ asset('ressources/bootstrap-select/css/bootstrap-select.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="line">
+        <ul class="wvu-breadcrumbs">
+            <li>Recherche</li>
+            <li>Auvergne</li>
+            <li>Clermont-Ferrand</li>
+            <li>Location appartement, garage</li>
+        </ul>
+    </div>
+
+    <div class="content_resultPage">
+        <div class="line">
+            <div class="margin">
+                <article class="s-12 l-12 center">
+                    {% include('appartment/elements/search.html.twig') %}
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <div class="content_resultPageAppart">
+        <div class="line custom_div">
+            <div class="margin-bottom">
+                <div class="margin">
+                    <article class="s-12 l-12 center">
+                        <h2>Résultat de recherche</h2>
+                        <p class="subtitile_presentation">{{ appartments.getTotalItemCount }} annonces correspondent à votre recherche</p>
+
+                        {% for appartment in appartments %}
+                            {{ include('appartment/elements/appartment.html.twig', {'appartment': appartment}) }}
+                        {% endfor %}
+                    </article>
+                    <div class="pagination">
+                        {{ knp_pagination_render(appartments) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('ressources/bootstrap-select/js/bootstrap-select.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('ressources/bootstrap-select/js/defaults-fr_FR.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('build/listing.js') }}"></script>
+{% endblock %}

@@ -7,6 +7,7 @@ use App\Entity\User;
 use App\Repository\AppartmentRepository;
 use App\Repository\StatusRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\File\File;
 
@@ -23,6 +24,7 @@ class AppartmentService
     private $entityManager;
     private $security;
     private $targetDirectory;
+    private $paginator;
     private $toolService;
 
     public function __construct(
@@ -31,6 +33,7 @@ class AppartmentService
     EntityManagerInterface $entityManager,
     Security $security,
     ToolService $toolService,
+    PaginatorInterface $paginator,
     $targetDirectory
   ) {
         $this->appartmentRepository = $appartmentRepository;
@@ -39,6 +42,7 @@ class AppartmentService
         $this->security = $security;
         $this->targetDirectory = $targetDirectory;
         $this->toolService = $toolService;
+        $this->paginator = $paginator;
     }
 
     /**
@@ -175,6 +179,20 @@ class AppartmentService
     public function getXLastAppartment(int $nb)
     {
         $appartments = $this->appartmentRepository->findXLastAppartment($nb);
+        return $appartments;
+    }
+
+    /**
+     * RECUPERATION LISTING
+     * @return array
+     */
+    public function getAllAvailableAppartment($currentPage)
+    {
+        $appartments = $this->paginator->paginate(
+            $this->appartmentRepository->findAllValidQuery(),
+            $currentPage,
+            5
+        );
         return $appartments;
     }
 }

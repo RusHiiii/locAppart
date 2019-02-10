@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Appartment;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 class AppartmentRepository extends ServiceEntityRepository
@@ -59,12 +60,25 @@ class AppartmentRepository extends ServiceEntityRepository
     /**
      * RECUPERATION PAR USER
      * @param  string value
-     * @return User
      */
-    public function findByUser($user)
+    public function findByUser($user) : array
     {
         return $this->findBy(
             array('user' => $user)
         );
+    }
+
+    /**
+     * RECUPERATION DES APPART EN LIGNE
+     * @return Query
+     */
+    public function findAllValidQuery() : Query
+    {
+        $qb = $this->createQueryBuilder('qb')
+            ->where('qb.status = :accepted')
+            ->setParameter('accepted', 1)
+            ->getQuery();
+
+        return $qb;
     }
 }

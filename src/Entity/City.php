@@ -41,6 +41,12 @@ class City
      */
     private $zip;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Department")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $department;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -97,5 +103,17 @@ class City
     public function __toString()
     {
         return $this->name;
+    }
+
+    public function getDepartment(): ?Department
+    {
+        return $this->department;
+    }
+
+    public function setDepartment(?Department $department): self
+    {
+        $this->department = $department;
+
+        return $this;
     }
 }

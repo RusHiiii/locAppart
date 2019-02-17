@@ -1,59 +1,32 @@
-<form class="form-horizontal" method="POST" action="search.php">
-    <div class="table-responsive">
-        <table id="no-more-tables" class="table table_nth first_table">
-            <tr>
-                <td>
-                    <table class="table table_nth">
-                        <tr>
-                            <td><input id="desc" type="text" class="form-control" placeholder="Description"></td>
-                        </tr>
-                    </table>
-                </td>
-                <td>
-                    <table class="table table_nth">
-                        <tr>
-                            <td><div style="text-align: center;">
-                                    <select class="selectpicker" data-size="5" data-live-search="true" title="Station">
-                                        <option data-tokens="Les Arcs">Les Arcs</option>
-                                        <option data-tokens="La Rosière">La Rosière</option>
-                                        <option data-tokens="Tignes">Tignes</option>
-                                        <option data-tokens="Les Arcs">Les Arcs</option>
-                                        <option data-tokens="La Rosière">La Rosière</option>
-                                        <option data-tokens="Tignes">Tignes</option>
-                                        <option data-tokens="Les Arcs">Les Arcs</option>
-                                        <option data-tokens="La Rosière">La Rosière</option>
-                                        <option data-tokens="Tignes">Tignes</option>
-                                        <option data-tokens="Les Arcs">Les Arcs</option>
-                                        <option data-tokens="La Rosière">La Rosière</option>
-                                        <option data-tokens="Tignes">Tignes</option>
-                                        <option data-tokens="Les Arcs">Les Arcs</option>
-                                        <option data-tokens="La Rosière">La Rosière</option>
-                                        <option data-tokens="Tignes">Tignes</option>
-                                    </select>
-                                </div></td>
-                        </tr>
-                    </table>
-                </td>
-                <td>
-                    <table class="table table_nth">
-                        <tr>
-                            <td><div>
-                                    <select class="selectpicker" multiple data-max-options="2" title="Type de biens">
-                                        <option>Appartement</option>
-                                        <option>Chalet</option>
-                                        <option>Résidence</option>
-                                    </select>
-                                </div></td>
-                        </tr>
-                    </table>
-                </td>
+<div class="table-responsive">
+    {{ form_start(form) }}
+    <table id="no-more-tables" class="table table_nth first_table">
+        <tr>
+            <td>
+                {{ form_widget(form.description, {'attr': {'class': 'form-control', 'placeholder': 'Description'}}) }}
+            </td>
+            <td>
+                {{ form_widget(form.department, {'attr': {'class': 'selectpicker department', 'placeholder': 'Département', 'data-live-search': 'true'}}) }}
+            </td>
+            <td>
+                {{ form_widget(form.city, {'attr': {'class': 'selectpicker city', 'placeholder': 'Ville', 'data-live-search': 'true'}}) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_widget(form.maxPrice, {'attr': {'class': 'form-control', 'placeholder': 'Prix maximum (€)'}}) }}
+            </td>
+            <td>
+                {{ form_widget(form.garage, {'attr': {'class': 'selectpicker garage', 'placeholder': 'Garage'}}) }}
+            </td>
+            <td>
+                {{ form_widget(form.locker, {'attr': {'class': 'selectpicker locker', 'placeholder': 'Casier'}}) }}
+            </td>
 
-                <td style="height: auto;">
-                    <button type="submit" class="btn btn-primary btn_result" style="width: 100%;">Rechercher</button>
-                </td>
-            </tr>
-
-        </table>
-
-    </div>
-</form>
+            <td>
+                <button class="btn btn-primary btn-result">Rechercher</button>
+            </td>
+        </tr>
+    </table>
+    {{ form_end(form) }}
+</div>

@@ -186,10 +186,10 @@ class AppartmentService
      * RECUPERATION LISTING
      * @return array
      */
-    public function getAllAvailableAppartment($currentPage)
+    public function getAllAvailableAppartment($currentPage, $search, $type)
     {
         $appartments = $this->paginator->paginate(
-            $this->appartmentRepository->findAllValidQuery(),
+            $this->appartmentRepository->findAllValidQuery($search, $type),
             $currentPage,
             5
         );

@@ -77,6 +77,18 @@ form .tooltip{
     right: 10px;
 }
 
+.pagination>li>a, .pagination>li:last-child>a, .pagination>li:last-child>span, .pagination>li:first-child>a, .pagination>li:first-child>span{
+    border-radius: 0px !important;
+}
+
+#no-more-tables > tbody > tr > td{
+    text-align: center;
+}
+
+section.search{
+    margin-bottom: 10px;
+}
+
 .app_btn_detail button{
     width: 100%;
 }

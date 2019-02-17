@@ -11,18 +11,22 @@
     <div class="line">
         <ul class="wvu-breadcrumbs">
             <li>Recherche</li>
-            <li>Auvergne</li>
-            <li>Clermont-Ferrand</li>
-            <li>Location appartement, garage</li>
+            <li>{{ type | capitalize }}</li>
+            {% if form.vars.value.department is not empty %}
+                <li>{{ form.vars.value.department }}</li>
+            {% endif %}
+            {% if form.vars.value.city is not empty %}
+                <li>{{ form.vars.value.city }}</li>
+            {% endif %}
         </ul>
     </div>
 
     <div class="content_resultPage">
         <div class="line">
             <div class="margin">
-                <article class="s-12 l-12 center">
-                    {% include('appartment/elements/search.html.twig') %}
-                </article>
+                <section class="s-12 l-12 center search">
+                    {{ include('appartment/elements/search.html.twig', {'form': form}) }}
+                </section>
             </div>
         </div>
     </div>

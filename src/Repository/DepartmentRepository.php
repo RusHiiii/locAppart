@@ -2,28 +2,16 @@
 
 namespace App\Repository;
 
-use App\Entity\City;
+use App\Entity\Department;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\Query;
 use Doctrine\ORM\QueryBuilder;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
-class CityRepository extends ServiceEntityRepository
+class DepartmentRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, City::class);
-    }
-
-    /**
-     * RECUPERE UNE VILLE PAR N'IMPORTE QUELLE KEY/VALUE
-     * @param $key
-     * @param $value
-     * @return City|null
-     */
-    public function findByKeyValue($key, $value): ?City
-    {
-        return $this->findOneBy(array($key => $value));
+        parent::__construct($registry, Department::class);
     }
 
     /**

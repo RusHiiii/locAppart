@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Appartment;
+use App\Entity\Search\AppartmentSearch;
 use App\Form\AppartmentType;
+use App\Form\Search\AppartmentSearchType;
 use App\Service\AppartmentService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -94,17 +96,23 @@ class AppartmentController extends AbstractController
 
     /**
      * LISTING DES ANNONCES
-     * @Route("/annonces", name="app_announcement_listing")
+     * @Route("/annonces/type/{type}", name="app_announcement_listing")
      */
     public function listing(
         Request $request,
-        AppartmentService $appService
+        AppartmentService $appService,
+        String $type
     ) {
-        $appartments = $appService->getAllAvailableAppartment($request->query->getInt('page', 1));
+        $search = new AppartmentSearch();
+        $formSearch = $this->createForm(AppartmentSearchType::class, $search);
+        $formSearch->handleRequest($request);
+
+        $appartments = $appService->getAllAvailableAppartment($request->query->getInt('page', 1), $search, $type);
 
         return $this->render('appartment/listing.html.twig', [
             'appartments' => $appartments,
-            'nb' => count($appartments)
+            'form' => $formSearch->createView(),
+            'type' => $type
         ]);
     }
 }

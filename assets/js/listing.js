@@ -3,6 +3,9 @@
 $( document ).ready(function() {
     /** Initialisation des images */
     initImage();
+
+    /** Initialisation placeholder */
+    initSelect();
 });
 
 /*************** FONCTION ***************/
@@ -24,4 +27,12 @@ function initImage(){
         pagination : false,
         singleItem:true
     });
+}
+
+/** Initialisation des placeholders des select */
+function initSelect() {
+    $('.city').selectpicker({noneSelectedText: 'Ville'});
+    $('.locker').selectpicker({noneSelectedText: 'Casier'});
+    $('.garage').selectpicker({noneSelectedText: 'Garage'});
+    $('.department').selectpicker({noneSelectedText: 'Département'});
 }

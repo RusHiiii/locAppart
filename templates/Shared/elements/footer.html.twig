@@ -2,7 +2,9 @@
     <div class="line">
         <div class="s-12 l-4 box_footer">
             <h1 class="h1_footer">Les News</h1>
-            <p class="content_footer">Aucune News pour le moment</p>
+            {{ render(controller(
+                'App\\Controller\\NewsController::recentNews'
+            )) }}
         </div>
         <div class="s-12 l-4 box_footer">
             <h1 class="h1_footer">Les Coordonnées</h1>

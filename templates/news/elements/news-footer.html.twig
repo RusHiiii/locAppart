@@ -1,0 +1,3 @@
+{% for new in news %}
+    <a href="{{ path('app_news') }}"><p class="content_footer">{{ new.created | date('d/m/Y') }} - {{ new.title }}</p></a>
+{% endfor %}

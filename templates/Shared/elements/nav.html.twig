@@ -25,7 +25,7 @@
             </ul>
             <div class="top-nav s-12 l-5">
                 <ul class="top-ul chevron">
-                    <li><a href="#">Les News</a></li>
+                    <li><a href="{{ path('app_news') }}">Les News</a></li>
                     <li>
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                             <a>Mon compte</a>

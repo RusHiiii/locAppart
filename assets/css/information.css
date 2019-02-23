@@ -23,3 +23,14 @@
 #third-block{
   padding: 0;
 }
+
+.title-news{
+  font-size: 1.6em;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.text-news{
+  text-align: left;
+  margin-bottom: 20px;
+}

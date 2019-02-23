@@ -89,6 +89,10 @@ section.search{
     margin-bottom: 10px;
 }
 
+.btn-result{
+    width: 100%;
+}
+
 .app_btn_detail button{
     width: 100%;
 }

@@ -69,9 +69,7 @@ class AppartmentSearchType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => AppartmentSearch::class,
-            'method' => 'get',
-            'csrf_protection' => false,
-            'allow_extra_fields' => true
+            'csrf_protection' => false
         ]);
     }
 

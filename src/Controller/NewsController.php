@@ -10,20 +10,27 @@ use Symfony\Component\Routing\Annotation\Route;
 class NewsController extends AbstractController
 {
     /**
+     * LISTING DES NEWS
      * @Route("/news", name="app_news")
      */
-    public function listNews(
+    public function index(
         Request $request,
         NewsService $newsService
     )
     {
         $news = $newsService->getLastestNews(5);
 
-        return $this->render('news/news.html.twig', [
+        return $this->render('news/index.html.twig', [
             'news' => $news,
         ]);
     }
 
+    /**
+     * AFFICHAGE POUR LE FOOTER
+     * @param Request $request
+     * @param NewsService $newsService
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function recentNews(
         Request $request,
         NewsService $newsService

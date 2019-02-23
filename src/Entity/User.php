@@ -195,7 +195,7 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getResetToken(): string
+    public function getResetToken(): ?string
     {
         return $this->resetToken;
     }
@@ -215,5 +215,10 @@ class User implements UserInterface
         $this->notification = $notification;
 
         return $this;
+    }
+
+    public function  __toString()
+    {
+        return $this->firstname . ' ' . $this->lastname;
     }
 }

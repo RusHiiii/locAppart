@@ -1,0 +1,90 @@
+easy_admin:
+    list:
+        actions: ['show']
+        title: "Loc'Appart - Liste - %%entity_label%%"
+    show:
+        title: "Loc'Appart - Détail - %%entity_label%% (#%%entity_id%%)"
+    edit:
+        title: "Loc'Appart - Edition - %%entity_label%% (#%%entity_id%%)"
+
+    site_name: "Administration - Loc'Appart."
+
+    design:
+        menu:
+            - { label: 'Utilisateurs' }
+            - { entity: 'User', icon: 'user' }
+            - { label: 'Appartements' }
+            - { entity: 'Appartment', icon: 'building' }
+            - { entity: 'Price', icon: 'euro' }
+            - { entity: 'Message', icon: 'comment' }
+            - { entity: 'Ressource', icon: 'image' }
+            - { label: 'Paramètres' }
+            - label: 'Lieux'
+              icon: 'globe'
+              children:
+                - { entity: 'Region', icon: 'globe' }
+                - { entity: 'Department', icon: 'globe' }
+                - { entity: 'City', icon: 'globe' }
+            - { entity: 'Type', icon: 'home' }
+            - { entity: 'Availability', icon: 'calendar' }
+            - { entity: 'Status', icon: 'calendar-check-o' }
+            - { label: 'Contenus' }
+            - { entity: 'News', icon: 'newspaper-o' }
+        brand_color: '#008CAF'
+        assets:
+            favicon: '/ressources/images/static/favicon.png'
+
+    entities:
+        User:
+            class: App\Entity\User
+            label: 'Utilisateurs'
+            help: 'La liste des utilisateurs du site.'
+            show:
+                fields: ['date', 'email', 'firstname', 'lastname', 'gender', 'roles', { property: 'notification', type: 'boolean' }]
+            list:
+                fields: ['date', 'email', 'firstname', 'lastname', 'gender', 'roles', { property: 'notification', type: 'toggle' }]
+            form:
+                fields: ['email', 'date', 'firstname', 'lastname', 'gender', 'password', 'notification', { property: 'roles', type: 'collection' }]
+        Appartment:
+            class: App\Entity\Appartment
+            label: 'Appartements'
+            list:
+                fields: ['date', 'title', 'reference', 'Type', 'User', 'City']
+        Availability:
+            class: App\Entity\Availability
+            label: 'Disponibilité'
+        City:
+            class: App\Entity\City
+            label: 'Villes'
+            list:
+                fields: ['name', 'lat', 'lng', 'zip', 'Department', { property: 'Department.region.name', label: 'Region' }]
+        Department:
+            class: App\Entity\Department
+            label: 'Départements'
+        Message:
+            class: App\Entity\Message
+            label: 'Messages'
+        News:
+            class: App\Entity\News
+            label: 'News'
+        Price:
+            class: App\Entity\Price
+            label: 'Prix'
+        Region:
+            class: App\Entity\Region
+            label: 'Régions'
+        Ressource:
+            class: App\Entity\Ressource
+            label: 'Ressources'
+            list:
+                fields: ['appartment', { property: 'path', type: 'image', base_path: '/ressources/images/uploads' }]
+            show:
+                fields: ['appartment', { property: 'path', type: 'image', base_path: '/ressources/images/uploads' }]
+            form:
+                fields: ['appartment', { property: 'file', type: 'file', label: 'Image' }]
+        Status:
+            class: App\Entity\Status
+            label: 'Status'
+        Type:
+            class: App\Entity\Type
+            label: 'Type'

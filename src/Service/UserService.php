@@ -48,9 +48,6 @@ class UserService
      */
     public function registerUser(User $user)
     {
-        $password = $this->passwordEncoder->encodePassword($user, $user->getPassword());
-        $user->setPassword($password);
-        $user->setDate(new \DateTime('now'));
 
         $data = $this->templating->render('Shared/email/register.html.twig', ['user' => $user]);
         $this->notification->sendEmail([$user], self::MSG_REGISTER_EMAIL, $data);

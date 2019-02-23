@@ -10,12 +10,12 @@
         </label>
     </div>
     <div class="box_img">
-        <img id="img_{{ idx }}" style="display: none;" class="img_file" src="#"/>
-        <a id="{{ idx }}"><i id="circle_{{ idx }}" style="display: none;" class="fa fa-times-circle"></i></a>
+        <img id="img_{{ idx }}" class="img_file" src="#"/>
+        <a id="{{ idx }}"><i id="circle_{{ idx }}" class="fa fa-times-circle close-circle"></i></a>
     </div>
 </div>
 {% if form_errors(form.file) %}
-    <div class="row" style="position:absolute;">
+    <div class="row error-row">
         <div class="error_form">
             <span>{{ form_errors(form.file) }}</span>
         </div>

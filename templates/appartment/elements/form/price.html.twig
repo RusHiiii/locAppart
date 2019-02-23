@@ -7,7 +7,7 @@
     <div class="item active table-responsive ">
         <table class="table custom_table_prix">
             <thead>
-            <tr class="header" id="appartment_prices" data-prototype="{{ include('appartment/form/prototype/price.html.twig', { 'form': form.prices.vars.prototype, 'idx':'__name__' }) | e('html_attr') }}" >
+            <tr class="header" id="appartment_prices" data-prototype="{{ include('appartment/elements/form/prototype/price.html.twig', { 'form': form.prices.vars.prototype, 'idx':'__name__' }) | e('html_attr') }}" >
                 <td class="no-border"><button type="button" class="btn btn-primary" id="add_price">Ajouter une période</button></td>
                 <td><strong>Date début</strong></td>
                 <td><strong>Date fin</strong></td>
@@ -19,7 +19,7 @@
             <tbody>
             {% for idx, price in form.prices %}
                 <tr id="tr_price_{{ idx }}">
-                    {{ include('appartment/form/prototype/price.html.twig', { 'form': price, 'idx': idx }) }}
+                    {{ include('appartment/elements/form/prototype/price.html.twig', { 'form': price, 'idx': idx }) }}
                 </tr>
             {% endfor %}
             <tr id="empty_row">

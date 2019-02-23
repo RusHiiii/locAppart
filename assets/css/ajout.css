@@ -18,6 +18,14 @@
   width: 25%;
 }
 
+.error-row{
+  position: absolute;
+}
+
+.box_img .close-circle{
+  display: none;
+}
+
 .fa-circle{
   font-size: 3.5em !important;
   position: absolute !important;
@@ -147,6 +155,7 @@ html, body, #map, .map-container {
   max-width: 100%;
   max-height: 115px;
   margin: auto;
+  display: none;
 }
 
 .fa-times-circle{

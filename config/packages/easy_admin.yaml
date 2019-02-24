@@ -6,6 +6,8 @@ easy_admin:
         title: "Loc'Appart - Détail - %%entity_label%% (#%%entity_id%%)"
     edit:
         title: "Loc'Appart - Edition - %%entity_label%% (#%%entity_id%%)"
+    new:
+        title: "Loc'Appart - Ajout - %%entity_label%%"
 
     site_name: "Administration - Loc'Appart."
 
@@ -43,13 +45,17 @@ easy_admin:
                 fields: ['date', 'email', 'firstname', 'lastname', 'gender', 'roles', { property: 'notification', type: 'boolean' }]
             list:
                 fields: ['date', 'email', 'firstname', 'lastname', 'gender', 'roles', { property: 'notification', type: 'toggle' }]
-            form:
+            new:
                 fields: ['email', 'date', 'firstname', 'lastname', 'gender', 'password', 'notification', { property: 'roles', type: 'collection' }]
+            edit:
+                fields: ['email', 'date', 'firstname', 'lastname', 'gender', 'notification', { property: 'roles', type: 'collection' }]
         Appartment:
             class: App\Entity\Appartment
             label: 'Appartements'
             list:
                 fields: ['date', 'title', 'reference', 'Type', 'User', 'City']
+            form:
+                fields: [{ type: 'tab' , label: 'Information obligatoire' }, 'title', 'area', 'room', 'description', 'adress', 'lat', 'lng', { property: 'type', type_options: { class: 'App\Entity\Type' } }, { property: 'status', type_options: { class: 'App\Entity\Status' } }, { property: 'user', type: 'easyadmin_autocomplete', type_options: { class: 'App\Entity\User' } }, { property: 'city', type: 'easyadmin_autocomplete', type_options: { class: 'App\Entity\City' } }, { type: 'tab' , label: 'Information complémentaire' }, 'people', 'bedroom', 'ski', 'garage', 'locker', 'information']
         Availability:
             class: App\Entity\Availability
             label: 'Disponibilité'
@@ -76,6 +82,7 @@ easy_admin:
         Ressource:
             class: App\Entity\Ressource
             label: 'Ressources'
+            disabled_actions: ['edit']
             list:
                 fields: ['appartment', { property: 'path', type: 'image', base_path: '/ressources/images/uploads' }]
             show:

@@ -72,9 +72,6 @@ class AppartmentService
      */
     private function addAppartment(Appartment $appartment)
     {
-        $ref = $this->toolService->generateReference($appartment);
-        $appartment->setReference(strtoupper($ref));
-
         $status = $this->statusRepository->findByName('En attente de modération');
         $appartment->setStatus($status);
 

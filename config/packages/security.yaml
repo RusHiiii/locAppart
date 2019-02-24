@@ -19,6 +19,8 @@ security:
             guard:
                 authenticators:
                     - App\Security\LoginFormAuthenticator
+                    - App\Security\GoogleAuthenticator
+                entry_point: App\Security\LoginFormAuthenticator
             logout:
                 path: app_logout
             remember_me:
@@ -37,3 +39,4 @@ security:
     access_control:
           - { path: ^/mon-compte, roles: ROLE_USER }
           - { path: ^/admin, roles: ROLE_ADMIN }
+

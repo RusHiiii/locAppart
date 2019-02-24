@@ -4,15 +4,21 @@ namespace App\EventListener;
 
 use App\Entity\Appartment;
 use App\Service\FileUploaderService;
+use App\Service\ToolService;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 
 class AppartmentEntityListener
 {
     private $uploader;
+    private $toolService;
 
-    public function __construct(FileUploaderService $uploader)
+    public function __construct(
+        FileUploaderService $uploader,
+        ToolService $toolService
+    )
     {
         $this->uploader = $uploader;
+        $this->toolService = $toolService;
     }
 
     /**
@@ -25,6 +31,8 @@ class AppartmentEntityListener
         $entity = $args->getEntity();
 
         $this->manageCreationDate($entity);
+
+        $this->manageReference($entity);
     }
 
     /**
@@ -39,5 +47,19 @@ class AppartmentEntityListener
         }
 
         $entity->setDate(new \DateTime('NOW'));
+    }
+
+    /**
+     * GESTION DE LA REF
+     * @param $entity
+     * @throws \Exception
+     */
+    private function manageReference($entity)
+    {
+        if (!$entity instanceof Appartment) {
+            return;
+        }
+
+        $entity->setReference(strtoupper($this->toolService->generateReference($entity)));
     }
 }

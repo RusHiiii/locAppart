@@ -22,10 +22,9 @@ button:hover.spinner:before{
 }
 
 
-.google-button {
+.google-button, .facebook-button {
     height: 40px;
     border-width: 0;
-    background: #E93F2E;
     color: white;
     border-radius: 5px;
     white-space: nowrap;
@@ -35,14 +34,26 @@ button:hover.spinner:before{
     transition-timing-function: ease-in-out;
     padding: 0;
     width: 250px;
-
 }
 
-.fa-google{
+.google-button{
+    background: #E93F2E;
+}
+
+.facebook-button{
+    /*background: #3b5998;*/
+    margin-left: 20px;
+}
+
+.link-api{
+    text-decoration: none !important;
+}
+
+.fa-google, .fa-facebook{
     color: white;
 }
 
-.google-button__icon {
+.google-button__icon, .facebook-button__icon {
     display: inline-block;
     vertical-align: middle;
     width: 20%;
@@ -55,7 +66,7 @@ button:hover.spinner:before{
   width: 27px;
 }
 
-.google-button__text {
+.google-button__text, .facebook-button__text {
     display: inline-block;
     vertical-align: middle;
     padding: 0 24px;
@@ -73,8 +84,8 @@ button ~ button {
   margin-left: 20px;
 }
 
-.google-button:focus,
-.google-button:hover {
+.google-button:focus, .facebook:focus
+.google-button:hover, .facebook:hover {
      box-shadow: 1px 4px 5px 1px rgba(0,0,0,0.1);
 }
 

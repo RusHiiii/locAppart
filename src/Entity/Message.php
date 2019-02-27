@@ -52,7 +52,7 @@ class Message
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Appartment", inversedBy="messages")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE"))
      */
     private $appartment;
 

@@ -83,7 +83,6 @@ class User implements UserInterface
 
     public function __construct()
     {
-        $this->roles = ['ROLE_USER'];
         $this->notification = true;
     }
 

@@ -28,7 +28,7 @@ class Ressource
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Appartment", inversedBy="ressources")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $appartment;
 

@@ -46,12 +46,20 @@
     </article>
     <article class="s-12 l-8 center">
         <div class="inscription_site">
-            <h2>Vous avez un compte Google ?</h2>
-            <p class="subtitile_presentation">Pour vous connecter rapidement grâce à Google</p>
-            <a href="{{ path("connect_google") }}"><button type="button" class="google-button">
-                <span class="google-button__icon"><i class="fa fa-google fa-2x"></i></span>
-                <span class="google-button__text">Se connecter avec Google</span>
-            </button></a>
+            <h2>Vous avez un compte ?</h2>
+            <p class="subtitile_presentation">Pour vous connecter plus rapidement sur le site</p>
+            <a href="{{ path("connect_google") }}" class="link-api">
+                <button type="button" class="google-button">
+                    <span class="google-button__icon"><i class="fa fa-google fa-2x"></i></span>
+                    <span class="google-button__text">Se connecter avec Google</span>
+                </button>
+            </a>
+            <a href="#" class="link-api">
+                <button type="button" class="facebook-button" disabled>
+                    <span class="facebook-button__icon"><i class="fa fa-facebook fa-2x"></i></span>
+                    <span class="facebook-button__text">Se connecter avec Facebook</span>
+                </button>
+            </a>
         </div>
     </article>
 {% endblock %}

@@ -9,12 +9,12 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
-use App\Entity\User;
-use App\Form\ForgottenPasswordType;
-use App\Form\ResetPasswordType;
+use App\Entity\WebApp\User;
+use App\Form\WebApp\ForgottenPasswordType;
+use App\Form\WebApp\ResetPasswordType;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use App\Service\NotificationService;
-use App\Service\UserService;
+use App\Service\Tools\NotificationService;
+use App\Service\WebApp\UserService;
 
 class SecurityController extends AbstractController
 {

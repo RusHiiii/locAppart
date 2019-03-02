@@ -2,12 +2,12 @@
 
 namespace App\Form\Search;
 
-use App\Entity\City;
+use App\Entity\WebApp\City;
 use App\Entity\Search\AppartmentSearch;
-use App\Repository\CityRepository;
-use App\Repository\DepartmentRepository;
-use App\Service\CityService;
-use Proxies\__CG__\App\Entity\Department;
+use App\Entity\WebApp\Department;
+use App\Repository\WebApp\CityRepository;
+use App\Repository\WebApp\DepartmentRepository;
+use App\Service\WebApp\CityService;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;

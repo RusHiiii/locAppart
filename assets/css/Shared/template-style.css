@@ -60,6 +60,22 @@ nav {
     margin-left: -10px;
 }
 
+.helper{
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.img-footer{
+    height: 175px;
+}
+
+.last-appart img{
+    max-height: 175px;
+    margin: auto;
+    display: inline-block;
+}
+
 .spinner:not(:required):before {
     content: '';
     border-radius: 50%;

@@ -1,7 +1,7 @@
 <?php
 namespace App\Twig;
 
-use App\Entity\Price;
+use App\Entity\WebApp\Price;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 

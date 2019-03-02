@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="{{ app.request.getSchemeAndHttpHost() ~  asset('build/generic.css') }}">
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,300'>
+    <link rel="stylesheet" href="{{app.request.getSchemeAndHttpHost() ~  asset('build/app.css') }}">
+    <link rel="stylesheet" href="{{app.request.getSchemeAndHttpHost() ~  asset('ressources/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{app.request.getSchemeAndHttpHost() ~  asset('build/email.css') }}">
+</head>
+<body>
+<section>
+    <div class="image-header">
+        <div class="carousel-text">
+            <div class="line">
+                <div class="header">
+                    <h2>Location d'Appartement en France</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content_login">
+        <div class="line">
+            <div class="margin-bottom">
+                <div class="margin">
+                    <article class="s-12 l-8 center">
+                        <h2>Mise à jour de votre annonce !</h2>
+                        <p class="subtitile_presentation">Louer facilement votre appartement sur le site.</p>
+                        <p class="margin-bottom-home">Votre annonce {{ appartment.title }} à {{ appartment.city.name }} a changé de statut.</p>
+                        <p class="margin-bottom-home">{{ status }}</p>
+                        <a href="{{ app.request.getSchemeAndHttpHost() ~  path('app_announcement_listing', {'type' : 'appartement'}) }}"><button class="btn btn-primary btn_result">Voir les annonces</button></a>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="footer_lines">
+        <div class="line">
+            <div class="footer">
+                <p>Copyright 2019, Florent Damiens - LocationAppartment</p>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

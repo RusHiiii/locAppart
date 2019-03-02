@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
-use App\Service\AppartmentService;
-use App\Service\CityService;
-use App\Service\MessageService;
+use App\Service\WebApp\AppartmentService;
+use App\Service\WebApp\CityService;
+use App\Service\WebApp\MessageService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,7 +25,9 @@ class XhrController extends AbstractController
         $city = $cityService->getCityInformationLocation($cityId);
 
         return new JsonResponse(
-            ['data' => $city]
+            [
+                'data' => $city
+            ]
         );
     }
 
@@ -42,7 +44,9 @@ class XhrController extends AbstractController
         $data = $appService->removeAppartment($appId);
 
         return new JsonResponse(
-            ['data' => $data]
+            [
+                'data' => $data
+            ]
         );
     }
 
@@ -59,7 +63,9 @@ class XhrController extends AbstractController
         $data = $messageService->removeMessage($appId);
 
         return new JsonResponse(
-            ['data' => $data]
+            [
+                'data' => $data
+            ]
         );
     }
 }

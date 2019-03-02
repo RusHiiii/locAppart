@@ -31,3 +31,9 @@ section{
   background-size: cover;
   height: 50%;
 }
+
+.margin-bottom-home{
+  width: 70%;
+  margin: auto;
+  margin-bottom: 10px;
+}

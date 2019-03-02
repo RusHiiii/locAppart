@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Service\MessageService;
+use App\Service\WebApp\MessageService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;

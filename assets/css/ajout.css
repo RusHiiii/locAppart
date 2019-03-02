@@ -155,7 +155,6 @@ html, body, #map, .map-container {
   max-width: 100%;
   max-height: 115px;
   margin: auto;
-  display: none;
 }
 
 .fa-times-circle{

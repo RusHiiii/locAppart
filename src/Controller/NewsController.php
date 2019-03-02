@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Service\NewsService;
+use App\Service\WebApp\NewsService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;

@@ -72,7 +72,14 @@
                 <div class="margin">
                     {% for appartment in appartments %}
                         <div class="s-10 m-6 l-3 last-appart">
-                            <img src="/ressources/images/uploads/{{ appartment.ressources|first }}">
+                            <div class="img-footer">
+                                {% if appartment.ressources|first is empty %}
+                                    <img src="{{ asset('/ressources/images/static/not-found.png') }}"/>
+                                {% else %}
+                                    <span class="helper"></span><img src="/ressources/images/uploads/{{ appartment.ressources|first }}">
+                                {% endif %}
+                            </div>
+
                             <p class="search_title">{{ appartment.city.name }} - {{ appartment.city.zip }}</p>
                             <p class="search_content">{{ appartment.type.name }} - {{ appartment.area }}m² - A partir de {{ appartment.prices|price(appartment.prices) }}€</p>
                         </div>

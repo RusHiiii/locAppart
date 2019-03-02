@@ -38,7 +38,7 @@ easy_admin:
 
     entities:
         User:
-            class: App\Entity\User
+            class: App\Entity\WebApp\User
             label: 'Utilisateurs'
             help: 'La liste des utilisateurs du site.'
             show:
@@ -50,37 +50,37 @@ easy_admin:
             edit:
                 fields: ['email', 'date', 'firstname', 'lastname', 'gender', 'notification', { property: 'roles', type: 'collection' }]
         Appartment:
-            class: App\Entity\Appartment
+            class: App\Entity\WebApp\Appartment
             label: 'Appartements'
             list:
                 fields: ['date', 'title', 'reference', 'Type', 'User', 'City']
             form:
-                fields: [{ type: 'tab' , label: 'Information obligatoire' }, 'title', 'area', 'room', 'description', 'adress', 'lat', 'lng', { property: 'type', type_options: { class: 'App\Entity\Type' } }, { property: 'status', type_options: { class: 'App\Entity\Status' } }, { property: 'user', type: 'easyadmin_autocomplete', type_options: { class: 'App\Entity\User' } }, { property: 'city', type: 'easyadmin_autocomplete', type_options: { class: 'App\Entity\City' } }, { type: 'tab' , label: 'Information complémentaire' }, 'people', 'bedroom', 'ski', 'garage', 'locker', 'information']
+                fields: [{ type: 'tab' , label: 'Information obligatoire' }, 'title', 'area', 'room', 'description', 'adress', 'lat', 'lng', { property: 'type', type_options: { class: 'App\Entity\WebApp\Type' } }, { property: 'status', type_options: { class: 'App\Entity\WebApp\Status' } }, { property: 'user', type: 'easyadmin_autocomplete', type_options: { class: 'App\Entity\WebApp\User' } }, { property: 'city', type: 'easyadmin_autocomplete', type_options: { class: 'App\Entity\WebApp\City' } }, { type: 'tab' , label: 'Information complémentaire' }, 'people', 'bedroom', 'ski', 'garage', 'locker', 'information']
         Availability:
-            class: App\Entity\Availability
+            class: App\Entity\WebApp\Availability
             label: 'Disponibilité'
         City:
-            class: App\Entity\City
+            class: App\Entity\WebApp\City
             label: 'Villes'
             list:
                 fields: ['name', 'lat', 'lng', 'zip', 'Department', { property: 'Department.region.name', label: 'Region' }]
         Department:
-            class: App\Entity\Department
+            class: App\Entity\WebApp\Department
             label: 'Départements'
         Message:
-            class: App\Entity\Message
+            class: App\Entity\WebApp\Message
             label: 'Messages'
         News:
-            class: App\Entity\News
+            class: App\Entity\WebApp\News
             label: 'News'
         Price:
-            class: App\Entity\Price
+            class: App\Entity\WebApp\Price
             label: 'Prix'
         Region:
-            class: App\Entity\Region
+            class: App\Entity\WebApp\Region
             label: 'Régions'
         Ressource:
-            class: App\Entity\Ressource
+            class: App\Entity\WebApp\Ressource
             label: 'Ressources'
             disabled_actions: ['edit']
             list:
@@ -90,8 +90,10 @@ easy_admin:
             form:
                 fields: ['appartment', { property: 'file', type: 'file', label: 'Image' }]
         Status:
-            class: App\Entity\Status
+            class: App\Entity\WebApp\Status
             label: 'Status'
+            list:
+                fields: ['id', 'name', 'description']
         Type:
-            class: App\Entity\Type
+            class: App\Entity\WebApp\Type
             label: 'Type'

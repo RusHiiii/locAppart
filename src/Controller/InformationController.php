@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\Form\ContactType;
-use App\Service\InformationService;
+use App\Form\WebApp\ContactType;
+use App\Service\Tools\InformationService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,6 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class InformationController extends AbstractController
 {
     /**
+     * PAGE DE CONTACT
      * @Route("/contact", name="app_contact")
      */
     public function contact(
@@ -32,6 +33,7 @@ class InformationController extends AbstractController
     }
 
     /**
+     * PAGE D'INFORMATION
      * @Route("/information", name="app_info")
      */
     public function information(

@@ -25,26 +25,27 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
-    App\Service\FileUploaderService:
+    App\Service\Tools\FileUploaderService:
         arguments:
             $targetDirectory: '%upload_directory%'
-    App\Service\AppartmentService:
+    App\Service\WebApp\AppartmentService:
         arguments:
             $targetDirectory: '%upload_directory%'
 
-    App\EventListener\AppartmentEntityListener:
-        class: App\EventListener\AppartmentEntityListener
+    App\EventListener\WebApp\AppartmentEntityListener:
+        class: App\EventListener\WebApp\AppartmentEntityListener
         tags:
             - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
 
-    App\EventListener\RessourceEntityListener:
-        class: App\EventListener\RessourceEntityListener
+    App\EventListener\WebApp\RessourceEntityListener:
+        class: App\EventListener\WebApp\RessourceEntityListener
         tags:
             - { name: doctrine.event_listener, event: preRemove }
             - { name: doctrine.event_listener, event: preUpdate }
             - { name: doctrine.event_listener, event: prePersist }
 
-    App\EventListener\UserEntityListener:
-        class: App\EventListener\UserEntityListener
+    App\EventListener\WebApp\UserEntityListener:
+        class: App\EventListener\WebApp\UserEntityListener
         tags:
             - { name: doctrine.event_listener, event: prePersist }

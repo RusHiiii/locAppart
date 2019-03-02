@@ -2,11 +2,11 @@
 
 namespace App\Controller;
 
-use App\Entity\Appartment;
+use App\Entity\WebApp\Appartment;
 use App\Entity\Search\AppartmentSearch;
-use App\Form\AppartmentType;
+use App\Form\WebApp\AppartmentType;
 use App\Form\Search\AppartmentSearchType;
-use App\Service\AppartmentService;
+use App\Service\WebApp\AppartmentService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;

@@ -2,14 +2,14 @@
 
 namespace App\Controller;
 
-use App\Form\UpdatePasswordType;
+use App\Form\WebApp\UpdatePasswordType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-use App\Form\UserType;
-use App\Form\UserEditType;
-use App\Entity\User;
-use App\Service\UserService;
+use App\Form\WebApp\UserType;
+use App\Form\WebApp\UserEditType;
+use App\Entity\WebApp\User;
+use App\Service\WebApp\UserService;
 
 class UserController extends AbstractController
 {

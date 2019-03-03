@@ -1,4 +1,5 @@
 easy_admin:
+    translation_domain: 'admin'
     list:
         actions: ['show']
         title: "Loc'Appart - Liste - %%entity_label%%"
@@ -53,9 +54,9 @@ easy_admin:
             class: App\Entity\WebApp\Appartment
             label: 'Appartements'
             list:
-                fields: ['date', 'title', 'reference', 'Type', 'User', 'City']
+                fields: ['date', 'title', 'reference', 'Type', 'User', 'City', 'status']
             form:
-                fields: [{ type: 'tab' , label: 'Information obligatoire' }, 'title', 'area', 'room', 'description', 'adress', 'lat', 'lng', { property: 'type', type_options: { class: 'App\Entity\WebApp\Type' } }, { property: 'status', type_options: { class: 'App\Entity\WebApp\Status' } }, { property: 'user', type: 'easyadmin_autocomplete', type_options: { class: 'App\Entity\WebApp\User' } }, { property: 'city', type: 'easyadmin_autocomplete', type_options: { class: 'App\Entity\WebApp\City' } }, { type: 'tab' , label: 'Information complémentaire' }, 'people', 'bedroom', 'ski', 'garage', 'locker', 'information']
+                fields: [{ type: 'tab' , label: 'Information obligatoire' }, 'title', 'area', 'room', 'description', 'address', 'lat', 'lng', { property: 'type', type_options: { class: 'App\Entity\WebApp\Type' } }, { property: 'status', type_options: { class: 'App\Entity\WebApp\Status' } }, { property: 'user', type: 'easyadmin_autocomplete', type_options: { class: 'App\Entity\WebApp\User' } }, { property: 'city', type: 'easyadmin_autocomplete', type_options: { class: 'App\Entity\WebApp\City' } }, { type: 'tab' , label: 'Information complémentaire' }, 'people', 'bedroom', 'ski', 'garage', 'locker', 'information']
         Availability:
             class: App\Entity\WebApp\Availability
             label: 'Disponibilité'

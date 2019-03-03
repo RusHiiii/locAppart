@@ -90,7 +90,7 @@ class Appartment
      * @Assert\Length(min=5)
      * @ORM\Column(type="text")
      */
-    private $adress;
+    private $address;
 
     /**
      * @ORM\Column(type="float")
@@ -271,14 +271,14 @@ class Appartment
         return $this;
     }
 
-    public function getAdress(): ?string
+    public function getAddress(): ?string
     {
-        return $this->adress;
+        return $this->address;
     }
 
-    public function setAdress(string $adress): self
+    public function setAddress(string $address): self
     {
-        $this->adress = $adress;
+        $this->address = $address;
 
         return $this;
     }

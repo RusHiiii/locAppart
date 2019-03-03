@@ -14,13 +14,13 @@
             </div>
         </div>
         <div class="form-group form-custom no_margin">
-            {{ form_label(form.adress, null, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+            {{ form_label(form.address, null, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
             <div class="col-sm-9">
-                {{ form_widget(form.adress, {'attr': {'class': 'form-control custom_input_loc', 'placeholder': 'Adresse'}}) }}
-                {% if form_errors(form.adress) %}
+                {{ form_widget(form.address, {'attr': {'class': 'form-control custom_input_loc', 'placeholder': 'Adresse'}}) }}
+                {% if form_errors(form.address) %}
                     <div class="row">
                         <div class="error_form">
-                            <span>{{ form_errors(form.adress) }}</span>
+                            <span>{{ form_errors(form.address) }}</span>
                         </div>
                     </div>
                 {% endif %}

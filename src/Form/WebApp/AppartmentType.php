@@ -91,7 +91,7 @@ class AppartmentType extends AbstractType
                 'label' => 'Autre information:',
                 'required' => false
             ))
-            ->add('adress', TextType::class, array(
+            ->add('address', TextType::class, array(
                 'label' => 'Adresse complète:'
             ))
             ->add('city', null, array(

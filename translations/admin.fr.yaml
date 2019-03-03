@@ -1,0 +1,35 @@
+action:
+  edit: Editer
+  list: Retour
+  delete: Supprimer
+  new: Ajouter
+  show: Détail
+  search: Rechercher
+  save: Valider
+Firstname: Prénom
+Lastname: Nom
+Gender: Genre
+Title: Titre
+Reference: Référence
+User: Utilisateur
+City: Ville
+Area: Surface
+Room: Pièce
+People: Personne
+Bedroom: Chambre
+Adress: Addresse
+Locker: Casier
+Prices: Prix
+Date begin: Date début
+Date end: Date fin
+Price: Prix
+Availability: Disponibilité
+Appartment: Appartement
+Subject: Sujet
+Phone: Téléphone
+Path: Image
+Name: Nom
+Region: Région
+Zip: Code postal
+Department: Département
+Created: Date

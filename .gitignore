@@ -21,7 +21,10 @@
 /public/build/
 npm-debug.log
 yarn-error.log
+/public/*
 ###< symfony/webpack-encore-bundle ###
 
 .env
 public/ressources/
+.conf-local-locappart.env
+.idea/workspace.xml

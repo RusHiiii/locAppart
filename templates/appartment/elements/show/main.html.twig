@@ -1,20 +1,8 @@
-<div class="s-12 l-12 fiche_app_header">
-    <h2 class="app_header_title">{{ appartment.title | capitalize }}<br/>({{ appartment.city.zip }})</h2>
-    <span class="app_price">A partir de <strong>{{ appartment.prices|price(appartment.prices) }}€/mois</strong></span>
-    <p class="app_ref">Référence: {{ appartment.reference }} / Mise en ligne: {{ appartment.date | date('d/m/Y') }}</p>
-</div>
+
 
 <div class="s-12 l-12 fiche_app_body">
     <div class="s-12 l-12 app_body_img">
         <div id="carousel-app" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators carousel-indicators-first">
-                {% for idx, image in appartment.ressources %}
-                    <li data-target="#carousel-app" data-slide-to="{{ idx }}">
-                        <img src="/ressources/images/uploads/{{ image.path }}">
-                    </li>
-                {% endfor %}
-            </ol>
-
             <div class="carousel-inner" role="listbox">
                 {% for idx, image in appartment.ressources %}
                     <div class="item">
@@ -22,15 +10,18 @@
                     </div>
                 {% endfor %}
             </div>
-
             <a class="left carousel-control" href="#carousel-app" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
             <a class="right carousel-control" href="#carousel-app" data-slide="next">
                 <span class="glyphicon glyphicon-chevron-right"></span>
             </a>
-
         </div>
+    </div>
+    <div class="s-12 l-12 fiche_app_header">
+        <h2 class="app_header_title">{{ appartment.title | capitalize }}</h2>
+        <span class="app_price">A partir de <strong>{{ appartment.prices|price(appartment.prices) }}€/mois</strong></span>
+        <p class="app_ref">Référence: {{ appartment.reference }} / Mise en ligne: {{ appartment.date | date('d/m/Y') }}</p>
     </div>
     <hr>
     <div class="s-12 l-12 app_body_content">

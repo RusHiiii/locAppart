@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca2ff752-e165-416e-b927-fcd2c0694b68" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/fiche.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/fiche.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/listing.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/listing.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AppartmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AppartmentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/WebApp/Message.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/WebApp/Message.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/WebApp/MessageService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/WebApp/MessageService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/appartment/elements/search.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/appartment/elements/search.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/appartment/elements/show/contact.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/appartment/elements/show/contact.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/appartment/elements/show/main.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/appartment/elements/show/main.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/appartment/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/appartment/show.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,8 +22,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/appartment/show.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="15" column="57" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
+            <state relative-caret-position="527">
+              <caret line="52" column="72" selection-start-line="52" selection-start-column="67" selection-end-line="52" selection-end-column="72" />
             </state>
           </provider>
         </entry>
@@ -50,10 +47,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/appartment/elements/show/main.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="31">
+              <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/css/fiche.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="203" column="14" selection-start-line="203" selection-start-column="14" selection-end-line="203" selection-end-column="14" />
+            <state relative-caret-position="413">
+              <caret line="62" column="32" selection-start-line="62" selection-start-column="32" selection-end-line="62" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/css/listing.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="415" column="1" selection-start-line="415" selection-start-column="1" selection-end-line="415" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -79,35 +94,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/AppartmentController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="144" column="35" selection-start-line="144" selection-start-column="35" selection-end-line="144" selection-end-column="35" />
+            <state relative-caret-position="371">
+              <caret line="144" column="68" selection-start-line="144" selection-start-column="68" selection-end-line="144" selection-end-column="68" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/XhrController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="524">
-              <caret line="69" column="5" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Service/WebApp/MessageService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="97" column="35" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/appartment/announcement.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="57" column="28" selection-start-line="15" selection-start-column="8" selection-end-line="57" selection-end-column="28" />
+            <state relative-caret-position="456">
+              <caret line="98" column="9" selection-start-line="98" selection-start-column="9" selection-end-line="98" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -116,9 +113,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>content</find>
-      <find>selec</find>
-      <find>selectpicker</find>
       <find>error_form</find>
       <find>url</find>
       <find>fonts/glyphicons</find>
@@ -146,6 +140,9 @@
       <find>item_</find>
       <find>.carousel-indicators-first</find>
       <find>custom_</find>
+      <find>option</find>
+      <find>.app_body_content</find>
+      <find>.title_fiche</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -187,11 +184,9 @@
         <option value="$PROJECT_DIR$/templates/appartment/elements/appartment.html.twig" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
         <option value="$PROJECT_DIR$/templates/appartment/listing.html.twig" />
-        <option value="$PROJECT_DIR$/assets/css/listing.css" />
         <option value="$PROJECT_DIR$/assets/css/shared/template-style.css" />
         <option value="$PROJECT_DIR$/src/Form/WebApp/AppartmentType.php" />
         <option value="$PROJECT_DIR$/src/Entity/WebApp/Appartment.php" />
-        <option value="$PROJECT_DIR$/templates/appartment/elements/show/main.html.twig" />
         <option value="$PROJECT_DIR$/templates/appartment/dashboard.html.twig" />
         <option value="$PROJECT_DIR$/assets/js/entryPoint/fiche.js" />
         <option value="$PROJECT_DIR$/templates/home/index.html.twig" />
@@ -199,12 +194,14 @@
         <option value="$PROJECT_DIR$/src/Form/WebApp/MessageType.php" />
         <option value="$PROJECT_DIR$/templates/appartment/elements/search.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/WebApp/Message.php" />
-        <option value="$PROJECT_DIR$/assets/css/fiche.css" />
         <option value="$PROJECT_DIR$/templates/appartment/elements/show/contact.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/XhrController.php" />
-        <option value="$PROJECT_DIR$/templates/appartment/show.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/AppartmentController.php" />
         <option value="$PROJECT_DIR$/src/Service/WebApp/MessageService.php" />
+        <option value="$PROJECT_DIR$/src/Controller/AppartmentController.php" />
+        <option value="$PROJECT_DIR$/assets/css/listing.css" />
+        <option value="$PROJECT_DIR$/templates/appartment/elements/show/main.html.twig" />
+        <option value="$PROJECT_DIR$/templates/appartment/show.html.twig" />
+        <option value="$PROJECT_DIR$/assets/css/fiche.css" />
       </list>
     </option>
   </component>
@@ -354,6 +351,17 @@
             <path>
               <item name="location-appartement" type="b2602c69:ProjectViewProjectNode" />
               <item name="location-appartement" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="location-appartement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="location-appartement" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="location-appartement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="location-appartement" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -405,68 +413,6 @@
               <item name="location-appartement" type="b2602c69:ProjectViewProjectNode" />
               <item name="location-appartement" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="location-appartement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="location-appartement" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="appartment" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="location-appartement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="location-appartement" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="appartment" type="462c0819:PsiDirectoryNode" />
-              <item name="elements" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="location-appartement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="location-appartement" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="appartment" type="462c0819:PsiDirectoryNode" />
-              <item name="elements" type="462c0819:PsiDirectoryNode" />
-              <item name="form" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="location-appartement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="location-appartement" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="appartment" type="462c0819:PsiDirectoryNode" />
-              <item name="elements" type="462c0819:PsiDirectoryNode" />
-              <item name="show" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="location-appartement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="location-appartement" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="location-appartement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="location-appartement" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="location-appartement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="location-appartement" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="elements" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="location-appartement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="location-appartement" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="email" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="location-appartement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="location-appartement" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -585,12 +531,12 @@
       <workItem from="1551605296958" duration="6407000" />
       <workItem from="1551636201871" duration="1319000" />
       <workItem from="1551728578047" duration="1892000" />
-      <workItem from="1552133559419" duration="11730000" />
+      <workItem from="1552133559419" duration="13501000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="295212000" />
+    <option name="totallyTimeSpent" value="296983000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="840" extended-state="6" />
@@ -714,13 +660,6 @@
     <entry file="file://$PROJECT_DIR$/assets/css/email.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/listing.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="154" column="17" selection-start-line="154" selection-start-column="1" selection-end-line="154" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/shared/email/register.html.twig">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -734,13 +673,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-711">
           <caret line="214" column="21" selection-start-line="214" selection-start-column="21" selection-end-line="214" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/appartment/elements/show/main.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="63" column="36" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -839,13 +771,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/fiche.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="203" column="14" selection-start-line="203" selection-start-column="14" selection-end-line="203" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/XhrController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="524">
@@ -867,20 +792,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/appartment/elements/show/contact.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/appartment/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="15" column="57" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/WebApp/Message.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-357">
@@ -890,15 +801,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/AppartmentController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="144" column="35" selection-start-line="144" selection-start-column="35" selection-end-line="144" selection-end-column="35" />
+        <state relative-caret-position="371">
+          <caret line="144" column="68" selection-start-line="144" selection-start-column="68" selection-end-line="144" selection-end-column="68" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Service/WebApp/MessageService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="97" column="35" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="35" />
+        <state relative-caret-position="456">
+          <caret line="98" column="9" selection-start-line="98" selection-start-column="9" selection-end-line="98" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/appartment/elements/show/contact.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/appartment/elements/show/main.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/appartment/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="52" column="72" selection-start-line="52" selection-start-column="67" selection-end-line="52" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/listing.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="415" column="1" selection-start-line="415" selection-start-column="1" selection-end-line="415" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/fiche.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="62" column="32" selection-start-line="62" selection-start-column="32" selection-end-line="62" selection-end-column="32" />
         </state>
       </provider>
     </entry>

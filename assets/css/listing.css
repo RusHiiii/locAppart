@@ -436,6 +436,10 @@ li {
     .carousel-caption{
         display: none !important;
     }
+
+    .option{
+        display: none !important;
+    }
 }
 
 /* portable */

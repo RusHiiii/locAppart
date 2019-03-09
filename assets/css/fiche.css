@@ -45,7 +45,6 @@ form .tooltip{
 
 .app_body_content{
     padding-top: 20px;
-    margin-top: 110px;
     border-top: 1px solid #c8c8c8;
 }
 
@@ -57,6 +56,11 @@ form .tooltip{
     margin-bottom: 15px;
     clear: both;
     color: #008caf;
+}
+
+.localisation, .price{
+    padding-left: 25px !important;
+    padding-bottom: 0 !important;
 }
 
 section.search {
@@ -139,11 +143,11 @@ html, body, #map, .map-container {
     padding: 20px 25px;
     border-top: none;
     background-color: white;
-    padding-top: 0;
+    padding-top: 25px;
 }
 
 .fiche_app_header{
-    padding: 20px 25px;
+    padding: 20px 0px;
     border-bottom: none;
 }
 

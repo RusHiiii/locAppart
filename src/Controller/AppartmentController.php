@@ -143,7 +143,6 @@ class AppartmentController extends AbstractController
         $formContact->handleRequest($request);
         if ($formContact->isSubmitted() && $formContact->isValid()) {
             $data = $msgService->pushMessage($contact, $appartment);
-
             $this->addFlash('notice', $data['msg']);
         }
 

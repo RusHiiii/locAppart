@@ -200,8 +200,8 @@ html, body, #map, .map-container {
     margin-right: 1px !important;
     outline-style: none !important;
 }
-.custom_input{
-    margin-bottom: 25px;
+.btn_result{
+    margin-top: 25px;
 }
 
 .container_prix{
@@ -729,6 +729,14 @@ li {
     #desktop_carousel{
         display: none;
     }
+
+    .carousel-indicators-first{
+        display: none;
+    }
+
+    .option{
+        display: none !important;
+    }
 }
 
 @media only screen and (max-width: 784px) {
@@ -739,6 +747,18 @@ li {
     .margin_bottom{
         clear: both !important;
         padding-top: 10px;
+    }
+
+    .carousel-inner>.item>img {
+        max-height: 200px;
+    }
+
+    .department{
+        width: 100% !important;
+    }
+
+    .city{
+        width: 100% !important;
     }
 }
 
@@ -751,7 +771,7 @@ li {
     }
 
     .carousel-indicators-first{
-        width: 100% !important;
+        display: none;
     }
 }
 
@@ -761,8 +781,7 @@ li {
     }
 
     .carousel-indicators-first{
-        width: 100% !important;
-        bottom: 45px !important;
+        display: none;
     }
 }
 

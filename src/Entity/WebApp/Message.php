@@ -21,7 +21,7 @@ class Message
 
     /**
      * @Assert\Email(
-     *     message = "L'email '{{ value }}' n'est pas valide.",
+     *     message = "L'email n'est pas valide.",
      *     checkMX = true
      * )
      * @Assert\NotBlank()

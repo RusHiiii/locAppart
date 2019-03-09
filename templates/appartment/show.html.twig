@@ -37,7 +37,7 @@
                             {{ include('appartment/elements/show/main.html.twig', {'appartment': appartment}) }}
                         </div>
                         <div class="s-12 l-4 contact_right">
-                            {{ include('appartment/elements/show/contact.html.twig', {'appartment': appartment}) }}
+                            {{ include('appartment/elements/show/contact.html.twig', {'form': formContact}) }}
                         </div>
                         <div class="s-12 l-8 main_loca">
                             <div class="s-12 l-12 fiche_app_header">
@@ -46,7 +46,6 @@
                             <div class="s-12 l-12 fiche_app_body">
                                 <div class="map-container">
                                     <div id="map" data-lng="{{ appartment.lng }}" data-lat="{{ appartment.lat }}"></div>
-                                    <!--the google map is loaded already-->
                                 </div>
                             </div>
                         </div>

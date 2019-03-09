@@ -4,9 +4,12 @@ namespace App\Controller;
 
 use App\Entity\WebApp\Appartment;
 use App\Entity\Search\AppartmentSearch;
+use App\Entity\WebApp\Message;
 use App\Form\WebApp\AppartmentType;
 use App\Form\Search\AppartmentSearchType;
+use App\Form\WebApp\MessageType;
 use App\Service\WebApp\AppartmentService;
+use App\Service\WebApp\MessageService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -123,6 +126,7 @@ class AppartmentController extends AbstractController
      */
     public function showAppartment(
         Request $request,
+        MessageService $msgService,
         $slug,
         Appartment $appartment
     ) {
@@ -134,9 +138,19 @@ class AppartmentController extends AbstractController
         $formSearch = $this->createForm(AppartmentSearchType::class, $search);
         $formSearch->handleRequest($request);
 
+        $contact = new Message();
+        $formContact = $this->createForm(MessageType::class, $contact);
+        $formContact->handleRequest($request);
+        if ($formContact->isSubmitted() && $formContact->isValid()) {
+            $data = $msgService->pushMessage($contact, $appartment);
+
+            $this->addFlash('notice', $data['msg']);
+        }
+
         return $this->render('appartment/show.html.twig', [
             'appartment' => $appartment,
-            'form' => $formSearch->createView()
+            'form' => $formSearch->createView(),
+            'formContact' => $formContact->createView()
         ]);
     }
 }

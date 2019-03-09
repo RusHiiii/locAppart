@@ -180,33 +180,6 @@ section.search{
     margin-bottom: 0px;
 }
 
-.wvu-breadcrumbs {
-    font-size: .85em;
-    color: #999;
-    line-height: 1.5;
-    padding-left: 0 !important;
-    margin-top: 10px;
-    margin-left: 18px;
-    margin-bottom: 0px;
-}
-
-.wvu-breadcrumbs li:first-child:before {
-    content: "";
-    padding-right: 0;
-}
-
-.wvu-breadcrumbs li:before {
-    content: "/";
-    padding-right: 4px;
-    font-weight: bold;
-}
-
-.wvu-breadcrumbs li {
-    display: inline;
-    list-style-type: none;
-    margin-left: 0;
-}
-
 .table-responsive{
     overflow-x: visible !important;
 }

@@ -1,0 +1,100 @@
+<div class="s-12 l-12 fiche_app_header">
+    <h2 class="app_header_title">{{ appartment.title | capitalize }}<br/>({{ appartment.city.zip }})</h2>
+    <span class="app_price">A partir de <strong>{{ appartment.prices|price(appartment.prices) }}€/mois</strong></span>
+    <p class="app_ref">Référence: {{ appartment.reference }} / Mise en ligne: {{ appartment.date | date('d/m/Y') }}</p>
+</div>
+
+<div class="s-12 l-12 fiche_app_body">
+    <div class="s-12 l-12 app_body_img">
+        <div id="carousel-app" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators carousel-indicators-first">
+                {% for idx, image in appartment.ressources %}
+                    <li data-target="#carousel-app" data-slide-to="{{ idx }}">
+                        <img src="/ressources/images/uploads/{{ image.path }}">
+                    </li>
+                {% endfor %}
+            </ol>
+
+            <div class="carousel-inner" role="listbox">
+                {% for idx, image in appartment.ressources %}
+                    <div class="item">
+                        <img src="/ressources/images/uploads/{{ image.path }}">
+                    </div>
+                {% endfor %}
+            </div>
+
+            <a class="left carousel-control" href="#carousel-app" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-app" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+
+        </div>
+    </div>
+    <hr>
+    <div class="s-12 l-12 app_body_content">
+        <h1 class="title_fiche title_main">Descriptif du bien</h1>
+        <p class="item_description">{{ appartment.description }}</p>
+        <div class="item_other">
+            <ul class="item-summary">
+                <li>{{ appartment.room }} pièce(s)</li>
+                <li>{{ appartment.area }} m²</li>
+                {% if appartment.people is not null %}
+                    <li>{{ appartment.people }} personnes</li>
+                {% endif %}
+                {% if appartment.locker is not null and appartment.locker %}
+                    <li>Casier</li>
+                {% endif %}
+                {% if appartment.garage is not null and appartment.garage %}
+                    <li>Garage</li>
+                {% endif %}
+            </ul>
+        </div>
+        <h1 class="title_fiche custom_padding title_main">Information complémentaire</h1>
+        <div class="s-12 l-12 table-responsive">
+            <table class="table">
+                <tr>
+                    <td class="table_color">Adresse</td>
+                    <td>{{ appartment.city.name ~ ' - ' ~ appartment.address }}</td>
+                </tr>
+                {% if appartment.garage is not null and appartment.garage %}
+                    <tr>
+                        <td class="table_color">Garage</td>
+                        <td>Oui</td>
+                    </tr>
+                {% endif %}
+                {% if appartment.locker is not null and appartment.locker %}
+                    <tr>
+                        <td class="table_color">Casier</td>
+                        <li>Oui</li>
+                    </tr>
+                {% endif %}
+                {% if appartment.people is not null %}
+                    <tr>
+                        <td class="table_color">Nombre de personne</td>
+                        <li>{{ appartment.people }} personne(s)</li>
+                    </tr>
+                {% endif %}
+                {% if appartment.bedroom is not null %}
+                    <tr>
+                        <td class="table_color">Nombre de chambre</td>
+                        <li>{{ appartment.bedroom }} personne(s)</li>
+                    </tr>
+                {% endif %}
+                {% if appartment.ski is not null %}
+                    <tr>
+                        <td class="table_color">Distances des pistes</td>
+                        <li>{{ appartment.ski }}m</li>
+                    </tr>
+                {% endif %}
+                {% if appartment.information is not null %}
+                    <tr>
+                        <td class="table_color">Autres informations</td>
+                        <li>{{ appartment.information }}</li>
+                    </tr>
+                {% endif %}
+            </table>
+        </div>
+    </div>
+</div>

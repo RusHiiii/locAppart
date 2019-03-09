@@ -30,6 +30,10 @@ class Appartment
     /**
      * @Assert\Length(min=10)
      * @Assert\NotBlank()
+     * @Assert\Regex(
+     *  pattern="/^[a-zA-Z0-9 -]+$/i",
+     *  message="Le titre peux contenir des majuscules, des minuscules, des espaces et des chiffres.",
+     * )
      * @ORM\Column(type="string", length=150)
      */
     private $title;
@@ -228,7 +232,7 @@ class Appartment
         return $this->people;
     }
 
-    public function setPeople(string $people): self
+    public function setPeople(?string $people): self
     {
         $this->people = $people;
 

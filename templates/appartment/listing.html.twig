@@ -1,4 +1,4 @@
-{% extends 'Shared/layout/base_with_image_only.html.twig' %}
+{% extends 'shared/layout/base_with_image_only.html.twig' %}
 
 {% block title %}Loc'Appart - Les annonces{% endblock %}
 
@@ -25,7 +25,7 @@
         <div class="line">
             <div class="margin">
                 <section class="s-12 l-12 center search">
-                    {{ include('appartment/elements/search.html.twig', {'form': form}) }}
+                    {{ include('appartment/elements/search.html.twig', {'form': form, 'type': type}) }}
                 </section>
             </div>
         </div>

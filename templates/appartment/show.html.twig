@@ -1,0 +1,71 @@
+{% extends 'shared/layout/base_with_image_only.html.twig' %}
+
+{% block title %}Loc'Appart - {{ appartment.title | capitalize }}{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ asset('build/fiche.css') }}">
+    <link rel="stylesheet" href="{{ asset('ressources/bootstrap-select/css/bootstrap-select.css') }}">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXTerqaOjZ_27sfAA2qOIaCrn3OLWJPBI"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="line">
+        <ul class="wvu-breadcrumbs">
+            <li>Recherche</li>
+            <li>{{ appartment.type | capitalize }}</li>
+            <li>{{ appartment.city.department.name }}</li>
+            <li>{{ appartment.city.name }}</li>
+        </ul>
+    </div>
+
+    <div class="content_resultPage">
+        <div class="line">
+            <div class="margin">
+                <section class="s-12 l-12 center search">
+                    {{ include('appartment/elements/search.html.twig', {'form': form, 'type': appartment.type.name | lower}) }}
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div class="content_fichePageAppart">
+        <div class="line custom_div">
+            <div class="margin">
+                <article class="s-12 l-12 center margin_top">
+                    <div class="s-12 l-12 main_content">
+                        <div class="s-12 l-8 main_description">
+                            {{ include('appartment/elements/show/main.html.twig', {'appartment': appartment}) }}
+                        </div>
+                        <div class="s-12 l-4 contact_right">
+                            {{ include('appartment/elements/show/contact.html.twig', {'appartment': appartment}) }}
+                        </div>
+                        <div class="s-12 l-8 main_loca">
+                            <div class="s-12 l-12 fiche_app_header">
+                                <h2 class="title_fiche title_main">Localisation</h2>
+                            </div>
+                            <div class="s-12 l-12 fiche_app_body">
+                                <div class="map-container">
+                                    <div id="map" data-lng="{{ appartment.lng }}" data-lat="{{ appartment.lat }}"></div>
+                                    <!--the google map is loaded already-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s-12 l-8 main_prix">
+                            <div class="s-12 l-12 fiche_app_header">
+                                <h2 class="title_fiche title_main">Prix et Disponibilités</h2>
+                            </div>
+                            <div class="s-12 l-12 fiche_app_body"></div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('ressources/bootstrap-select/js/bootstrap-select.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('ressources/bootstrap-select/js/defaults-fr_FR.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('build/fiche.js') }}"></script>
+{% endblock %}

@@ -1,4 +1,4 @@
-{% extends 'Shared/layout/base_without_image.html.twig' %}
+{% extends 'shared/layout/base_without_image.html.twig' %}
 
 {% block title %}Loc'Appart - Accueil{% endblock %}
 
@@ -76,7 +76,9 @@
                                 {% if appartment.ressources|first is empty %}
                                     <img src="{{ asset('/ressources/images/static/not-found.png') }}"/>
                                 {% else %}
-                                    <span class="helper"></span><img src="/ressources/images/uploads/{{ appartment.ressources|first }}">
+                                    <a href="{{ path('app_announcement_show', {'slug' : appartment.title | replace({' ': "_"}) | lower, 'id' : appartment.id}) }}" >
+                                        <span class="helper"></span><img src="{{ '/ressources/images/uploads/' ~ appartment.ressources|first }}">
+                                    </a>
                                 {% endif %}
                             </div>
 

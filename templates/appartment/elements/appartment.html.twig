@@ -31,7 +31,7 @@
                         <li>{{ appartment.people }} personnes</li>
                     {% endif %}
                 </ul>
-                <a class="btn btn-primary detail">Détail</a>
+                <a href="{{ path('app_announcement_show', {'slug' : appartment.title | replace({' ': "_"}) | lower, 'id' : appartment.id}) }}" class="btn btn-primary detail">Détail</a>
             </div>
         </div>
     </div>

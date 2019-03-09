@@ -38,7 +38,7 @@ class InformationService
     {
         $users = $this->userRepository->findAllRole('%ADMIN%');
 
-        $data = $this->templating->render('Shared/email/contact.html.twig', ['data' => $data]);
+        $data = $this->templating->render('shared/email/contact.html.twig', ['data' => $data]);
         $this->notificationService->sendEmail($users, self::MSG_CONTACT_EMAIL, $data);
 
         return [

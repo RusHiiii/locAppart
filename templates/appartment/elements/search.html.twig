@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    {{ form_start(form) }}
+    {{ form_start(form, {'action': path('app_announcement_listing', {'type': type}), 'method': 'POST'}) }}
     <table id="no-more-tables" class="table table_nth first_table">
         <tr>
             <td>

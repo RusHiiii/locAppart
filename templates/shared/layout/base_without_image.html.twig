@@ -17,24 +17,17 @@
 </head>
 <body class="size-1140">
 <header>
-    {% include('Shared/elements/nav.html.twig') %}
+    {% include('shared/elements/nav.html.twig') %}
 </header>
-
-<section>
-    {% include('Shared/elements/background.html.twig') %}
-    {% block content %}{% endblock %}
-</section>
-
+{% block content %}{% endblock %}
 <footer>
-    {% include('Shared/elements/footer.html.twig') %}
+    {% include('shared/elements/footer.html.twig') %}
 </footer>
 
 <script type="text/javascript" src="{{ asset('build/app.js') }}"></script>
 <script type="text/javascript" src="{{ asset('ressources/js/template/responsee.js') }}"></script>
 <script type="text/javascript" src="{{ asset('ressources/js/carousel/owl.carousel.js') }}"></script>
 <script type="text/javascript" src="{{ asset('ressources/bootstrap/js/bootstrap.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('ressources/js/dataTables/jquery.dataTables.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('ressources/js/dataTables/dataTables.bootstrap.min.js') }}"></script>
 {% block javascripts %}{% endblock %}
 </body>
 </html>

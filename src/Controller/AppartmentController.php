@@ -103,6 +103,7 @@ class AppartmentController extends AbstractController
         AppartmentService $appService,
         String $type
     ) {
+
         $search = new AppartmentSearch();
         $formSearch = $this->createForm(AppartmentSearchType::class, $search);
         $formSearch->handleRequest($request);
@@ -113,6 +114,29 @@ class AppartmentController extends AbstractController
             'appartments' => $appartments,
             'form' => $formSearch->createView(),
             'type' => $type
+        ]);
+    }
+
+    /**
+     * DETAIL D'UNE ANNONCE
+     * @Route("/annonces/{slug}-{id}", name="app_announcement_show")
+     */
+    public function showAppartment(
+        Request $request,
+        $slug,
+        Appartment $appartment
+    ) {
+        if ($appartment->getStatus()->getName() != 'Accepté') {
+            return $this->redirectToRoute('home');
+        }
+
+        $search = new AppartmentSearch();
+        $formSearch = $this->createForm(AppartmentSearchType::class, $search);
+        $formSearch->handleRequest($request);
+
+        return $this->render('appartment/show.html.twig', [
+            'appartment' => $appartment,
+            'form' => $formSearch->createView()
         ]);
     }
 }

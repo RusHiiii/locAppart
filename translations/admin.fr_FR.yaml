@@ -6,6 +6,7 @@ action:
   show: Détail
   search: Rechercher
   save: Valider
+  cancel: Annuler
 Firstname: Prénom
 Lastname: Nom
 Gender: Genre
@@ -33,3 +34,6 @@ Region: Région
 Zip: Code postal
 Department: Département
 Created: Date
+Notification: Notifications
+Roles: Rôles
+Email: Email

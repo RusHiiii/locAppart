@@ -52,7 +52,7 @@ class UserService
     {
         $msg = self::MSG_REGISTER_VALID;
 
-        $data = $this->templating->render('Shared/email/register.html.twig', ['user' => $user]);
+        $data = $this->templating->render('shared/email/register.html.twig', ['user' => $user]);
         $this->notification->sendEmail([$user], self::MSG_REGISTER_EMAIL, $data);
 
         $this->entityManager->persist($user);
@@ -175,7 +175,7 @@ class UserService
         $data = $this->notification->generateToken($email);
 
         if ($data['token']) {
-            $dataTemplate = $this->templating->render('Shared/email/reset_password.html.twig', ['data' => $data['msg']]);
+            $dataTemplate = $this->templating->render('shared/email/reset_password.html.twig', ['data' => $data['msg']]);
             $this->notification->sendEmail([$data['user']], self::MSG_FORGOTTEN_PSWD, $dataTemplate);
 
             return [

@@ -61,7 +61,7 @@ class AppartmentType extends AbstractType
             ->add('garage', ChoiceType::class, array(
                 'choices'  => array(
                     'Oui' => true,
-                    'Non' => true
+                    'Non' => false
                 ),
                 'label' => 'Garage:',
                 'required' => false
@@ -69,7 +69,7 @@ class AppartmentType extends AbstractType
             ->add('locker', ChoiceType::class, array(
                 'choices'  => array(
                     'Oui' => true,
-                    'Non' => true
+                    'Non' => false
                 ),
                 'label' => 'Casier:',
                 'required' => false

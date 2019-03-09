@@ -94,7 +94,7 @@ class AppartmentEntityListener
         if(isset($changeValue['status'])){
             $newStatus = $changeValue['status'][1];
 
-            $data = $this->templating->render('Shared/email/status.html.twig', ['appartment' => $entity, 'status' => $newStatus->getDescription()]);
+            $data = $this->templating->render('shared/email/status.html.twig', ['appartment' => $entity, 'status' => $newStatus->getDescription()]);
             $this->notificationService->sendEmail([$entity->getUser()], 'Changement de statut', $data);
         }
     }

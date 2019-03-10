@@ -53,7 +53,33 @@
                             <div class="s-12 l-12 fiche_app_header price">
                                 <h2 class="title_fiche title_main">Prix et Disponibilités</h2>
                             </div>
-                            <div class="s-12 l-12 fiche_app_body"></div>
+                            <div class="s-12 l-12 fiche_app_body prices">
+                                <div id="carousel-example-generic-prx" class="carousel slide" data-ride="carousel" data-interval="false">
+                                    <div class="carousel-inner price-inner" role="listbox">
+                                        <div class="item active">
+                                            {{ include('appartment/elements/show/calendar.html.twig', {'time': "December 2018"|date("U"), 'appartment': appartment}) }}
+                                            {{ include('appartment/elements/show/calendar.html.twig', {'time': "January 2019"|date("U"), 'appartment': appartment}) }}
+                                        </div>
+                                        <div class="item">
+                                            {{ include('appartment/elements/show/calendar.html.twig', {'time': "February 2019"|date("U"), 'appartment': appartment}) }}
+                                            {{ include('appartment/elements/show/calendar.html.twig', {'time': "March 2019"|date("U"), 'appartment': appartment}) }}
+                                        </div>
+                                        <div class="item">
+                                            {{ include('appartment/elements/show/calendar.html.twig', {'time': "April 2019"|date("U"), 'appartment': appartment}) }}
+                                            {{ include('appartment/elements/show/calendar.html.twig', {'time': "May 2019"|date("U"), 'appartment': appartment}) }}
+                                        </div>
+                                        <ol class="carousel-indicators carousel-indicators-custom">
+                                            <li data-target="#carousel-example-generic-prx" data-slide-to="0" class="active"></li>
+                                            <li data-target="#carousel-example-generic-prx" data-slide-to="1"></li>
+                                            <li data-target="#carousel-example-generic-prx" data-slide-to="2"></li>
+                                        </ol>
+                                    </div>
+                                    <ul class="legende">
+                                        <li><span class="legende-label legende-label-reserve">Non disponible</span></li>
+                                        <li><span class="legende-label legende-label-dispo">Disponible</span></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </article>

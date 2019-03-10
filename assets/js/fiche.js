@@ -7,6 +7,9 @@ $( document ).ready(function() {
     /** Initialisation placeholder */
     initSelect();
 
+    /** Initialisation calendrier */
+    initCalendar();
+
     /** Initialisation de la map */
     initMap();
 });
@@ -45,8 +48,6 @@ function initMap(){
         map: map,
         position: new google.maps.LatLng($('#map').data('lat'), $('#map').data('lng'))
     });
-
-    google.maps.event.addDomListener(window, "load", initialize);
 }
 
 /** Initialisation des placeholders des select */
@@ -55,4 +56,13 @@ function initSelect() {
     $('.locker').selectpicker({noneSelectedText: 'Casier'});
     $('.garage').selectpicker({noneSelectedText: 'Garage'});
     $('.department').selectpicker({noneSelectedText: 'Département'});
+}
+
+/** Initialisation des calendriers */
+function initCalendar(){
+    $('td').hover(function() {
+        $(this).children('.blurb').show();
+    }, function() {
+        $(this).children('.blurb').hide();
+    });
 }

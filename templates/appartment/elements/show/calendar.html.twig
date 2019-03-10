@@ -1,0 +1,55 @@
+<div class="container_prix">
+    <table cellpadding="0" cellspacing="0" class="calendar">
+        <thead>
+        <tr class="calendar-row">
+            <td class="calendar-month-head" colspan=7>
+                {{ time | localizeddate('none', 'none', null, null, 'MMMM Y') | capitalize }}
+            </td>
+        </tr>
+        <tr class="calendar-row">
+            <td class="calendar-day-head" width="12%">Lu</td>
+            <td class="calendar-day-head" width="15%">Ma</td>
+            <td class="calendar-day-head" width="15%">Me</td>
+            <td class="calendar-day-head" width="16%">Je</td>
+            <td class="calendar-day-head" width="15%">Ve</td>
+            <td class="calendar-day-head" width="15%">Sa</td>
+            <td class="calendar-day-head" width="12%">Di</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="calendar-row">
+            {% set daysInMonth = time|date('t') %}
+            {% set startDow = time|date('F 1\\s\\t Y')|date('w') - 1 %}
+            {% set dow = startDow %}
+            {% set css = null %}
+            {% for day in range(1,daysInMonth) %}
+            {% if loop.first and startDow != 0 %}
+                <td class="calendar-day-np" colspan="{{ startDow }}"></td>
+            {% endif %}
+            <td class="calendar-day-np">
+                {% for price in appartment.prices %}
+                    {% if price.dateBegin|date("ymd") < time|date_modify("+ " ~ day ~ "days")|date("ymd") and price.dateEnd|date("ymd") >= time|date_modify("+ " ~ day ~ "days")|date("ymd") %}
+                        <div class="blurb" style="display: none;">Du {{ price.dateBegin|date("d/m/Y") }} </br> au {{ price.dateEnd|date("d/m/Y") }}<br>{{ price.price }}€</div>
+                        {% set css = price.availability.name | lower %}
+                    {% endif %}
+                {% endfor %}
+                {% if css is defined and css is not null%}
+                    <div class="day {{ css }}">{{ day }}</div>
+                    {% set css = null %}
+                {% else %}
+                    <div class="day">{{ day }}</div>
+                {% endif %}
+            </td>
+            {% if loop.last and dow != 6 %}
+                <td class="calendar-day-np" colspan="{{ 6 - dow }}">&nbsp;</td>
+            {% endif %}
+            {% if dow == 6 %}
+            {% set dow = 0 %}
+        </tr>
+        {% else %}
+            {% set dow = dow + 1 %}
+        {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

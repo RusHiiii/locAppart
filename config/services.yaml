@@ -32,6 +32,11 @@ services:
         arguments:
             $targetDirectory: '%upload_directory%'
 
+    twig.extension.intl:
+        class: Twig_Extensions_Extension_Intl
+        tags:
+            - { name: twig.extension }
+
     App\EventListener\WebApp\AppartmentEntityListener:
         class: App\EventListener\WebApp\AppartmentEntityListener
         tags:

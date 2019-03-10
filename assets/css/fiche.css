@@ -63,6 +63,14 @@ form .tooltip{
     padding-bottom: 0 !important;
 }
 
+.price-inner{
+    width: 83%;
+    float: left;
+    min-height: 270px;
+    background-color: transparent !important;
+    padding-bottom: 20px !important;
+}
+
 section.search {
     margin-bottom: 10px;
 }
@@ -227,6 +235,34 @@ html, body, #map, .map-container {
     height: 12px !important;
     margin: 0px !important;
 }
+
+.legende{
+    float: right;
+    padding: 0;
+}
+
+.disponible{
+    background-color: #2cac62 !important;
+    color: white;
+}
+
+.indisponible{
+    background-color: #f88c8c !important;
+    color: white;
+}
+
+.day{
+    padding: 5px;
+}
+
+.legende-label-dispo:before{
+    background-color: #2cac62 !important;
+}
+
+.calendar-day-np{
+    padding: 0px !important;
+}
+
 /* calendar */
 table.calendar    {}
 tr.calendar-row {  }
@@ -243,7 +279,7 @@ div.day-number    { background:#008caf; padding:5px; color:white; font-weight:bo
 td.calendar-day, td.calendar-day-np { width:40px; padding:5px;  position: relative; border-right: none !important;}
 .blurb{
     width: 130px;
-    height: 50px;
+    height: 70px;
     background-color: #555;
     color: #fff;
     text-align: center;
@@ -251,7 +287,7 @@ td.calendar-day, td.calendar-day-np { width:40px; padding:5px;  position: relati
     border-radius: 6px;
     position: absolute;
     z-index: 100;
-    top: -49px;
+    top: -75px;
     left: -43px;}
 
 .blurb::after {
@@ -745,7 +781,12 @@ li {
 
 @media only screen and (max-width: 784px) {
     .legende{
-        float: none !important;
+        display: none !important;
+    }
+
+    .price-inner{
+        width: 100%;
+        float: none;
     }
 
     .margin_bottom{

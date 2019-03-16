@@ -2,8 +2,6 @@
 
 namespace App\Service\WebApp;
 
-use App\Entity\WebApp\City;
-use App\Repository\WebApp\CityRepository;
 use App\Repository\WebApp\NewsRepository;
 
 class NewsService
@@ -17,12 +15,14 @@ class NewsService
     }
 
     /**
-     * Récupération des dernieres news
+     * Récupération des dernieres news.
+     *
      * @return mixed
      */
     public function getLastestNews(int $limit)
     {
         $news = $this->newsRepository->findLastestNews($limit);
+
         return $news;
     }
 }

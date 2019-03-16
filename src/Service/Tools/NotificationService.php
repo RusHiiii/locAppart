@@ -22,7 +22,7 @@ class NotificationService
 
     // Définition des constantes
     const MSG_EMAIL_NOT_FOUND = 'Email inconnu';
-    const MSG_EMAIL_SEND      = 'Email envoyé !';
+    const MSG_EMAIL_SEND = 'Email envoyé !';
 
     public function __construct(
         UserRepository $userRepo,
@@ -33,28 +33,30 @@ class NotificationService
         RouterInterface $router,
         \Twig_Environment $templating
   ) {
-        $this->userRepository   = $userRepo;
-        $this->passwordEncoder  = $passwordEncoder;
-        $this->entityManager    = $entityManager;
-        $this->mailer           = $mailer;
-        $this->tokenGenerator   = $tokenGenerator;
-        $this->router           = $router;
-        $this->templating       = $templating;
+        $this->userRepository = $userRepo;
+        $this->passwordEncoder = $passwordEncoder;
+        $this->entityManager = $entityManager;
+        $this->mailer = $mailer;
+        $this->tokenGenerator = $tokenGenerator;
+        $this->router = $router;
+        $this->templating = $templating;
     }
 
     /**
-     * GENERATION DE TOKEN
+     * GENERATION DE TOKEN.
+     *
      * @param $email
+     *
      * @return array
      */
     public function generateToken(string $email): array
     {
         $user = $this->userRepository->findByKeyValue('email', $email);
 
-        if ($user === null) {
+        if (null === $user) {
             return [
                 'token' => false,
-                'msg' => self::MSG_EMAIL_NOT_FOUND
+                'msg' => self::MSG_EMAIL_NOT_FOUND,
             ];
         }
 
@@ -66,7 +68,7 @@ class NotificationService
         } catch (\Exception $e) {
             return [
                 'token' => false,
-                'msg' => $e->getMessage()
+                'msg' => $e->getMessage(),
             ];
         }
 
@@ -75,15 +77,17 @@ class NotificationService
         return [
             'token' => true,
             'msg' => $url,
-            'user' => $user
+            'user' => $user,
         ];
     }
 
     /**
-     * ENVOIE DU MAIL
+     * ENVOIE DU MAIL.
+     *
      * @param $user
      * @param $subject
      * @param $message
+     *
      * @return array
      */
     public function sendEmail(array $users, string $subject, $message): array
@@ -100,19 +104,21 @@ class NotificationService
 
         $this->mailer->send($message);
 
-        return [ 'msg' => self::MSG_EMAIL_SEND ];
+        return ['msg' => self::MSG_EMAIL_SEND];
     }
 
     /**
-     * FORMATAGE DES MAILS
+     * FORMATAGE DES MAILS.
+     *
      * @param array $users
+     *
      * @return array
      */
     private function formatMailFromUsers(array $users): array
     {
         $mails = [];
 
-        foreach ($users as $user){
+        foreach ($users as $user) {
             $mails[] = $user->getEmail();
         }
 

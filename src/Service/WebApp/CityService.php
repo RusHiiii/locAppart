@@ -2,7 +2,6 @@
 
 namespace App\Service\WebApp;
 
-use App\Entity\WebApp\City;
 use App\Repository\WebApp\CityRepository;
 
 class CityService
@@ -16,8 +15,10 @@ class CityService
     }
 
     /**
-     * RECUPERATION DES INFOS DE LA VILLE
+     * RECUPERATION DES INFOS DE LA VILLE.
+     *
      * @param int $id
+     *
      * @return array
      */
     public function getCityInformationLocation(int $id): array
@@ -26,7 +27,7 @@ class CityService
 
         return [
             'lat' => $city->getLat(),
-            'lng' => $city->getLng()
+            'lng' => $city->getLng(),
         ];
     }
 }

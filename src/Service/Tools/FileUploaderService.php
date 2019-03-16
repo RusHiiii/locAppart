@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Service\Tools;
 
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -10,14 +11,15 @@ class FileUploaderService
 
     public function __construct(
         $targetDirectory
-    )
-    {
+    ) {
         $this->targetDirectory = $targetDirectory;
     }
 
     /**
-     * UPLOAD DU FICHIER
+     * UPLOAD DU FICHIER.
+     *
      * @param UploadedFile $file
+     *
      * @return array
      */
     public function upload(UploadedFile $file): array
@@ -29,18 +31,19 @@ class FileUploaderService
         } catch (FileException $e) {
             return [
                 'filename' => null,
-                'upload' => false
+                'upload' => false,
             ];
         }
 
         return [
             'filename' => $fileName,
-            'upload' => true
+            'upload' => true,
         ];
     }
 
     /**
-     * RECUPERATION DU REPERTOIRE D'UPLOAD
+     * RECUPERATION DU REPERTOIRE D'UPLOAD.
+     *
      * @return mixed
      */
     public function getTargetDirectory()

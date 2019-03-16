@@ -10,14 +10,18 @@
             <div class="carousel-inner" role="listbox">
                 {% for idx, image in appartment.ressources %}
                     <div class="item">
-                        <img src="/ressources/images/uploads/{{ image.path }}">
+                        <a href="{{ path('app_announcement_show', {'slug' : appartment.title | replace({' ': "_"}) | lower, 'id' : appartment.id}) }}">
+                            <img src="/ressources/images/uploads/{{ image.path }}">
+                        </a>
                     </div>
                 {% endfor %}
             </div>
         </div>
     </div>
     <div class="s-12 l-8 result_app_body">
-        <h2 class="app_header_title">{{ appartment.title }} {{ appartment.city.name }} ({{ appartment.city.zip }})</h2>
+        <a href="{{ path('app_announcement_show', {'slug' : appartment.title | replace({' ': "_"}) | lower, 'id' : appartment.id}) }}">
+            <h2 class="app_header_title">{{ appartment.title }} {{ appartment.city.name }} ({{ appartment.city.zip }})</h2>
+        </a>
         <span class="app_price">A partir de <strong>{{ appartment.prices|price(appartment.prices) }}€/mois</strong></span>
         <p class="app_ref">Référence: {{ appartment.reference }}</p>
         <div class="s-12 l-12 app_body_content">
@@ -31,7 +35,6 @@
                         <li>{{ appartment.people }} personnes</li>
                     {% endif %}
                 </ul>
-                <a href="{{ path('app_announcement_show', {'slug' : appartment.title | replace({' ': "_"}) | lower, 'id' : appartment.id}) }}" class="btn btn-primary detail">Détail</a>
             </div>
         </div>
     </div>

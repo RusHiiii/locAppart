@@ -2,22 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca2ff752-e165-416e-b927-fcd2c0694b68" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/XhrController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/XhrController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventListener/WebApp/AppartmentEntityListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventListener/WebApp/AppartmentEntityListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/WebApp/AppartmentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/WebApp/AppartmentRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/Authenticator/GoogleAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/Authenticator/GoogleAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/Authenticator/LoginFormAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/Authenticator/LoginFormAuthenticator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/listing.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/listing.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/Tools/FileUploaderService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Tools/FileUploaderService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/Tools/InformationService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Tools/InformationService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/Tools/NotificationService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Tools/NotificationService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/Tools/ToolService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Tools/ToolService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/WebApp/AppartmentService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/WebApp/AppartmentService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/WebApp/CityService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/WebApp/CityService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/WebApp/MessageService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/WebApp/MessageService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/WebApp/NewsService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/WebApp/NewsService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/WebApp/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/WebApp/UserService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/appartment/elements/show/calendar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/appartment/elements/show/calendar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Twig/AppExtension.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Twig/AppExtension.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/appartment/elements/appartment.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/appartment/elements/appartment.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,38 +21,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EventListener/WebApp/RessourceEntityListener.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="541">
-              <caret line="71" column="1" selection-start-line="71" selection-start-column="1" selection-end-line="71" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EventListener/WebApp/UserEntityListener.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/WebApp/Appartment.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3468">
-              <caret line="214" column="21" selection-start-line="214" selection-start-column="21" selection-end-line="214" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/AppartmentController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="129" column="14" selection-start-line="129" selection-start-column="14" selection-end-line="129" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/HomeController.php">
           <provider selected="true" editor-type-id="text-editor" />
@@ -89,11 +48,45 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/XhrController.php">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-105">
+              <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Service/Tools/InformationService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/css/listing.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="53" column="17" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/appartment/listing.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-428" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/appartment/elements/appartment.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+              <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -156,7 +149,6 @@
         <option value="$PROJECT_DIR$/templates/appartment/elements/form/localisation.html.twig" />
         <option value="$PROJECT_DIR$/translations/admin.fr_FR.yaml" />
         <option value="$PROJECT_DIR$/config/packages/easy_admin.yaml" />
-        <option value="$PROJECT_DIR$/templates/appartment/elements/appartment.html.twig" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
         <option value="$PROJECT_DIR$/templates/appartment/listing.html.twig" />
         <option value="$PROJECT_DIR$/assets/css/shared/template-style.css" />
@@ -170,7 +162,6 @@
         <option value="$PROJECT_DIR$/src/Entity/WebApp/Message.php" />
         <option value="$PROJECT_DIR$/templates/appartment/elements/show/contact.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/AppartmentController.php" />
-        <option value="$PROJECT_DIR$/assets/css/listing.css" />
         <option value="$PROJECT_DIR$/templates/appartment/elements/show/main.html.twig" />
         <option value="$PROJECT_DIR$/config/services.yaml" />
         <option value="$PROJECT_DIR$/assets/js/fiche.js" />
@@ -191,6 +182,8 @@
         <option value="$PROJECT_DIR$/src/Repository/WebApp/AppartmentRepository.php" />
         <option value="$PROJECT_DIR$/src/EventListener/WebApp/AppartmentEntityListener.php" />
         <option value="$PROJECT_DIR$/src/Controller/XhrController.php" />
+        <option value="$PROJECT_DIR$/assets/css/listing.css" />
+        <option value="$PROJECT_DIR$/templates/appartment/elements/appartment.html.twig" />
       </list>
     </option>
   </component>
@@ -337,6 +330,53 @@
               <item name="location-appartement" type="b2602c69:ProjectViewProjectNode" />
               <item name="location-appartement" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="location-appartement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="location-appartement" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="location-appartement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="location-appartement" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="location-appartement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="location-appartement" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="location-appartement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="location-appartement" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="location-appartement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="location-appartement" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Service" type="462c0819:PsiDirectoryNode" />
+              <item name="Tools" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="location-appartement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="location-appartement" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="location-appartement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="location-appartement" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="appartment" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="location-appartement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="location-appartement" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="appartment" type="462c0819:PsiDirectoryNode" />
+              <item name="elements" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -457,12 +497,12 @@
       <workItem from="1552133559419" duration="14101000" />
       <workItem from="1552218841381" duration="12971000" />
       <workItem from="1552596703729" duration="109000" />
-      <workItem from="1552742182350" duration="1740000" />
+      <workItem from="1552742182350" duration="2717000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="312403000" />
+    <option name="totallyTimeSpent" value="313380000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="840" extended-state="6" />
@@ -495,9 +535,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/js/login.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/mail.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -562,13 +599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/appartment/elements/appartment.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="143" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="143" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/appartment/announcement.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
@@ -587,13 +617,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/listing.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7055">
-          <caret line="415" column="1" selection-start-line="415" selection-start-column="1" selection-end-line="415" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -664,13 +687,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="337">
           <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/Tools/InformationService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="41" column="32" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -797,8 +813,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/XhrController.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-105">
+          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Service/Tools/InformationService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/listing.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="53" column="17" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/appartment/listing.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-428" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/appartment/elements/appartment.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
         </state>
       </provider>
     </entry>

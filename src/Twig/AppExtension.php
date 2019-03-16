@@ -22,8 +22,8 @@ class AppExtension extends AbstractExtension
     public function formatPrice($prices)
     {
         $minPrice = 9999;
-        foreach ($prices as $key => $price){
-            if($price->getPrice() < $minPrice){
+        foreach ($prices as $key => $price) {
+            if ($price->getPrice() < $minPrice) {
                 $minPrice = $price->getPrice();
             }
         }

@@ -23,13 +23,13 @@ class AppartmentService
     private $toolService;
 
     // Définition des constantes
-    const MSG_SUCCESS_ADD_APP     = 'L\'annonce a été ajouté ! Elle est en cours de modération.';
-    const MSG_SUCCESS_EDIT_APP    = 'L\'annonce a été modifié !';
-    const MSG_SUCCESS_DELETE_APP  = 'L\'annonce a été supprimé !';
-    const MSG_ERROR_ADD_APP       = 'Une erreur est survenu.';
-    const MSG_ERROR_EDIT_APP      = 'Une erreur est survenu lors de la mise à jour.';
-    const MSG_ERROR_INFO          = 'Aucune données trouvé.';
-    const MSG_ERROR_REMOVE_APP    = 'Une erreur est survenu lors de la suppression.';
+    const MSG_SUCCESS_ADD_APP = 'L\'annonce a été ajouté ! Elle est en cours de modération.';
+    const MSG_SUCCESS_EDIT_APP = 'L\'annonce a été modifié !';
+    const MSG_SUCCESS_DELETE_APP = 'L\'annonce a été supprimé !';
+    const MSG_ERROR_ADD_APP = 'Une erreur est survenu.';
+    const MSG_ERROR_EDIT_APP = 'Une erreur est survenu lors de la mise à jour.';
+    const MSG_ERROR_INFO = 'Aucune données trouvé.';
+    const MSG_ERROR_REMOVE_APP = 'Une erreur est survenu lors de la suppression.';
 
     public function __construct(
         AppartmentRepository $appartmentRepository,
@@ -41,18 +41,20 @@ class AppartmentService
         $targetDirectory
     ) {
         $this->appartmentRepository = $appartmentRepository;
-        $this->entityManager        = $entityManager;
-        $this->statusRepository     = $statusRepository;
-        $this->security             = $security;
-        $this->targetDirectory      = $targetDirectory;
-        $this->toolService          = $toolService;
-        $this->paginator            = $paginator;
+        $this->entityManager = $entityManager;
+        $this->statusRepository = $statusRepository;
+        $this->security = $security;
+        $this->targetDirectory = $targetDirectory;
+        $this->toolService = $toolService;
+        $this->paginator = $paginator;
     }
 
     /**
-     * PUSH UNE ANNONCE
+     * PUSH UNE ANNONCE.
+     *
      * @param Appartment $app
-     * @param bool $update
+     * @param bool       $update
+     *
      * @return array
      */
     public function pushAppartment(Appartment $app, bool $update): array
@@ -63,12 +65,14 @@ class AppartmentService
             $data = $this->editAppartment($app);
         }
 
-        return [ 'msg' => $data ];
+        return ['msg' => $data];
     }
 
     /**
-     * AJOUT D'UNE ANNONCE
+     * AJOUT D'UNE ANNONCE.
+     *
      * @param \App\Entity\WebApp\Appartment $appartment
+     *
      * @return string
      */
     private function addAppartment(Appartment $appartment): string
@@ -82,9 +86,9 @@ class AppartmentService
 
         $this->entityManager->persist($appartment);
 
-        try{
+        try {
             $this->entityManager->flush();
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             $msg = self::MSG_ERROR_ADD_APP;
         }
 
@@ -92,8 +96,10 @@ class AppartmentService
     }
 
     /**
-     * EDITION D'UNE ANNONCE
+     * EDITION D'UNE ANNONCE.
+     *
      * @param Appartment $appartment
+     *
      * @return array
      */
     private function editAppartment(Appartment $appartment): string
@@ -101,9 +107,9 @@ class AppartmentService
         $msg = self::MSG_SUCCESS_EDIT_APP;
 
         $this->entityManager->persist($appartment);
-        try{
+        try {
             $this->entityManager->flush();
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             $msg = self::MSG_ERROR_EDIT_APP;
         }
 
@@ -111,46 +117,52 @@ class AppartmentService
     }
 
     /**
-     * RECUPERE LES INFOS DE L'ANNONCE
+     * RECUPERE LES INFOS DE L'ANNONCE.
+     *
      * @param int $id
+     *
      * @return array
      */
     public function getAppartmentInfo(int $id): array
     {
         $appartement = $this->appartmentRepository->findByKeyValue('id', $id);
-        if ($appartement == null) {
+        if (null == $appartement) {
             return [
                 'info' => false,
-                'data' => self::MSG_ERROR_INFO
+                'data' => self::MSG_ERROR_INFO,
             ];
         }
 
         $ressources = $appartement->getRessources();
         foreach ($ressources as $ressource) {
-            $ressource->setFile(new File($this->targetDirectory . '/' . $ressource->getPath()));
+            $ressource->setFile(new File($this->targetDirectory.'/'.$ressource->getPath()));
         }
 
         return [
             'info' => true,
-            'data' => $appartement
+            'data' => $appartement,
         ];
     }
 
     /**
-     * RECUPERE LES L'ANNONCES D'UN USER
+     * RECUPERE LES L'ANNONCES D'UN USER.
+     *
      * @param int $id
+     *
      * @return array
      */
     public function getAppartmentsByUser(User $user): array
     {
         $data = $this->appartmentRepository->findByUser($user);
 
-        return [ 'data' => $data ];
+        return ['data' => $data];
     }
 
     /**
-     * SUPPRESSION D'UNE ANNONCE
+     * SUPPRESSION D'UNE ANNONCE.
+     *
      * @param int $id
+     *
      * @return array
      */
     public function removeAppartment(int $id): array
@@ -159,41 +171,46 @@ class AppartmentService
         $result = true;
 
         $appartment = $this->appartmentRepository->findByKeyValue('id', $id);
-        if ($appartment == null) {
+        if (null == $appartment) {
             return [
                 'delete' => false,
-                'data' => self::MSG_ERROR_INFO
+                'data' => self::MSG_ERROR_INFO,
             ];
         }
 
         $this->entityManager->remove($appartment);
-        try{
+        try {
             $this->entityManager->flush();
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             $result = false;
             $msg = self::MSG_ERROR_REMOVE_APP;
         }
 
         return [
             'delete' => $result,
-            'data' => $msg
+            'data' => $msg,
         ];
     }
 
     /**
-     * RECUP DES X LAST ANNONCES
+     * RECUP DES X LAST ANNONCES.
+     *
      * @param int $nb
+     *
      * @return \App\Entity\WebApp\Appartment
+     *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function getXLastAppartment(int $nb)
     {
         $appartments = $this->appartmentRepository->findXLastAppartment($nb);
+
         return $appartments;
     }
 
     /**
-     * RECUPERATION LISTING
+     * RECUPERATION LISTING.
+     *
      * @return array
      */
     public function getAllAvailableAppartment($currentPage, $search, $type)
@@ -203,6 +220,7 @@ class AppartmentService
             $currentPage,
             5
         );
+
         return $appartments;
     }
 }

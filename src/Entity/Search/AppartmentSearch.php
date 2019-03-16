@@ -3,11 +3,10 @@
  * Created by PhpStorm.
  * User: Flo
  * Date: 17/02/2019
- * Time: 14:20
+ * Time: 14:20.
  */
 
 namespace App\Entity\Search;
-
 
 class AppartmentSearch
 {
@@ -51,11 +50,13 @@ class AppartmentSearch
 
     /**
      * @param string|null $description
+     *
      * @return AppartmentSearch
      */
     public function setDescription(?string $description): AppartmentSearch
     {
         $this->description = $description;
+
         return $this;
     }
 
@@ -69,11 +70,13 @@ class AppartmentSearch
 
     /**
      * @param string|null $department
+     *
      * @return AppartmentSearch
      */
     public function setDepartment(?string $department): AppartmentSearch
     {
         $this->department = $department;
+
         return $this;
     }
 
@@ -87,11 +90,13 @@ class AppartmentSearch
 
     /**
      * @param string|null $city
+     *
      * @return AppartmentSearch
      */
     public function setCity(?string $city): AppartmentSearch
     {
         $this->city = $city;
+
         return $this;
     }
 
@@ -105,11 +110,13 @@ class AppartmentSearch
 
     /**
      * @param int|null $maxPrice
+     *
      * @return AppartmentSearch
      */
     public function setMaxPrice(?int $maxPrice): AppartmentSearch
     {
         $this->maxPrice = $maxPrice;
+
         return $this;
     }
 
@@ -123,11 +130,13 @@ class AppartmentSearch
 
     /**
      * @param bool|null $garage
+     *
      * @return AppartmentSearch
      */
     public function setGarage(?bool $garage): AppartmentSearch
     {
         $this->garage = $garage;
+
         return $this;
     }
 
@@ -141,11 +150,13 @@ class AppartmentSearch
 
     /**
      * @param bool|null $locker
+     *
      * @return AppartmentSearch
      */
     public function setLocker(?bool $locker): AppartmentSearch
     {
         $this->locker = $locker;
+
         return $this;
     }
 }

@@ -2,8 +2,6 @@
 
 namespace App\Entity\WebApp;
 
-use App\Entity\WebApp\Appartment;
-use App\Entity\WebApp\Availability;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -38,7 +36,6 @@ class Price
      * @ORM\Column(type="float")
      */
     private $price;
-
 
     /**
      * @Assert\NotBlank(

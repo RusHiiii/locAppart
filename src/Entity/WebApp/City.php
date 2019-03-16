@@ -2,7 +2,6 @@
 
 namespace App\Entity\WebApp;
 
-use App\Entity\WebApp\Department;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 

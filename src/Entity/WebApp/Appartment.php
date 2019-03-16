@@ -2,13 +2,6 @@
 
 namespace App\Entity\WebApp;
 
-use App\Entity\WebApp\City;
-use App\Entity\WebApp\Message;
-use App\Entity\WebApp\Price;
-use App\Entity\WebApp\Ressource;
-use App\Entity\WebApp\Status;
-use App\Entity\WebApp\Type;
-use App\Entity\WebApp\User;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;

@@ -2,7 +2,6 @@
 
 namespace App\Entity\WebApp;
 
-use App\Entity\WebApp\Region;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

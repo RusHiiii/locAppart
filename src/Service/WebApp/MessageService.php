@@ -6,6 +6,7 @@ use App\Entity\WebApp\Appartment;
 use App\Entity\WebApp\Message;
 use App\Repository\WebApp\AppartmentRepository;
 use App\Repository\WebApp\MessageRepository;
+use App\Service\Tools\NotificationService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\Security;
 
@@ -15,10 +16,13 @@ class MessageService
     private $messageRepository;
     private $entityManager;
     private $security;
+    private $notification;
+    private $templating;
 
     // Définition des constantes
     const MSG_ERROR_NOT_FOUND = 'Message non trouvé';
     const MSG_SUCCESS_DELETE = 'Message supprimé';
+    const MSG_NEW = 'Nouveau message !';
     const MSG_SUCCESS_ADD = 'Message envoyé';
     const MSG_ERROR = 'Erreur lors de l\'envoie';
 
@@ -26,12 +30,16 @@ class MessageService
         AppartmentRepository $appartmentRepository,
         MessageRepository $messageRepository,
         EntityManagerInterface $entityManager,
-        Security $security
+        Security $security,
+        NotificationService $notificationService,
+        \Twig_Environment $templating
     ) {
         $this->appartmentRepository = $appartmentRepository;
         $this->security = $security;
         $this->messageRepository = $messageRepository;
         $this->entityManager = $entityManager;
+        $this->notification = $notificationService;
+        $this->templating = $templating;
     }
 
     /**
@@ -100,6 +108,12 @@ class MessageService
             $this->entityManager->flush();
         } catch (\Exception $e) {
             $msg = self::MSG_ERROR;
+        }
+
+        if($appartment->getUser()->getNotification()){
+            $dataTemplate = $this->templating->render('shared/email/notification.html.twig', ['appartment' => $appartment, 'sender' => $message->getEmail()]);
+
+            return $this->notification->sendEmail([$appartment->getUser()], self::MSG_NEW, $dataTemplate);
         }
 
         return ['msg' => $msg];

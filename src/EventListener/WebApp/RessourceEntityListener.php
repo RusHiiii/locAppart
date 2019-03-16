@@ -2,7 +2,6 @@
 
 namespace App\EventListener\WebApp;
 
-use App\Entity\WebApp\Appartment;
 use App\Entity\WebApp\Ressource;
 use App\Service\Tools\FileUploaderService;
 use Doctrine\ORM\Event\LifecycleEventArgs;
@@ -18,7 +17,8 @@ class RessourceEntityListener
     }
 
     /**
-     * FONCTION D'AVANT SUPRESSION D'UNE RESSOURCE
+     * FONCTION D'AVANT SUPRESSION D'UNE RESSOURCE.
+     *
      * @param LifecycleEventArgs $args
      */
     public function preRemove(LifecycleEventArgs $args)
@@ -29,11 +29,12 @@ class RessourceEntityListener
             return;
         }
 
-        unlink($this->uploader->getTargetDirectory() . '/' . $entity->getPath());
+        unlink($this->uploader->getTargetDirectory().'/'.$entity->getPath());
     }
 
     /**
-     * FONCTION D'AVANT MAJ D'UNE RESSOURCE
+     * FONCTION D'AVANT MAJ D'UNE RESSOURCE.
+     *
      * @param LifecycleEventArgs $args
      */
     public function preUpdate(LifecycleEventArgs $args)
@@ -44,7 +45,8 @@ class RessourceEntityListener
     }
 
     /**
-     * FONCTION D'AVANT AJOUT D'UNE RESSOURCE
+     * FONCTION D'AVANT AJOUT D'UNE RESSOURCE.
+     *
      * @param LifecycleEventArgs $args
      */
     public function prePersist(LifecycleEventArgs $args)
@@ -55,7 +57,8 @@ class RessourceEntityListener
     }
 
     /**
-     * GESTION DES FICHIER
+     * GESTION DES FICHIER.
+     *
      * @param $entity
      */
     private function uploadFile($entity)

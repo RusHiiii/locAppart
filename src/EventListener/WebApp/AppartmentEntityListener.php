@@ -20,17 +20,18 @@ class AppartmentEntityListener
         ToolService $toolService,
         NotificationService $notificationService,
         \Twig_Environment $templating
-    )
-    {
-        $this->uploader            = $uploader;
-        $this->toolService         = $toolService;
+    ) {
+        $this->uploader = $uploader;
+        $this->toolService = $toolService;
         $this->notificationService = $notificationService;
-        $this->templating          = $templating;
+        $this->templating = $templating;
     }
 
     /**
-     * FONCTION D'AVANT SAUVEGARDE
+     * FONCTION D'AVANT SAUVEGARDE.
+     *
      * @param LifecycleEventArgs $args
+     *
      * @throws \Exception
      */
     public function prePersist(LifecycleEventArgs $args)
@@ -43,7 +44,8 @@ class AppartmentEntityListener
     }
 
     /**
-     * FUNCTION D'AVANT SAUVEGARDE
+     * FUNCTION D'AVANT SAUVEGARDE.
+     *
      * @param LifecycleEventArgs $args
      */
     public function preUpdate(LifecycleEventArgs $args)
@@ -56,8 +58,10 @@ class AppartmentEntityListener
     }
 
     /**
-     * GESTION DE LA DATE DE CREATION
+     * GESTION DE LA DATE DE CREATION.
+     *
      * @param $entity
+     *
      * @throws \Exception
      */
     private function manageCreationDate($entity)
@@ -70,8 +74,10 @@ class AppartmentEntityListener
     }
 
     /**
-     * GESTION DE LA REF
+     * GESTION DE LA REF.
+     *
      * @param $entity
+     *
      * @throws \Exception
      */
     private function manageReference($entity)
@@ -91,7 +97,7 @@ class AppartmentEntityListener
 
         $changeValue = $uow->getEntityChangeSet($entity);
 
-        if(isset($changeValue['status'])){
+        if (isset($changeValue['status'])) {
             $newStatus = $changeValue['status'][1];
 
             $data = $this->templating->render('shared/email/status.html.twig', ['appartment' => $entity, 'status' => $newStatus->getDescription()]);

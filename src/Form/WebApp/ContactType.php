@@ -9,13 +9,9 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\Regex;
 
 class ContactType extends AbstractType
 {
@@ -25,23 +21,23 @@ class ContactType extends AbstractType
             ->add('email', EmailType::class, array(
                 'label' => 'Email:',
                 'constraints' => array(
-                    new Email()
-                )
+                    new Email(),
+                ),
             ))
             ->add('type', ChoiceType::class, array(
-                'choices'  => array(
+                'choices' => array(
                     'Annonce' => 'annonce',
                     'Erreur' => 'erreur',
                     'RGPD' => 'rgpd',
-                    'Autre' => 'autre'
+                    'Autre' => 'autre',
                 ),
-                'label' => 'Sujet:'
+                'label' => 'Sujet:',
             ))
             ->add('subject', TextType::class, array(
                 'label' => 'Sujet:',
                 'constraints' => array(
-                    new NotBlank()
-                )
+                    new NotBlank(),
+                ),
             ))
             ->add('message', TextareaType::class, array(
                 'label' => 'Message:',
@@ -49,13 +45,13 @@ class ContactType extends AbstractType
                     new NotBlank(),
                     new Length(
                         array(
-                            'min' => 20
+                            'min' => 20,
                         )
-                    )
-                )
+                    ),
+                ),
             ))
             ->add('save', SubmitType::class, array(
-                'label' => 'Valider'
+                'label' => 'Valider',
             ))
         ;
     }

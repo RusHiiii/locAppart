@@ -7,12 +7,10 @@ use App\Entity\Search\AppartmentSearch;
 use App\Entity\WebApp\Department;
 use App\Repository\WebApp\CityRepository;
 use App\Repository\WebApp\DepartmentRepository;
-use App\Service\WebApp\CityService;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -24,7 +22,7 @@ class AppartmentSearchType extends AbstractType
         $builder
             ->add('description', TextType::class, array(
                 'required' => false,
-                'label' => false
+                'label' => false,
             ))
             ->add('department', EntityType::class, array(
                 'label' => false,
@@ -32,7 +30,7 @@ class AppartmentSearchType extends AbstractType
                 'class' => Department::class,
                 'query_builder' => function (DepartmentRepository $er) {
                     return $er->findAllQuery();
-                }
+                },
             ))
             ->add('city', EntityType::class, array(
                 'label' => false,
@@ -40,27 +38,27 @@ class AppartmentSearchType extends AbstractType
                 'class' => City::class,
                 'query_builder' => function (CityRepository $er) {
                     return $er->findAllQuery();
-                }
+                },
             ))
             ->add('maxPrice', IntegerType::class, array(
                 'label' => false,
-                'required' => false
+                'required' => false,
             ))
             ->add('garage', ChoiceType::class, array(
-                'choices'  => array(
+                'choices' => array(
                     'Oui' => true,
-                    'Non' => false
+                    'Non' => false,
                 ),
                 'label' => false,
-                'required' => false
+                'required' => false,
             ))
             ->add('locker', ChoiceType::class, array(
-                'choices'  => array(
+                'choices' => array(
                     'Oui' => true,
-                    'Non' => false
+                    'Non' => false,
                 ),
                 'label' => false,
-                'required' => false
+                'required' => false,
             ))
         ;
     }
@@ -69,7 +67,7 @@ class AppartmentSearchType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => AppartmentSearch::class,
-            'csrf_protection' => false
+            'csrf_protection' => false,
         ]);
     }
 

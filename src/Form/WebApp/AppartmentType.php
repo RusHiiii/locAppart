@@ -3,10 +3,7 @@
 namespace App\Form\WebApp;
 
 use App\Entity\WebApp\Appartment;
-use App\Form\WebApp\PriceType;
-use App\Form\WebApp\RessourceType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -25,20 +22,20 @@ class AppartmentType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, array(
-                'label' => 'Titre*:'
+                'label' => 'Titre*:',
             ))
             ->add('type', null, array(
-                'label' => 'Type de bien*:'
+                'label' => 'Type de bien*:',
             ))
             ->add('area', NumberType::class, array(
-                'label' => 'Surface du bien*:'
+                'label' => 'Surface du bien*:',
             ))
             ->add('room', IntegerType::class, array(
                 'label' => 'Nombre de pièce*:',
-                'attr' => array('min' => 0)
+                'attr' => array('min' => 0),
             ))
             ->add('description', TextareaType::class, array(
-                'label' => 'Texte de l\'annonce*:'
+                'label' => 'Texte de l\'annonce*:',
             ))
             ->add('ressources', CollectionType::class, array(
                 'entry_type' => RessourceType::class,
@@ -47,7 +44,7 @@ class AppartmentType extends AbstractType
                 'by_reference' => false,
                 'allow_delete' => true,
                 'label' => false,
-                'required' => false
+                'required' => false,
             ))
             ->add('prices', CollectionType::class, array(
                 'entry_type' => PriceType::class,
@@ -56,57 +53,57 @@ class AppartmentType extends AbstractType
                 'by_reference' => false,
                 'allow_delete' => true,
                 'label' => false,
-                'required' => true
+                'required' => true,
             ))
             ->add('garage', ChoiceType::class, array(
-                'choices'  => array(
+                'choices' => array(
                     'Oui' => true,
-                    'Non' => false
+                    'Non' => false,
                 ),
                 'label' => 'Garage:',
-                'required' => false
+                'required' => false,
             ))
             ->add('locker', ChoiceType::class, array(
-                'choices'  => array(
+                'choices' => array(
                     'Oui' => true,
-                    'Non' => false
+                    'Non' => false,
                 ),
                 'label' => 'Casier:',
-                'required' => false
+                'required' => false,
             ))
             ->add('people', TextType::class, array(
                 'label' => 'Nombre de personnes:',
-                'required' => false
+                'required' => false,
             ))
             ->add('bedroom', IntegerType::class, array(
                 'label' => 'Nombre de chambres:',
                 'attr' => array('min' => 0),
-                'required' => false
+                'required' => false,
             ))
             ->add('ski', NumberType::class, array(
                 'label' => 'Distance des pistes:',
-                'required' => false
+                'required' => false,
             ))
             ->add('information', TextareaType::class, array(
                 'label' => 'Autre information:',
-                'required' => false
+                'required' => false,
             ))
             ->add('address', TextType::class, array(
-                'label' => 'Adresse complète:'
+                'label' => 'Adresse complète:',
             ))
             ->add('city', null, array(
                 'label' => 'Lieu:',
             ))
             ->add('lat', TextType::class, array(
                 'label' => false,
-                'required' => false
+                'required' => false,
             ))
             ->add('lng', TextType::class, array(
                 'label' => false,
-                'required' => false
+                'required' => false,
             ))
             ->add('save', SubmitType::class, array(
-              'label' => 'Valider'
+              'label' => 'Valider',
             ))
         ;
 
@@ -116,7 +113,7 @@ class AppartmentType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => Appartment::class
+            'data_class' => Appartment::class,
         ));
     }
 
@@ -124,7 +121,7 @@ class AppartmentType extends AbstractType
     {
         $data = $event->getData();
 
-        if(isset($data['prices'])){
+        if (isset($data['prices'])) {
             $data['prices'] = array_values($data['prices']);
         }
 

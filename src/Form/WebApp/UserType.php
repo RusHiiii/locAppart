@@ -19,31 +19,31 @@ class UserType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class, array(
-                  'label' => 'Email:'
+                  'label' => 'Email:',
                 ))
             ->add('firstname', TextType::class, array(
-                  'label' => 'Prénom:'
+                  'label' => 'Prénom:',
                 ))
             ->add('lastname', TextType::class, array(
-                  'label' => 'Nom:'
+                  'label' => 'Nom:',
                 ))
             ->add('gender', ChoiceType::class, array(
-                  'choices'  => array(
+                  'choices' => array(
                       'Homme' => 'man',
-                      'Femme' => 'women'
+                      'Femme' => 'women',
                   ),
                   'expanded' => true,
                   'multiple' => false,
                   'label' => 'Genre:',
-                  'data' => 'man'
+                  'data' => 'man',
                 ))
             ->add('password', RepeatedType::class, array(
                 'type' => PasswordType::class,
-                'first_options'  => array('label' => 'Mot de passe:'),
+                'first_options' => array('label' => 'Mot de passe:'),
                 'second_options' => array('label' => 'Confirmer mot de passe:'),
                 ))
             ->add('save', SubmitType::class, array(
-                  'label' => 'Valider'
+                  'label' => 'Valider',
                 ))
         ;
     }
@@ -52,7 +52,7 @@ class UserType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => User::class,
-            'validation_groups' => array('Default', 'Registration')
+            'validation_groups' => array('Default', 'Registration'),
         ));
     }
 }

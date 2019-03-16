@@ -10,8 +10,6 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class UserEditType extends AbstractType
@@ -20,29 +18,29 @@ class UserEditType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class, array(
-                  'label' => 'Email:'
+                  'label' => 'Email:',
                 ))
             ->add('firstname', TextType::class, array(
-                  'label' => 'Prénom:'
+                  'label' => 'Prénom:',
                 ))
             ->add('lastname', TextType::class, array(
-                  'label' => 'Nom:'
+                  'label' => 'Nom:',
                 ))
             ->add('gender', ChoiceType::class, array(
-                  'choices'  => array(
+                  'choices' => array(
                       'Homme' => 'man',
-                      'Femme' => 'women'
+                      'Femme' => 'women',
                   ),
                   'expanded' => true,
                   'multiple' => false,
                   'label' => 'Genre:',
-                  'data' => 'man'
+                  'data' => 'man',
                 ))
             ->add('notification', CheckboxType::class, array(
-                'required' => false
+                'required' => false,
             ))
             ->add('save', SubmitType::class, array(
-                  'label' => 'Mettre à jours'
+                  'label' => 'Mettre à jours',
                 ))
         ;
     }
@@ -50,7 +48,7 @@ class UserEditType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => User::class
+            'data_class' => User::class,
         ));
     }
 }

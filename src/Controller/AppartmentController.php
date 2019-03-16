@@ -15,13 +15,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Class AppartmentController
- * @package App\Controller
+ * Class AppartmentController.
  */
 class AppartmentController extends AbstractController
 {
     /**
-     * DASHBOARD DU COMPTE
+     * DASHBOARD DU COMPTE.
+     *
      * @Route("/mon-compte/mes-annonces", name="app_dashboard")
      */
     public function dashboard(
@@ -32,12 +32,13 @@ class AppartmentController extends AbstractController
 
         return $this->render('appartment/dashboard.html.twig', [
             'count' => count($data['data']),
-            'appartments' => $data['data']
+            'appartments' => $data['data'],
         ]);
     }
 
     /**
-     * AJOUT D'UNE ANNONCE
+     * AJOUT D'UNE ANNONCE.
+     *
      * @Route("/mon-compte/annonce/ajout", name="app_announcement_add")
      */
     public function addAnnouncement(
@@ -52,18 +53,20 @@ class AppartmentController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $appService->pushAppartment($appartment, false);
 
-            $this->addFlash("notice", $data['msg']);
+            $this->addFlash('notice', $data['msg']);
+
             return $this->redirectToRoute('app_dashboard');
         }
 
         return $this->render('appartment/announcement.html.twig', [
             'form' => $form->createView(),
-            'type' => 'Ajout'
+            'type' => 'Ajout',
         ]);
     }
 
     /**
-     * EDITION D'UNE ANNONCE
+     * EDITION D'UNE ANNONCE.
+     *
      * @Route("/mon-compte/annonce/edition/{id}", name="app_announcement_edit")
      */
     public function editAnnouncement(
@@ -74,6 +77,7 @@ class AppartmentController extends AbstractController
         $appartment = $appService->getAppartmentInfo($id);
         if (!$appartment['info']) {
             $this->addFlash('notice', $appartment['data']);
+
             return $this->redirectToRoute('app_dashboard');
         }
 
@@ -88,17 +92,19 @@ class AppartmentController extends AbstractController
             $data = $appService->pushAppartment($appartment['data'], true);
 
             $this->addFlash('notice', $data['msg']);
+
             return $this->redirectToRoute('app_dashboard');
         }
 
         return $this->render('appartment/announcement.html.twig', [
             'form' => $form->createView(),
-            'type' => 'Edition'
+            'type' => 'Edition',
         ]);
     }
 
     /**
-     * LISTING DES ANNONCES
+     * LISTING DES ANNONCES.
+     *
      * @Route("/annonces/type/{type}", name="app_announcement_listing")
      */
     public function listing(
@@ -106,7 +112,6 @@ class AppartmentController extends AbstractController
         AppartmentService $appService,
         String $type
     ) {
-
         $search = new AppartmentSearch();
         $formSearch = $this->createForm(AppartmentSearchType::class, $search);
         $formSearch->handleRequest($request);
@@ -116,12 +121,13 @@ class AppartmentController extends AbstractController
         return $this->render('appartment/listing.html.twig', [
             'appartments' => $appartments,
             'form' => $formSearch->createView(),
-            'type' => $type
+            'type' => $type,
         ]);
     }
 
     /**
-     * DETAIL D'UNE ANNONCE
+     * DETAIL D'UNE ANNONCE.
+     *
      * @Route("/annonces/{slug}-{id}", name="app_announcement_show")
      */
     public function showAppartment(
@@ -130,7 +136,7 @@ class AppartmentController extends AbstractController
         $slug,
         Appartment $appartment
     ) {
-        if ($appartment->getStatus()->getName() != 'Accepté') {
+        if ('Accepté' != $appartment->getStatus()->getName()) {
             return $this->redirectToRoute('home');
         }
 
@@ -149,7 +155,7 @@ class AppartmentController extends AbstractController
         return $this->render('appartment/show.html.twig', [
             'appartment' => $appartment,
             'form' => $formSearch->createView(),
-            'formContact' => $formContact->createView()
+            'formContact' => $formContact->createView(),
         ]);
     }
 }

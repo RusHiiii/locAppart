@@ -3,23 +3,18 @@
 namespace App\Controller\Security;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
-use App\Entity\WebApp\User;
 use App\Form\WebApp\ForgottenPasswordType;
 use App\Form\WebApp\ResetPasswordType;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use App\Service\Tools\NotificationService;
 use App\Service\WebApp\UserService;
 
 class SecurityController extends AbstractController
 {
     /**
-     * LOGIN DU SITE
+     * LOGIN DU SITE.
+     *
      * @Route("/connexion", name="app_login")
      */
     public function login(
@@ -30,12 +25,13 @@ class SecurityController extends AbstractController
 
         return $this->render('security/login.html.twig', [
             'last_username' => $lastUsername,
-            'error' => $error
+            'error' => $error,
         ]);
     }
 
     /**
-     * DECONNEXION DU SITE
+     * DECONNEXION DU SITE.
+     *
      * @Route("/deconnexion", name="app_logout")
      */
     public function logout()
@@ -44,7 +40,8 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * MDP CHANGEMENT
+     * MDP CHANGEMENT.
+     *
      * @Route("/changement-mdp", name="app_forgotten_password")
      */
     public function forgottenPassword(
@@ -62,12 +59,13 @@ class SecurityController extends AbstractController
         }
 
         return $this->render('security/forgotten_password.html.twig', [
-          'form' => $form->createView()
+          'form' => $form->createView(),
         ]);
     }
 
     /**
-     * RESET DU MOT DE PASSE
+     * RESET DU MOT DE PASSE.
+     *
      * @Route("/reset-mdp/{token}", name="app_reset_password")
      */
     public function resetPassword(
@@ -86,7 +84,7 @@ class SecurityController extends AbstractController
         }
 
         return $this->render('security/reset_password.html.twig', [
-          'form' => $form->createView()
+          'form' => $form->createView(),
         ]);
     }
 }

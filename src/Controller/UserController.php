@@ -14,7 +14,8 @@ use App\Service\WebApp\UserService;
 class UserController extends AbstractController
 {
     /**
-     * PROFILE DE L'UTILISATEUR
+     * PROFILE DE L'UTILISATEUR.
+     *
      * @Route("/mon-compte/profile", name="app_profil")
      */
     public function index(
@@ -40,12 +41,13 @@ class UserController extends AbstractController
 
         return $this->render('user/index.html.twig', [
             'formUpdate' => $formUpdate->createView(),
-            'formPswd' => $formPswd->createView()
+            'formPswd' => $formPswd->createView(),
         ]);
     }
 
     /**
-     * INSCRIPTION DU SITE
+     * INSCRIPTION DU SITE.
+     *
      * @Route("/inscription", name="app_register")
      */
     public function register(
@@ -66,7 +68,7 @@ class UserController extends AbstractController
         }
 
         return $this->render('user/register.html.twig', [
-          'form' => $form->createView()
+          'form' => $form->createView(),
         ]);
     }
 }

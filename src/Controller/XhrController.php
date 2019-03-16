@@ -13,7 +13,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class XhrController extends AbstractController
 {
     /**
-     * RECUPERATION DES INFOS DE LA VILLE
+     * RECUPERATION DES INFOS DE LA VILLE.
+     *
      * @Route("/xhr/ville", condition="request.isXmlHttpRequest()")
      */
     public function getCityInformation(
@@ -24,11 +25,12 @@ class XhrController extends AbstractController
 
         $city = $cityService->getCityInformationLocation($cityId);
 
-        return new JsonResponse([ 'data' => $city ]);
+        return new JsonResponse(['data' => $city]);
     }
 
     /**
-     * SUPPRESSION ANNONCE
+     * SUPPRESSION ANNONCE.
+     *
      * @Route("/xhr/appartement/suppression", condition="request.isXmlHttpRequest()")
      */
     public function removeAppartment(
@@ -39,11 +41,12 @@ class XhrController extends AbstractController
 
         $data = $appService->removeAppartment($appId);
 
-        return new JsonResponse([ 'data' => $data ]);
+        return new JsonResponse(['data' => $data]);
     }
 
     /**
-     * UPPRESSION MESSAGE
+     * UPPRESSION MESSAGE.
+     *
      * @Route("/xhr/message/suppression", condition="request.isXmlHttpRequest()")
      */
     public function removeMessage(
@@ -54,6 +57,6 @@ class XhrController extends AbstractController
 
         $data = $messageService->removeMessage($appId);
 
-        return new JsonResponse([ 'data' => $data ]);
+        return new JsonResponse(['data' => $data]);
     }
 }

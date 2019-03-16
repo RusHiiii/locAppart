@@ -10,7 +10,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class MessageController extends AbstractController
 {
     /**
-     * DASHBOARD DU COMPTE
+     * DASHBOARD DU COMPTE.
+     *
      * @Route("/mon-compte/mes-messages", name="app_messages")
      */
     public function index(
@@ -21,7 +22,7 @@ class MessageController extends AbstractController
 
         return $this->render('message/index.html.twig', [
             'appartments' => $data['appartments'],
-            'count' => $data['count']
+            'count' => $data['count'],
         ]);
     }
 }

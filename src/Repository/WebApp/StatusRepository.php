@@ -14,8 +14,10 @@ class StatusRepository extends ServiceEntityRepository
     }
 
     /**
-     * RECUPERATION PAR LE NOM
+     * RECUPERATION PAR LE NOM.
+     *
      * @param $name
+     *
      * @return object|null
      */
     public function findByName($name)

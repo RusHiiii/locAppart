@@ -22,13 +22,13 @@ class GoogleAuthenticator extends SocialAuthenticator
     public function __construct(ClientRegistry $clientRegistry, EntityManagerInterface $em, RouterInterface $router)
     {
         $this->clientRegistry = $clientRegistry;
-        $this->em             = $em;
-        $this->router         = $router;
+        $this->em = $em;
+        $this->router = $router;
     }
 
     public function supports(Request $request)
     {
-        return $request->getPathInfo() == '/connexion/google/verification' && $request->isMethod('GET');
+        return '/connexion/google/verification' == $request->getPathInfo() && $request->isMethod('GET');
     }
 
     public function getCredentials(Request $request)
@@ -82,7 +82,7 @@ class GoogleAuthenticator extends SocialAuthenticator
      *  B) For an API token authentication system, you return a 401 response
      *      return new Response('Auth header required', 401);
      *
-     * @param Request $request The request that resulted in an AuthenticationException
+     * @param Request                                                            $request       The request that resulted in an AuthenticationException
      * @param \Symfony\Component\Security\Core\Exception\AuthenticationException $authException The exception that started the authentication process
      *
      * @return \Symfony\Component\HttpFoundation\Response
@@ -101,7 +101,7 @@ class GoogleAuthenticator extends SocialAuthenticator
      * If you return null, the request will continue, but the user will
      * not be authenticated. This is probably not what you want to do.
      *
-     * @param Request $request
+     * @param Request                                                            $request
      * @param \Symfony\Component\Security\Core\Exception\AuthenticationException $exception
      *
      * @return \Symfony\Component\HttpFoundation\Response|null
@@ -122,11 +122,9 @@ class GoogleAuthenticator extends SocialAuthenticator
      * If you return null, the current request will continue, and the user
      * will be authenticated. This makes sense, for example, with an API.
      *
-     * @param Request $request
+     * @param Request                                                              $request
      * @param \Symfony\Component\Security\Core\Authentication\Token\TokenInterface $token
-     * @param string $providerKey The provider (i.e. firewall) key
-     *
-     * @return void
+     * @param string                                                               $providerKey The provider (i.e. firewall) key
      */
     public function onAuthenticationSuccess(Request $request, \Symfony\Component\Security\Core\Authentication\Token\TokenInterface $token, $providerKey)
     {

@@ -14,9 +14,11 @@ class RessourceRepository extends ServiceEntityRepository
     }
 
     /**
-     * RECUPERATION PAR KEY/VALUE
+     * RECUPERATION PAR KEY/VALUE.
+     *
      * @param  string key
      * @param  string value
+     *
      * @return \App\Entity\WebApp\Ressource
      */
     public function findByKeyValue($key, $value): ?Ressource

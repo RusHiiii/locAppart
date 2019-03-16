@@ -14,9 +14,11 @@ class UserRepository extends ServiceEntityRepository
     }
 
     /**
-     * RECUPERATION PAR KEY/VALUE
+     * RECUPERATION PAR KEY/VALUE.
+     *
      * @param  string key
      * @param  string value
+     *
      * @return User
      */
     public function findByKeyValue($key, $value): ?User
@@ -27,11 +29,14 @@ class UserRepository extends ServiceEntityRepository
     }
 
     /**
-     * RECUPERATION USER PAR ROLE
+     * RECUPERATION USER PAR ROLE.
+     *
      * @param $role
+     *
      * @return mixed
      */
-    public function findAllRole($role){
+    public function findAllRole($role)
+    {
         $result = $this->createQueryBuilder('qb')
                 ->where('qb.roles LIKE :role')
                 ->setParameter('role', $role)

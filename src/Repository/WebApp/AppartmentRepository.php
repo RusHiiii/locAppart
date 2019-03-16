@@ -20,11 +20,13 @@ class AppartmentRepository extends ServiceEntityRepository
     }
 
     /**
-     * RECUPERE LE DERNIER APPART
+     * RECUPERE LE DERNIER APPART.
+     *
      * @return \App\Entity\WebApp\Appartment
+     *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function findLastAppartment():Appartment
+    public function findLastAppartment(): Appartment
     {
         $qb = $this->createQueryBuilder('qb')
             ->orderBy('qb.id', 'DESC')
@@ -35,8 +37,10 @@ class AppartmentRepository extends ServiceEntityRepository
     }
 
     /**
-     * RECUPERE LES DERNIER APPART
+     * RECUPERE LES DERNIER APPART.
+     *
      * @return \App\Entity\WebApp\Appartment
+     *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function findXLastAppartment($nb)
@@ -46,7 +50,7 @@ class AppartmentRepository extends ServiceEntityRepository
             ->setMaxResults($nb)
             ->where('qb.status = :accepted')
             ->setParameters([
-                'accepted' => 1
+                'accepted' => 1,
             ])
             ->getQuery();
 
@@ -54,9 +58,11 @@ class AppartmentRepository extends ServiceEntityRepository
     }
 
     /**
-     * RECUPERATION PAR KEY/VALUE
+     * RECUPERATION PAR KEY/VALUE.
+     *
      * @param  string key
      * @param  string value
+     *
      * @return \App\Entity\WebApp\Appartment
      */
     public function findByKeyValue($key, $value): ?Appartment
@@ -67,11 +73,13 @@ class AppartmentRepository extends ServiceEntityRepository
     }
 
     /**
-     * FIND BY USER
+     * FIND BY USER.
+     *
      * @param $user
+     *
      * @return array
      */
-    public function findByUser($user) : array
+    public function findByUser($user): array
     {
         return $this->findBy(
             array('user' => $user)
@@ -79,10 +87,11 @@ class AppartmentRepository extends ServiceEntityRepository
     }
 
     /**
-     * RECUPERATION DES APPART EN LIGNE
+     * RECUPERATION DES APPART EN LIGNE.
+     *
      * @return Query
      */
-    public function findAllValidQuery(AppartmentSearch $search, $type) : Query
+    public function findAllValidQuery(AppartmentSearch $search, $type): Query
     {
         $qb = $this->createQueryBuilder('qb')
             ->innerJoin(City::class, 'c', 'WITH', 'c.id = qb.city')
@@ -92,40 +101,40 @@ class AppartmentRepository extends ServiceEntityRepository
             ->andWhere('t.name = :type')
             ->setParameters([
                 'accepted' => 1,
-                'type' => $type
+                'type' => $type,
             ]);
 
-        if($search->getCity()){
+        if ($search->getCity()) {
             $qb
                 ->andWhere('c.name = :city')
                 ->setParameter('city', $search->getCity());
         }
 
-        if($search->getDepartment()){
+        if ($search->getDepartment()) {
             $qb
                 ->andWhere('d.name = :department')
                 ->setParameter('department', $search->getDepartment());
         }
 
-        if($search->getDescription()){
+        if ($search->getDescription()) {
             $qb
                 ->andWhere('qb.title LIKE :description')
                 ->setParameter('description', '%'.$search->getDescription().'%');
         }
 
-        if($search->getGarage() !== null){
+        if (null !== $search->getGarage()) {
             $qb
                 ->andWhere('qb.garage = :garage')
                 ->setParameter('garage', $search->getGarage());
         }
 
-        if($search->getLocker() !== null){
+        if (null !== $search->getLocker()) {
             $qb
                 ->andWhere('qb.locker = :locker')
                 ->setParameter('locker', $search->getLocker());
         }
 
-        if($search->getMaxPrice() !== null){
+        if (null !== $search->getMaxPrice()) {
             $qb
                 ->innerJoin(Price::class, 'p', 'WITH', 'p.appartment = qb.id')
                 ->andWhere('p.price <= :price')

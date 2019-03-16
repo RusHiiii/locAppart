@@ -14,9 +14,11 @@ class MessageRepository extends ServiceEntityRepository
     }
 
     /**
-     * RECUPERATION PAR KEY/VALUE
+     * RECUPERATION PAR KEY/VALUE.
+     *
      * @param  string key
      * @param  string value
+     *
      * @return Message
      */
     public function findByKeyValue($key, $value): ?Message

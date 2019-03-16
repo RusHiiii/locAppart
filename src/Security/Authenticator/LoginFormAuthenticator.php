@@ -30,10 +30,10 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
 
     public function __construct(EntityManagerInterface $entityManager, RouterInterface $router, CsrfTokenManagerInterface $csrfTokenManager, UserPasswordEncoderInterface $passwordEncoder)
     {
-        $this->entityManager    = $entityManager;
-        $this->router           = $router;
+        $this->entityManager = $entityManager;
+        $this->router = $router;
         $this->csrfTokenManager = $csrfTokenManager;
-        $this->passwordEncoder  = $passwordEncoder;
+        $this->passwordEncoder = $passwordEncoder;
     }
 
     public function supports(Request $request)

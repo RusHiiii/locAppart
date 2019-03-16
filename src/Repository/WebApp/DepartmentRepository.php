@@ -15,7 +15,8 @@ class DepartmentRepository extends ServiceEntityRepository
     }
 
     /**
-     * RECUPERE TOUS
+     * RECUPERE TOUS.
+     *
      * @return QueryBuilder|null
      */
     public function findAllQuery(): ?QueryBuilder

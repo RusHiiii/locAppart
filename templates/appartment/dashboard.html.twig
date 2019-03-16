@@ -58,7 +58,11 @@
                                     <td class="td_body">
                                         <div class="gestion-img">
                                             <a href="{{ path('app_announcement_show', {'slug' : appartment.title | replace({' ': "_"}) | lower, 'id' : appartment.id}) }}" >
-                                                <img src="{{ '/ressources/images/uploads/' ~ appartment.ressources|first }}">
+                                                {% if appartment.ressources|first is empty %}
+                                                    <img src="{{ asset('/ressources/images/static/not-found.png') }}"/>
+                                                {% else %}
+                                                    <img src="{{ '/ressources/images/uploads/' ~ appartment.ressources|first }}">
+                                                {% endif %}
                                             </a>
                                         </div>
                                         <div class="gestion_main_content">

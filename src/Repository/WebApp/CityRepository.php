@@ -4,7 +4,6 @@ namespace App\Repository\WebApp;
 
 use App\Entity\WebApp\City;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\Query;
 use Doctrine\ORM\QueryBuilder;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -16,9 +15,11 @@ class CityRepository extends ServiceEntityRepository
     }
 
     /**
-     * RECUPERE UNE VILLE PAR N'IMPORTE QUELLE KEY/VALUE
+     * RECUPERE UNE VILLE PAR N'IMPORTE QUELLE KEY/VALUE.
+     *
      * @param $key
      * @param $value
+     *
      * @return City|null
      */
     public function findByKeyValue($key, $value): ?City
@@ -27,7 +28,8 @@ class CityRepository extends ServiceEntityRepository
     }
 
     /**
-     * RECUPERE TOUS
+     * RECUPERE TOUS.
+     *
      * @return QueryBuilder|null
      */
     public function findAllQuery(): ?QueryBuilder

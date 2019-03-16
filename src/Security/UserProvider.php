@@ -1,6 +1,6 @@
 <?php
-namespace App\Security;
 
+namespace App\Security;
 
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\WebApp\User;
@@ -14,7 +14,9 @@ class UserProvider implements UserProviderInterface
 
     /**
      * UserProvider constructor.
+     *
      * @param EntityManagerInterface $entityManager
+     *
      * @internal param Client $httpClient
      * @internal param UserOptionService $userOptionService
      * @internal param ProjectService $projectService
@@ -57,8 +59,8 @@ class UserProvider implements UserProviderInterface
      * map.
      *
      * @param UserInterface $user
-     * @return UserInterface
      *
+     * @return UserInterface
      */
     public function refreshUser(UserInterface $user)
     {
@@ -67,6 +69,7 @@ class UserProvider implements UserProviderInterface
                 sprintf('Instances of "%s" are not supported.', get_class($user))
             );
         }
+
         return $user;
     }
 
@@ -79,6 +82,6 @@ class UserProvider implements UserProviderInterface
      */
     public function supportsClass($class)
     {
-        return $class === 'App\Security\User';
+        return 'App\Security\User' === $class;
     }
 }

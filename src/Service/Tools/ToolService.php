@@ -15,8 +15,8 @@ class ToolService
     private $appartmentRepository;
 
     public function __construct(
-    AppartmentRepository $appartmentRepository
-  ) {
+        AppartmentRepository $appartmentRepository
+    ) {
         $this->appartmentRepository = $appartmentRepository;
     }
 
@@ -25,7 +25,7 @@ class ToolService
      * @param Appartment $appartment
      * @return string
      */
-    public function generateReference(Appartment $appartment)
+    public function generateReference(Appartment $appartment): string
     {
         $reference = [];
         $reference[] = substr($appartment->getType()->getName(), 0, 3);

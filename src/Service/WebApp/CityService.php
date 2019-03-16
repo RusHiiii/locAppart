@@ -10,8 +10,8 @@ class CityService
     private $cityRepository;
 
     public function __construct(
-    CityRepository $cityRepo
-  ) {
+        CityRepository $cityRepo
+    ) {
         $this->cityRepository = $cityRepo;
     }
 
@@ -20,7 +20,7 @@ class CityService
      * @param int $id
      * @return array
      */
-    public function getCityInformationLocation(int $id)
+    public function getCityInformationLocation(int $id): array
     {
         $city = $this->cityRepository->findByKeyValue('id', $id);
 

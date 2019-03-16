@@ -11,8 +11,8 @@ class NewsService
     private $newsRepository;
 
     public function __construct(
-    NewsRepository $newsRepo
-  ) {
+        NewsRepository $newsRepo
+    ) {
         $this->newsRepository = $newsRepo;
     }
 

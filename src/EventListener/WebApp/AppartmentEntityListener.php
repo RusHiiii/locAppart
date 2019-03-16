@@ -22,10 +22,10 @@ class AppartmentEntityListener
         \Twig_Environment $templating
     )
     {
-        $this->uploader = $uploader;
-        $this->toolService = $toolService;
+        $this->uploader            = $uploader;
+        $this->toolService         = $toolService;
         $this->notificationService = $notificationService;
-        $this->templating = $templating;
+        $this->templating          = $templating;
     }
 
     /**

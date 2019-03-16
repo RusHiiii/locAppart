@@ -24,11 +24,7 @@ class XhrController extends AbstractController
 
         $city = $cityService->getCityInformationLocation($cityId);
 
-        return new JsonResponse(
-            [
-                'data' => $city
-            ]
-        );
+        return new JsonResponse([ 'data' => $city ]);
     }
 
     /**
@@ -43,11 +39,7 @@ class XhrController extends AbstractController
 
         $data = $appService->removeAppartment($appId);
 
-        return new JsonResponse(
-            [
-                'data' => $data
-            ]
-        );
+        return new JsonResponse([ 'data' => $data ]);
     }
 
     /**
@@ -62,10 +54,6 @@ class XhrController extends AbstractController
 
         $data = $messageService->removeMessage($appId);
 
-        return new JsonResponse(
-            [
-                'data' => $data
-            ]
-        );
+        return new JsonResponse([ 'data' => $data ]);
     }
 }

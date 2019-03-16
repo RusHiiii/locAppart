@@ -42,7 +42,6 @@ class AppartmentRepository extends ServiceEntityRepository
     public function findXLastAppartment($nb)
     {
         $qb = $this->createQueryBuilder('qb')
-
             ->orderBy('qb.date', 'DESC')
             ->setMaxResults($nb)
             ->where('qb.status = :accepted')

@@ -14,33 +14,36 @@ use Symfony\Component\HttpFoundation\File\File;
 
 class MessageService
 {
-    const MSG_ERROR_NOT_FOUND = 'Message non trouvé';
-    const MSG_SUCCESS_DELETE = 'Message supprimé';
-    const MSG_SUCCESS_ADD = 'Message envoyé';
-    const MSG_ERROR = 'Erreur lors de l\'envoie';
+
 
     private $appartmentRepository;
     private $messageRepository;
     private $entityManager;
     private $security;
 
+    // Définition des constantes
+    const MSG_ERROR_NOT_FOUND = 'Message non trouvé';
+    const MSG_SUCCESS_DELETE  = 'Message supprimé';
+    const MSG_SUCCESS_ADD     = 'Message envoyé';
+    const MSG_ERROR           = 'Erreur lors de l\'envoie';
+
     public function __construct(
-    AppartmentRepository $appartmentRepository,
-    MessageRepository $messageRepository,
-    EntityManagerInterface $entityManager,
-    Security $security
-  ) {
+        AppartmentRepository $appartmentRepository,
+        MessageRepository $messageRepository,
+        EntityManagerInterface $entityManager,
+        Security $security
+    ) {
         $this->appartmentRepository = $appartmentRepository;
-        $this->security = $security;
-        $this->messageRepository = $messageRepository;
-        $this->entityManager = $entityManager;
+        $this->security             = $security;
+        $this->messageRepository    = $messageRepository;
+        $this->entityManager        = $entityManager;
     }
 
     /**
      * RECUPERATION DES MESSAGES
      * @return array
      */
-    public function getAllMessages()
+    public function getAllMessages(): array
     {
         $count = 0;
 
@@ -60,7 +63,7 @@ class MessageService
      * @param int $id
      * @return array
      */
-    public function removeMessage(int $id)
+    public function removeMessage(int $id): array
     {
         $message = $this->messageRepository->findByKeyValue('id', $id);
         if ($message == null) {
@@ -84,7 +87,7 @@ class MessageService
      * @param Message $message
      * @return array
      */
-    public function pushMessage(Message $message, Appartment $appartment)
+    public function pushMessage(Message $message, Appartment $appartment): array
     {
         $msg = self::MSG_SUCCESS_ADD;
 
@@ -98,8 +101,6 @@ class MessageService
             $msg = self::MSG_ERROR;
         }
 
-        return [
-            'msg' => $msg
-        ];
+        return [ 'msg' => $msg ];
     }
 }

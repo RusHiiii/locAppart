@@ -10,6 +10,13 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class UserService
 {
+    private $userRepository;
+    private $passwordEncoder;
+    private $entityManager;
+    private $templating;
+    private $notification;
+
+    // Définition des constantes
     const MSG_REGISTER_EMAIL  = 'Bienvenue sur locAppart.fr !';
     const MSG_REGISTER_VALID  = 'Inscription validée !';
     const MSG_UPDATE_VALID    = 'Votre compte a été mis à jours !';
@@ -18,26 +25,20 @@ class UserService
     const MSG_FORGOTTEN_PSWD  = 'Mot de passe oublié';
     const MSG_EMAIL_SEND      = 'Email envoyé !';
     const MSG_EMAIL_ERROR     = 'Problème lors de l\'envoie du mail';
-    const MSG_GENERIC_ERROR  = 'Une erreur est survenue :(';
-
-    private $userRepository;
-    private $passwordEncoder;
-    private $entityManager;
-    private $templating;
-    private $notification;
+    const MSG_GENERIC_ERROR   = 'Une erreur est survenue :(';
 
     public function __construct(
-    UserRepository $userRepo,
-    UserPasswordEncoderInterface $passwordEncoder,
-    EntityManagerInterface $entityManager,
-    \Twig_Environment $templating,
-    NotificationService $notificationService
-  ) {
-        $this->userRepository = $userRepo;
+        UserRepository $userRepo,
+        UserPasswordEncoderInterface $passwordEncoder,
+        EntityManagerInterface $entityManager,
+        \Twig_Environment $templating,
+        NotificationService $notificationService
+    ) {
+        $this->userRepository  = $userRepo;
         $this->passwordEncoder = $passwordEncoder;
-        $this->entityManager = $entityManager;
-        $this->templating = $templating;
-        $this->notification = $notificationService;
+        $this->entityManager   = $entityManager;
+        $this->templating      = $templating;
+        $this->notification    = $notificationService;
     }
 
     /**
@@ -62,9 +63,7 @@ class UserService
             $msg = self::MSG_GENERIC_ERROR;
         }
 
-        return [
-            'msg' => $msg
-        ];
+        return [ 'msg' => $msg ];
     }
 
     /**
@@ -89,7 +88,7 @@ class UserService
      * @param User $user
      * @return array
      */
-    public function updateUser(User $user)
+    public function updateUser(User $user): array
     {
         $msg = self::MSG_UPDATE_VALID;
 
@@ -100,9 +99,7 @@ class UserService
             $msg = self::MSG_GENERIC_ERROR;
         }
 
-        return [
-            'msg' => $msg
-        ];
+        return [ 'msg' => $msg ];
     }
 
     /**
@@ -111,16 +108,14 @@ class UserService
      * @param $password
      * @return array
      */
-    public function resetPassword($token, $password)
+    public function resetPassword(string $token, string $password): array
     {
         $msg = self::MSG_PASSWORD_UPDATE;
 
         $user = $this->userRepository->findByKeyValue('resetToken', $token);
 
         if ($user === null) {
-            return [
-                'msg' => self::MSG_INVALID_TOKEN
-            ];
+            return [ 'msg' => self::MSG_INVALID_TOKEN ];
         }
 
         $user->setResetToken(null);
@@ -133,9 +128,7 @@ class UserService
             $msg = self::MSG_GENERIC_ERROR;
         }
 
-        return [
-            'msg' => $msg
-        ];
+        return [ 'msg' => $msg ];
     }
 
     /**
@@ -144,7 +137,7 @@ class UserService
      * @param $password
      * @return array
      */
-    public function updatePassword(User $user, string $password)
+    public function updatePassword(User $user, string $password): array
     {
         $msg = self::MSG_PASSWORD_UPDATE;
 
@@ -157,9 +150,7 @@ class UserService
             $msg = self::MSG_GENERIC_ERROR;
         }
 
-        return [
-            'msg' => $msg
-        ];
+        return [ 'msg' => $msg ];
     }
 
     /**
@@ -170,21 +161,15 @@ class UserService
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function forgotPassword($email)
+    public function forgotPassword(string $email): array
     {
         $data = $this->notification->generateToken($email);
 
         if ($data['token']) {
             $dataTemplate = $this->templating->render('shared/email/reset_password.html.twig', ['data' => $data['msg']]);
-            $this->notification->sendEmail([$data['user']], self::MSG_FORGOTTEN_PSWD, $dataTemplate);
-
-            return [
-                'msg' => self::MSG_EMAIL_SEND
-            ];
+            return $this->notification->sendEmail([$data['user']], self::MSG_FORGOTTEN_PSWD, $dataTemplate);
         }
 
-        return [
-            'msg' => self::MSG_EMAIL_ERROR
-        ];
+        return [ 'msg' => self::MSG_EMAIL_ERROR ];
     }
 }

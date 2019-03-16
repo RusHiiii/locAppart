@@ -12,9 +12,6 @@ use Symfony\Component\Routing\RouterInterface;
 
 class NotificationService
 {
-    const MSG_EMAIL_NOT_FOUND = 'Email inconnu';
-    const MSG_EMAIL_SEND      = 'Email envoyé !';
-
     private $userRepository;
     private $passwordEncoder;
     private $entityManager;
@@ -23,22 +20,26 @@ class NotificationService
     private $router;
     private $templating;
 
+    // Définition des constantes
+    const MSG_EMAIL_NOT_FOUND = 'Email inconnu';
+    const MSG_EMAIL_SEND      = 'Email envoyé !';
+
     public function __construct(
-    UserRepository $userRepo,
-    UserPasswordEncoderInterface $passwordEncoder,
-    EntityManagerInterface $entityManager,
-    \Swift_Mailer $mailer,
-    TokenGeneratorInterface $tokenGenerator,
-    RouterInterface $router,
-    \Twig_Environment $templating
+        UserRepository $userRepo,
+        UserPasswordEncoderInterface $passwordEncoder,
+        EntityManagerInterface $entityManager,
+        \Swift_Mailer $mailer,
+        TokenGeneratorInterface $tokenGenerator,
+        RouterInterface $router,
+        \Twig_Environment $templating
   ) {
-        $this->userRepository = $userRepo;
-        $this->passwordEncoder = $passwordEncoder;
-        $this->entityManager = $entityManager;
-        $this->mailer = $mailer;
-        $this->tokenGenerator = $tokenGenerator;
-        $this->router = $router;
-        $this->templating = $templating;
+        $this->userRepository   = $userRepo;
+        $this->passwordEncoder  = $passwordEncoder;
+        $this->entityManager    = $entityManager;
+        $this->mailer           = $mailer;
+        $this->tokenGenerator   = $tokenGenerator;
+        $this->router           = $router;
+        $this->templating       = $templating;
     }
 
     /**
@@ -46,7 +47,7 @@ class NotificationService
      * @param $email
      * @return array
      */
-    public function generateToken($email)
+    public function generateToken(string $email): array
     {
         $user = $this->userRepository->findByKeyValue('email', $email);
 
@@ -85,7 +86,7 @@ class NotificationService
      * @param $message
      * @return array
      */
-    public function sendEmail(array $users, $subject, $message)
+    public function sendEmail(array $users, string $subject, $message): array
     {
         $mails = $this->formatMailFromUsers($users);
 
@@ -99,10 +100,7 @@ class NotificationService
 
         $this->mailer->send($message);
 
-        return [
-            'send' => true,
-            'msg' => self::MSG_EMAIL_SEND
-        ];
+        return [ 'msg' => self::MSG_EMAIL_SEND ];
     }
 
     /**
@@ -110,7 +108,7 @@ class NotificationService
      * @param array $users
      * @return array
      */
-    private function formatMailFromUsers(array $users)
+    private function formatMailFromUsers(array $users): array
     {
         $mails = [];
 

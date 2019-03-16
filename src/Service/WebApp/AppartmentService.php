@@ -14,14 +14,6 @@ use Symfony\Component\HttpFoundation\File\File;
 
 class AppartmentService
 {
-    const MSG_SUCCESS_ADD_APP  = 'L\'annonce a été ajouté ! Elle est en cours de modération.';
-    const MSG_SUCCESS_EDIT_APP  = 'L\'annonce a été modifié !';
-    const MSG_SUCCESS_DELETE_APP  = 'L\'annonce a été supprimé !';
-    const MSG_ERROR_ADD_APP  = 'Une erreur est survenu.';
-    const MSG_ERROR_EDIT_APP  = 'Une erreur est survenu lors de la mise à jour.';
-    const MSG_ERROR_INFO = 'Aucune données trouvé.';
-    const MSG_ERROR_REMOVE_APP = 'Une erreur est survenu lors de la suppression.';
-
     private $appartmentRepository;
     private $statusRepository;
     private $entityManager;
@@ -30,22 +22,31 @@ class AppartmentService
     private $paginator;
     private $toolService;
 
+    // Définition des constantes
+    const MSG_SUCCESS_ADD_APP     = 'L\'annonce a été ajouté ! Elle est en cours de modération.';
+    const MSG_SUCCESS_EDIT_APP    = 'L\'annonce a été modifié !';
+    const MSG_SUCCESS_DELETE_APP  = 'L\'annonce a été supprimé !';
+    const MSG_ERROR_ADD_APP       = 'Une erreur est survenu.';
+    const MSG_ERROR_EDIT_APP      = 'Une erreur est survenu lors de la mise à jour.';
+    const MSG_ERROR_INFO          = 'Aucune données trouvé.';
+    const MSG_ERROR_REMOVE_APP    = 'Une erreur est survenu lors de la suppression.';
+
     public function __construct(
-    AppartmentRepository $appartmentRepository,
-    StatusRepository $statusRepository,
-    EntityManagerInterface $entityManager,
-    Security $security,
-    ToolService $toolService,
-    PaginatorInterface $paginator,
-    $targetDirectory
-  ) {
+        AppartmentRepository $appartmentRepository,
+        StatusRepository $statusRepository,
+        EntityManagerInterface $entityManager,
+        Security $security,
+        ToolService $toolService,
+        PaginatorInterface $paginator,
+        $targetDirectory
+    ) {
         $this->appartmentRepository = $appartmentRepository;
-        $this->entityManager = $entityManager;
-        $this->statusRepository = $statusRepository;
-        $this->security = $security;
-        $this->targetDirectory = $targetDirectory;
-        $this->toolService = $toolService;
-        $this->paginator = $paginator;
+        $this->entityManager        = $entityManager;
+        $this->statusRepository     = $statusRepository;
+        $this->security             = $security;
+        $this->targetDirectory      = $targetDirectory;
+        $this->toolService          = $toolService;
+        $this->paginator            = $paginator;
     }
 
     /**
@@ -54,7 +55,7 @@ class AppartmentService
      * @param bool $update
      * @return array
      */
-    public function pushAppartment(Appartment $app, bool $update)
+    public function pushAppartment(Appartment $app, bool $update): array
     {
         if (!$update) {
             $data = $this->addAppartment($app);
@@ -62,17 +63,15 @@ class AppartmentService
             $data = $this->editAppartment($app);
         }
 
-        return [
-            'msg' => $data['msg']
-        ];
+        return [ 'msg' => $data ];
     }
 
     /**
      * AJOUT D'UNE ANNONCE
      * @param \App\Entity\WebApp\Appartment $appartment
-     * @return array
+     * @return string
      */
-    private function addAppartment(Appartment $appartment)
+    private function addAppartment(Appartment $appartment): string
     {
         $msg = self::MSG_SUCCESS_ADD_APP;
 
@@ -89,9 +88,7 @@ class AppartmentService
             $msg = self::MSG_ERROR_ADD_APP;
         }
 
-        return [
-            'msg' => $msg
-        ];
+        return $msg;
     }
 
     /**
@@ -99,7 +96,7 @@ class AppartmentService
      * @param Appartment $appartment
      * @return array
      */
-    private function editAppartment(Appartment $appartment)
+    private function editAppartment(Appartment $appartment): string
     {
         $msg = self::MSG_SUCCESS_EDIT_APP;
 
@@ -110,9 +107,7 @@ class AppartmentService
             $msg = self::MSG_ERROR_EDIT_APP;
         }
 
-        return [
-            'msg' => $msg
-        ];
+        return $msg;
     }
 
     /**
@@ -120,7 +115,7 @@ class AppartmentService
      * @param int $id
      * @return array
      */
-    public function getAppartmentInfo(int $id)
+    public function getAppartmentInfo(int $id): array
     {
         $appartement = $this->appartmentRepository->findByKeyValue('id', $id);
         if ($appartement == null) {
@@ -146,13 +141,11 @@ class AppartmentService
      * @param int $id
      * @return array
      */
-    public function getAppartmentsByUser(User $user)
+    public function getAppartmentsByUser(User $user): array
     {
         $data = $this->appartmentRepository->findByUser($user);
 
-        return [
-            'data' => $data
-        ];
+        return [ 'data' => $data ];
     }
 
     /**
@@ -160,7 +153,7 @@ class AppartmentService
      * @param int $id
      * @return array
      */
-    public function removeAppartment(int $id)
+    public function removeAppartment(int $id): array
     {
         $msg = self::MSG_SUCCESS_DELETE_APP;
         $result = true;

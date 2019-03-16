@@ -8,7 +8,9 @@ class FileUploaderService
 {
     private $targetDirectory;
 
-    public function __construct($targetDirectory)
+    public function __construct(
+        $targetDirectory
+    )
     {
         $this->targetDirectory = $targetDirectory;
     }
@@ -18,7 +20,7 @@ class FileUploaderService
      * @param UploadedFile $file
      * @return array
      */
-    public function upload(UploadedFile $file)
+    public function upload(UploadedFile $file): array
     {
         $fileName = md5(uniqid()).'.'.$file->guessExtension();
 

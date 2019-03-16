@@ -28,4 +28,20 @@ Encore
     .enableVersioning(Encore.isProduction())
 ;
 
+if(Encore.isProduction()){
+    Encore
+        .configureBabel(function(babelConfig) {
+            // add additional presets
+            babelConfig.presets.push('env');
+            babelConfig.presets.push('minify');
+        })
+
+        .enablePostCssLoader((options) => {
+            options.config = {
+                path: 'postcss.config.js'
+            };
+        })
+    ;
+}
+
 module.exports = Encore.getWebpackConfig();

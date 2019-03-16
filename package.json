@@ -1,7 +1,12 @@
 {
     "devDependencies": {
+        "@babel/preset-env": "^7.3.4",
+        "@babel/preset-es2017": "^7.0.0-beta.53",
         "@symfony/webpack-encore": "^0.22.0",
         "autoprefixer": "^9.3.1",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-es2018": "^1.0.0",
+        "babel-preset-minify": "^0.5.0",
         "postcss-import": "^12.0.1",
         "postcss-loader": "^3.0.0",
         "webpack-notifier": "^1.6.0"

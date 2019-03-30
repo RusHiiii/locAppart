@@ -1,6 +1,8 @@
 {% extends 'shared/layout/base_with_image.html.twig' %}
 
-{% block title %}Loc'Appart - Connexion{% endblock %}
+{% block title %}Loc'Appart - Se connecter à votre compte{% endblock %}
+{% block description %}Connectez-vous à votre compte pour poster une annonce de location et gérer vos messages. Créez et diffusez facilement votre première annonce à la montagne ! {% endblock %}
+
 
 {% block style %}
     <link rel="stylesheet" href="{{ asset('build/login.css') }}">
@@ -8,8 +10,8 @@
 
 {% block content %}
     <article class="s-12 l-8 center">
-        <h2>Identifiez-vous</h2>
-        <p class="subtitile_presentation">Connecter vous pour avoir accès aux fonctionnalitées du site</p>
+        <h1>Identifiez-vous</h1>
+        <p class="subtitile_presentation">Connectez-vous pour avoir accès aux fonctionnalités du site</p>
         <form class="form-horizontal" method="POST" id="login_form">
             {% for message in app.flashes('notice') %}
                 <div class="alert alert-info" role="alert">
@@ -32,10 +34,10 @@
                     <input id="pswdBox" type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required><span id="eye" tabindex="100" class="add-on input-group-addon span_paswd" ><i class="fa fa-eye"></i></span>
                     <div class="info">
                         <div class="forgotten">
-                            <a href="{{ path('app_forgotten_password') }}">Mot de passe oublié ?</a>
+                            <a href="{{ path('app_forgotten_password') }}" title="Mot de passe oublié">Mot de passe oublié ?</a>
                         </div>
                         <div class="remember">
-                            <input type="checkbox" name="_remember_me"> Rester connecté
+                            <input type="checkbox" name="_remember_me"> Se souvenir de moi
                         </div>
                     </div>
                 </div>
@@ -48,13 +50,13 @@
         <div class="inscription_site">
             <h2>Vous avez un compte ?</h2>
             <p class="subtitile_presentation">Pour vous connecter plus rapidement sur le site</p>
-            <a href="{{ path("connect_google") }}" class="link-api">
+            <a href="{{ path("connect_google") }}" class="link-api" title="Se connecter avec Google">
                 <button type="button" class="google-button">
                     <span class="google-button__icon"><i class="fa fa-google fa-2x"></i></span>
                     <span class="google-button__text">Se connecter avec Google</span>
                 </button>
             </a>
-            <a href="#" class="link-api">
+            <a href="#" class="link-api" title="Se connecter avec Facebook">
                 <button type="button" class="facebook-button" disabled>
                     <span class="facebook-button__icon"><i class="fa fa-facebook fa-2x"></i></span>
                     <span class="facebook-button__text">Se connecter avec Facebook</span>

@@ -403,12 +403,6 @@ td.calendar-day, td.calendar-day-np { width:40px; padding:5px;  position: relati
     padding-right: 0;
 }
 
-.wvu-breadcrumbs li:before {
-    content: "/";
-    padding-right: 4px;
-    font-weight: bold;
-}
-
 .fiche_app_header{
     background-color: white;
 }

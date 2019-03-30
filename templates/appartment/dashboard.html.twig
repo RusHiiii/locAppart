@@ -1,6 +1,7 @@
 {% extends 'shared/layout/base_with_image.html.twig' %}
 
-{% block title %}Loc'Appart - Mes annonces{% endblock %}
+{% block title %}Loc'Appart – Gérez vos annonces{% endblock %}
+{% block description %}Gérez et administrez tous vos biens présent sur Loc’Appart !{% endblock %}
 
 {% block style %}
     <link rel="stylesheet" href="{{ asset('build/gestion.css') }}">
@@ -8,14 +9,14 @@
 
 {% block content %}
     <article class="s-12 l-12 center">
-        <h2>Tableau de bord</h2>
-        <p class="subtitile_presentation">Acceder à l'ensemble de vos annonces</p>
+        <h1>Tableau de bord</h1>
+        <p class="subtitile_presentation">Accedez à l'ensemble de vos annonces</p>
         <div class="lines">
             <div class="gestion-box">
                 <aside class="lg-side">
 
                     <div class="gestion-head">
-                        <h3>Gestion des annonces</h3>
+                        <h2>Gestion des annonces</h2>
                     </div>
 
                     <div class="gestion-body">
@@ -69,7 +70,7 @@
                                             <h3>{{ appartment.title }} {{ appartment.city.name }}</h3>
                                             <p class="gestion_main_content_p">Type de bien: {{ appartment.type.name }}</p>
                                             <p class="gestion_main_content_p">Référence: {{ appartment.reference }}</p>
-                                            <p>Status: <strong>{{ appartment.status.name }}</strong></p>
+                                            <p>Statut: <strong>{{ appartment.status.name }}</strong></p>
                                             <span class="app_price">A partir de <strong>{{ appartment.prices|price(appartment.prices) }}€</strong></span>
                                         </div>
                                     </td>

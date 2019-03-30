@@ -15,7 +15,7 @@
         <div class="carousel-text">
             <div class="line">
                 <div class="header">
-                    <h2>Location d'Appartement en France</h2>
+                    <h2>Location d'appartement en France</h2>
                 </div>
             </div>
         </div>
@@ -26,9 +26,9 @@
                 <div class="margin">
                     <article class="s-12 l-8 center">
                         <h2>Inscription au site !</h2>
-                        <p class="subtitile_presentation">Louer facilement votre appartement sur le site.</p>
-                        <p class="margin-bottom-home">Bienvenue sur le site {{ user.firstname }} {{ user.lastname }} ! Vous pouvez dès à présent vous connecter et ajouter des annonces de locations d'appartment via votre compte accesible en cliquant <a href={{ app.request.getSchemeAndHttpHost() ~ path('app_login') }}>ici</a>.</p>
-                        <p class="margin-bottom-home">Une multitude d'annonces vous attende sur le site, N'hesitez surtout pas à les consulter !</p>
+                        <p class="subtitile_presentation">Louez facilement votre appartement sur le site.</p>
+                        <p class="margin-bottom-home">Bienvenue sur le site {{ user.firstname }} {{ user.lastname }} ! Vous pouvez dès à présent vous connecter et ajouter des annonces via votre compte accesible en cliquant <a href={{ app.request.getSchemeAndHttpHost() ~ path('app_login') }}>ici</a>.</p>
+                        <p class="margin-bottom-home">Une multitude d'annonces vous attendent sur le site, N'hésitez surtout pas à les consulter !</p>
                         <a href="{{ app.request.getSchemeAndHttpHost() ~  path('app_announcement_listing', {'type' : 'appartement'}) }}"><button class="btn btn-primary btn_result">Voir les annonces</button></a>
                     </article>
                 </div>
@@ -40,7 +40,7 @@
     <div class="footer_lines">
         <div class="line">
             <div class="footer">
-                <p>Copyright 2019, Florent Damiens - LocationAppartment</p>
+                <p>Copyright 2019, Florent Damiens - Loc'Appart</p>
             </div>
         </div>
     </div>

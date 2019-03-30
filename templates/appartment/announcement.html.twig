@@ -1,6 +1,7 @@
 {% extends 'shared/layout/base_with_image.html.twig' %}
 
 {% block title %}Loc'Appart - {{ type }} d'une annonce{% endblock %}
+{% block description %}Postez gratuitement votre annonce de location d’appartement, de chalet ou d’hôtel et rejoignez un réseau entre particulier !{% endblock %}
 
 {% block style %}
     <link rel="stylesheet" href="{{ asset('build/ajout.css') }}">
@@ -11,7 +12,7 @@
 
 {% block content %}
     <article class="s-12 l-12 center">
-        <h2>{{ type }} d'une annonce</h2>
+        <h1>{{ type }} d'une annonce</h1>
         <p class="subtitile_presentation">Gerez votre annonce sur le site</p>
         {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
         <div class="lines">
@@ -19,7 +20,7 @@
                 <aside class="lg-side">
 
                     <div class="gestion-head">
-                        <h3>Information sur le bien</h3>
+                        <h2>Information sur le bien</h2>
                     </div>
 
                     {{ include('appartment/elements/form/property.html.twig', { 'form': form }) }}
@@ -27,7 +28,7 @@
                     <div class="separator_content"></div>
 
                     <div class="gestion-head">
-                        <h3>Information complémentaire</h3>
+                        <h2>Information complémentaire</h2>
                     </div>
 
                     {{ include('appartment/elements/form/additional.html.twig', { 'form': form }) }}
@@ -35,7 +36,7 @@
                     <div class="separator_content"></div>
 
                     <div class="gestion-head">
-                        <h3>Prix & Disponibilité</h3>
+                        <h2>Prix & Disponibilité</h2>
                     </div>
 
                     {{ include('appartment/elements/form/price.html.twig', { 'form': form }) }}
@@ -43,7 +44,7 @@
                     <div class="separator_content"></div>
 
                     <div class="gestion-head">
-                        <h3>Localisation</h3>
+                        <h2>Localisation</h2>
                     </div>
 
                     {{ include('appartment/elements/form/localisation.html.twig', { 'form': form }) }}

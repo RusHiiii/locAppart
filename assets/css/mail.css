@@ -17,6 +17,14 @@
     border-radius: 4px 0 0 4px;
     width: 25%;
 }
+
+.inbox-head h2 {
+    display: inline-block;
+    font-weight: 300;
+    margin: 0;
+    font-size: 1.3em;
+}
+
 .mail-box .lg-side {
     background: none repeat scroll 0 0 #fff;
     border-radius: 0 4px 4px 0;

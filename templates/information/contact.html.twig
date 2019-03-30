@@ -1,6 +1,7 @@
 {% extends 'shared/layout/base_with_image.html.twig' %}
 
-{% block title %}Loc'Appart - Contact{% endblock %}
+{% block title %}Loc'Appart – Nous contacter{% endblock %}
+{% block description %}Vous souhaitez nous poser une question ? Vous êtes face à une erreur ? Envoyez-nous un message directement depuis le formulaire de contact.{% endblock %}
 
 {% block style %}
     <link rel="stylesheet" href="{{ asset('ressources/bootstrap-select/css/bootstrap-select.css') }}">
@@ -8,8 +9,8 @@
 
 {% block content %}
     <article class="s-12 l-8 center">
-        <h2>Formulaire de contact</h2>
-        <p class="subtitile_presentation">Utiliser le formulaire pour contacter un administrateur</p>
+        <h1>Formulaire de contact</h1>
+        <p class="subtitile_presentation">Vous avez une question ? Contactez un administrateur !</p>
 
         {% for message in app.flashes('notice') %}
             <div class="alert alert-info" role="alert">

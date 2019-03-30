@@ -1,5 +1,3 @@
-
-
 <div class="s-12 l-12 fiche_app_body">
     <div class="s-12 l-12 app_body_img">
         <div id="carousel-app" class="carousel slide" data-ride="carousel">
@@ -19,13 +17,13 @@
         </div>
     </div>
     <div class="s-12 l-12 fiche_app_header">
-        <h2 class="app_header_title">{{ appartment.title | capitalize }}</h2>
+        <h1 class="app_header_title">{{ appartment.title | capitalize }}</h1>
         <span class="app_price">A partir de <strong>{{ appartment.prices|price(appartment.prices) }}€/mois</strong></span>
         <p class="app_ref">Référence: {{ appartment.reference }} / Mise en ligne: {{ appartment.date | date('d/m/Y') }}</p>
     </div>
     <hr>
     <div class="s-12 l-12 app_body_content">
-        <h1 class="title_fiche title_main">Descriptif du bien</h1>
+        <h2 class="title_fiche title_main">Descriptif du bien</h2>
         <p class="item_description">{{ appartment.description }}</p>
         <div class="item_other">
             <ul class="item-summary">
@@ -42,7 +40,7 @@
                 {% endif %}
             </ul>
         </div>
-        <h1 class="title_fiche custom_padding title_main">Information complémentaire</h1>
+        <h2 class="title_fiche custom_padding title_main">Information complémentaire</h2>
         <div class="s-12 l-12 table-responsive">
             <table class="table">
                 <tr>
@@ -58,31 +56,31 @@
                 {% if appartment.locker is not null and appartment.locker %}
                     <tr>
                         <td class="table_color">Casier</td>
-                        <li>Oui</li>
+                        <td>Oui</td>
                     </tr>
                 {% endif %}
                 {% if appartment.people is not null %}
                     <tr>
                         <td class="table_color">Nombre de personne</td>
-                        <li>{{ appartment.people }} personne(s)</li>
+                        <td>{{ appartment.people }} personne(s)</td>
                     </tr>
                 {% endif %}
                 {% if appartment.bedroom is not null %}
                     <tr>
                         <td class="table_color">Nombre de chambre</td>
-                        <li>{{ appartment.bedroom }} personne(s)</li>
+                        <td>{{ appartment.bedroom }} personne(s)</td>
                     </tr>
                 {% endif %}
                 {% if appartment.ski is not null %}
                     <tr>
                         <td class="table_color">Distances des pistes</td>
-                        <li>{{ appartment.ski }}m</li>
+                        <td>{{ appartment.ski }}m</td>
                     </tr>
                 {% endif %}
                 {% if appartment.information is not null %}
                     <tr>
                         <td class="table_color">Autres informations</td>
-                        <li>{{ appartment.information }}</li>
+                        <td>{{ appartment.information }}</td>
                     </tr>
                 {% endif %}
             </table>

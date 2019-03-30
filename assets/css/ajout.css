@@ -18,6 +18,14 @@
   width: 25%;
 }
 
+.gestion-head h2 {
+  display: inline-block;
+  font-weight: 300;
+  vertical-align: middle;
+  margin: 0;
+  font-size: 1.3em;
+}
+
 .error-row{
   position: absolute;
 }

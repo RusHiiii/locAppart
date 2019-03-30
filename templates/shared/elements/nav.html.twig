@@ -2,48 +2,48 @@
     <div class="line main-menu">
         <div class="top-nav">
             <div class="logo hide-l">
-                <a href="{{ path('home') }}">Location <br /><strong>d'Appartement</strong></a>
+                <a href="{{ path('home') }}" title="Accueil">Location <br /><strong>d'Appartement</strong></a>
             </div>
             <p class="nav-text">Navigation</p>
             <div class="top-nav s-12 l-5">
                 <ul class="right top-ul chevron">
-                    <li><a href="{{ path('home') }}">Accueil</a></li>
-                    <li><a href="{{ path('app_announcement_add') }}">Ajouter une annonce</a></li>
+                    <li><a href="{{ path('home') }}" title="Accueil">Accueil</a></li>
+                    <li><a href="{{ path('app_announcement_add') }}" title="Ajouter mon annonce">Ajouter une annonce</a></li>
                     <li>
                         <a>Les annonces</a>
                         <ul>
-                            <li><a href="{{ path('app_announcement_listing', {'type' : 'appartement'}) }}">Les Appartements</a></li>
-                            <li><a href="{{ path('app_announcement_listing', {'type' : 'chalet'}) }}">Les Chalets</a></li>
-                            <li><a href="{{ path('app_announcement_listing', {'type' : 'hôtel'}) }}">Les Hôtels</a></li>
+                            <li><a href="{{ path('app_announcement_listing', {'type' : 'appartement'}) }}" title="Les appartements">Les Appartements</a></li>
+                            <li><a href="{{ path('app_announcement_listing', {'type' : 'chalet'}) }}" title="Les chalets">Les Chalets</a></li>
+                            <li><a href="{{ path('app_announcement_listing', {'type' : 'hôtel'}) }}" title="Les Hotels">Les Hôtels</a></li>
                         </ul>
                     </li>
                 </ul>
             </div>
             <ul class="s-12 l-2">
                 <li class="logo hide-s hide-m">
-                    <a class="logo_site_menu" href="{{ path('home') }}">Location <br /><strong>d'Appartement</strong></a>
+                    <a class="logo_site_menu" href="{{ path('home') }}" title="Accueil">Location <br /><strong>d'Appartement</strong></a>
                 </li>
             </ul>
             <div class="top-nav s-12 l-5">
                 <ul class="top-ul chevron">
-                    <li><a href="{{ path('app_news') }}">Les News</a></li>
+                    <li><a href="{{ path('app_news') }}" title="Les News du site">Les News</a></li>
                     <li>
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                             <a>Mon compte</a>
                             <ul>
-                                <li><a href="{{ path('app_profil') }}">Mon profil</a></li>
-                                <li><a href="{{ path('app_dashboard') }}">Mon tableau de bord</a></li>
-                                <li><a href="{{ path('app_messages') }}">Mes messages</a></li>
+                                <li><a href="{{ path('app_profil') }}" title="Mon profil">Mon profil</a></li>
+                                <li><a href="{{ path('app_dashboard') }}" title="Mon Dashboard">Mon tableau de bord</a></li>
+                                <li><a href="{{ path('app_messages') }}" title="Mes Messages">Mes messages</a></li>
                             </ul>
                         {% else %}
-                            <a href="{{ path('app_register') }}">Inscription</a>
+                            <a href="{{ path('app_register') }}" title="S'inscrire">Inscription</a>
                         {% endif %}
                     </li>
                     <li>
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                            <a href="{{ path('app_logout') }}">Déconnexion</a>
+                            <a href="{{ path('app_logout') }}" title="Se deconnecter">Déconnexion</a>
                         {% else %}
-                            <a href="{{ path('app_login') }}">Connexion</a>
+                            <a href="{{ path('app_login') }}" title="Se connecter">Connexion</a>
                         {% endif %}
                     </li>
                 </ul>

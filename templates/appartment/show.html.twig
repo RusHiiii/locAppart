@@ -1,6 +1,7 @@
 {% extends 'shared/layout/base_with_image_only.html.twig' %}
 
 {% block title %}Loc'Appart - {{ appartment.title | capitalize }}{% endblock %}
+{% block description %}Vous recherchez un {{ appartment.type }} sur {{ appartment.city.name }} pour la prochaine saison d’hiver ? L’annonce {{appartment.title}} est à partir de {{ appartment.prices|price(appartment.prices) }} €.{% endblock %}
 
 {% block style %}
     <link rel="stylesheet" href="{{ asset('build/fiche.css') }}">
@@ -10,12 +11,26 @@
 
 {% block content %}
     <div class="line">
-        <ul class="wvu-breadcrumbs">
-            <li>Recherche</li>
-            <li>{{ appartment.type | capitalize }}</li>
-            <li>{{ appartment.city.department.name }}</li>
-            <li>{{ appartment.city.name }}</li>
-        </ul>
+        <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="wvu-breadcrumbs">
+            <li itemprop="itemListElement" itemscope
+                itemtype="http://schema.org/ListItem">
+                <a itemprop="item" href="{{ path('home') }}" title="Accueil">
+                    <span itemprop="name">Accueil</span></a>
+                <meta itemprop="position" content="1" />
+            </li>
+            <li itemprop="itemListElement" itemscope
+                itemtype="http://schema.org/ListItem">
+                <a itemprop="item" href="{{ path('app_announcement_listing', {'type' : appartment.type.name}) }}" title="Les annonces">
+                    <span itemprop="name">{{ appartment.type.name | capitalize }}</span></a>
+                <meta itemprop="position" content="2" />
+            </li>
+            <li itemprop="itemListElement" itemscope
+                itemtype="http://schema.org/ListItem">
+                <a itemprop="item" href="{{ path('app_announcement_show', {'slug' : appartment.title | replace({' ': "_"}) | lower, 'id' : appartment.id}) }}" title="{{ appartment.title | capitalize }}">
+                    <span itemprop="name">{{ appartment.title | capitalize }}</span></a>
+                <meta itemprop="position" content="3" />
+            </li>
+        </ol>
     </div>
 
     <div class="content_resultPage">

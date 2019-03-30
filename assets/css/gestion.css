@@ -18,6 +18,14 @@
   width: 25%;
 }
 
+.gestion-head h2 {
+  display: inline-block;
+  font-weight: 300;
+  font-size: 1.3em;
+  margin: 0;
+  vertical-align: middle;
+}
+
 .fa-circle{
   font-size: 3.5em !important;
   position: absolute !important;

@@ -1,6 +1,7 @@
 {% extends 'shared/layout/base_with_image.html.twig' %}
 
-{% block title %}Loc'Appart - Inscription{% endblock %}
+{% block title %}Loc'Appart - S'enregistrer sur le site{% endblock %}
+{% block description %}Créez votre compte sur le site pour poster vos annonces et gérer l'ensemble de vos biens: appartements, chalets, hôtels… Parcourez les annonces pour trouver votre séjour idéal !{% endblock %}
 
 {% block style %}
     <link rel="stylesheet" href="{{ asset('build/parametre.css') }}">
@@ -8,8 +9,8 @@
 
 {% block content %}
     <article class="s-12 l-8 center">
-        <h2>Inscription au site</h2>
-        <p class="subtitile_presentation">Inscrivez vous pour avoir accès aux fonctionnalitées du site</p>
+        <h1>Inscription au site</h1>
+        <p class="subtitile_presentation">Inscrivez-vous pour avoir accès aux fonctionnalitées du site</p>
         {% for message in app.flashes('notice') %}
             <div class="alert alert-info" role="alert">
                 {{ message }}
@@ -92,7 +93,7 @@
                 <ul class="verification_mdp_inscription">
                     <li>Pour votre sécurité, utilisez un mot de passe contenant :</li>
                     <li>• Minimun 6 caractères</li>
-                    <li>•  Et des caractères spéciaux parmi =/+|.-_~^@!#$%?*€,;:)</li>
+                    <li>• Et des caractères spéciaux: =/+|.-_~^@!#$%?*€,;:)</li>
                 </ul>
             </div>
         </div>

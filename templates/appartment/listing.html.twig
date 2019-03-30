@@ -1,6 +1,7 @@
 {% extends 'shared/layout/base_with_image_only.html.twig' %}
 
-{% block title %}Loc'Appart - Les annonces{% endblock %}
+{% block title %}Loc’Appart – Toutes les annonces de types {{ type }}{% endblock %}
+{% block description %}Vous recherchez un {{ type }} pour cet hiver ? Découvrez toutes les offres de locations déposé par les particuliers et contactez directement le propriétaire.{% endblock %}
 
 {% block style %}
     <link rel="stylesheet" href="{{ asset('build/listing.css') }}">
@@ -9,16 +10,20 @@
 
 {% block content %}
     <div class="line">
-        <ul class="wvu-breadcrumbs">
-            <li>Recherche</li>
-            <li>{{ type | capitalize }}</li>
-            {% if form.vars.value.department is not empty %}
-                <li>{{ form.vars.value.department }}</li>
-            {% endif %}
-            {% if form.vars.value.city is not empty %}
-                <li>{{ form.vars.value.city }}</li>
-            {% endif %}
-        </ul>
+        <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="wvu-breadcrumbs">
+            <li itemprop="itemListElement" itemscope
+                itemtype="http://schema.org/ListItem">
+                <a itemprop="item" href="{{ path('home') }}" title="Accueil">
+                    <span itemprop="name">Accueil</span></a>
+                <meta itemprop="position" content="1" />
+            </li>
+            <li itemprop="itemListElement" itemscope
+                itemtype="http://schema.org/ListItem">
+                <a itemprop="item" href="{{ path('app_announcement_listing', {'type' : type}) }}" title="Les annonces">
+                    <span itemprop="name">{{ type | capitalize }}</span></a>
+                <meta itemprop="position" content="2" />
+            </li>
+        </ol>
     </div>
 
     <div class="content_resultPage">
@@ -36,7 +41,7 @@
             <div class="margin-bottom">
                 <div class="margin">
                     <article class="s-12 l-12 center">
-                        <h2>Résultat de recherche</h2>
+                        <h1>Résultat de la recherche</h1>
                         <p class="subtitile_presentation">{{ appartments.getTotalItemCount }} annonces correspondent à votre recherche</p>
 
                         {% for appartment in appartments %}

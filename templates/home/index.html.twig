@@ -1,20 +1,21 @@
 {% extends 'shared/layout/base_without_image.html.twig' %}
 
-{% block title %}Loc'Appart - Accueil{% endblock %}
+{% block title %}Loc'Appart - Recherchez, contactez et louez un appartement à la montagne !{% endblock %}
+{% block description %}Recherchez facilement une location pour vos vacances au ski. Découvrez toutes nos annonces de location d’appartements, de chalets et d’hôtels à travers la France.{% endblock %}
 
 {% block content %}
     <section>
         <div id="carousel">
             <div id="owl-demo" class="owl-carousel owl-theme">
                 <div class="item">
-                    <img src="{{ asset('/ressources/images/static/background-home.jpg') }}">
+                    <img src="{{ asset('/ressources/images/static/background-home.jpg') }}" alt="Page d'accueil">
                     <div class="carousel-text">
                         <div class="line">
                             <div class="s-12 l-9">
-                                <h2>Site de location d'Appartement en France</h2>
+                                <h1>Location d'appartement à la montagne</h1>
                             </div>
                             <div class="s-12 l-9">
-                                <p>Rechercher, Contacter, Louer</p>
+                                <p>Recherchez, Contactez, Louez</p>
                             </div>
                         </div>
                     </div>
@@ -28,10 +29,10 @@
                     <div class="margin">
                         <article class="s-12 l-8 center">
                             <h2>Location-appartement.fr</h2>
-                            <p class="subtitile_presentation">Louer facilement votre appartement sur le site.</p>
-                            <p class="margin-bottom-home">Ce site crée en 2017 permet de mettre en relation des particuliers souhaitant louer un appartement et le propriétaire. Sur le site est actuellement référencé 206 appartements en région Rhône-Alpes de tout type. De nombreuses informations sont présentes: descriptif du produit, prix, disponibilité, photos. Il est possible de contacter le propriétaire en passant par un formulaire de contact directement présent sur la fiche du bien et ceux sans s'inscrire.</p>
-                            <p class="margin-bottom-home">Chaque appartement est validé par un administrateur avant la mise en ligne sur le site. L'aspect ergonomique du site permet de gérer et de rechercher facilement un bien. Commencer la recherche en cliquant sur le bouton.</p>
-                            <a href="{{ path('app_announcement_listing', {'type' : 'appartement'}) }}"><button class="btn btn-primary btn_result home-button">Voir les annonces</button></a>
+                            <p class="subtitile_presentation">Louez facilement votre logement sur le site.</p>
+                            <p class="margin-bottom-home">Loc'Appart permet de mettre facilement en relation les personnes souhaitant louer un appartement, un châlet ou un hôtel avec le propriétaire. Recherchez l'annonce qui vous interresse et contactez le propriétaire directement via le site. Loc'Appart propose une multitude d'annonces d'appartements en France, dans toutes les stations de ski: les Pyrénées, les Alpes, le Masif-Central, le Jura et les Vosges. Profitez de votre séjour au ski !</p>
+                            <p class="margin-bottom-home">Toutes les annonces sur le site sont validés par un administrateur au cas par cas. Vous pouvez gérer vos annonces facilement depuis votre compte et consultez les messages que les utilisateurs vous envoie. Commencez la recherche en cliquant sur le bouton.</p>
+                            <a href="{{ path('app_announcement_listing', {'type' : 'appartement'}) }}" title="Les annonces d'appartements"><button class="btn btn-primary btn_result home-button">Voir les annonces</button></a>
                         </article>
                     </div>
                 </div>
@@ -44,22 +45,22 @@
                     <div class="s-12 m-6 l-3 margin-bottom">
                         <i class="fa fa-paper-plane-o fa-2x fa-flip-horizontal"></i>
                         <h3>A propos</h3>
-                        <p>Créée en 2017, ce site permet de mettre facilement en relation des propriétaires d'appartement et de futur locataire.</p>
+                        <p>Ce site est spécialisé dans la location d'appartement à la montagne.</p>
                     </div>
                     <div class="s-12 m-6 l-3 margin-bottom">
                         <i class="fa fa-search fa-2x"></i>
-                        <h3>Rechercher</h3>
-                        <p>Rechercher un appartement qui vont convient grâce un un formulaire de recherche intégrer au site !</p>
+                        <h3>Recherchez</h3>
+                        <p>Recherchez un appartement qui vous convient grâce un un formulaire de recherche.</p>
                     </div>
                     <div class="s-12 m-6 l-3 margin-bottom">
                         <i class="fa fa-envelope-o fa-2x"></i>
-                        <h3>Contacter</h3>
-                        <p>Contacter facilement le propriétaire de l'appartement grâce à la plateforme pour réserver ou pour avoir des informations.</p>
+                        <h3>Contactez</h3>
+                        <p>Contactez le propriétaire de l'annonce via la plateforme pour réserver votre logement.</p>
                     </div>
                     <div class="s-12 m-6 l-3 margin-bottom">
                         <i class="fa fa-home fa-2x"></i>
-                        <h3>Louer</h3>
-                        <p>Profiter de votre séjour !</p>
+                        <h3>Louez</h3>
+                        <p>Finalisez la location et profitez de votre séjour à la montagne !</p>
                     </div>
                 </div>
             </div>
@@ -74,10 +75,12 @@
                         <div class="s-10 m-6 l-3 last-appart">
                             <div class="img-footer">
                                 {% if appartment.ressources|first is empty %}
-                                    <img src="{{ asset('/ressources/images/static/not-found.png') }}"/>
+                                <a href="{{ path('app_announcement_show', {'slug' : appartment.title | replace({' ': "_"}) | lower, 'id' : appartment.id}) }}" title="{{ appartment.title }}">
+                                    <img src="{{ asset('/ressources/images/static/not-found.png') }}" alt="{{ appartment.title }}"/>
+                                </a>
                                 {% else %}
-                                    <a href="{{ path('app_announcement_show', {'slug' : appartment.title | replace({' ': "_"}) | lower, 'id' : appartment.id}) }}" >
-                                        <span class="helper"></span><img src="{{ '/ressources/images/uploads/' ~ appartment.ressources|first }}">
+                                    <a href="{{ path('app_announcement_show', {'slug' : appartment.title | replace({' ': "_"}) | lower, 'id' : appartment.id}) }}" title="{{ appartment.title }}">
+                                        <span class="helper"></span><img src="{{ '/ressources/images/uploads/' ~ appartment.ressources|first }}" alt="{{ appartment.title }}">
                                     </a>
                                 {% endif %}
                             </div>

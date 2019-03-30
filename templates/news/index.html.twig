@@ -1,6 +1,8 @@
 {% extends 'shared/layout/base_with_image.html.twig' %}
 
-{% block title %}Loc'Appart - News{% endblock %}
+{% block title %}Loc'Appart - Les dernières news du site !{% endblock %}
+{% block description %}Tenez-vous au courant des dernières nouveautés et des nouvelles fonctionnalités sur le site !{% endblock %}
+
 
 {% block style %}
     <link rel="stylesheet" href="{{ asset('build/information.css') }}">
@@ -8,7 +10,7 @@
 
 {% block content %}
     <article class="s-12 l-18 center base_article">
-        <h2>Les News du site</h2>
+        <h1>Les News du site</h1>
         <p class="subtitile_presentation">Les dernières news du site !</p>
 
         {% for new in news %}

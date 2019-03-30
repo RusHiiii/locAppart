@@ -31,6 +31,14 @@ nav {
     min-height: 24px;
 }
 
+.carousel-text h1{
+    background: none repeat scroll 0 0 #fff;
+    color: #001e22;
+    display: inline-block;
+    padding: .3125em .625em;
+    font-size: 2em;
+}
+
 .home-button {
     width: 30%;
 }
@@ -61,7 +69,6 @@ nav {
 
 .wvu-breadcrumbs li:before {
     content: "/";
-    padding-right: 4px;
     font-weight: bold;
 }
 
@@ -323,6 +330,14 @@ footer p, footer a:link, footer a:visited, footer a:hover {
 }
 
 section h2 {
+    font-size: 2.5em;
+    font-weight: 300;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+section h1 {
+    color: #444 !important;
     font-size: 2.5em;
     font-weight: 300;
     margin: 0;

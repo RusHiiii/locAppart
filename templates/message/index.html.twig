@@ -1,6 +1,7 @@
 {% extends 'shared/layout/base_with_image.html.twig' %}
 
-{% block title %}Loc'Appart - Mes messages{% endblock %}
+{% block title %}Loc'Appart – Vos derniers message{% endblock %}
+{% block description %}Retrouvez tous les messages que les utilisateurs vous on envoyé et contactez les facilement depuis le site.{% endblock %}
 
 {% block style %}
     <link rel="stylesheet" href="{{ asset('build/mail.css') }}">
@@ -8,14 +9,14 @@
 
 {% block content %}
     <article class="s-12 l-12 center">
-        <h2>Gestion des mails</h2>
-        <p class="subtitile_presentation">Acceder à l'ensemble de vos mails</p>
+        <h1>Gestion des mails</h1>
+        <p class="subtitile_presentation">Accedez à l'ensemble de vos mails</p>
 
         <div class="lines">
             <div class="mail-box">
                 <aside class="lg-side">
                     <div class="inbox-head">
-                        <h3>Boite de réceptions</h3>
+                        <h2>Boite de réception</h2>
                     </div>
                     <div class="inbox-body">
                         <div class="gestion-option">

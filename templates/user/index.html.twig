@@ -1,6 +1,8 @@
 {% extends 'shared/layout/base_with_image.html.twig' %}
 
-{% block title %}Loc'Appart - Mon compte{% endblock %}
+{% block title %}Loc'Appart – Modifiez les paramètres de mon compte{% endblock %}
+{% block description %}Modifiez l'ensemble des paramètres de votre compte.{% endblock %}
+
 
 {% block style %}
     <link rel="stylesheet" href="{{ asset('build/parametre.css') }}">
@@ -9,8 +11,8 @@
 {% block content %}
     <article class="s-12 l-8 center">
 
-        <h2>Paramètre du compte</h2>
-        <p class="subtitile_presentation">Modifier l'ensemble des paramètres de votre compte</p>
+        <h1>Paramètre du compte</h1>
+        <p class="subtitile_presentation">Modifiez l'ensemble des paramètres de votre compte</p>
 
         {% for message in app.flashes('notice') %}
             <div class="alert alert-info" role="alert">
@@ -19,7 +21,7 @@
         {% endfor %}
 
         <div class="s-12 l-12 parameter_first">
-            <h2 class="title_parameter">Information personnel</h2>
+            <h2 class="title_parameter">Mes informations personnelles</h2>
             {{ form_start(formUpdate, {'attr': {'class': 'form-horizontal'}}) }}
             {{ form_errors(formUpdate) }}
 

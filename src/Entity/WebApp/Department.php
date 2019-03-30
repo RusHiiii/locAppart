@@ -23,7 +23,7 @@ class Department
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\WebApp\Region")
+     * @ORM\ManyToOne(targetEntity="App\Entity\WebApp\Region", cascade={"remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $region;

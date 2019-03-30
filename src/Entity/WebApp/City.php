@@ -43,7 +43,7 @@ class City
     private $zip;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\WebApp\Department")
+     * @ORM\ManyToOne(targetEntity="App\Entity\WebApp\Department", cascade={"remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $department;

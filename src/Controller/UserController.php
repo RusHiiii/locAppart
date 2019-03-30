@@ -62,9 +62,7 @@ class UserController extends AbstractController
             $data = $userService->pushUser($user, true);
             $this->addFlash('notice', $data['msg']);
 
-            if ($data['register']) {
-                return $this->redirectToRoute('app_login');
-            }
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('user/register.html.twig', [

@@ -26,10 +26,10 @@ class AppartmentService
     const MSG_SUCCESS_ADD_APP = 'L\'annonce a été ajouté ! Elle est en cours de modération.';
     const MSG_SUCCESS_EDIT_APP = 'L\'annonce a été modifié !';
     const MSG_SUCCESS_DELETE_APP = 'L\'annonce a été supprimé !';
-    const MSG_ERROR_ADD_APP = 'Une erreur est survenu.';
-    const MSG_ERROR_EDIT_APP = 'Une erreur est survenu lors de la mise à jour.';
+    const MSG_ERROR_ADD_APP = 'Une erreur est survenue.';
+    const MSG_ERROR_EDIT_APP = 'Une erreur est survenue lors de la mise à jour.';
     const MSG_ERROR_INFO = 'Aucune données trouvé.';
-    const MSG_ERROR_REMOVE_APP = 'Une erreur est survenu lors de la suppression.';
+    const MSG_ERROR_REMOVE_APP = 'Une erreur est survenue lors de la suppression.';
 
     public function __construct(
         AppartmentRepository $appartmentRepository,

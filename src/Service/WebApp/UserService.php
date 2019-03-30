@@ -17,9 +17,9 @@ class UserService
     private $notification;
 
     // Définition des constantes
-    const MSG_REGISTER_EMAIL = 'Bienvenue sur locAppart.fr !';
+    const MSG_REGISTER_EMAIL = 'Bienvenue sur sur le site !';
     const MSG_REGISTER_VALID = 'Inscription validée !';
-    const MSG_UPDATE_VALID = 'Votre compte a été mis à jours !';
+    const MSG_UPDATE_VALID = 'Votre compte a été mis à jour !';
     const MSG_INVALID_TOKEN = 'Token Inconnu';
     const MSG_PASSWORD_UPDATE = 'Mot de passe mis à jour';
     const MSG_FORGOTTEN_PSWD = 'Mot de passe oublié';

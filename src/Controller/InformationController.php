@@ -42,4 +42,15 @@ class InformationController extends AbstractController
     ) {
         return $this->render('information/information.html.twig', []);
     }
+
+    /**
+     * PAGE DES MENTIONS.
+     *
+     * @Route("/mentions-legales", name="app_mentions_legales")
+     */
+    public function mentions(
+        Request $request
+    ) {
+        return $this->render('information/mentions.html.twig', []);
+    }
 }

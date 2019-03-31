@@ -24,7 +24,7 @@ class Appartment
      * @Assert\Length(min=10)
      * @Assert\NotBlank()
      * @Assert\Regex(
-     *  pattern="/^[a-zA-Z0-9 -]+$/i",
+     *  pattern="/^[a-zA-Z0-9 -éèùà'ôù]+$/i",
      *  message="Le titre peux contenir des majuscules, des minuscules, des espaces et des chiffres.",
      * )
      * @ORM\Column(type="string", length=150)

@@ -126,7 +126,7 @@ table.dataTable.no-footer{
 
 .gestion_main_content h3{
   color: black !important;
-  text-transform: capitalize;
+  text-transform: inherit;
 }
 
 .no_border{

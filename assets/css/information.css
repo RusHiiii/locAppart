@@ -16,6 +16,21 @@
   padding: 3em;
 }
 
+.title-mentions {
+  font-size: 1.6em;
+  text-align: left;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.mentions > p{
+  text-align: left;
+}
+
+.attention{
+  color: #fe0000;
+}
+
 .detail{
   text-align: justify;
 }

@@ -50,7 +50,7 @@ class AppartmentRepository extends ServiceEntityRepository
             ->setMaxResults($nb)
             ->where('qb.status = :accepted')
             ->setParameters([
-                'accepted' => 1,
+                'accepted' => 4,
             ])
             ->getQuery();
 
@@ -100,7 +100,7 @@ class AppartmentRepository extends ServiceEntityRepository
             ->where('qb.status = :accepted')
             ->andWhere('t.name = :type')
             ->setParameters([
-                'accepted' => 1,
+                'accepted' => 4,
                 'type' => $type,
             ]);
 

@@ -28,7 +28,7 @@
                         <h2>Inscription au site !</h2>
                         <p class="subtitile_presentation">Louez facilement votre appartement sur le site.</p>
                         <p class="margin-bottom-home">Bienvenue sur le site {{ user.firstname }} {{ user.lastname }} ! Vous pouvez dès à présent vous connecter et ajouter des annonces via votre compte accesible en cliquant <a href={{ app.request.getSchemeAndHttpHost() ~ path('app_login') }}>ici</a>.</p>
-                        <p class="margin-bottom-home">Une multitude d'annonces vous attendent sur le site, N'hésitez surtout pas à les consulter !</p>
+                        <p class="margin-bottom-home">Une multitude d'annonces vous attendent sur le site. N'hésitez surtout pas à les consulter !</p>
                         <a href="{{ app.request.getSchemeAndHttpHost() ~  path('app_announcement_listing', {'type' : 'appartement'}) }}"><button class="btn btn-primary btn_result">Voir les annonces</button></a>
                     </article>
                 </div>

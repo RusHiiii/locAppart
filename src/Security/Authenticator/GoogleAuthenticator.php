@@ -4,6 +4,8 @@ namespace App\Security\Authenticator;
 
 use App\Entity\WebApp\User;
 use App\Security\Response;
+use App\Service\Tools\NotificationService;
+use App\Service\WebApp\UserService;
 use Doctrine\ORM\EntityManagerInterface;
 use KnpU\OAuth2ClientBundle\Client\ClientRegistry;
 use KnpU\OAuth2ClientBundle\Security\Authenticator\SocialAuthenticator;
@@ -18,12 +20,22 @@ class GoogleAuthenticator extends SocialAuthenticator
     private $clientRegistry;
     private $em;
     private $router;
+    private $notification;
+    private $templating;
 
-    public function __construct(ClientRegistry $clientRegistry, EntityManagerInterface $em, RouterInterface $router)
+    public function __construct(
+        ClientRegistry $clientRegistry,
+        EntityManagerInterface $em,
+        RouterInterface $router,
+        NotificationService $notificationService,
+        \Twig_Environment $templating
+    )
     {
         $this->clientRegistry = $clientRegistry;
         $this->em = $em;
         $this->router = $router;
+        $this->notification = $notificationService;
+        $this->templating = $templating;
     }
 
     public function supports(Request $request)
@@ -53,6 +65,10 @@ class GoogleAuthenticator extends SocialAuthenticator
             $user->setNotification(true);
             $user->setFirstname($googleUser->getFirstName());
             $user->setLastname($googleUser->getName());
+
+            $data = $this->templating->render('shared/email/register.html.twig', ['user' => $user]);
+            $this->notification->sendEmail([$user], UserService::MSG_REGISTER_EMAIL, $data);
+
             $this->em->persist($user);
             $this->em->flush();
         }

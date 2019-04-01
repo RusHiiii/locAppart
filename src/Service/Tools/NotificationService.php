@@ -92,10 +92,14 @@ class NotificationService
      */
     public function sendEmail(array $users, string $subject, $message): array
     {
+        $from = ['no-reply@locappart-montagne.com' => 'Loc\'Appart - Montagne'];
+        $bcc = ['damiens.florent@orange.fr', 'contact@locappart-montagne.com'];
+
         $mails = $this->formatMailFromUsers($users);
 
         $message = (new \Swift_Message($subject))
-          ->setFrom('webmaster@gmail.com')
+          ->setFrom($from)
+          ->setBcc($bcc)
           ->setTo($mails)
           ->setBody(
               $message,

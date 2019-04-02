@@ -3,3 +3,4 @@ window.$ = $;
 window.jQuery = $;
 
 require('../../css/shared/template-style.css');
+require('../app.js');

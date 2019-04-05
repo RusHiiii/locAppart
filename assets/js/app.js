@@ -23,7 +23,7 @@ function initRgpd(){
       "message": "Loc'Appart utilise des cookies pour assurer le bon fonctionnement du site.",
       "dismiss": "Accepter",
       "link": "Plus d'infos",
-      "href": "www.locappart-dev.fr/mentions-legales"
+      "href": "/mentions-legales"
     }
   });
 }

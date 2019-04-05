@@ -21,5 +21,7 @@ Le projet a été étalé sur 2 ans. A raison de 7h par semaine.
 ## Features (côté utilisateur)
 * Gestion des annonces d'un utilisateur
 * Gestion des messages d'un utilisateur
-	
+* Paramétrage de son compte
+* Envoyer un message à un propriétaire
+* Rechercher des annonces par: ville/prix/description...	
 

@@ -20,7 +20,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AppartmentController extends AbstractController
 {
     /**
-     * DASHBOARD DU COMPTE.
+     * DASHBOARD DU COMPTE
      *
      * @Route("/mon-compte/mes-annonces", name="app_dashboard")
      */

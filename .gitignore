@@ -25,7 +25,7 @@ yarn-error.log
 ###< symfony/webpack-encore-bundle ###
 
 .env
-public/ressources/
+public/ressources/*
 .conf-local-locappart.env
 .idea/workspace.xml
 .env.test

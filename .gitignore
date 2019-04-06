@@ -27,6 +27,7 @@ yarn-error.log
 .env
 public/ressources/*
 .conf-local-locappart.env
+.conf-local-locappart.env.test
 .idea/workspace.xml
 .env.test
 .php_cs.cache

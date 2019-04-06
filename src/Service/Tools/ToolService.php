@@ -21,6 +21,7 @@ class ToolService
      * @param Appartment $appartment
      *
      * @return string
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function generateReference(Appartment $appartment): string
     {
@@ -30,8 +31,10 @@ class ToolService
         $cityName = preg_replace('/\s+/', '', $appartment->getCity()->getName());
         $reference[] = substr($cityName, 0, 5);
 
-        $reference[] = sprintf('%03d', rand(10, 99));
+        $cpt = $this->appartmentRepository->findNextCounter($appartment->getCity()->getName(), $appartment->getType()->getName());
 
-        return implode('', $reference);
+        $reference[] = sprintf('%03d', $cpt);
+
+        return strtoupper(implode('', $reference));
     }
 }

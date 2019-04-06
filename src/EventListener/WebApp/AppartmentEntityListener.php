@@ -86,7 +86,7 @@ class AppartmentEntityListener
             return;
         }
 
-        $entity->setReference(strtoupper($this->toolService->generateReference($entity)));
+        $entity->setReference($this->toolService->generateReference($entity));
     }
 
     private function verifyStatus($entity, $uow)

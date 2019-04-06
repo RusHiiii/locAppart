@@ -8,10 +8,33 @@
          bootstrap="config/bootstrap.php"
 >
     <php>
+        <!-- MAIN CONF -->
         <ini name="error_reporting" value="-1" />
         <env name="APP_ENV" value="test" />
         <env name="SHELL_VERBOSITY" value="-1" />
-        <env name="DATABASE_URL" value="mysql://root@127.0.0.1:3306/location-appartment-test" />
+        <env name="KERNEL_CLASS" value="App\Kernel" />
+
+        <!-- BDD -->
+        <env name="BDD_DEFAULT_HOST" value="127.0.0.1" />
+        <env name="BDD_DEFAULT_PORT" value="3306" />
+        <env name="BDD_DEFAULT_DBNAME" value="test-location-appartment" />
+        <env name="BDD_DEFAULT_USERNAME" value="root" />
+        <env name="BDD_DEFAULT_PASS" value="" />
+
+        <!-- MAIL -->
+        <env name="MAILER_TRANSPORT" value="smtp" />
+        <env name="MAILER_MODE" value="login" />
+        <env name="MAILER_HOST" value="pro1.mail.ovh.net" />
+        <env name="MAILER_PORT" value="587" />
+        <env name="MAILER_USER" value="contact@locappart-montagne.com" />
+        <env name="MAILER_PWD" value="S3rxjS5skKKUivOxm2sCf1Xgh" />
+        <env name="MAILER_ENCRYPTION" value="tls" />
+
+        <!-- CONNECTION -->
+        <env name="GOOGLE_CLIENT_ID" value="539811155892-ja2qr63l3va217eisgaffnc577mqq78m.apps.googleusercontent.com" />
+        <env name="GOOGLE_CLIENT_SECRET" value="jDMcu9IXoNJZ4JpV3nv7ALEZ" />
+        <env name="OAUTH_FACEBOOK_ID" value="1631208327012214" />
+        <env name="OAUTH_FACEBOOK_SECRET" value="3a6aa5370ba19b7a4d2edc4e7da3f51b" />
     </php>
 
     <testsuites>

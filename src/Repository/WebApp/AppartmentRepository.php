@@ -87,6 +87,31 @@ class AppartmentRepository extends ServiceEntityRepository
     }
 
     /**
+     * RECUP COMPTEUR
+     *
+     * @param $city
+     * @param $type
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function findNextCounter($city, $type)
+    {
+        $qb = $this->createQueryBuilder('qb')
+            ->select('count(qb.id)')
+            ->innerJoin(City::class, 'c', 'WITH', 'c.id = qb.city')
+            ->innerJoin(Type::class, 't', 'WITH', 't.id = qb.type')
+            ->where('c.name = :city')
+            ->andWhere('t.name = :type')
+            ->setParameters([
+                'city' => $city,
+                'type' => $type,
+            ])
+            ->getQuery();
+
+        return $qb->getSingleScalarResult();
+    }
+
+    /**
      * RECUPERATION DES APPART EN LIGNE.
      *
      * @return Query

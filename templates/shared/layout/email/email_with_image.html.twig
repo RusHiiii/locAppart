@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="{{ app.request.getSchemeAndHttpHost() ~  asset('build/generic.css') }}">
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,300'>
+    <link rel="stylesheet" href="{{app.request.getSchemeAndHttpHost() ~  asset('build/app.css') }}">
+    <link rel="stylesheet" href="{{app.request.getSchemeAndHttpHost() ~  asset('ressources/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{app.request.getSchemeAndHttpHost() ~  asset('build/email.css') }}">
+</head>
+<body>
+<section>
+    {% include('shared/elements/email/header.html.twig') %}
+    {% block content %}{% endblock %}
+</section>
+<footer>
+    {% include('shared/elements/email/footer.html.twig') %}
+</footer>
+
+</body>
+</html>

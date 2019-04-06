@@ -1,30 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="{{ app.request.getSchemeAndHttpHost() ~  asset('build/generic.css') }}">
-    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,300'>
-    <link rel="stylesheet" href="{{app.request.getSchemeAndHttpHost() ~  asset('build/app.css') }}">
-    <link rel="stylesheet" href="{{app.request.getSchemeAndHttpHost() ~  asset('ressources/bootstrap/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{app.request.getSchemeAndHttpHost() ~  asset('build/email.css') }}">
-</head>
-<body>
-<section>
-    <div class="image-header">
-        <div class="carousel-text">
-            <div class="line">
-                <div class="header">
-                    <h2>Location d'Appartement en France</h2>
-                </div>
-            </div>
-        </div>
-    </div>
+{% extends 'shared/layout/email/email_with_image.html.twig' %}
+
+{% block content %}
     <div class="content_login">
         <div class="line">
             <div class="margin-bottom">
                 <div class="margin">
-                    <article class="s-12 l-8 center">
+                    <article class="s-12 l-8">
                         <h2>Demande de contact !</h2>
                         <p class="subtitile_presentation">Demande de contact d'un utilisateur.</p>
                         <p class="margin-bottom-home">Email: {{ data.email }}</p>
@@ -36,15 +17,4 @@
             </div>
         </div>
     </div>
-</section>
-<footer>
-    <div class="footer_lines">
-        <div class="line">
-            <div class="footer">
-                <p>Copyright 2019, Florent Damiens - Loc'Appart</p>
-            </div>
-        </div>
-    </div>
-</footer>
-</body>
-</html>
+{% endblock %}

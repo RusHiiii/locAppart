@@ -1,25 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="{{ app.request.getSchemeAndHttpHost() ~  asset('build/generic.css') }}">
-    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,300'>
-    <link rel="stylesheet" href="{{app.request.getSchemeAndHttpHost() ~  asset('build/app.css') }}">
-    <link rel="stylesheet" href="{{app.request.getSchemeAndHttpHost() ~  asset('ressources/bootstrap/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{app.request.getSchemeAndHttpHost() ~  asset('build/email.css') }}">
-</head>
-<body>
-<section>
-    <div class="image-header">
-        <div class="carousel-text">
-            <div class="line">
-                <div class="header">
-                    <h2>Location d'appartement en France</h2>
-                </div>
-            </div>
-        </div>
-    </div>
+{% extends 'shared/layout/email/email_with_image.html.twig' %}
+
+{% block content %}
     <div class="content_login">
         <div class="line">
             <div class="margin-bottom">
@@ -28,22 +9,11 @@
                         <h2>Inscription au site !</h2>
                         <p class="subtitile_presentation">Louez facilement votre appartement sur le site.</p>
                         <p class="margin-bottom-home">Bienvenue sur le site {{ user.firstname }} {{ user.lastname }} ! Vous pouvez dès à présent vous connecter et ajouter des annonces via votre compte accesible en cliquant <a href={{ app.request.getSchemeAndHttpHost() ~ path('app_login') }}>ici</a>.</p>
-                        <p class="margin-bottom-home">Une multitude d'annonces vous attendent sur le site. N'hésitez surtout pas à les consulter !</p>
+                        <p class="margin-bottom-home">Une multitude d'annonces vous attendent sur le site. N'hésitez pas à les consulter !</p>
                         <a href="{{ app.request.getSchemeAndHttpHost() ~  path('app_announcement_listing', {'type' : 'appartement'}) }}"><button class="btn btn-primary btn_result">Voir les annonces</button></a>
                     </article>
                 </div>
             </div>
         </div>
     </div>
-</section>
-<footer>
-    <div class="footer_lines">
-        <div class="line">
-            <div class="footer">
-                <p>Copyright 2019, Florent Damiens - Loc'Appart</p>
-            </div>
-        </div>
-    </div>
-</footer>
-</body>
-</html>
+{% endblock %}

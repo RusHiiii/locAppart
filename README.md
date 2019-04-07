@@ -11,6 +11,7 @@ Le projet a été étalé sur 2 ans. A raison de 7h par semaine.
 |------------|:----------------------------------:|
 | Front-End  | 3 mois (Juillet -> Septembre 2017) |
 | Back-End   | 6 mois (Novembre -> Avril 2019)    |
+| Mise en ligne   | Mai 2019    |
 
 ## Documentation :
 * Analyse de la base de données: MCD et MLD

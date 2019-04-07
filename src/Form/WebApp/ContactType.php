@@ -31,7 +31,7 @@ class ContactType extends AbstractType
                     'RGPD' => 'rgpd',
                     'Autre' => 'autre',
                 ),
-                'label' => 'Sujet:',
+                'label' => 'Type de demande:',
             ))
             ->add('subject', TextType::class, array(
                 'label' => 'Sujet:',

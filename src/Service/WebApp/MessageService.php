@@ -93,8 +93,13 @@ class MessageService
      * AJOUT D'UN MESSAGE.
      *
      * @param Message $message
+     * @param Appartment $appartment
      *
      * @return array
+     *
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
      */
     public function pushMessage(Message $message, Appartment $appartment): array
     {

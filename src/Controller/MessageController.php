@@ -17,10 +17,9 @@ class MessageController extends AbstractController
      */
     public function index(
         Request $request,
-        MessageService $messageService,
-        Security $security
+        MessageService $messageService
     ) {
-        $data = $messageService->getAllMessages($security->getUser());
+        $data = $messageService->getAllMessages($this->getUser());
 
         return $this->render('message/index.html.twig', [
             'appartments' => $data['appartments'],

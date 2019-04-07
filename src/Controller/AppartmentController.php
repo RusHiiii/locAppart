@@ -44,8 +44,7 @@ class AppartmentController extends AbstractController
      */
     public function addAnnouncement(
         Request $request,
-        AppartmentService $appService,
-        Security $security
+        AppartmentService $appService
     ) {
         $appartment = new Appartment();
 
@@ -53,7 +52,7 @@ class AppartmentController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $data = $appService->pushAppartment($appartment, false, $security->getUser());
+            $data = $appService->pushAppartment($appartment, false, $this->getUser());
 
             $this->addFlash('notice', $data['msg']);
 

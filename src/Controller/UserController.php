@@ -16,7 +16,7 @@ class UserController extends AbstractController
     /**
      * PROFILE DE L'UTILISATEUR.
      *
-     * @Route("/mon-compte/profile", name="app_profil")
+     * @Route("/mon-compte/profil", name="app_profil")
      */
     public function index(
         Request $request,

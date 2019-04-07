@@ -17,7 +17,6 @@ class AppartmentService
     private $appartmentRepository;
     private $statusRepository;
     private $entityManager;
-    private $security;
     private $targetDirectory;
     private $paginator;
     private $toolService;
@@ -35,7 +34,6 @@ class AppartmentService
         AppartmentRepository $appartmentRepository,
         StatusRepository $statusRepository,
         EntityManagerInterface $entityManager,
-        Security $security,
         ToolService $toolService,
         PaginatorInterface $paginator,
         $targetDirectory
@@ -43,7 +41,6 @@ class AppartmentService
         $this->appartmentRepository = $appartmentRepository;
         $this->entityManager = $entityManager;
         $this->statusRepository = $statusRepository;
-        $this->security = $security;
         $this->targetDirectory = $targetDirectory;
         $this->toolService = $toolService;
         $this->paginator = $paginator;
@@ -57,10 +54,10 @@ class AppartmentService
      *
      * @return array
      */
-    public function pushAppartment(Appartment $app, bool $update): array
+    public function pushAppartment(Appartment $app, bool $update, User $user): array
     {
         if (!$update) {
-            $data = $this->addAppartment($app);
+            $data = $this->addAppartment($app, $user);
         } else {
             $data = $this->editAppartment($app);
         }
@@ -75,14 +72,14 @@ class AppartmentService
      *
      * @return string
      */
-    private function addAppartment(Appartment $appartment): string
+    private function addAppartment(Appartment $appartment, User $user): string
     {
         $msg = self::MSG_SUCCESS_ADD_APP;
 
         $status = $this->statusRepository->findByName('En attente de modération');
         $appartment->setStatus($status);
 
-        $appartment->setUser($this->security->getUser());
+        $appartment->setUser($user);
 
         $this->entityManager->persist($appartment);
 

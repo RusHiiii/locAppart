@@ -53,7 +53,7 @@ class UserServiceTest extends KernelTestCase
 
         $UserService = new UserService($userRepo, $passwordEncoder, $entityManager, $templating, $notificationService);
 
-        $message = $UserService->registerUser($this->getUser());
+        $message = $UserService->pushUser($this->getUser(), true);
 
         $this->assertArrayHasKey('msg', $message);
         $this->assertEquals('Inscription validée !', $message['msg']);
@@ -78,7 +78,7 @@ class UserServiceTest extends KernelTestCase
 
         $UserService = new UserService($userRepo, $passwordEncoder, $entityManager, $templating, $notificationService);
 
-        $message = $UserService->updateUser($this->entityManager->getRepository(User::class)->find(1));
+        $message = $UserService->pushUser($this->entityManager->getRepository(User::class)->find(1), false);
 
         $this->assertArrayHasKey('msg', $message);
         $this->assertEquals('Votre compte a été mis à jour !', $message['msg']);

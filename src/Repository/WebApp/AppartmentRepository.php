@@ -7,6 +7,7 @@ use App\Entity\WebApp\Price;
 use App\Entity\Search\AppartmentSearch;
 use App\Entity\WebApp\City;
 use App\Entity\WebApp\Department;
+use App\Entity\WebApp\Status;
 use App\Entity\WebApp\Type;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Query;
@@ -48,9 +49,10 @@ class AppartmentRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('qb')
             ->orderBy('qb.date', 'DESC')
             ->setMaxResults($nb)
-            ->where('qb.status = :accepted')
+            ->innerJoin(Status::class, 's', 'WITH', 's.id = qb.status')
+            ->where('s.name = :accepted')
             ->setParameters([
-                'accepted' => 4,
+                'accepted' => 'Accepté',
             ])
             ->getQuery();
 

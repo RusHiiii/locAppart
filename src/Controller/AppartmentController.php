@@ -13,6 +13,7 @@ use App\Service\WebApp\MessageService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security;
 
 /**
  * Class AppartmentController.
@@ -43,7 +44,8 @@ class AppartmentController extends AbstractController
      */
     public function addAnnouncement(
         Request $request,
-        AppartmentService $appService
+        AppartmentService $appService,
+        Security $security
     ) {
         $appartment = new Appartment();
 
@@ -51,7 +53,7 @@ class AppartmentController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $data = $appService->pushAppartment($appartment, false);
+            $data = $appService->pushAppartment($appartment, false, $security->getUser());
 
             $this->addFlash('notice', $data['msg']);
 

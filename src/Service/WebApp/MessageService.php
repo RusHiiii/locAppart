@@ -4,6 +4,7 @@ namespace App\Service\WebApp;
 
 use App\Entity\WebApp\Appartment;
 use App\Entity\WebApp\Message;
+use App\Entity\WebApp\User;
 use App\Repository\WebApp\AppartmentRepository;
 use App\Repository\WebApp\MessageRepository;
 use App\Service\Tools\NotificationService;
@@ -15,7 +16,6 @@ class MessageService
     private $appartmentRepository;
     private $messageRepository;
     private $entityManager;
-    private $security;
     private $notification;
     private $templating;
 
@@ -30,12 +30,10 @@ class MessageService
         AppartmentRepository $appartmentRepository,
         MessageRepository $messageRepository,
         EntityManagerInterface $entityManager,
-        Security $security,
         NotificationService $notificationService,
         \Twig_Environment $templating
     ) {
         $this->appartmentRepository = $appartmentRepository;
-        $this->security = $security;
         $this->messageRepository = $messageRepository;
         $this->entityManager = $entityManager;
         $this->notification = $notificationService;
@@ -47,11 +45,11 @@ class MessageService
      *
      * @return array
      */
-    public function getAllMessages(): array
+    public function getAllMessages(User $user): array
     {
         $count = 0;
 
-        $appartments = $this->appartmentRepository->findByUser($this->security->getUser());
+        $appartments = $this->appartmentRepository->findByUser($user);
 
         foreach ($appartments as $appartment) {
             $count += count($appartment->getMessages());

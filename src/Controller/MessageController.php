@@ -6,6 +6,7 @@ use App\Service\WebApp\MessageService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security;
 
 class MessageController extends AbstractController
 {
@@ -16,9 +17,10 @@ class MessageController extends AbstractController
      */
     public function index(
         Request $request,
-        MessageService $messageService
+        MessageService $messageService,
+        Security $security
     ) {
-        $data = $messageService->getAllMessages();
+        $data = $messageService->getAllMessages($security->getUser());
 
         return $this->render('message/index.html.twig', [
             'appartments' => $data['appartments'],

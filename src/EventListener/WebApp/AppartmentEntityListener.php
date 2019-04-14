@@ -32,6 +32,8 @@ class AppartmentEntityListener
      *
      * @param LifecycleEventArgs $args
      *
+     * @return bool
+     *
      * @throws \Exception
      */
     public function prePersist(LifecycleEventArgs $args)
@@ -41,12 +43,16 @@ class AppartmentEntityListener
         $this->manageCreationDate($entity);
 
         $this->manageReference($entity);
+
+        return true;
     }
 
     /**
      * FUNCTION D'AVANT SAUVEGARDE.
      *
      * @param LifecycleEventArgs $args
+     *
+     * @return bool
      */
     public function preUpdate(LifecycleEventArgs $args)
     {
@@ -55,6 +61,8 @@ class AppartmentEntityListener
         $uow = $args->getEntityManager()->getUnitOfWork();
 
         $this->verifyStatus($entity, $uow);
+
+        return true;
     }
 
     /**

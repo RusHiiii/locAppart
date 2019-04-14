@@ -15,10 +15,13 @@ class UserEntityListener
         $this->encoder = $encoder;
     }
 
+
     /**
      * FONCTION D'AVANT SAUVEGARDE.
      *
      * @param LifecycleEventArgs $args
+     *
+     * @return bool|void
      *
      * @throws \Exception
      */
@@ -33,5 +36,7 @@ class UserEntityListener
         $password = $this->encoder->encodePassword($entity, $entity->getPassword());
         $entity->setPassword($password);
         $entity->setDate(new \DateTime('now'));
+
+        return true;
     }
 }

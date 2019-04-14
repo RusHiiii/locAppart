@@ -30,11 +30,20 @@ services:
     ##############################################################################################################
 
     App\Service\Tools\FileUploaderService:
+        public: true
         arguments:
             $targetDirectory: '%upload_directory%'
+
     App\Service\WebApp\AppartmentService:
+        public: true
         arguments:
             $targetDirectory: '%upload_directory%'
 
     App\Service\WebApp\UserService:
+        public: true
+
+    App\Service\WebApp\CityService:
+        public: true
+
+    App\Service\WebApp\MessageService:
         public: true

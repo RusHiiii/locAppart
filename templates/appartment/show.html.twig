@@ -71,22 +71,27 @@
                             <div class="s-12 l-12 fiche_app_body prices">
                                 <div id="carousel-example-generic-prx" class="carousel slide" data-ride="carousel" data-interval="false">
                                     <div class="carousel-inner price-inner" role="listbox">
+                                        <div class="item">
+                                            {{ include('appartment/elements/show/calendar.html.twig', {'time': "December 2021"|date("U"), 'appartment': appartment}) }}
+                                            {{ include('appartment/elements/show/calendar.html.twig', {'time': "January 2022"|date("U"), 'appartment': appartment}) }}
+                                        </div>
                                         <div class="item active">
-                                            {{ include('appartment/elements/show/calendar.html.twig', {'time': "December 2018"|date("U"), 'appartment': appartment}) }}
-                                            {{ include('appartment/elements/show/calendar.html.twig', {'time': "January 2019"|date("U"), 'appartment': appartment}) }}
+                                            {{ include('appartment/elements/show/calendar.html.twig', {'time': "February 2022"|date("U"), 'appartment': appartment}) }}
+                                            {{ include('appartment/elements/show/calendar.html.twig', {'time': "March 2022"|date("U"), 'appartment': appartment}) }}
                                         </div>
                                         <div class="item">
-                                            {{ include('appartment/elements/show/calendar.html.twig', {'time': "February 2019"|date("U"), 'appartment': appartment}) }}
-                                            {{ include('appartment/elements/show/calendar.html.twig', {'time': "March 2019"|date("U"), 'appartment': appartment}) }}
+                                            {{ include('appartment/elements/show/calendar.html.twig', {'time': "April 2022"|date("U"), 'appartment': appartment}) }}
+                                            {{ include('appartment/elements/show/calendar.html.twig', {'time': "May 2022"|date("U"), 'appartment': appartment}) }}
                                         </div>
                                         <div class="item">
-                                            {{ include('appartment/elements/show/calendar.html.twig', {'time': "April 2019"|date("U"), 'appartment': appartment}) }}
-                                            {{ include('appartment/elements/show/calendar.html.twig', {'time': "May 2019"|date("U"), 'appartment': appartment}) }}
+                                            {{ include('appartment/elements/show/calendar.html.twig', {'time': "July 2022"|date("U"), 'appartment': appartment}) }}
+                                            {{ include('appartment/elements/show/calendar.html.twig', {'time': "August 2022"|date("U"), 'appartment': appartment}) }}
                                         </div>
                                         <ol class="carousel-indicators carousel-indicators-custom">
                                             <li data-target="#carousel-example-generic-prx" data-slide-to="0" class="active"></li>
                                             <li data-target="#carousel-example-generic-prx" data-slide-to="1"></li>
                                             <li data-target="#carousel-example-generic-prx" data-slide-to="2"></li>
+                                            <li data-target="#carousel-example-generic-prx" data-slide-to="3"></li>
                                         </ol>
                                     </div>
                                     <ul class="legende">
